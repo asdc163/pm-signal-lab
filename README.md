@@ -79,7 +79,11 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 
 Hosted demo 目前由 GitHub Pages workflow 部署；Vercel 只作為本機部署排錯時的參考，不是作品集 canonical URL。
 
-如果你要回報問題，請提供最小可重現步驟；不要貼入 private customer data、API key、token 或原始敏感 evidence。
+## 想一起試用
+
+如果你是 PM、founder、designer 或 product engineer，可以用 [`五分鐘試用腳本`](./docs/operations/pm-session-kit.md) 自己走完一次，不需要 maintainer 逐步帶操作。完成後，請在 [公開試用 issue #4](https://github.com/asdc163/pm-signal-lab/issues/4) 留下你卡住的地方、信任或不信任的原因，以及一個你最希望先改的地方。
+
+這個回饋入口只需要任務觀察，不需要貼入 private customer data、API key、token 或原始敏感 evidence；若內容可能含有機密，請先不要公開提交。
 
 ## 下一輪 promotion triggers
 
