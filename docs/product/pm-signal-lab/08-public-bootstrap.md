@@ -18,13 +18,14 @@ This record documents the first public repository bootstrap for PM Signal Lab. I
 
 - Initial public preview: `aae1bd5` (`Launch PM Signal Lab public preview`)
 - Latest maintenance commit: `5cb2efe` (`Refresh GitHub Actions runtimes`)
-- Latest verified remote HEAD: `5cb2efe09c0f9f0c13438ff1849852bf363649d6`
+- Public bootstrap evidence record: `cc91c46` (`Document public bootstrap evidence`)
+- Remote HEAD verified after this record was pushed: `cc91c46969b052f0f92a436f064c14b25f2fa618`
 
 ## Verification evidence
 
 - Canonical repository request returned HTTP `200`.
 - The public README was readable from the repository page and GitHub API.
-- The latest `main` push completed GitHub Actions successfully: [run 31815406166](https://github.com/asdc163/pm-signal-lab/actions/runs/31815406166).
+- The public bootstrap record push completed GitHub Actions successfully: [run 31815689161](https://github.com/asdc163/pm-signal-lab/actions/runs/31815689161).
 - The passing run covered dependency installation, tests, TypeScript typecheck, and production build.
 - The repository page was checked against the public remote metadata after push; the remote remains public and `main` is the default branch.
 
