@@ -161,7 +161,6 @@ function App() {
   const supportedCount = claims.filter(
     (claim) => claim.status === "supported" && claim.reviewed,
   ).length;
-  const progress = Math.min(evidence.length, 4);
 
   const logEvent = (
     name: ProductEventName,
@@ -583,7 +582,7 @@ function App() {
           <button className="icon-button topbar-menu" type="button" aria-label="跳到工作流程" aria-controls="mobile-workflow" title="跳到工作流程" onClick={() => document.getElementById("mobile-workflow")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" })}>
             <Menu size={18} />
           </button>
-          <div className="topbar-status"><span>資料不上傳</span></div>
+          <div className="topbar-status"><span>只在本頁處理</span></div>
         </header>
 
         <div id="mobile-workflow" className="mobile-stepper" aria-label="工作流程">
@@ -607,16 +606,13 @@ function App() {
                   <span className="route-node"><b>03</b>驗證</span>
                 </div>
               </div>
-              <div className="hero-status" aria-label="目前工作紙進度">
+              <div className="hero-status" aria-label="目前工作紙狀態">
                 <div className="hero-status-heading">
-                  <span className="section-eyebrow">這一頁的進度</span>
-                  <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} / 04</span>
+                  <span className="section-eyebrow">目前工作</span>
+                  <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
                 </div>
-                <strong>{pack ? `桌上有 ${evidence.length} 筆訊號` : "先看一組可回看的訊號"}</strong>
-                <p>{pack ? "選一個判斷，帶它走到下一步。" : "先載入範例，看看來源如何跟著判斷走。"}</p>
-                <div className="progress-track" role="progressbar" aria-label="範例訊號載入進度" aria-valuemin={0} aria-valuemax={4} aria-valuenow={progress}>
-                  <span style={{ width: `${(progress / 4) * 100}%` }} />
-                </div>
+                <strong>{pack ? `${evidence.length} 筆訊號已放上桌` : "先放一組可回看的訊號"}</strong>
+                <p>{pack ? "從來源開始，逐個處理判斷。" : "載入範例，看看來源如何跟著判斷走。"}</p>
                 <span className="hero-status-boundary"><ShieldCheck size={14} />{SESSION_BOUNDARY_SHORT}</span>
               </div>
             </div>
@@ -856,7 +852,7 @@ function CollectView({
           </div>
           <div className="section-heading-row">
             <div><h3>訊號來源</h3><p>先看原文，再讓暫定判斷往下一步走。</p></div>
-            <span className="micro-status">資料不上傳</span>
+            <span className="micro-status">只在本頁處理</span>
           </div>
           <div className="evidence-list">
             {evidence.map((item) => (
@@ -1139,7 +1135,8 @@ function SessionFeedback({
 function MemoSection({ title, children }: { title: string; children: React.ReactNode }) { return <section className="memo-section"><h4>{title}</h4>{children}</section>; }
 
 function DecisionContext({ pack, evidenceCount, reviewedCount, supportedCount, currentStep, nextAction, events, onCopyReceipt, feedbackUrl }: { pack: EvidencePack | null; evidenceCount: number; reviewedCount: number; supportedCount: number; currentStep: WorkflowStep; nextAction: { label: string; action: () => void }; events: ProductEvent[]; onCopyReceipt: () => void; feedbackUrl: string }) {
-  return <aside className="decision-context" aria-label="這次工作"><div className="context-heading"><div><p className="section-eyebrow">工作紙</p><h2>這次怎麼走</h2></div><span className="context-boundary">資料不上傳</span></div><div className="context-project"><span className="card-eyebrow">這張工作紙</span><strong>{pack?.title ?? "還沒有訊號"}</strong><span>{pack ? SESSION_BOUNDARY_SHORT : "先放一組可回看的訊號"}</span></div><div className="context-list"><ContextItem Icon={Target} label="要回答" value={pack ? "找出一個可驗證的 PM 下一步" : "哪一句訊號值得再查"} /><ContextItem Icon={ListChecks} label="要帶走" value={pack ? "一份能回到來源的 brief" : "一個最小驗證"} /><ContextItem Icon={ShieldCheck} label="現在知道" value={pack ? "來源可回看，不代表模型品質" : "來源會跟著判斷"} /></div>{pack && <div className="context-counts"><span><strong>{evidenceCount}</strong><small>訊號</small></span><span><strong>{reviewedCount}</strong><small>已判斷</small></span><span><strong>{supportedCount}</strong><small>可採用</small></span></div>}<div className="context-next"><span className="card-eyebrow">下一個動作</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">先從中央的試用任務開始。</span>}</div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">這次試用</span><span>{events.length} 筆操作</span></div>{events.length === 0 ? <p>操作紀錄只留在這次試用，不含原始訊號內容。</p> : <><p>最近一次：{EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>複製試用摘要</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer">回報這次試用<ArrowRight size={13} /></a></div></>}</div></aside>;
+  const contextRecord = `這張紙上有 ${evidenceCount} 筆訊號、${reviewedCount} 個已處理${supportedCount ? `、${supportedCount} 個有來源支持` : ""}。`;
+  return <aside className="decision-context" aria-label="這張工作紙的註記"><div className="context-heading"><div><p className="section-eyebrow">邊欄註記</p><h2>這張紙怎麼走</h2></div><span className="context-boundary">留在本頁</span></div><div className="context-project"><span className="card-eyebrow">這張工作紙</span><strong>{pack?.title ?? "還沒有訊號"}</strong><span>{pack ? SESSION_BOUNDARY_SHORT : "先放一組可回看的訊號"}</span></div><div className="context-list"><ContextItem Icon={Target} label="要回答" value={pack ? "找出一個可驗證的 PM 下一步" : "哪一句訊號值得再查"} /><ContextItem Icon={ListChecks} label="要帶走" value={pack ? "一份能回到來源的 brief" : "一個最小驗證"} /><ContextItem Icon={ShieldCheck} label="現在知道" value={pack ? "來源可回看，不代表模型品質" : "來源會跟著判斷"} /></div>{pack && <p className="context-record"><span className="card-eyebrow">工作記錄</span>{contextRecord}</p>}<div className="context-next"><span className="card-eyebrow">下一個動作</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">先從中央的試用任務開始。</span>}</div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">這次試用</span><span>{events.length ? "有操作紀錄" : "尚未操作"}</span></div>{events.length === 0 ? <p>操作紀錄只留在這次試用，不含原始訊號內容。</p> : <><p>最近一次：{EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>複製試用摘要</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer">回報這次試用<ArrowRight size={13} /></a></div></>}</div></aside>;
 }
 
 function ContextItem({ Icon, label, value }: { Icon: typeof Target; label: string; value: string }) { return <div className="context-item"><Icon size={17} /><div><span>{label}</span><strong>{value}</strong></div></div>; }

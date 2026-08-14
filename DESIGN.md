@@ -14,7 +14,7 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 
 ## Selected DNA
 
-以 `Pillow Fit` 的專業信任與低焦慮工具感為主，加入 `Altoslab` 的克制排版與 enterprise clarity；深色 workflow rail 只作為導航簽名，中央畫面維持暖紙張與 evidence desk 的閱讀節奏。保留 source/provenance、可掃描 metadata、低誇張 motion；不複製任何專案的品牌、文字或程式碼，也不把 AI dashboard 的視覺語法當成主角。
+以 `Pillow Fit` 的專業信任與低焦慮工具感為主，加入 `Altoslab` 的克制排版與 enterprise clarity；方向再收斂成 editorial field note：深色 index rail 只作為索引簽名，中央畫面維持暖紙張、ruled margin 與 evidence spine，右欄是 margin note 而不是 dashboard metric rail。保留 source/provenance、可掃描 metadata、低誇張 motion；不複製任何專案的品牌、文字或程式碼，也不把 AI dashboard 的視覺語法當成主角。
 
 ## Principles
 
@@ -31,10 +31,10 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 - Primary action: 依 step 的單一 CTA。
 - Content relationship: flow + evidence + decision，使用 stepper、row、split pane、definition list，少用 card。
 - Density: desktop medium-high / mobile stacked medium。
-- Alignment spine: workflow rail → central workbench → decision context rail。
-- Layout archetype: `sidebar + workbench split-pane + decision rail`。
+- Alignment spine: index rail → page title → evidence spine；右欄以同一條 vertical rule 對齊。
+- Layout archetype: `editorial field note + index rail + margin note`；右欄是工作註記，不是 dashboard metric rail。
 - Responsive reflow: rail → top stepper；right context → below main; CTA → sticky bottom action。
-- First-run gesture: hero 只報告 `這一頁的進度` 與資料邊界，中央 field note 承擔開始試用；右側空狀態提供下一步說明，不重複一顆按鈕。
+- First-run gesture: hero 報告目前工作與資料邊界，不用 progress bar 或 KPI strip 裝飾；中央 field note 承擔開始試用；右側 margin note 提供下一步說明，不重複一顆按鈕。
 - Feedback gesture: decision brief 之後才出現低干擾的 field note；它整理人的試用經驗，不預測感受、不讀取原始 evidence，也不代替使用者送出 issue。
 
 ## Selected visual concept
@@ -116,7 +116,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 ## Reference distillation and rejected elements
 
 - Accepted decisions: literal first-run promise, quickstart/demo/proof, documentation/community path, multi-adapter readiness, source/eval/observability language — derived from the 1,042-repo research and official GitHub/MCP trend sources.
-- Rejected: generic purple/blue gradient hero, abstract orb/blob, glass background, bento feature wall, dark tiny-text default, copied README/brand assets, unverified “production-ready” or “viral” claims.
+- Rejected: generic purple/blue gradient hero, abstract orb/blob, glass background, bento feature wall, progress/KPI chrome that is not product proof, dark tiny-text default, copied README/brand assets, unverified “production-ready” or “viral” claims.
 - Low-risk alternative for trend decoration: actual evidence rows, source links, a deterministic sample output, status spine, and annotated decision memo.
 - Copy treatment: Chinese first, sentence-case labels, and literal verbs; English remains only where it helps a PM move an artifact into an existing workflow.
 - No-AI feel pass: 不用 `engine`、`live` 或抽象能力標籤做產品主角；fixture source 以訪談紀錄、客服信箱、產品觀察與競品拆解等可回看的物件命名。

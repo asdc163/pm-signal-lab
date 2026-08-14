@@ -21,7 +21,7 @@ Hosted demo：<https://asdc163.github.io/pm-signal-lab/>
 
 這條路徑的目標不是讓你相信一個模型，而是讓你看見：哪一句來自哪個來源、哪裡仍然缺證據，以及下一步要怎麼驗證。
 
-![PM Signal Lab first-run](./docs/product/pm-signal-lab/assets/qa/visual-reframe-first-run-1440.png)
+![PM Signal Lab first-run](./docs/product/pm-signal-lab/assets/qa/editorial-reframe-first-run-1440.png)
 
 這個專案不是泛用聊天機器人，也不把規則輸出包裝成模型能力。v0 先用固定規則完成一條可重跑、可檢查、沒有 API key 的產品工作流，讓 PM 練習 evidence、claim、uncertainty、experiment 與 decision memo 之間的關係。
 
@@ -80,6 +80,7 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 - [`src/styles.css`](./src/styles.css)：deep-green shell、warm-paper workbench、evidence spine 與 responsive layout。
 - [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml)：每次 `main` 更新後自動建置並部署 hosted demo。
 - [`DESIGN.md`](./DESIGN.md)：視覺 DNA、tokens、狀態與排版規範。
+- [`editorial field note visual reframe contract`](./docs/product/pm-signal-lab/20-editorial-field-note-visual-reframe-contract-2026-08-15.md)：本輪去 dashboard／AI chrome 的設計決策、排除項目與驗證邊界。
 
 ## 目前不宣稱的事情
 
@@ -94,7 +95,7 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 
 Hosted demo 目前由 GitHub Pages workflow 部署；Vercel 只作為本機部署排錯時的參考，不是作品集 canonical URL。
 
-目前的公開版本與驗證範圍記錄在 [`inline claim editor release audit`](./docs/product/pm-signal-lab/19-inline-claim-editor-release-audit-2026-08-15.md)、[`inline editor / Chrome blocked QA report`](./docs/product/pm-signal-lab/18-chrome-extension-a11y-blocked-qa-report-2026-08-15.md) 與 [`visual product reframe release audit`](./docs/product/pm-signal-lab/16-visual-product-reframe-release-audit-2026-08-15.md)。它們證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
+目前的公開版本與驗證範圍記錄在 [`editorial field note release audit`](./docs/product/pm-signal-lab/21-editorial-field-note-release-audit-2026-08-15.md)、[`inline claim editor release audit`](./docs/product/pm-signal-lab/19-inline-claim-editor-release-audit-2026-08-15.md)、[`inline editor / Chrome blocked QA report`](./docs/product/pm-signal-lab/18-chrome-extension-a11y-blocked-qa-report-2026-08-15.md) 與 [`visual product reframe release audit`](./docs/product/pm-signal-lab/16-visual-product-reframe-release-audit-2026-08-15.md)。它們證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
 
 ## 想一起試用
 

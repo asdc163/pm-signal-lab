@@ -458,6 +458,8 @@ p {
   font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
   font-size: 10px;
   font-weight: 800;
+  line-height: 1.4;
+  text-align: right;
 }
 
 .hero-status > strong {
@@ -481,33 +483,6 @@ p {
   color: var(--trust);
   font-size: 10px;
   line-height: 1.5;
-}
-
-.progress-label {
-  color: var(--muted);
-  font-family: inherit;
-  font-size: 12px;
-  text-align: right;
-}
-
-.progress-label span {
-  color: var(--ink);
-  font-weight: 800;
-}
-
-.progress-track {
-  height: 4px;
-  overflow: hidden;
-  border-radius: 2px;
-  background: var(--line);
-}
-
-.progress-track span {
-  display: block;
-  height: 100%;
-  border-radius: inherit;
-  background: var(--accent);
-  transition: width 180ms ease;
 }
 
 .button,
@@ -1988,31 +1963,17 @@ textarea::placeholder {
   line-height: 1.45;
 }
 
-.context-counts {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  margin: 18px 0;
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
-}
-
-.context-counts span {
-  display: grid;
-  gap: 3px;
-  padding: 10px 8px 10px 0;
-  background: transparent;
-}
-
-.context-counts strong {
-  color: var(--ink);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 17px;
-}
-
-.context-counts small {
+.context-record {
+  margin: 0;
+  padding: 15px 0;
   color: var(--muted);
-  font-size: 10px;
+  border-bottom: 1px solid var(--line);
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.context-record .card-eyebrow {
+  margin-bottom: 5px;
 }
 
 .context-next {
@@ -2244,7 +2205,7 @@ textarea::placeholder {
   .decision-context .context-heading,
   .decision-context .context-project,
   .decision-context .context-list,
-  .decision-context .context-counts,
+  .decision-context .context-record,
   .decision-context .context-trace {
     grid-column: 1;
   }

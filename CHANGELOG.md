@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.6 — 2026-08-15
+
+- 將 PM Signal Lab 從「狀態很多的 AI 工作台」再收斂成 editorial field note：保留目前 workflow step 的文字方向感，移除首屏 progress bar 與右欄三格 KPI-like count strip。
+- 以 page index、暖紙張、evidence spine 與 margin note 強化 `來源 → 判斷 → 最小驗證` 的閱讀順序；右欄改成描述目前工作紙的工作記錄，不暗示成效或模型活動。
+- 將 local-only boundary 收斂成 `只在本頁處理`／`留在本頁`，並補上視覺契約、1440／390 fresh captures 與本輪 release evidence。
+
+這一版是視覺與資訊關係的可逆調整；它不代表完全無 bug、真人 usability、Chrome／螢幕閱讀器驗證、adoption、模型品質、production readiness 或 GitHub stars 成長。
+
 ## 0.1.5 — 2026-08-15
 
 - 將 claim 的 `編輯判斷` 從瀏覽器原生 prompt 改成來源旁的 inline editor：有可見 label、helper、field error、取消、儲存與 focus continuity。
