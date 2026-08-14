@@ -4,7 +4,7 @@
 
 - 將 loaded evidence section 改成「來源帳頁／逐筆回看」：每筆訊號在目前工作區有 deterministic 的 `來源 01` 編號、原話標籤、來源身份與日期，展開層也回指相同編號。
 - 在 verify 的 claim mapping 使用同一組來源編號，讓 PM 可以從判斷直接回到原文；移除畫面上不具工作意義的內部 `evidence-*`／`claim-*` 識別字。
-- 依 source-ledger composition contract 重跑 local 1440／768／390 browser flow、expanded source、claim mapping、empty/recovery、keyboard、overflow 與 console gate；本輪仍不宣稱 hosted release、真人 adoption、模型品質或 GitHub stars 成長。
+- 依 source-ledger composition contract 重跑 local 1440／768／390 browser flow、expanded source、claim mapping、empty/recovery、keyboard、overflow 與 console gate；push 後再完成 exact-SHA GitHub Pages smoke。本輪仍不宣稱真人 adoption、模型品質或 GitHub stars 成長。
 
 ## 0.1.11 — 2026-08-15
 

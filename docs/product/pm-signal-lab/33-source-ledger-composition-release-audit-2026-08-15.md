@@ -1,9 +1,10 @@
 # PM Signal Lab：Source Ledger Composition Release Audit — 2026-08-15
 
-狀態：local gates 與 fresh local browser 已驗證；本輪 push 後的 GitHub Actions／Pages hosted smoke 尚未執行<br>
+狀態：public Pages hosted smoke verified；本產品仍是 public preview，真人 adoption、Chrome Extension／AT 與 10,000 stars outcome 尚未證明<br>
 產品：PM Signal Lab<br>
 公開 repo：https://github.com/asdc163/pm-signal-lab<br>
 canonical demo：https://asdc163.github.io/pm-signal-lab/<br>
+本輪 commit：[`e3373c20ae4ab1c0305b78da040b4047b473b706`](https://github.com/asdc163/pm-signal-lab/commit/e3373c20ae4ab1c0305b78da040b4047b473b706)<br>
 基準 public head：[`eda7f69f13ea122339d46b276754a3181d07541b`](https://github.com/asdc163/pm-signal-lab/commit/eda7f69f13ea122339d46b276754a3181d07541b)
 
 ## 本輪決策
@@ -60,16 +61,30 @@ canonical demo：https://asdc163.github.io/pm-signal-lab/<br>
 
 人工檢查 1440×900 與 390×844 capture：來源編號成為讀取欄，不靠彩色卡片或狀態 pill 搶注意力；desktop 保留 evidence spine 與右側 margin note，mobile 轉成單欄並保留來源編號、44px 操作與 sticky action。這是 owner-run visual judgment，不是非 owner usability 結果。
 
-## Hosted gate and release decision
+## Hosted GitHub evidence
 
-本檔案建立時尚未 push 本輪變更，因此以下項目保持 `未執行`：
+- GitHub Actions [CI run `31849156344`](https://github.com/asdc163/pm-signal-lab/actions/runs/31849156344)：exact SHA `e3373c20ae4ab1c0305b78da040b4047b473b706`，test、typecheck、build jobs success。
+- GitHub Actions [Pages deploy run `31849156352`](https://github.com/asdc163/pm-signal-lab/actions/runs/31849156352)：exact SHA 相同，build、artifact upload、Pages deploy success。GitHub 額外顯示 Node.js 20 action deprecation annotation；它沒有造成 job failure，本輪沒有處理 action upgrade。
+- `curl -L https://asdc163.github.io/pm-signal-lab/`：HTTP `200`。
+- `gh api repos/asdc163/pm-signal-lab/commits/main`：回讀 SHA `e3373c20ae4ab1c0305b78da040b4047b473b706`；local `HEAD` 與 `git ls-remote origin refs/heads/main` 相同。
 
-- GitHub Actions CI 對本輪 commit：未執行。
-- GitHub Pages deploy 對本輪 commit：未執行。
-- canonical URL `https://asdc163.github.io/pm-signal-lab/` 的 fresh hosted 1440／390 smoke：未執行。
-- GitHub API public snapshot、stars、forks、issue comments 與真人 PM session：未作為本輪成功指標。
+fresh hosted browser session：`pm-signal-hosted-source-ledger-20260815`，Playwright CLI bundled browser fallback，不是 Codex Chrome Extension、既有 Chrome profile 或 screen-reader sign-off。
 
-在 hosted gate 完成前，release decision 是 `hold for hosted verification`，不是「完全沒問題」或「已爆紅」。若 hosted smoke 失敗，先停止宣稱 release，依 failure layer 回到本機重現；若需回滾，可回到 `eda7f69f13ea122339d46b276754a3181d07541b`。本輪沒有 migration、dependency、provider、secret 或 database write。
+- `https://asdc163.github.io/pm-signal-lab/` first-run → load sample：讀到 `來源帳頁／逐筆回看`、4 筆 evidence、來源 `01`–`04`、`原話`、source identity 與日期。
+- `1440×900` hosted capture `.playwright-cli/source-ledger-hosted-loaded-1440.png` 已人工檢視；來源編號成為左側閱讀欄，沒有回到 generic AI dashboard 的 gradient／orb／status wall。
+- 第一筆展開：讀到 `原文摘錄` 與 `原始內容保留於目前試用 · 來源 01`；收起後控制項 `aria-expanded` 回復。
+- verify mapping：第一個判斷展開讀到 `來源 01`／`來源 02`，第二個判斷展開讀到 `來源 03`／`來源 04`；來源 mapping 與 local evidence 一致。
+- `390×844` hosted source ledger capture `.playwright-cli/source-ledger-hosted-section-390.png` 已人工檢視；展開來源仍可讀，`scrollWidth === 390`、`overflow: false`。
+- hosted body scan 不含 `model quality`、`模型品質`、`AI 會替你決定`、`信心分數`、`正在思考` 或可見 `evidence-*`／`claim-*` internal id。
+- hosted `console error`：Total messages `0`，Errors `0`、Warnings `0`。
+
+Hosted smoke 證明的是本輪 exact SHA 已成功建置、部署，canonical URL 可回應，且這個 source-ledger slice 在 hosted browser 的 loaded／expanded／verify mapping／390px 路徑可操作；它不證明跨瀏覽器完整性、真實裝置、螢幕閱讀器、真人 usability 或 adoption。
+
+## Public snapshot and release decision
+
+2026-08-15 push 後 GitHub API readback：repo `asdc163/pm-signal-lab` 為 `0 stargazers`、`0 forks`、`0 watchers`；公開 issue list 有 1 個 open issue：[#4 Public pilot: looking for 5 PM session testers](https://github.com/asdc163/pm-signal-lab/issues/4)，`0 comments`；另有 3 個 open Dependabot PR（#1–#3）。`open_issues_count: 4` 包含這些 open PR，不把它寫成 4 個真人 issue。
+
+本輪 release decision：維持 public preview，因 exact-SHA CI／Pages／canonical hosted smoke 已通過；不把這次 deploy 寫成「完全沒問題」、「已爆紅」、adoption success 或 star-growth success。若後續 hosted／真人 evidence 顯示退化，可回到 [`eda7f69f13ea122339d46b276754a3181d07541b`](https://github.com/asdc163/pm-signal-lab/commit/eda7f69f13ea122339d46b276754a3181d07541b)。本輪沒有 migration、dependency、provider、secret 或 database write。
 
 ## Not covered
 

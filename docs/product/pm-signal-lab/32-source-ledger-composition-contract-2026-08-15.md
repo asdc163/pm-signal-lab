@@ -104,7 +104,7 @@
   - [x] Step 3：用 existing semantic tokens 重排 ledger 的 typography、divider、spine 與 mobile grid；Observed：沒有新增 card soup 或 trend decoration，390／768／1440 均無 horizontal overflow。
   - [x] Step 4：更新 `DESIGN.md`、`CHANGELOG.md`、`README.md`，建立 release audit；Observed：文件記錄 KB decision、exact evidence 與 not covered，沒有把 local proof 寫成 adoption／stars success claim。
   - [x] Step 5：local browser 重跑 first-run、loading、loaded、expanded source、verify、claim mapping、empty/recovery、keyboard 與 390／768／1440 checks；Observed：正常與 friction path 可操作，console errors／warnings 為 0。
-  - [ ] Step 6：push 後等待 CI／Pages，fresh hosted browser 重跑 loaded／expanded／verify mapping 與 390px smoke；Expected：canonical HTTP `200`、hosted copy／layout 與 local evidence 一致，final SHA 等於 `origin/main`。
+  - [x] Step 6：push 後等待 CI／Pages，fresh hosted browser 重跑 loaded／expanded／verify mapping 與 390px smoke；Observed：CI `31849156344`、Pages `31849156352` 對 exact SHA `e3373c20ae4ab1c0305b78da040b4047b473b706` 成功，canonical HTTP `200`、hosted copy／layout 與 local evidence 一致，`HEAD` 與 `origin/main` 相同。
 - **Verification gate：** KB plan score ≥85；static gates exit 0；visual screenshot review；behavior matrix；no overflow；focus／touch target spot check；hosted smoke。
 - **Rollback：** revert the copy／composition commit to `eda7f69`; no migration, dependency, provider, secret or data rollback required。
 
