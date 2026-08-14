@@ -28,3 +28,7 @@
 3. 產品可以在無 API key 的情況下用 fixture 完成主流程；AI provider 是可插拔增量，不是 demo 的唯一依賴。
 4. `npm run build`、`npm run lint`、`npm test`（若有）與手動/瀏覽器行為 evidence 都留下結果；任何未做項目標示 `未驗證`。
 5. Release decision 只能是 `ship`、`pilot` 或 `hold`；本次已取得 GitHub public preview push 授權，但 hosted release、deploy、社群發文與外部 side effect 仍需另外驗證與授權。
+
+## Current status note — 2026-08-15
+
+The original contract above intentionally held hosting at the start of implementation. That release boundary has since been updated: a static GitHub Pages public preview is now deployed and separately browser-tested. The evidence boundary is unchanged: real PM sessions, accessibility depth, provider quality, adoption, traffic, and GitHub stars remain `未驗證`; no automated star, follow, like, DM, or fake-traffic action is allowed.

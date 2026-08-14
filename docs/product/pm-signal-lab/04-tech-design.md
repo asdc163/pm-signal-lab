@@ -42,7 +42,7 @@
 
 - Option A: real provider integration first。Pros: visible AI capability；risk: API keys, cost, latency, model drift, privacy and untestable demo path.
 - Option B: deterministic engine with provider port。Pros: no secret, stable test oracle, honest demo, reversible adapter boundary；risk: not yet evidence of model quality.
-- Chosen: **Option B**；the UI calls it `Demo engine · no API key`. A future provider must preserve the same `Claim`/`ExperimentBrief` contract and pass offline eval cases before being enabled。
+- Chosen: **Option B**；the UI exposes the session-local `資料邊界` and source context instead of naming a fixed rule as an engine. A future provider must preserve the same `Claim`/`ExperimentBrief` contract and pass offline eval cases before being enabled。
 
 ### Two-way doors
 
@@ -155,7 +155,7 @@ No component library is added yet. The interface has a small number of product-s
 - Goal: a fresh user can open the local app and load a deterministic evidence pack without an API key。
 - Satisfies: AC-1, AC-2, AC-3, AC-16, AC-17；UX: app shell first-time/empty/loading/error/recovery。
 - Touches: `package.json`, `tsconfig.json`, `vite.config.ts`, `index.html`, `src/main.tsx`, `src/App.tsx`, `src/styles.css`, `src/domain/types.ts`, `src/domain/fixture.ts`, `src/domain/synthesis.ts`。
-- Approach: create Vite React TS shell；define typed domain objects and fixture rows；keep `Demo engine` deterministic；render the four-step shell and Collect state first。
+- Approach: create Vite React TS shell；define typed domain objects and fixture rows；keep the fixture workflow deterministic；render the four-step shell and 收集 state first。
 - Verification oracle: `npm run lint && npm run build` exits 0；`npm test -- --run` asserts fixture has ≥3 evidence rows and `buildClaims` is deterministic for the same fixture。
 - Depends on: none。
 
@@ -165,7 +165,7 @@ No component library is added yet. The interface has a small number of product-s
 - Satisfies: AC-4, AC-5, AC-6, AC-7, AC-8, AC-9；UX: Collect form、Verify list、source detail、validation/recovery。
 - Touches: `src/App.tsx`, `src/domain/synthesis.ts`, `src/domain/synthesis.test.ts`, `src/styles.css`。
 - Approach: add controlled evidence form with length guard and preserved input；derive claims from evidence；implement status/edit actions with explicit source mapping and non-color labels。
-- Verification oracle: `npm test -- --run` covers valid add, blank source/content, long content preservation, missing evidence status, claim edit/status persistence；manual path `Load sample → 開始審核 → expand source → 標記待確認` shows source ids and limitation。
+- Verification oracle: `npm test -- --run` covers valid add, blank source/content, long content preservation, missing evidence status, claim edit/status persistence；manual path `載入範例資料 → 開始核對 → expand source → 標記待確認` shows source ids and limitation。
 - Depends on: T1。
 
 ### T3 — Implement experiment brief, decision memo, and export fallback
@@ -195,19 +195,19 @@ No component library is added yet. The interface has a small number of product-s
 - Verification oracle: QA manifest records exact commands, exit codes, observed paths, screenshot paths if captured, remaining risks, and a not-covered list；release file has ship/hold/pilot and rollback。
 - Depends on: T4。
 
-## Implementation status — 2026-08-14
+## Implementation status — 2026-08-15
 
-- **T1 completed**：Vite + React + TypeScript shell、fixture pack、deterministic demo engine、first-run/loading/empty states。
+- **T1 completed**：Vite + React + TypeScript shell、fixture pack、deterministic workflow、first-run/loading/empty states。
 - **T2 completed**：controlled evidence form、field validation with input preservation、claim/source mapping、`Supported` / `Needs review` / `Missing evidence`、human review state。
 - **T3 completed**：experiment brief、`Needs validation` path、decision memo preview、Markdown copy/download fallback、incomplete-export gate。
 - **T4 completed**：graphite shell + neutral workbench、evidence spine、decision rail、responsive reflow at 390/768/1440、visible status labels、mobile action bar、reduced-motion CSS。
-- **T5 completed for the local pilot gate**：automated checks and real browser operation have been run; the durable results are recorded in [`06-qa-manifest.md`](./06-qa-manifest.md) and [`07-release.md`](./07-release.md)。
+- **T5 completed for the local verification gate**：automated checks and real browser operation have been run; the durable results are recorded in [`06-qa-manifest.md`](./06-qa-manifest.md)、[`07-release.md`](./07-release.md) and the later [`11-editorial-evidence-desk-release-2026-08-15.md`](./11-editorial-evidence-desk-release-2026-08-15.md)。
 
 ### Deliberate v0 divergences
 
 - `Claim.reviewed` is separate from `Claim.status`：有來源的 candidate 不等於使用者已批准；只有 human review 才能讓 export gate 通過。
 - No provider failure path can be exercised end-to-end yet because v0 intentionally ships no external provider adapter；the UI/domain contract and recovery copy remain defined for the next adapter pilot。
-- Full Chrome Extension QA、完整 keyboard-only traversal、screen-reader audit、真實 provider quality、public deployment、GitHub write/traffic/adoption are outside this local pilot and must not be inferred from the current checks。
+- Full Chrome Extension QA、完整 keyboard-only traversal、screen-reader audit、真實 provider quality、GitHub write/traffic/adoption remain outside the current evidence；GitHub Pages deployment has separate hosted evidence and must not be confused with production readiness。
 
 ## Verification matrix
 
@@ -215,7 +215,7 @@ No component library is added yet. The interface has a small number of product-s
 |---|---|
 | Domain correctness | Vitest fixture/claim/experiment/export tests |
 | UI build correctness | TypeScript/lint/build |
-| Evidence trust | Source id, timestamp, limitation, status, engine note visible in UI and export |
+| Evidence trust | Source id, timestamp, limitation, status, data boundary visible in UI and export |
 | Recovery | Invalid form, missing evidence, synthesis failure, blocked download all preserve state and expose next action |
 | Responsive | 390/768/1440 manual screenshots and no overflow/overlap |
 | Accessibility | semantic headings/labels, keyboard focus, status text/icon, touch target; screen reader full test `未驗證` if no tool |
@@ -225,13 +225,13 @@ No component library is added yet. The interface has a small number of product-s
 ## Top technical risks and mitigations
 
 1. **UI monolith / state drift**：keep `types`, `fixture`, `synthesis`, `export` independent；tests target domain behavior rather than CSS implementation。
-2. **False AI impression**：render engine/provider state and limitations in primary UI; keep deterministic engine name explicit；provider adapter is not in v0。
+2. **False AI impression**：render the data boundary, source mapping, and limitations in the primary UI；provider adapter is not in v0。
 3. **Responsive density collapse**：design mobile reflow before styling；test long CJK, URL, status labels and sticky action at 390px。
 
 ## Rollback
 
 - All v0 changes are local and reversible; revert or remove the new `src/`/config files without touching existing docs.
-- No data migration, auth, external API, GitHub write, package publish, or deploy is performed.
+- No data migration, auth, external API, GitHub write, package publish, or provider deployment exists in v0；the static GitHub Pages preview is tracked separately in the release audit。
 - If the workflow fails UX QA, hold at local pilot, adjust the smallest UI/domain slice, and rerun T5；do not broaden scope to compensate。
 
 ## Dependencies added

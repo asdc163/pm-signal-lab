@@ -2,9 +2,9 @@
 
 ## Verdict
 
-**PASS-WITH-KNOWN-ISSUES for local pilot；NOT SHIP for public release.**
+**Historical local snapshot: PASS-WITH-KNOWN-ISSUES；current public-preview evidence is recorded separately.**
 
-The core local workflow is operable and the deterministic domain contract passes its automated checks. The product is still a local, fixture-driven prototype: no provider adapter, authentication, persistence, hosted URL, telemetry, or real-user evidence exists yet.
+The core local workflow was operable and the deterministic domain contract passed its automated checks. This file records the pre-hosted local snapshot; the current hosted release and later re-verification are recorded in [`11-editorial-evidence-desk-release-2026-08-15.md`](./11-editorial-evidence-desk-release-2026-08-15.md). Provider quality, authentication, persistence, telemetry, and real-user evidence remain unverified.
 
 This manifest records the evidence boundary before the public repository bootstrap. A green build is not treated as proof of AI quality, usability with real PMs, public adoption, or future GitHub stars.
 
@@ -38,11 +38,11 @@ The browser route is explicitly a fallback evidence layer. It does not equal a C
 
 | Flow / oracle | Observed result | Status |
 |---|---|---|
-| Fresh open | Four-step `Collect → Verify → Decide → Ship`、literal promise、empty workspace、`載入範例資料` visible；no API key request | PASS |
+| Fresh open | Four-step `收集 → 核對 → 安排 → 帶走`、literal promise、empty workspace、`載入範例資料` visible；no API key request | PASS |
 | Load sample | Four evidence rows appear with source、type、time、content；count and decision context update | PASS |
 | Open Verify | Candidate claims show source mapping、status、limitation；first claim expands to two source mappings | PASS |
-| Human review | `接受這個 claim` changes the claim to a reviewed state and unlocks a truthful ready path | PASS |
-| Draft experiment | Brief shows primary metric and experiment context；reviewed supported claim yields `Ready for your confirmation` | PASS |
+| Human review | `採用這個判斷` changes the claim to a reviewed state and unlocks a truthful ready path | PASS |
+| Draft experiment | Brief shows primary metric and experiment context；reviewed supported claim yields `可以進一步確認` | PASS |
 | Missing evidence | Missing claim remains `Needs validation` and preserves its limitation；it is not presented as ready | PASS |
 | Incomplete export | Export from an unreviewed/missing-evidence state is blocked with a next action back to Verify | PASS |
 | Complete export | After accepting a sourced claim and drafting the brief, memo preview contains decision、evidence summary、known limits、experiment、not covered | PASS |
@@ -65,7 +65,7 @@ The browser route is explicitly a fallback evidence layer. It does not equal a C
 | AC-11 | Missing claim produces `Needs validation` and blocks readiness/export | PASS |
 | AC-12 | Manual provider/internal failure cannot be run because no provider adapter exists in v0 | NOT EXECUTED |
 | AC-13–AC-15 | Memo sections, copy feedback, and incomplete-export gate observed | PASS |
-| AC-16 | UI visibly labels `Demo engine · no API key`; output remains candidate/human-reviewed | PASS |
+| AC-16 | UI visibly labels the `資料邊界`; output remains candidate/human-reviewed | PASS |
 | AC-17 | No future provider exists to fail over; deterministic/manual boundary is documented | CONTRACT ONLY |
 | AC-18 | Export requires a reviewed claim; human action is required before ready state | PASS |
 | AC-19 | 390×844 screenshot and overflow check show responsive reflow; sticky bar means the user should continue scrolling before reading the next section | PASS-WITH-KNOWN-ISSUE |
@@ -98,10 +98,10 @@ The final screenshots were inspected after implementation. The five-point compar
 
 ## Exit conditions for the next gate
 
-Before calling this project a public pilot, rerun the same matrix after choosing a public repo name and authorization boundary, then add:
+The repository is now a public preview. The next evidence gate is to rerun the same matrix as changes land and add:
 
 1. five target-user task sessions with the primary flow completion target of 4/5 without facilitator rescue;
 2. a real provider adapter behind the typed port, with offline eval and visible failure/recovery cases;
 3. Chrome Extension or equivalent browser evidence plus keyboard/screen-reader pass;
-4. README/community/profile/release metadata and a hosted URL only after explicit deploy authorization;
+4. fresh hosted browser evidence after each release-affecting change;
 5. fresh public traffic and star measurements, reported as observations rather than promises.

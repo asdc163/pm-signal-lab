@@ -13,7 +13,7 @@ PM Signal Lab 是一個「證據工作台」，不是聊天頁。使用者第一
 
 - First read: `先看來源，再決定下一步` + current step + sample pack status。
 - Second read: 中央 evidence/claim workbench 中的 source、status、uncertainty；不是抽象 AI 文案。
-- Primary action: 依目前 step 顯示唯一主 CTA：`載入範例` → `開始審核` → `草擬實驗` → `匯出決策 brief`。
+- Primary action: 依目前 step 顯示唯一主 CTA：`載入範例資料` → `開始核對` → `草擬最小實驗` → `匯出決策 brief`。
 - Content relationship: 這是「流程 + 證據 + 決策」的工作台；不是 card grid、pricing page 或 chat transcript。
 - Density: desktop medium-high；evidence rows 與 metadata 可掃描，決策 brief 保持低密度；mobile 以單欄、分段與 sticky action 為主。
 - Alignment spine: 左側 workflow rail、中央 content column、右側 decision context；所有標題與 rows 沿中央 12-column grid 對齊。
@@ -39,15 +39,15 @@ Entry point: direct app load with no session state。
 1. User sees app shell、產品 literal promise、4-step progress、`未建立工作區` empty state。
 2. User chooses `載入範例資料`。
 3. System loads deterministic fixture (latency class: instant) and shows three evidence rows plus pack summary。
-4. System focuses `開始審核` as the next action; no API key or sign-in request appears。
+4. System focuses `開始核對` as the next action; no API key or sign-in request appears。
 
-Success end-state: sample pack title、evidence count、first source row 與 `開始審核` 可見。
+Success end-state: sample pack title、evidence count、first source row 與 `開始核對` 可見。
 
 Abandon points: user may inspect the sample explanation or leave; current state remains empty and safe。
 
 ### Flow F2 — Add evidence
 
-Entry points: `Collect` step or `新增 evidence` button。
+Entry points: `收集` step or `新增訊號` button。
 
 1. User opens inline form/drawer。
 2. User enters title、source、type、content。
@@ -61,7 +61,7 @@ Abandon points: user closes form; unsaved text is either preserved in an explici
 
 ### Flow F3 — Verify claims
 
-Entry points: `開始審核` from Collect or `Verify` in stepper。
+Entry points: `開始核對` from 收集 or `核對` in stepper。
 
 1. User sees claim list grouped by status: `Supported`、`Needs review`、`Missing evidence`。
 2. Each claim shows claim text、source ids、evidence type、freshness、limitation。
@@ -92,7 +92,7 @@ Abandon points: user returns to Verify; reviewed claims remain unchanged。
 Entry points: `Ship` step or `匯出決策 brief` button。
 
 1. User sees final memo preview with decision、evidence、limits、experiment、guardrails、next action、not covered。
-2. System shows `Demo engine · no API key` when deterministic synthesis was used。
+2. System keeps the session-local data boundary visible; the deterministic workflow is not presented as model quality。
 3. User chooses `複製 Markdown` or `下載 .md`。
 4. System shows success toast with next action `開啟檔案內容` / `再編輯`。
 
@@ -112,13 +112,13 @@ Abandon points: incomplete memo cannot silently export as ready；user can retur
 
 | Surface | First-time | Empty | Loading | Error | Recovery | Mobile | A11y | Trust |
 |---|---|---|---|---|---|---|---|---|
-| App shell / workflow rail | Literal promise、4 steps、`未建立工作區` | Explain sample pack and `載入範例資料` | Step item shows active/processing label; no blank rail | “工作區載入失敗，原始內容未被刪除。” | `重設 demo 資料` / return to previous step | Rail becomes horizontal top stepper; no hidden current step | `nav`、`aria-current=step`、keyboard order、focus ring | Current step、engine label、local-only note visible |
-| Collect / evidence list | Sample pack explanation + 3 representative rows | “還沒有 evidence；先載入範例或新增一筆。” | Row skeleton only if async provider introduced | “這筆 evidence 暫時無法解析；原文仍保留。” | Edit raw text、retry parse、remove draft | Rows stack; source metadata wraps; add button ≥44px | Labels connected to fields; list items have headings | source、type、timestamp、freshness never hidden |
+| App shell / workflow rail | Literal promise、4 steps、`未建立工作區` | Explain sample pack and `載入範例資料` | Step item shows active/processing label; no blank rail | “工作區載入失敗，原始內容未被刪除。” | `重設這組資料` / return to previous step | Rail becomes horizontal top stepper; no hidden current step | `nav`、`aria-current=step`、keyboard order、focus ring | Current step、資料邊界、local-only note visible |
+| Collect / evidence list | Sample pack explanation + 3 representative rows | “還沒有訊號；先載入範例或新增一筆。” | Row skeleton only if async provider introduced | “這筆訊號暫時無法解析；原文仍保留。” | Edit raw text、retry parse、remove draft | Rows stack; source metadata wraps; add button ≥44px | Labels connected to fields; list items have headings | source、type、timestamp、freshness never hidden |
 | Add evidence form | Inline helper explains what counts as evidence | Empty form with examples | Submit button changes to `儲存中` and disables double submit | Field-level messages: “請補上來源” / “請補上內容” / “內容太長” | Preserve values; focus first invalid; cancel safely | Full-width fields; bottom sheet/drawer not required for v0 | `label`、`aria-describedby`、`aria-invalid` | Explain no external upload in v0 |
-| Verify / claim list | First claim with “先看這一筆怎麼來” hint | “目前沒有可審核 claim；回 Collect 新增 evidence。” | `整理支持訊號` / `檢查缺口` activity rows | “候選 claim 產生失敗；你仍可手動建立 brief。” | Retry, manual edit, back to evidence | Status filters become horizontal scroll; source excerpt below claim | Status text + icon; expandable rows announce state | source chips、evidence type、limitation、confidence language |
+| Verify / claim list | First claim with “先看這一筆怎麼來” hint | “目前沒有可核對的判斷；回收集新增訊號。” | `整理支持訊號` / `檢查缺口` activity rows | “暫定判斷整理失敗；你仍可手動建立 brief。” | Retry, manual edit, back to evidence | Status filters become horizontal scroll; source excerpt below claim | Status text + icon; expandable rows announce state | source chips、evidence type、limitation、confidence language |
 | Claim detail / source panel | First expanded source shows mapping | No source: `Missing evidence` with gap explanation | Source excerpt skeleton | “來源內容讀取失敗；claim 維持待確認。” | Retry source / keep status / edit claim | Detail panel moves below claim; no hover-only affordance | Disclosure button with expanded state; heading hierarchy | Original excerpt and timestamp visible beside claim |
 | Decide / experiment brief | Brief template explains each field | No reviewed opportunity: CTA returns to Verify | Activity summary plus field skeleton; no fake percent | “brief 草擬未完成；已保留審核結果。” | Retry, manual edit, save as hypothesis | Sections stack; primary action sticky | Form labels, required status, error summary | `Needs validation` banner; metric/guardrail explicit |
-| Ship / decision preview | Preview includes example output structure | “尚未準備好匯出；請先完成一個 claim 與 brief。” | Export button progress only during actual copy/download | “下載未完成，但內容已準備好；請複製文字。” | Copy fallback, re-edit, back | Preview readable with horizontal code block avoided | `role=status` for copy result; text remains selectable | Not-covered section; engine/provider note; human owner |
+| Ship / decision preview | Preview includes example output structure | “尚未準備好匯出；請先完成一個判斷與 brief。” | Export button progress only during actual copy/download | “下載未完成，但內容已準備好；請複製文字。” | Copy fallback, re-edit, back | Preview readable with horizontal code block avoided | `role=status` for copy result; text remains selectable | Not-covered section; data boundary; human owner |
 | Toast / inline alert | Not shown until action | Not applicable | `role=status` for non-blocking progress | Specific message, no raw stack/error code | Action button when needed; timeout never hides critical error | Full-width near bottom, safe area | Live region priority matched to severity | Never imply external action succeeded |
 
 ## AI-native interaction contract
@@ -168,7 +168,7 @@ compose / discover
 | Invalid content | `請補上 evidence 內容，不要只留下標題。` |
 | Too long | `內容超過 v0 上限；文字已保留，請縮短後再儲存。` |
 | Fixture failure | `範例資料載入失敗，原始工作區仍安全。` |
-| Provider unavailable | `外部 AI 目前不可用；已切回手動/示範模式。` |
+| Provider unavailable | `外部 AI 目前不可用；已切回手動模式。` |
 | Human ownership | `這是建議，不是決策。最後由你確認。` |
 
 ## Interaction contract: PRD coverage
@@ -180,7 +180,7 @@ compose / discover
 | AC-7–9 | Verify claim list + source detail + edit/status persistence |
 | AC-10–12 | Decide experiment brief + `Needs validation` + failed synthesis recovery |
 | AC-13–15 | Ship preview + complete/incomplete export + copy fallback |
-| AC-16–18 | Engine note、activity summary、claim status、human decision boundary |
+| AC-16–18 | 資料邊界、activity summary、claim status、human decision boundary |
 | AC-19–21 | Responsive layout、keyboard focus、loading/empty/error/success states |
 
 Every PRD acceptance criterion has a screen/state home; none are intentionally orphaned.

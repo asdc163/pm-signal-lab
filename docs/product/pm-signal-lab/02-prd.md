@@ -29,8 +29,8 @@
 3. **Claim review**：系統依 fixture/evidence 產生候選 claims，顯示 `Supported`、`Needs review`、`Missing evidence`，每個 claim 至少能回到一個 source；使用者能 approve、flag 或編輯。
 4. **Experiment brief**：使用者從一個 opportunity 產生最小 experiment brief，包含 hypothesis、primary metric、guardrail、smallest test、decision rule 與 owner；缺資料時顯示 `Needs validation`。
 5. **Decision memo + export**：使用者能檢視 decision memo，看到 decision、evidence summary、known limits、next action；能複製/下載 Markdown，不需要外部服務。
-6. **AI-ready but honest synthesis**：提供 provider-neutral synthesis interface 與 deterministic demo engine；畫面明確顯示 `Demo engine · no API key`，不把 rule-based fixture 輸出冒充真實模型能力。
-7. **Stateful, responsive workbench**：完成 `Collect → Verify → Decide → Ship` 主流程，涵蓋 first-time、empty、loading/synthesizing、error、recovery、success、mobile、keyboard/focus 與 trust states。
+6. **Provider-neutral, honest synthesis**：保留 provider-neutral synthesis interface 與 deterministic fixture workflow；畫面明確顯示資料邊界與來源，不把固定規則輸出冒充真實模型能力。
+7. **Stateful, responsive workbench**：完成 `收集 → 核對 → 安排 → 帶走` 主流程，涵蓋 first-time、empty、loading/synthesizing、error、recovery、success、mobile、keyboard/focus 與 trust states。
 
 ### Nice-to-have（promotion trigger）
 
@@ -38,7 +38,7 @@
 - JSON import/export schema：當至少 3 個外部使用者需要把 output 接到自己的工具時再做。
 - Read-only GitHub/MCP adapter：當 provider adapter 與 source/provenance contract 穩定，且使用者明確需要 GitHub issue/PR context 時再做。
 - Real instrumentation/telemetry：當有公開 pilot 流量且需要比較 activation/retention 時再做；v0 先以 local event log / manual task evidence 為主。
-- Shareable hosted demo：當本機 v0 通過 usability gate，且 Tommy 明確授權 deploy 時再做。
+- Shareable hosted demo：v0 已以 GitHub Pages public preview 形式提供；它不等於 production readiness，後續仍需真實 session evidence。
 
 ### Should-not-build
 
@@ -54,9 +54,9 @@
 
 As an AI PM, when I open the project for the first time, I want a meaningful sample pack instead of an empty chat box, so that I can understand the product in under one minute.
 
-- **AC-1** Given a fresh session, when the app loads, then it shows the four-step path `Collect`, `Verify`, `Decide`, `Ship`, the sample pack title, and a literal description of what the sample contains.
-- **AC-2** Given the sample pack is available, when I choose `Load sample pack`, then at least three evidence rows appear with source, evidence type, timestamp, and readable content.
-- **AC-3** Given the sample pack is not available or the fixture parser fails, when the load action runs, then the app keeps the workspace usable, shows a recovery message, and provides `Reset demo data` without a blank screen.
+- **AC-1** Given a fresh session, when the app loads, then it shows the four-step path `收集`, `核對`, `安排`, `帶走`, the empty workspace, and a literal description of what the sample contains.
+- **AC-2** Given the sample pack is available, when I choose `載入範例資料`, then at least three evidence rows appear with source, evidence type, timestamp, and readable content.
+- **AC-3** Given the sample pack is not available or the fixture parser fails, when the load action runs, then the app keeps the workspace usable, shows a recovery message, and provides `重設這組資料` without a blank screen.
 
 ### Story 2 — Add and inspect evidence
 
@@ -94,7 +94,7 @@ As a PM, when I finish reviewing a decision, I want a portable Markdown memo, so
 
 As a PM, when AI-like synthesis is shown, I want to know whether it is a demo fallback, what evidence it used, and where I remain the decision owner, so that I do not overtrust the output.
 
-- **AC-16** Given the v0 deterministic engine is used, when synthesis is shown, then the UI labels `Demo engine · no API key`, lists the inputs used, and does not claim external model quality.
+- **AC-16** Given the v0 deterministic workflow is used, when a decision brief is shown, then the UI keeps the `資料邊界` visible, preserves source/limitation context, and does not claim external model quality.
 - **AC-17** Given a future provider adapter is unavailable, when synthesis is requested, then the app falls back to deterministic/manual mode and keeps the evidence pack intact.
 - **AC-18** Given any generated recommendation, when the user reaches the decision boundary, then an explicit human action (`Approve`, `Edit`, or `Keep as hypothesis`) is required before the decision memo is considered ready.
 
@@ -157,7 +157,7 @@ No raw evidence content, API key, private URL, or user identity is sent anywhere
 ## Risks & dependencies
 
 - **Desirability risk:** PMs may prefer existing notes/LLM workflows; must validate with interviews and task sessions.
-- **Trust risk:** a polished deterministic demo may be mistaken for AI intelligence; label engine and evidence boundaries in UI and README.
+- **Trust risk:** a polished deterministic workflow may be mistaken for AI intelligence; label the data boundary and evidence limits in UI and README.
 - **Scope risk:** GitHub/MCP integration could make the project trend-relevant but would add permission and side-effect complexity; defer until core workflow works.
 - **Data risk:** evidence may contain personal or confidential information; v0 is local-first and sample-based, with no external transmission.
 - **Design risk:** dark technical SaaS, bento, gradient, glass, or animation could become decoration; layout must be driven by evidence/claim/decision relationships.
@@ -172,6 +172,6 @@ No raw evidence content, API key, private URL, or user identity is sent anywhere
 | First target segment: AI PM, founder, or product engineer? | Tommy + 5 interviewees | Non-blocking for fixture v0; blocking for public positioning | Write copy for AI PM first, mark segment hypothesis |
 | Which LLM provider should be first adapter? | Tommy | Non-blocking | Keep provider-neutral interface; no provider in v0 |
 | Should data persist across browser refresh? | Tommy | Non-blocking | Session-local state only; no database |
-| Should the first public demo deploy? | Tommy | Blocking for external release only | Hold at local pilot until explicit deploy authorization |
+| Should the first public demo deploy? | Tommy | Resolved for v0 preview | GitHub Pages public preview exists; production readiness and adoption remain unverified |
 
 The defaults above keep the public preview reversible until real-user and release evidence changes the decision.

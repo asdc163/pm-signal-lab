@@ -4,9 +4,21 @@
 
 PM Signal Lab 是一個 local-first product evidence workbench。它把訪談、客服、產品觀察與競品片段串成一條可回看的工作流：
 
-`Collect → Verify → Decide → Ship`
+`收集 → 核對 → 安排 → 帶走`
 
 Hosted demo：<https://asdc163.github.io/pm-signal-lab/>
+
+## 五分鐘試用
+
+不需要登入，也不用準備 API key：
+
+1. 開啟 [hosted demo](https://asdc163.github.io/pm-signal-lab/)，按 `載入範例資料`。
+2. 展開一筆 `查看來源`，確認原文、時間與限制。
+3. 按 `開始核對`，對一個暫定判斷選擇 `採用這個判斷` 或 `保留為假設`。
+4. 到 `安排` 按 `草擬最小實驗`，再匯出或複製決策 brief。
+5. 若你願意回報，請把不含私密資料的操作摘要貼到 [公開試用 issue #4](https://github.com/asdc163/pm-signal-lab/issues/4)。
+
+這條路徑的目標不是讓你相信一個模型，而是讓你看見：哪一句來自哪個來源、哪裡仍然缺證據，以及下一步要怎麼驗證。
 
 ![PM Signal Lab first-run](./docs/product/pm-signal-lab/assets/qa/first-run-1440.png)
 
@@ -40,7 +52,7 @@ npm install
 npm run dev
 ```
 
-開啟 Vite 顯示的 local URL，按下 `載入範例資料`，再依序完成 Verify、Decide 與 Ship。
+開啟 Vite 顯示的 local URL，按下 `載入範例資料`，再依序完成 `核對`、`安排` 與 `帶走`。
 
 在提交前執行完整本機 gate：
 
@@ -78,6 +90,8 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 這個 repository 以 public preview 形式公開，並提供一個不需要登入的 hosted demo，方便收集 issue、task-session feedback 與後續貢獻。產品資料仍只留在目前瀏覽器 session：沒有登入、雲端資料庫、外部 provider 或自動修改 GitHub 資源。
 
 Hosted demo 目前由 GitHub Pages workflow 部署；Vercel 只作為本機部署排錯時的參考，不是作品集 canonical URL。
+
+目前的公開版本與驗證範圍記錄在 [`Editorial Evidence Desk release audit`](./docs/product/pm-signal-lab/11-editorial-evidence-desk-release-2026-08-15.md)。它證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
 
 ## 想一起試用
 

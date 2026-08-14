@@ -1,6 +1,6 @@
 # Design and Session Contract
 
-Date: 2026-08-14 (Asia/Taipei)
+Date: 2026-08-15 (Asia/Taipei)
 
 This is the second-pass contract for turning PM Signal Lab from a local public preview into a product that people can actually try, understand, and report on.
 
@@ -20,14 +20,14 @@ This is the second-pass contract for turning PM Signal Lab from a local public p
 - Outcome metric: first-run comprehension, core task completion, keyboard/mobile task completion, and the number of externally submitted session reports. Adoption remains `未驗證` until reports exist.
 - Constraints / out of scope: session-local data, no provider/API key, no automatic public interaction, no invented usage claims; provider integration and account storage remain out of scope.
 - Relevant KB:
-  - `foundations/product-craft-anti-ai-slop-operating-system.md`: product truth, subject specificity, and state evidence replace generic AI decoration; this applies because the current screen still exposes generic AI labels.
+  - `foundations/product-craft-anti-ai-slop-operating-system.md`: product truth, subject specificity, and state evidence replace generic AI decoration; this applies because the public entry and earlier specs still needed to catch up with the current screen.
   - `foundations/design-brain.md` and `foundations/design-rule-hierarchy.md`: select project DNA and keep quality rules above taste; this applies because the workbench needs a deliberate composition rather than more styling.
   - `foundations/aesthetic-taste-system.md` and `foundations/design-composition-layout.md`: reduce card soup, establish reading path, type rhythm, and one signature detail; this applies to the visual second pass.
-  - `foundations/product-messaging-copy-operating-system.md` and `foundations/anti-ai-writing-tells.md`: use literal product language, real constraints, and human voice; this applies to `Demo engine`, `live`, and other labels.
+  - `foundations/product-messaging-copy-operating-system.md` and `foundations/anti-ai-writing-tells.md`: use literal product language, real constraints, and human voice; this applies to stale `Demo engine`, `live`, and other labels in the public documentation.
   - `foundations/frontend-ux-delivery-gate.md` and `foundations/behavioral-ux-qa-evidence-gate.md`: keyboard, mobile, recovery, trust, and interaction-grounded evidence are required; this applies before calling the hosted demo shareable.
 - Why it applies: these sources change the implementation boundary from "make it prettier" to "make the product's job, state, trust, and recovery observable".
-- Assumptions: Vercel is authenticated to an account the owner controls; the first hosted release can remain public preview; external PM testers will be invited through a reviewable issue path rather than fabricated.
-- Fastest evidence: run the local sample workflow, keyboard traversal, mobile screenshots, production build, then deploy and repeat the same path against the canonical URL.
+- Assumptions: GitHub Pages is controlled by the repository owner; the hosted release remains a public preview; external PM testers will be invited through a reviewable issue path rather than fabricated.
+- Fastest evidence: run the local sample workflow, keyboard traversal, mobile screenshots, production build, then repeat the same path against the canonical GitHub Pages URL.
 
 ## Product Craft Contract
 
@@ -71,13 +71,13 @@ PM Signal Lab is a local-first evidence workbench. Its real objects are evidence
 
 ### Task sequence and oracles
 
-- [ ] Step 1: Replace generic AI cues with literal product language. Expected: source scan has no sparkle/demo/live labels in user-facing workflow, and the app compiles.
-- [ ] Step 2: Add the session receipt and feedback path. Expected: a loaded sample session can copy a receipt containing counts, current step, event names, and an explicit not-covered boundary without raw evidence text.
-- [ ] Step 3: Fix the mobile workflow control and semantic relationships. Expected: keyboard can reach the control, the menu scrolls to the stepper, expanded rows expose `aria-controls`, and focus remains visible.
-- [ ] Step 4: Rebalance the visual system. Expected: 1440, 768, and 390 screenshots show a clear first read, no horizontal overflow, no card soup, and a coherent neutral/accent ratio.
-- [ ] Step 5: Run `npm test`, `npm run lint`, and `npm run build`. Expected: all exit successfully.
-- [ ] Step 6: Deploy the verified build to a canonical hosted URL. Expected: Vercel deployment reports ready and the canonical URL returns HTTP 200; the hosted URL is then browser-tested separately.
-- [ ] Step 7: Invite real PM testers through the session kit. Expected: submitted GitHub issues or private feedback contain the session schema; until then adoption remains `未驗證`.
+- [x] Step 1: Replace generic AI cues with literal product language. Evidence: current `src/App.tsx` exposes `資料邊界` and human decision copy; public docs are aligned in this release.
+- [x] Step 2: Add the session receipt and feedback path. Evidence: the current app exposes `複製試用摘要`, excludes raw evidence from the receipt, and links to issue #4.
+- [x] Step 3: Fix the mobile workflow control and semantic relationships. Evidence: the release audit records keyboard skip-link/focus behavior, `aria-expanded`/`aria-controls`, and 390/768 layout checks.
+- [x] Step 4: Rebalance the visual system. Evidence: the editorial evidence desk audit records fresh 1440/768/390 browser checks and the screenshot set.
+- [x] Step 5: Run `npm test`, `npm run lint`, and `npm run build`. Evidence: all passed in the current release audit; rerun after this documentation-only change before push.
+- [x] Step 6: Publish the verified build to the canonical GitHub Pages URL. Evidence: `https://asdc163.github.io/pm-signal-lab/` returned HTTP 200 and the hosted workflow was browser-tested; this is a public preview, not production readiness.
+- [ ] Step 7: Invite real PM testers through the session kit. Evidence required: submitted GitHub issues or private feedback containing the session schema; until then adoption remains `未驗證`.
 
 ### Rollback
 

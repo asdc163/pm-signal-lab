@@ -2,45 +2,45 @@
 
 ## Decision
 
-**Local pilot: GO. Public launch: HOLD.**
+**Public preview: GO WITH LIMITS. Production launch and adoption claim: HOLD.**
 
-The local product is coherent enough to use as the first AI PM portfolio artifact and to bring into controlled interviews or task sessions. It is not yet a public production release because desirability, real AI quality, accessibility depth, hosting behavior, and external-account authorization are unverified.
+The product is coherent enough to use as the first AI PM portfolio artifact and public preview. The canonical GitHub Pages route has been browser-tested for the covered workflow, but desirability, real AI quality, accessibility depth, long-term hosting behavior, and real-user outcomes remain unverified.
 
 ## What is releasable now
 
 - A no-key, deterministic evidence-to-decision workbench that a reviewer can run locally.
-- A visible `Collect → Verify → Decide → Ship` workflow.
+- A visible `收集 → 核對 → 安排 → 帶走` workflow。
 - Source-linked candidate claims with explicit uncertainty and a human review boundary.
 - A minimal experiment brief with metric, guardrail, smallest test, and decision rule.
 - A Markdown decision memo that can be manually copied into a GitHub issue or PRD.
 - Product, research, UX, technical, and QA handoff documents under [`docs/product/pm-signal-lab/`](.)。
 
-## What is deliberately not released
+## What is deliberately not claimed
 
-- No public URL or deployment.
-- No GitHub write, repository creation, push, release, issue automation, MCP write, or account operation.
+- No production readiness, adoption, virality, or 10,000-star outcome.
+- No in-product GitHub write, issue mutation, release automation, MCP write, or account operation beyond the separately authorized repository push and static Pages deployment.
 - No provider SDK or API key handling.
 - No database, login, team collaboration, telemetry, billing, or private evidence upload.
 - No claim that the project is viral, validated, adopted, or likely to reach 10,000 stars.
 
 ## Rollout sequence
 
-1. **Private/local pilot** — use the current fixture flow and collect structured task-session notes.
+1. **Public preview** — keep the fixture flow, hosted demo, README, and issue #4 easy to try and report against.
 2. **Evidence gate** — only promote the next slice if at least 4/5 target users complete the core flow without facilitator rescue and guardrails remain intact.
 3. **Provider pilot** — implement one provider-neutral adapter behind `SynthesisEngine`; run offline evals, cost/latency checks, red-team inputs, and explicit fallback tests.
-4. **Public repository pilot** — after Tommy confirms repository name, license, maintainer identity, and public-release scope; add README/community health/release checklist.
-5. **Hosted demo** — only after explicit deploy authorization; verify canonical HTTP, browser interaction, mobile behavior, and rollback path.
+4. **Portable workflow** — consider JSON import/export only after external users demonstrate that the Markdown path is insufficient.
+5. **External integrations** — consider read-only GitHub/MCP or telemetry only after source provenance, permission, rollback, and measurement contracts are approved.
 
 ## Rollback
 
 All current work is local and reversible. If a task session exposes trust or workflow failure:
 
-- keep the local pilot at the current deterministic engine;
+- keep the public preview at the current deterministic workflow;
 - disable or remove the failing UI slice;
 - preserve the raw evidence and reviewed state in the active session;
 - rerun the QA manifest before adding provider, persistence, or GitHub integration.
 
-No irreversible external action has been taken in this turn.
+The repository push and static Pages deployment are already recorded as authorized public-preview actions. No in-product external mutation has been enabled.
 
 ## Learning loop
 

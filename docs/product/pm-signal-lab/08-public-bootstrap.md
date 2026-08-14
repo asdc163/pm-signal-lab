@@ -4,6 +4,8 @@ Date: 2026-08-14 (Asia/Taipei)
 
 This record documents the first public repository bootstrap for PM Signal Lab. It is an evidence log, not an adoption claim.
 
+It is a historical bootstrap record. For the current hosted preview, CI, browser evidence, traffic readback, and remaining gaps, see [`11-editorial-evidence-desk-release-2026-08-15.md`](./11-editorial-evidence-desk-release-2026-08-15.md).
+
 ## Repository
 
 - Repository: [asdc163/pm-signal-lab](https://github.com/asdc163/pm-signal-lab)
@@ -32,7 +34,7 @@ This record documents the first public repository bootstrap for PM Signal Lab. I
 ## Scope and limits
 
 - No stars, forks, traffic, adoption, or user outcomes were generated or implied by this bootstrap.
-- No hosted production deployment was created; the product remains a local-first public preview.
+- At the time of this bootstrap record, no hosted production deployment was created; the later GitHub Pages public preview is documented separately and is not a production-readiness claim.
 - No social post, mass reply, auto-like, auto-follow, or auto-star action was performed.
 - The private account-growth plan at `docs/github-star-growth-plan.md` stayed untracked and was not published.
 - Browser QA used the local Playwright fallback route in this turn; a Chrome Extension sign-off and real-user session evidence remain outstanding.
