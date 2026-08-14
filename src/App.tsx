@@ -14,7 +14,6 @@ import {
   Info,
   Lightbulb,
   Link2,
-  ListChecks,
   Menu,
   Pencil,
   Plus,
@@ -192,6 +191,10 @@ function App() {
   useEffect(() => {
     if (editingClaimId) claimEditRef.current?.focus();
   }, [editingClaimId]);
+
+  useEffect(() => {
+    if (claimEditError) claimEditRef.current?.focus();
+  }, [claimEditError]);
 
   const showNotice = (tone: NoticeTone, message: string) => {
     setNotice({ tone, message });
@@ -575,7 +578,7 @@ function App() {
             <span>PM Signal Lab</span>
           </div>
           <div className="topbar-context">
-            <span className="topbar-kicker">PM 工作紙</span>
+            <span className="topbar-kicker">工作紙 01</span>
             <span className="topbar-divider" aria-hidden="true" />
             <span>{pack?.title ?? "未建立工作區"}</span>
           </div>
@@ -593,10 +596,10 @@ function App() {
           <section className="workbench" aria-labelledby="page-title">
             <div className="hero-block">
               <div>
-                <p className="eyebrow">PM 工作紙／第一頁</p>
-                <h1 id="page-title">先看來源，再決定下一步</h1>
+                <p className="eyebrow">PM 工作紙／第 01 頁</p>
+                <h1 id="page-title">把一句話放回它的來源</h1>
                 <p className="hero-copy">
-                  把原文留在眼前，逐筆確認哪句可以採用、哪句還要再查。最後只帶走一個最小實驗。
+                  從訪談、客服或產品觀察的原文開始，留下判斷、限制與下一個要驗證的動作。
                 </p>
                 <div className="hero-route" aria-label="工作紙路徑">
                   <span className="route-node"><b>01</b>來源</span>
@@ -611,8 +614,8 @@ function App() {
                   <span className="section-eyebrow">目前工作</span>
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
                 </div>
-                <strong>{pack ? `${evidence.length} 筆訊號已放上桌` : "先放一組可回看的訊號"}</strong>
-                <p>{pack ? "從來源開始，逐個處理判斷。" : "載入範例，看看來源如何跟著判斷走。"}</p>
+                <strong>{pack ? `${evidence.length} 筆原文已放上桌` : "先留一段原話"}</strong>
+                <p>{pack ? "從原文開始，逐個處理判斷。" : "載入範例，先看一段原話怎麼回到判斷。"}</p>
                 <span className="hero-status-boundary"><ShieldCheck size={14} />{SESSION_BOUNDARY_SHORT}</span>
               </div>
             </div>
@@ -744,12 +747,12 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
         <span className="brand-mark" aria-hidden="true">PS</span>
         <div>
           <strong>PM Signal Lab</strong>
-          <span>產品決策工作紙</span>
+          <span>PM 研究工作紙</span>
         </div>
       </div>
       <div className="sidebar-rule" />
       <nav className="workflow-nav" aria-label="工作流程">
-        <span className="sidebar-section-label">工作流程</span>
+        <span className="sidebar-section-label">頁面索引</span>
         <WorkflowStepper currentStep={currentStep} onSelectStep={onSelectStep} />
       </nav>
       <div className="sidebar-footer">
@@ -816,17 +819,17 @@ function CollectView({
           <div className="empty-panel">
             <div className="empty-index" aria-hidden="true">01</div>
             <div className="empty-copy">
-              <p className="section-eyebrow">工作紙 01／先從一筆開始</p>
-              <h2 id="collect-title">先把一個問題放上桌</h2>
-              <p>給自己五分鐘：載入幾筆產品訊號，找出一個能回到來源、也值得再驗證的下一步。</p>
+              <p className="section-eyebrow">工作紙 01／先留一段原話</p>
+              <h2 id="collect-title">先留下一段原話</h2>
+              <p>從一段原文開始，先確認它從哪裡來，再決定是否值得往下走。</p>
               <blockquote className="sample-quote">
                 <span>{EVIDENCE_LABELS[SAMPLE_PREVIEW.type]} · {SAMPLE_PREVIEW.source}</span>
                 <p>「{SAMPLE_PREVIEW.content}」</p>
               </blockquote>
               <div className="first-run-note">
                 <span>今天先做一件事</span>
-                <strong>哪一句話值得帶進下一次產品討論？</strong>
-                <div className="first-run-sequence" aria-label="工作紙會留下的路徑"><b>來源</b><span>→</span><b>判斷</b><span>→</span><b>最小驗證</b></div>
+                <strong>哪一句原話值得帶進下一次產品討論？</strong>
+                <div className="first-run-sequence" aria-label="工作紙會留下的路徑"><b>原話</b><span>→</span><b>判斷</b><span>→</span><b>最小驗證</b></div>
                 <small>每一步都能回看、修改，或保留為假設。</small>
               </div>
               <div className="empty-actions">
@@ -1136,10 +1139,10 @@ function MemoSection({ title, children }: { title: string; children: React.React
 
 function DecisionContext({ pack, evidenceCount, reviewedCount, supportedCount, currentStep, nextAction, events, onCopyReceipt, feedbackUrl }: { pack: EvidencePack | null; evidenceCount: number; reviewedCount: number; supportedCount: number; currentStep: WorkflowStep; nextAction: { label: string; action: () => void }; events: ProductEvent[]; onCopyReceipt: () => void; feedbackUrl: string }) {
   const contextRecord = `這張紙上有 ${evidenceCount} 筆訊號、${reviewedCount} 個已處理${supportedCount ? `、${supportedCount} 個有來源支持` : ""}。`;
-  return <aside className="decision-context" aria-label="這張工作紙的註記"><div className="context-heading"><div><p className="section-eyebrow">邊欄註記</p><h2>這張紙怎麼走</h2></div><span className="context-boundary">留在本頁</span></div><div className="context-project"><span className="card-eyebrow">這張工作紙</span><strong>{pack?.title ?? "還沒有訊號"}</strong><span>{pack ? SESSION_BOUNDARY_SHORT : "先放一組可回看的訊號"}</span></div><div className="context-list"><ContextItem Icon={Target} label="要回答" value={pack ? "找出一個可驗證的 PM 下一步" : "哪一句訊號值得再查"} /><ContextItem Icon={ListChecks} label="要帶走" value={pack ? "一份能回到來源的 brief" : "一個最小驗證"} /><ContextItem Icon={ShieldCheck} label="現在知道" value={pack ? "來源可回看，不代表模型品質" : "來源會跟著判斷"} /></div>{pack && <p className="context-record"><span className="card-eyebrow">工作記錄</span>{contextRecord}</p>}<div className="context-next"><span className="card-eyebrow">下一個動作</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">先從中央的試用任務開始。</span>}</div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">這次試用</span><span>{events.length ? "有操作紀錄" : "尚未操作"}</span></div>{events.length === 0 ? <p>操作紀錄只留在這次試用，不含原始訊號內容。</p> : <><p>最近一次：{EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>複製試用摘要</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer">回報這次試用<ArrowRight size={13} /></a></div></>}</div></aside>;
+  return <aside className="decision-context" aria-label="這張工作紙的註記"><div className="context-heading"><div><p className="section-eyebrow">邊欄註記</p><h2>這張紙怎麼走</h2></div><span className="context-boundary">留在本頁</span></div><div className="context-project"><span className="card-eyebrow">這張紙</span><strong>{pack?.title ?? "還沒有訊號"}</strong><span>{pack ? SESSION_BOUNDARY_SHORT : "先留一段可回看的原話"}</span></div><div className="context-list"><ContextItem label="要回答" value={pack ? "找出一個可驗證的 PM 下一步" : "哪一句原話值得再查"} /><ContextItem label="要帶走" value={pack ? "一份能回到來源的 brief" : "一個最小驗證"} /><ContextItem label="現在知道" value={pack ? "來源可回看，不代表模型品質" : "原話會跟著判斷"} /></div>{pack && <p className="context-record"><span className="card-eyebrow">工作記錄</span>{contextRecord}</p>}<div className="context-next"><span className="card-eyebrow">下一個動作</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">先從中央的原話入口開始。</span>}</div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">這次試用</span><span>{events.length ? "有操作紀錄" : "尚未操作"}</span></div>{events.length === 0 ? <p>操作紀錄只留在這次試用，不含原始訊號內容。</p> : <><p>最近一次：{EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>複製試用摘要</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer">回報這次試用<ArrowRight size={13} /></a></div></>}</div></aside>;
 }
 
-function ContextItem({ Icon, label, value }: { Icon: typeof Target; label: string; value: string }) { return <div className="context-item"><Icon size={17} /><div><span>{label}</span><strong>{value}</strong></div></div>; }
+function ContextItem({ label, value }: { label: string; value: string }) { return <div className="context-item"><span className="context-item-rule" aria-hidden="true" /><div><span>{label}</span><strong>{value}</strong></div></div>; }
 
 function NoticeIcon({ tone }: { tone: NoticeTone }) { if (tone === "success") return <CheckCircle2 size={16} />; if (tone === "warning") return <CircleAlert size={16} />; if (tone === "error") return <CircleAlert size={16} />; return <Info size={16} />; }
 

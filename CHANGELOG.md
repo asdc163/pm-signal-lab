@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.7 — 2026-08-15
+
+- 將 app shell 收斂成 PM 研究工作紙：以 paper index、暖紙張、serif page title、evidence spine 與邊欄註記組織閱讀順序，移除深色 SaaS shell、icon-first context wall 與 pill status wall。
+- 把首屏的主張改成「把一句話放回它的來源」，讓 sample、source、limitation、human review 與最小驗證保持在同一條可回看的路徑。
+- 修正 inline claim editor 在空白提交後的鍵盤回復：錯誤訊息出現時焦點會回到帶有 `aria-invalid` 與錯誤描述的 textarea。
+- 重跑 Chrome desktop／tablet／mobile 截圖、loading、Tab、編輯失敗回復、儲存、重設與 local build/test gate；Chrome Extension、螢幕閱讀器、真人 usability 與 adoption 仍未驗證。
+
+這一版是可逆的視覺與可用性調整；它不代表完全無 bug、真人 usability、Chrome／螢幕閱讀器驗證、adoption、模型品質、production readiness 或 GitHub stars 成長。
+
 ## 0.1.6 — 2026-08-15
 
 - 將 PM Signal Lab 從「狀態很多的 AI 工作台」再收斂成 editorial field note：保留目前 workflow step 的文字方向感，移除首屏 progress bar 與右欄三格 KPI-like count strip。
