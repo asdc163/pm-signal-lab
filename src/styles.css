@@ -615,23 +615,28 @@ p {
 
 .notice {
   display: flex;
-  min-height: 44px;
+  min-height: 52px;
   align-items: center;
   gap: 10px;
   margin: 18px 0 0;
-  padding: 10px 13px;
-  border: 1px solid var(--line);
-  border-radius: 2px;
+  padding: 4px 0 4px 12px;
+  border-top: 1px solid var(--line);
+  border-right: 0;
+  border-bottom: 1px solid var(--line);
+  border-left: 2px solid var(--line-strong);
+  border-radius: 0;
+  background: transparent;
   font-size: 13px;
 }
 
-.notice-success { color: var(--success); border-color: #b8dbc6; background: var(--success-soft); }
-.notice-warning { color: var(--warning); border-color: #edd29c; background: var(--warning-soft); }
-.notice-error { color: var(--danger); border-color: #e9b8b1; background: var(--danger-soft); }
-.notice-info { color: var(--trust); border-color: #bad0e7; background: var(--trust-soft); }
+.notice-success { color: var(--success); border-left-color: var(--success); }
+.notice-warning { color: var(--warning); border-left-color: var(--warning); }
+.notice-error { color: var(--danger); border-left-color: var(--danger); }
+.notice-info { color: var(--trust); border-left-color: var(--trust); }
 
 .notice > span {
   flex: 1;
+  line-height: 1.55;
 }
 
 .notice-close {

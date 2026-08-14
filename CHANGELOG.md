@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.10 — 2026-08-15
+
+- 將載入、採用、匯出與 privacy／validation notice 從整塊彩色提示卡收斂成透明 ruled annotation，保留 icon、語意色左線、文字、role／live semantics 與關閉動作。
+- 這一輪重跑 1440／390 success、空白 claim error recovery、privacy block、keyboard dismiss；這是 visual／behavior polish，不代表完整螢幕閱讀器、真人 PM session、adoption 或 GitHub stars。
+
 ## 0.1.9 — 2026-08-15
 
 - 補上 PM 工作紙的 main／workflow／status／feedback landmark 與 live semantics；field note 產生後會把焦點帶到「先檢查，再手動送出」的結果區，不假裝是模型驗證。
