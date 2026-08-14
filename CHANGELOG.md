@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.5 — 2026-08-15
+
+- 將 claim 的 `編輯判斷` 從瀏覽器原生 prompt 改成來源旁的 inline editor：有可見 label、helper、field error、取消、儲存與 focus continuity。
+- 編輯後維持 `需要你確認`，不會自動採用；空白錯誤保留原 claim，source mapping 與 limitation 不會消失。
+- 把 local-only 邊界說清楚為「只留在目前頁面；重新整理會重設」，並同步 decision memo、README 與五分鐘試用腳本。
+- 補上 fresh 1440／390 inline editor captures 與 Chrome Extension／assistive technology `Blocked QA Report`；本輪仍不宣稱 Chrome、螢幕閱讀器、真人 usability、adoption 或 GitHub stars。
+
+這一版改善的是 claim review 的可回復互動與資料邊界理解，不代表完全無 bug、production readiness、真人 adoption、模型品質或 GitHub stars 成長。
+
 ## 0.1.4 — 2026-08-15
 
 - 將首屏重新聚焦成 `PM 工作紙`：用 `來源 → 判斷 → 驗證` 路徑、當頁進度與資料邊界說清楚這個產品要幫 PM 完成什麼。

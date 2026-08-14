@@ -95,14 +95,14 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Claim row: status text/icon, evidence spine, source references, accept/edit/flag actions.
 - Status badge: `有來源支持` / `需要你確認` / `缺少證據` with text and icon.
 - Alert/toast: success / warning / error / recovery action; `role=status` or `role=alert` by severity.
-- Textarea/form: visible label, helper, `aria-describedby`, field-level error, preserved input on error.
+- Textarea/form: visible label, helper, `aria-describedby`, field-level error, preserved input on error；claim editor inline 呈現在 source／limitation 之後，不使用 native prompt。
 - Decision preview: definition list + source references + not-covered block + copy/download actions.
 - Session feedback field note: collapsed invitation → labelled local form → privacy gate → editable Markdown preview → manual GitHub handoff；不使用分數、AI insight 或自動提交狀態。
 - Skeleton/empty/error: no blank content; each state contains the next action.
 
 ## Responsive rules
 
-- `<640px`: one column; top horizontal stepper; rows stack; buttons full-width when primary; sticky bottom action with safe area.
+- `<640px`: one column; top horizontal stepper; rows stack; buttons full-width when primary; sticky bottom action with safe area；inline claim editor controls 維持至少 44px。
 - `640–1024px`: two-column where possible; decision context moves below main content; rail collapses.
 - `>1024px`: persistent workflow rail; central workbench; right context rail; max content width 1440px.
 - Touch targets at least 44×44px; no hover-only action; long source URLs wrap or become copyable code-like rows.

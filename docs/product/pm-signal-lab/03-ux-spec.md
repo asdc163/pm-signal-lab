@@ -148,7 +148,7 @@ compose / discover
 | Product title | `PM Signal Lab` |
 | Hero / first read | `先看來源，再決定下一步` |
 | Hero support | `把原文留在眼前，逐筆確認哪句可以採用、哪句還要再查。最後只帶走一個最小實驗。` |
-| Data boundary | `資料邊界 · 內容只留在這個瀏覽器工作階段；這是一條可回看的工作流，不是模型品質證明。` |
+| Data boundary | `資料邊界 · 內容只留在目前這個頁面；重新整理會重設，沒有登入或外部傳送。這是一條可回看的工作流，不是模型品質證明。` |
 | Empty workspace | `先把一個問題放上桌；載入幾筆產品訊號，找出一個能回到來源、也值得再驗證的下一步。` |
 | Primary empty CTA | `載入範例資料` |
 | Secondary empty CTA | `自己新增一筆訊號` |

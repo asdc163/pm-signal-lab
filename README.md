@@ -38,12 +38,12 @@ Hosted demo：<https://asdc163.github.io/pm-signal-lab/>
 - 載入一組含訪談、客服、產品觀察與競品訊號的 sample evidence pack。
 - 新增一筆本機 evidence；表單會保留錯誤輸入並標出來源、內容與長度問題。
 - 逐個查看 candidate claim 的 source mapping、timestamp 與 limitation。
-- `接受`、`編輯`、`保留為假設` 或標記缺少證據；只有人為處理過的 claim 才能進入決策 brief。
+- `接受`、`編輯`、`保留為假設` 或標記缺少證據；編輯會留在來源旁，儲存後仍回到 `需要你確認`，只有人為處理過的 claim 才能進入決策 brief。
 - 草擬可編輯的 experiment brief，包含 primary metric、guardrail、smallest test 與 decision rule。
 - 匯出、複製或下載帶有 `Not covered` 的 Markdown decision memo。
 - 在帶走頁整理一份不含原始訊號的 session feedback field note，送出前由你自己檢查並決定是否貼到 GitHub issue。
 
-所有內容目前只存在於瀏覽器 session。沒有登入、資料庫、外部 AI provider、GitHub mutation、MCP action、telemetry 或自動發送。
+所有內容目前只留在目前這個頁面；重新整理會重設，沒有登入、資料庫、外部 AI provider、GitHub mutation、MCP action、telemetry 或自動發送。若要保留 brief 或 field note，請在離開或重新整理前自行複製或下載。
 
 ## Quickstart
 
@@ -90,11 +90,11 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 
 ## Public demo status
 
-這個 repository 以 public preview 形式公開，並提供一個不需要登入的 hosted demo，方便收集 issue、task-session feedback 與後續貢獻。產品資料仍只留在目前瀏覽器 session：沒有登入、雲端資料庫、外部 provider 或自動修改 GitHub 資源。
+這個 repository 以 public preview 形式公開，並提供一個不需要登入的 hosted demo，方便收集 issue、task-session feedback 與後續貢獻。產品資料仍只留在目前這個頁面；重新整理會重設：沒有登入、雲端資料庫、外部 provider 或自動修改 GitHub 資源。這是刻意的 local-first 邊界，不是持久化儲存承諾。
 
 Hosted demo 目前由 GitHub Pages workflow 部署；Vercel 只作為本機部署排錯時的參考，不是作品集 canonical URL。
 
-目前的公開版本與驗證範圍記錄在 [`visual product reframe release audit`](./docs/product/pm-signal-lab/16-visual-product-reframe-release-audit-2026-08-15.md)。它證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
+目前的公開版本與驗證範圍記錄在 [`inline editor / Chrome blocked QA report`](./docs/product/pm-signal-lab/18-chrome-extension-a11y-blocked-qa-report-2026-08-15.md) 與 [`visual product reframe release audit`](./docs/product/pm-signal-lab/16-visual-product-reframe-release-audit-2026-08-15.md)。它們證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
 
 ## 想一起試用
 

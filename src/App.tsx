@@ -114,6 +114,8 @@ const EMPTY_FEEDBACK: SessionFeedbackDraft = {
 };
 
 const SESSION_FEEDBACK_URL = "https://github.com/asdc163/pm-signal-lab/issues/new?template=pm-session-feedback.md";
+const SESSION_BOUNDARY_SHORT = "只留在目前頁面；重新整理會重設";
+const SESSION_BOUNDARY_LONG = "內容只留在目前這個頁面；重新整理會重設，沒有登入或外部傳送。";
 
 const EVENT_LABELS: Record<ProductEventName, string> = {
   sample_pack_loaded: "載入範例資料",
@@ -141,6 +143,9 @@ function App() {
   const [form, setForm] = useState<EvidenceFormState>(EMPTY_FORM);
   const [formErrors, setFormErrors] = useState<Partial<Record<keyof EvidenceFormState, string>>>({});
   const [activeClaimId, setActiveClaimId] = useState<string>();
+  const [editingClaimId, setEditingClaimId] = useState<string>();
+  const [editingClaimText, setEditingClaimText] = useState("");
+  const [claimEditError, setClaimEditError] = useState("");
   const [expandedEvidenceId, setExpandedEvidenceId] = useState<string>();
   const [notice, setNotice] = useState<Notice>();
   const [events, setEvents] = useState<ProductEvent[]>([]);
@@ -150,6 +155,7 @@ function App() {
   const titleRef = useRef<HTMLInputElement>(null);
   const sourceRef = useRef<HTMLInputElement>(null);
   const contentRef = useRef<HTMLTextAreaElement>(null);
+  const claimEditRef = useRef<HTMLTextAreaElement>(null);
 
   const reviewedCount = claims.filter((claim) => claim.reviewed).length;
   const supportedCount = claims.filter(
@@ -184,6 +190,10 @@ function App() {
     firstInvalid?.focus();
   }, [formErrors]);
 
+  useEffect(() => {
+    if (editingClaimId) claimEditRef.current?.focus();
+  }, [editingClaimId]);
+
   const showNotice = (tone: NoticeTone, message: string) => {
     setNotice({ tone, message });
   };
@@ -201,6 +211,9 @@ function App() {
         setMemo(undefined);
         setMarkdown("");
         resetFeedbackState();
+        setEditingClaimId(undefined);
+        setEditingClaimText("");
+        setClaimEditError("");
         setCurrentStep("collect");
         setIsLoading(false);
         showNotice("success", "範例資料已載入；下一步是看每個判斷如何回到來源。 ");
@@ -221,6 +234,9 @@ function App() {
     setMemo(undefined);
     setMarkdown("");
     resetFeedbackState();
+    setEditingClaimId(undefined);
+    setEditingClaimText("");
+    setClaimEditError("");
     setCurrentStep("collect");
     setIsFormOpen(false);
     setForm(EMPTY_FORM);
@@ -237,6 +253,9 @@ function App() {
     setMarkdown("");
     setFeedbackMarkdown("");
     setIsFeedbackOpen(false);
+    setEditingClaimId(undefined);
+    setEditingClaimText("");
+    setClaimEditError("");
   };
 
   const submitEvidence = (event: FormEvent<HTMLFormElement>) => {
@@ -270,7 +289,7 @@ function App() {
       previous ?? {
         id: "pm-signal-local-session",
         title: "我的 PM signal workspace",
-        description: "這是一組只存在於目前瀏覽器工作階段的產品訊號。",
+        description: SESSION_BOUNDARY_LONG,
         evidence: [],
       },
     );
@@ -326,14 +345,39 @@ function App() {
     });
   };
 
+  const activateClaim = (claimId: string) => {
+    setActiveClaimId(claimId);
+    if (editingClaimId && editingClaimId !== claimId) {
+      setEditingClaimId(undefined);
+      setEditingClaimText("");
+      setClaimEditError("");
+    }
+  };
+
   const editClaim = (claim: Claim) => {
-    const editedText = window.prompt("編輯判斷（來源與限制會保留）", claim.text);
-    if (editedText === null) return;
-    if (!editedText.trim()) {
+    setActiveClaimId(claim.id);
+    setEditingClaimId(claim.id);
+    setEditingClaimText(claim.text);
+    setClaimEditError("");
+    showNotice("info", "判斷已進入編輯；來源與限制會保留，儲存後仍需要你重新確認。 ");
+  };
+
+  const cancelClaimEdit = () => {
+    setEditingClaimId(undefined);
+    setEditingClaimText("");
+    setClaimEditError("");
+  };
+
+  const saveClaimEdit = (claim: Claim) => {
+    if (!editingClaimText.trim()) {
+      setClaimEditError("判斷不能是空白；請保留一句可以被回看的說法。");
       showNotice("warning", "判斷不能是空白；原本的內容仍保留。 ");
       return;
     }
-    updateClaim(claim.id, { text: editedText.trim(), status: "review", reviewed: true, edited: true });
+    updateClaim(claim.id, { text: editingClaimText.trim(), status: "review", reviewed: true, edited: true });
+    setEditingClaimId(undefined);
+    setEditingClaimText("");
+    setClaimEditError("");
     setActiveClaimId(claim.id);
     showNotice("success", "判斷已編輯並保留為待確認；請再決定是否採用。 ");
     logEvent("claim_reviewed", {
@@ -536,7 +580,7 @@ function App() {
             <span className="topbar-divider" aria-hidden="true" />
             <span>{pack?.title ?? "未建立工作區"}</span>
           </div>
-          <button className="icon-button topbar-menu" type="button" aria-label="跳到工作流程" aria-controls="mobile-workflow" title="跳到工作流程" onClick={() => document.getElementById("mobile-workflow")?.scrollIntoView({ behavior: "smooth", block: "center" })}>
+          <button className="icon-button topbar-menu" type="button" aria-label="跳到工作流程" aria-controls="mobile-workflow" title="跳到工作流程" onClick={() => document.getElementById("mobile-workflow")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" })}>
             <Menu size={18} />
           </button>
           <div className="topbar-status"><span>資料不上傳</span></div>
@@ -573,7 +617,7 @@ function App() {
                 <div className="progress-track" role="progressbar" aria-label="範例訊號載入進度" aria-valuemin={0} aria-valuemax={4} aria-valuenow={progress}>
                   <span style={{ width: `${(progress / 4) * 100}%` }} />
                 </div>
-                <span className="hero-status-boundary"><ShieldCheck size={14} />資料只留在這個瀏覽器工作階段</span>
+                <span className="hero-status-boundary"><ShieldCheck size={14} />{SESSION_BOUNDARY_SHORT}</span>
               </div>
             </div>
 
@@ -618,11 +662,18 @@ function App() {
                 claims={claims}
                 evidence={evidence}
                 activeClaimId={activeClaimId}
-                onActivate={setActiveClaimId}
+                editingClaimId={editingClaimId}
+                editingClaimText={editingClaimText}
+                claimEditError={claimEditError}
+                claimEditRef={claimEditRef}
+                onActivate={activateClaim}
                 onAccept={acceptClaim}
                 onKeep={keepAsHypothesis}
                 onMissing={markMissing}
                 onEdit={editClaim}
+                onEditText={(value) => { setEditingClaimText(value); setClaimEditError(""); }}
+                onSaveEdit={saveClaimEdit}
+                onCancelEdit={cancelClaimEdit}
                 onDraft={() => startExperiment()}
               />
             )}
@@ -662,7 +713,7 @@ function App() {
 
             <div className="boundary-note">
               <ShieldCheck size={16} />
-              <span><strong>資料邊界</strong> · 內容只留在這個瀏覽器工作階段；這是一條可回看的工作流，不是模型品質證明。</span>
+              <span><strong>資料邊界</strong> · {SESSION_BOUNDARY_LONG} 這是一條可回看的工作流，不是模型品質證明。</span>
             </div>
           </section>
 
@@ -708,9 +759,9 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
       <div className="sidebar-footer">
         <div className="sidebar-rule" />
         <span className="sidebar-section-label">資料邊界</span>
-        <p>資料只留在目前瀏覽器工作階段。沒有登入、外部傳送或自動修改。</p>
+        <p>{SESSION_BOUNDARY_LONG} 沒有自動修改。</p>
         <a className="sidebar-link" href={SESSION_FEEDBACK_URL} target="_blank" rel="noreferrer">回報一次試用</a>
-        <span className="version-label">預覽版 0.1 · 內容只在瀏覽器保存</span>
+        <span className="version-label">預覽版 0.1 · 重新整理會重設</span>
       </div>
     </aside>
   );
@@ -871,14 +922,14 @@ function EvidenceRow({ evidence, expanded, onToggle }: { evidence: Evidence; exp
   );
 }
 
-function VerifyView({ claims, evidence, activeClaimId, onActivate, onAccept, onKeep, onMissing, onEdit, onDraft }: { claims: Claim[]; evidence: Evidence[]; activeClaimId?: string; onActivate: (id: string) => void; onAccept: (claim: Claim) => void; onKeep: (claim: Claim) => void; onMissing: (claim: Claim) => void; onEdit: (claim: Claim) => void; onDraft: () => void }) {
+function VerifyView({ claims, evidence, activeClaimId, editingClaimId, editingClaimText, claimEditError, claimEditRef, onActivate, onAccept, onKeep, onMissing, onEdit, onEditText, onSaveEdit, onCancelEdit, onDraft }: { claims: Claim[]; evidence: Evidence[]; activeClaimId?: string; editingClaimId?: string; editingClaimText: string; claimEditError: string; claimEditRef: React.RefObject<HTMLTextAreaElement | null>; onActivate: (id: string) => void; onAccept: (claim: Claim) => void; onKeep: (claim: Claim) => void; onMissing: (claim: Claim) => void; onEdit: (claim: Claim) => void; onEditText: (value: string) => void; onSaveEdit: (claim: Claim) => void; onCancelEdit: () => void; onDraft: () => void }) {
   return (
     <section className="content-section" aria-labelledby="verify-title">
       <div className="section-intro"><div><p className="section-eyebrow">第二步／核對來源</p><h2 id="verify-title">先確認這個判斷從哪裡來</h2><p>暫定判斷不是事實。採用前，請看來源、時間和限制；你也可以把它留在假設區。</p></div><span className="human-label">來源在旁邊，你自己決定</span></div>
       {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} /><div><h3>目前沒有可核對的判斷</h3><p>回收集新增訊號，系統才有內容可以整理。</p></div></div> : <>
         <div className="claim-summary"><span><strong>{claims.length}</strong> 個暫定判斷</span><span><BadgeCheck size={14} />{claims.filter((claim) => claim.status === "supported").length} 有支持來源</span><span><CircleAlert size={14} />{claims.filter((claim) => claim.status !== "supported").length} 等你判斷</span></div>
         <div className="claim-list">
-          {claims.map((claim) => <ClaimRow key={claim.id} claim={claim} evidence={evidence} expanded={activeClaimId === claim.id} onActivate={() => onActivate(claim.id)} onAccept={() => onAccept(claim)} onKeep={() => onKeep(claim)} onMissing={() => onMissing(claim)} onEdit={() => onEdit(claim)} />)}
+          {claims.map((claim) => <ClaimRow key={claim.id} claim={claim} evidence={evidence} expanded={activeClaimId === claim.id} isEditing={editingClaimId === claim.id} editText={editingClaimText} editError={claimEditError} editRef={claimEditRef} onActivate={() => onActivate(claim.id)} onAccept={() => onAccept(claim)} onKeep={() => onKeep(claim)} onMissing={() => onMissing(claim)} onEdit={() => onEdit(claim)} onEditText={onEditText} onSaveEdit={() => onSaveEdit(claim)} onCancelEdit={onCancelEdit} />)}
         </div>
         <div className="human-boundary"><ShieldCheck size={17} /><div><strong>這是建議，不是決策。</strong><span>只有你按下採用或保留為假設後，下一步 brief 才會記錄這個判斷。</span></div><button className="button button-secondary" type="button" onClick={onDraft}>前往安排<ArrowRight size={15} /></button></div>
       </>}
@@ -886,7 +937,7 @@ function VerifyView({ claims, evidence, activeClaimId, onActivate, onAccept, onK
   );
 }
 
-function ClaimRow({ claim, evidence, expanded, onActivate, onAccept, onKeep, onMissing, onEdit }: { claim: Claim; evidence: Evidence[]; expanded: boolean; onActivate: () => void; onAccept: () => void; onKeep: () => void; onMissing: () => void; onEdit: () => void }) {
+function ClaimRow({ claim, evidence, expanded, isEditing, editText, editError, editRef, onActivate, onAccept, onKeep, onMissing, onEdit, onEditText, onSaveEdit, onCancelEdit }: { claim: Claim; evidence: Evidence[]; expanded: boolean; isEditing: boolean; editText: string; editError: string; editRef: React.RefObject<HTMLTextAreaElement | null>; onActivate: () => void; onAccept: () => void; onKeep: () => void; onMissing: () => void; onEdit: () => void; onEditText: (value: string) => void; onSaveEdit: () => void; onCancelEdit: () => void }) {
   const meta = STATUS_META[claim.status];
   const StatusIcon = meta.Icon;
   const sourceItems = evidence.filter((item) => claim.evidenceIds.includes(item.id));
@@ -900,7 +951,19 @@ function ClaimRow({ claim, evidence, expanded, onActivate, onAccept, onKeep, onM
         {expanded && <div id={`claim-${claim.id}-detail`} className="claim-detail" role="region" aria-labelledby={`claim-title-${claim.id}`}>
           <div className="detail-block"><span className="detail-label">來源對照</span>{sourceItems.length ? sourceItems.map((item) => <div className="mapped-source" key={item.id}><span className="source-dot" /><div><strong>{item.source}</strong><span>{EVIDENCE_LABELS[item.type]} · {formatDate(item.observedAt)}</span><p>{item.content}</p></div></div>) : <p className="missing-copy">這個判斷沒有可回看的來源；請保留為假設，直到補上訊號。</p>}</div>
           <div className="detail-block limitation-block"><span className="detail-label">目前限制</span><p>{claim.limitation}</p></div>
-          <div className="claim-actions"><button className="button button-primary" type="button" onClick={onAccept}><Check size={15} />採用這個判斷</button><button className="button button-secondary" type="button" onClick={onKeep}><Flag size={15} />保留為假設</button><button className="button button-quiet" type="button" onClick={onEdit}><Pencil size={14} />編輯判斷</button>{claim.status !== "missing" && <button className="button button-quiet danger-text" type="button" onClick={onMissing}><CircleAlert size={14} />標記缺少證據</button>}</div>
+          {isEditing ? (
+            <form className="claim-edit-form" onSubmit={(event) => { event.preventDefault(); onSaveEdit(); }}>
+              <label className="claim-edit-field" htmlFor={`claim-edit-${claim.id}`}>
+                <span>編輯判斷文字</span>
+                <textarea ref={editRef} id={`claim-edit-${claim.id}`} value={editText} onChange={(event) => onEditText(event.target.value)} aria-invalid={Boolean(editError)} aria-describedby={editError ? `claim-edit-${claim.id}-error` : `claim-edit-${claim.id}-help`} rows={3} />
+              </label>
+              <p className="claim-edit-help" id={`claim-edit-${claim.id}-help`}>來源與限制會保留；儲存後這個判斷仍需要你重新確認。</p>
+              {editError && <p className="claim-edit-error" id={`claim-edit-${claim.id}-error`} role="alert">{editError}</p>}
+              <div className="claim-edit-actions"><button className="button button-secondary" type="button" onClick={onCancelEdit}>取消</button><button className="button button-primary" type="submit"><Check size={15} />儲存判斷</button></div>
+            </form>
+          ) : (
+            <div className="claim-actions"><button className="button button-primary" type="button" onClick={onAccept}><Check size={15} />採用這個判斷</button><button className="button button-secondary" type="button" onClick={onKeep}><Flag size={15} />保留為假設</button><button className="button button-quiet" type="button" onClick={onEdit}><Pencil size={14} />編輯判斷</button>{claim.status !== "missing" && <button className="button button-quiet danger-text" type="button" onClick={onMissing}><CircleAlert size={14} />標記缺少證據</button>}</div>
+          )}
         </div>}
       </div>
     </article>
@@ -1076,7 +1139,7 @@ function SessionFeedback({
 function MemoSection({ title, children }: { title: string; children: React.ReactNode }) { return <section className="memo-section"><h4>{title}</h4>{children}</section>; }
 
 function DecisionContext({ pack, evidenceCount, reviewedCount, supportedCount, currentStep, nextAction, events, onCopyReceipt, feedbackUrl }: { pack: EvidencePack | null; evidenceCount: number; reviewedCount: number; supportedCount: number; currentStep: WorkflowStep; nextAction: { label: string; action: () => void }; events: ProductEvent[]; onCopyReceipt: () => void; feedbackUrl: string }) {
-  return <aside className="decision-context" aria-label="這次工作"><div className="context-heading"><div><p className="section-eyebrow">工作紙</p><h2>這次怎麼走</h2></div><span className="context-boundary">資料不上傳</span></div><div className="context-project"><span className="card-eyebrow">這張工作紙</span><strong>{pack?.title ?? "還沒有訊號"}</strong><span>{pack ? "資料只留在這個瀏覽器工作階段" : "先放一組可回看的訊號"}</span></div><div className="context-list"><ContextItem Icon={Target} label="要回答" value={pack ? "找出一個可驗證的 PM 下一步" : "哪一句訊號值得再查"} /><ContextItem Icon={ListChecks} label="要帶走" value={pack ? "一份能回到來源的 brief" : "一個最小驗證"} /><ContextItem Icon={ShieldCheck} label="現在知道" value={pack ? "來源可回看，不代表模型品質" : "來源會跟著判斷"} /></div>{pack && <div className="context-counts"><span><strong>{evidenceCount}</strong><small>訊號</small></span><span><strong>{reviewedCount}</strong><small>已判斷</small></span><span><strong>{supportedCount}</strong><small>可採用</small></span></div>}<div className="context-next"><span className="card-eyebrow">下一個動作</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">先從中央的試用任務開始。</span>}</div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">這次試用</span><span>{events.length} 筆操作</span></div>{events.length === 0 ? <p>操作紀錄只留在這次試用，不含原始訊號內容。</p> : <><p>最近一次：{EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>複製試用摘要</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer">回報這次試用<ArrowRight size={13} /></a></div></>}</div></aside>;
+  return <aside className="decision-context" aria-label="這次工作"><div className="context-heading"><div><p className="section-eyebrow">工作紙</p><h2>這次怎麼走</h2></div><span className="context-boundary">資料不上傳</span></div><div className="context-project"><span className="card-eyebrow">這張工作紙</span><strong>{pack?.title ?? "還沒有訊號"}</strong><span>{pack ? SESSION_BOUNDARY_SHORT : "先放一組可回看的訊號"}</span></div><div className="context-list"><ContextItem Icon={Target} label="要回答" value={pack ? "找出一個可驗證的 PM 下一步" : "哪一句訊號值得再查"} /><ContextItem Icon={ListChecks} label="要帶走" value={pack ? "一份能回到來源的 brief" : "一個最小驗證"} /><ContextItem Icon={ShieldCheck} label="現在知道" value={pack ? "來源可回看，不代表模型品質" : "來源會跟著判斷"} /></div>{pack && <div className="context-counts"><span><strong>{evidenceCount}</strong><small>訊號</small></span><span><strong>{reviewedCount}</strong><small>已判斷</small></span><span><strong>{supportedCount}</strong><small>可採用</small></span></div>}<div className="context-next"><span className="card-eyebrow">下一個動作</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">先從中央的試用任務開始。</span>}</div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">這次試用</span><span>{events.length} 筆操作</span></div>{events.length === 0 ? <p>操作紀錄只留在這次試用，不含原始訊號內容。</p> : <><p>最近一次：{EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>複製試用摘要</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer">回報這次試用<ArrowRight size={13} /></a></div></>}</div></aside>;
 }
 
 function ContextItem({ Icon, label, value }: { Icon: typeof Target; label: string; value: string }) { return <div className="context-item"><Icon size={17} /><div><span>{label}</span><strong>{value}</strong></div></div>; }

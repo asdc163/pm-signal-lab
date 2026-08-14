@@ -1402,6 +1402,57 @@ textarea::placeholder {
   border-top: 1px solid #ecdcbf;
 }
 
+.claim-edit-form {
+  display: grid;
+  gap: 10px;
+  margin-top: 19px;
+  padding: 16px;
+  border: 1px solid #d8c8aa;
+  border-left: 3px solid var(--accent);
+  background: #fffdf8;
+}
+
+.claim-edit-field {
+  display: grid;
+  gap: 7px;
+}
+
+.claim-edit-field > span {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.claim-edit-field textarea {
+  min-height: 84px;
+  background: #fff;
+  font-size: 13px;
+}
+
+.claim-edit-help,
+.claim-edit-error {
+  margin: 0;
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.claim-edit-help {
+  color: var(--muted);
+}
+
+.claim-edit-error {
+  color: var(--danger);
+}
+
+.claim-edit-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+  padding-top: 12px;
+  border-top: 1px solid #ecdcbf;
+}
+
 .human-boundary {
   display: flex;
   align-items: center;
@@ -2446,6 +2497,14 @@ textarea::placeholder {
   .claim-actions .button-primary,
   .claim-actions .button-secondary {
     flex-basis: 100%;
+  }
+
+  .claim-edit-actions {
+    justify-content: stretch;
+  }
+
+  .claim-edit-actions .button {
+    flex: 1 1 140px;
   }
 
   .human-boundary {

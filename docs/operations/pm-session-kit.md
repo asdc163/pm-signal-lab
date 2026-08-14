@@ -6,7 +6,7 @@ This kit is for a real PM, founder, product designer, or product engineer trying
 
 - Use the hosted preview or local URL provided by the maintainer.
 - Do not paste customer names, private tickets, API keys, tokens, or confidential roadmap material.
-- The sample pack is safe to use. Custom evidence stays in the current browser session and is not uploaded by this preview.
+- The sample pack is safe to use. Custom evidence stays on the current page, resets on refresh, and is not uploaded by this preview. Copy or download anything you want to keep before leaving or refreshing.
 - This is a product usability session, not a claim that the product has been validated for your organisation.
 
 ## The task

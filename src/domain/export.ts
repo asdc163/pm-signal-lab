@@ -56,7 +56,7 @@ export function toMarkdown(memo: DecisionMemo): string {
 
   return `# Decision brief
 
-> 資料邊界 · 內容只留在這個瀏覽器工作階段；這是一條可回看的工作流，不是模型品質證明。
+> 資料邊界 · 內容只留在目前這個頁面；重新整理會重設，沒有登入或外部傳送。這是一條可回看的工作流，不是模型品質證明。
 
 ## Decision
 
