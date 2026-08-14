@@ -115,6 +115,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Accepted decisions: literal first-run promise, quickstart/demo/proof, documentation/community path, multi-adapter readiness, source/eval/observability language — derived from the 1,042-repo research and official GitHub/MCP trend sources.
 - Rejected: generic purple/blue gradient hero, abstract orb/blob, glass background, bento feature wall, dark tiny-text default, copied README/brand assets, unverified “production-ready” or “viral” claims.
 - Low-risk alternative for trend decoration: actual evidence rows, source links, a deterministic sample output, status spine, and annotated decision memo.
+- Copy treatment: Chinese first, sentence-case labels, and literal verbs; English remains only where it helps a PM move an artifact into an existing workflow.
 
 ## AI-native states and trust
 
@@ -128,4 +129,5 @@ The UI must show engine/provider state, source identity, timestamp/freshness, li
 - Screenshot review at 390×844、768×1024、1440×900。
 - Behavior matrix covers first-time、empty、loading、error、recovery、success、mobile、keyboard、long Traditional Chinese。
 - Do a second polish pass for hierarchy, spacing, container count, focus visibility, sticky CTA overlap, and status color independence.
+- The second polish pass also checks that the surface reads as an evidence desk rather than an AI dashboard: no decorative hamburger on desktop, no generic event names, and no status pill used where a divider or text label is enough.
 - Document any exception to this system in the feature UX spec and release evidence.

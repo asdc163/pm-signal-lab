@@ -25,7 +25,7 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
     },
     {
       id: "claim-source-trust",
-      text: "把來源放在 claim 旁邊，可能比把引用藏在摘要後面更容易讓 PM 回看判斷。",
+      text: "把來源放在判斷旁邊，可能比把引用藏在摘要後面更容易讓 PM 回看。",
       status: hasObservedPattern ? "review" : "missing",
       evidenceIds: observationIds,
       limitation: hasObservedPattern
@@ -55,20 +55,20 @@ export function draftExperiment(
   const opportunity = claims.find((claim) => claim.id === opportunityId);
   const needsValidation =
     !opportunity || opportunity.status !== "supported" || !opportunity.reviewed;
-  const limitation = opportunity?.limitation ?? "尚未選擇有來源的 opportunity。";
+  const limitation = opportunity?.limitation ?? "尚未選擇有來源的方向。";
 
   return {
     opportunity:
-      opportunity?.text ?? "先選擇一個有來源的 opportunity，再開始草擬。",
+      opportunity?.text ?? "先選擇一個有來源的方向，再開始草擬。",
     hypothesis: opportunity
-      ? `如果把 ${opportunity.text.replace(/[。！？]$/, "")} 放進可回看的工作流，PM 會更快找到下一個可驗證行動。`
-      : "尚未有足夠 evidence 形成 hypothesis。",
+      ? `如果把「${opportunity.text.replace(/[。！？]$/, "")}」放進可以回看來源的工作流，PM 會更快找到下一個可驗證行動。`
+      : "尚未有足夠訊號形成假設。",
     primaryMetric: needsValidation
-      ? "Needs validation：先定義完成一次決策 brief 的可觀測事件。"
-      : "從載入 evidence 到確認一個下一步的完成率。",
-    guardrail: "不能降低 source visibility；每個支持 claim 必須保留可回看的來源。",
+      ? "需要再驗證：先定義完成一次決策 brief 的可觀測事件。"
+      : "從載入訊號到確認一個下一步的完成率。",
+    guardrail: "不能降低來源可回看的程度；每個採用的判斷都必須保留來源。",
     smallestTest:
-      "找 5 位 PM，用同一組 evidence 完成一次 Collect → Verify → Decide，記錄是否需要人工救援。",
+      "找 5 位 PM，用同一組訊號走完「收集 → 核對 → 安排」，記錄是否需要人工救援。",
     decisionRule: `若至少 4/5 位能完成且不把缺少的證據當成結論，才進入下一輪；目前限制：${limitation}`,
     owner: "產品負責人／待指定",
     readiness: needsValidation ? "needs-validation" : "ready",

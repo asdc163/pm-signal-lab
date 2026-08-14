@@ -4,7 +4,7 @@ export const SAMPLE_PACK: EvidencePack = {
   id: "pm-signal-onboarding-v1",
   title: "Product discovery onboarding：第一次把訊號整理成決策",
   description:
-    "這組資料混合訪談、客服與產品觀察，示範每個 claim 如何保留來源、限制與下一個可驗證的行動。",
+    "這組資料混合訪談、客服與產品觀察，示範每個判斷如何保留來源、限制與下一個可驗證的行動。",
   evidence: [
     {
       id: "evidence-interview-01",
@@ -31,7 +31,7 @@ export const SAMPLE_PACK: EvidencePack = {
       type: "analytics",
       observedAt: "2026-08-05T09:00:00+08:00",
       content:
-        "目前只知道 demo 使用者常複製摘要文字；尚未連到後續 issue 或 experiment 的完成資料，因此不能把複製視為決策品質提升。",
+        "目前只知道試用者常複製摘要文字；尚未連到後續 issue 或 experiment 的完成資料，因此不能把複製視為決策品質提升。",
     },
     {
       id: "evidence-competitor-01",

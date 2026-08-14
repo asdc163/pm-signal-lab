@@ -10,7 +10,7 @@ Hosted demo：<https://asdc163.github.io/pm-signal-lab/>
 
 ![PM Signal Lab first-run](./docs/product/pm-signal-lab/assets/qa/first-run-1440.png)
 
-這個專案不是泛用聊天機器人，也不把規則輸出包裝成模型能力。v0 用 deterministic demo engine 建立一個可重跑、可檢查、沒有 API key 的產品切片，讓 PM 練習 evidence、claim、uncertainty、experiment 與 decision memo 之間的關係。
+這個專案不是泛用聊天機器人，也不把規則輸出包裝成模型能力。v0 先用固定規則完成一條可重跑、可檢查、沒有 API key 的產品工作流，讓 PM 練習 evidence、claim、uncertainty、experiment 與 decision memo 之間的關係。
 
 這是 [John Wu](https://github.com/asdc163) 的 AI Product Manager portfolio project：重點不在「AI 看起來很會」，而在於能不能把訊號、來源、限制與下一步連成一個可被團隊使用的產品流程。
 

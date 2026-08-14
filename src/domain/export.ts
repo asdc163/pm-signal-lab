@@ -15,14 +15,14 @@ export function buildDecisionMemo(
   if (reviewedClaims.length === 0) {
     return {
       ok: false,
-      error: "尚未有被你接受的 claim；先到 Verify 審核至少一個有來源的結論。",
+      error: "尚未有被你採用的判斷；先到核對處理至少一個有來源的結論。",
     };
   }
 
   if (!experiment) {
     return {
       ok: false,
-      error: "還沒有 experiment brief；先在 Decide 草擬一個最小實驗。",
+      error: "還沒有 experiment brief；先在安排草擬一個最小實驗。",
     };
   }
 
@@ -37,11 +37,11 @@ export function buildDecisionMemo(
         .filter((claim) => claim.status !== "supported")
         .map((claim) => `${claim.text}：${claim.limitation}`),
       experiment,
-      nextAction: "由產品負責人確認 smallest test 的參與者與執行時間，再開始驗證。",
+      nextAction: "由產品負責人確認最小測試的參與者與執行時間，再開始驗證。",
       notCovered: [
         "尚未驗證真實模型品質、長期留存或轉換提升。",
         "尚未連接 GitHub、MCP、issue mutation 或外部 telemetry。",
-        "這份 memo 是 local-first demo 輸出，不代表外部使用者採用。",
+        "這份 memo 是本機預覽輸出，不代表外部使用者採用。",
       ],
     },
   };
@@ -56,7 +56,7 @@ export function toMarkdown(memo: DecisionMemo): string {
 
   return `# Decision brief
 
-> 固定規則示範 · 不需要 API key；這份結果只示範工作流，不代表外部模型品質。
+> 本機試用邊界 · 不需要 API key；這份結果只示範工作流，不代表外部模型品質。
 
 ## Decision
 

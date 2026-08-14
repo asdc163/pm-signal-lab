@@ -12,7 +12,7 @@ describe("decision memo export", () => {
     const result = buildDecisionMemo(claims);
 
     expect(result.ok).toBe(false);
-    if (!result.ok) expect(result.error).toContain("Verify");
+    if (!result.ok) expect(result.error).toContain("核對");
   });
 
   it("includes evidence, uncertainty, experiment and not-covered sections", () => {
