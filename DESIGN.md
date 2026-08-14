@@ -2,8 +2,8 @@
 
 ## Product Frame
 
-- Product type: local-first AI PM evidence-to-decision workbench
-- Target user: AI PM / PM / founder / product engineer（v0 以 AI PM 為主要假設族群）
+- Product type: local-first product evidence-to-decision workbench
+- Target user: PM / founder / product engineer（作品集敘事聚焦 AI product management，但產品本身不假裝有外部模型）
 - Primary action: 從 evidence pack 走到可審核、可匯出的 decision brief
 - Brand mood: precise、calm、evidence-first、slightly editorial
 - Platforms: responsive Web；v0 以 desktop workbench + mobile single-column recovery 為主
@@ -26,7 +26,7 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 
 ## Composition Brief
 
-- First read: `把訊號變成下一步`、current step、sample/workspace status。
+- First read: `先看來源，再決定下一步`、current step、sample/workspace status。
 - Second read: evidence/claim rows 與 source mapping。
 - Primary action: 依 step 的單一 CTA。
 - Content relationship: flow + evidence + decision，使用 stepper、row、split pane、definition list，少用 card。
@@ -45,21 +45,21 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 
 ### Color
 
-- `--shell`: `#101418` — graphite shell, not pure black
-- `--shell-surface`: `#182027`
-- `--workspace`: `#f5f6f2` — warm/cool neutral workspace
-- `--surface`: `#ffffff`
-- `--ink`: `#152029`
-- `--muted`: `#66737b`
-- `--line`: `#dfe4df`
-- `--accent`: `#d97706` — amber, CTA/current step only
-- `--accent-soft`: `#fff3d6`
-- `--trust`: `#2563a8` — source/context
-- `--trust-soft`: `#e8f1fb`
-- `--success`: `#16734b`
-- `--warning`: `#a65f00`
-- `--danger`: `#b33b32`
-- `--focus`: `#2563a8`
+- `--shell`: `#1c2521` — deep green graphite shell
+- `--shell-surface`: `#27342e`
+- `--workspace`: `#f3efe7` — warm paper workspace
+- `--surface`: `#fffdf8`
+- `--ink`: `#202824`
+- `--muted`: `#68736c`
+- `--line`: `#ded8ca`
+- `--accent`: `#b8643d` — clay, CTA/current step only
+- `--accent-soft`: `#f6e5d8`
+- `--trust`: `#2f6971` — source/context
+- `--trust-soft`: `#e4f0ef`
+- `--success`: `#2e7255`
+- `--warning`: `#9a681f`
+- `--danger`: `#ad4b3f`
+- `--focus`: `#2f6971`
 
 Brand/accent color should remain a signal, roughly 5–10% of a screen. Status uses text + icon/shape, never color alone.
 

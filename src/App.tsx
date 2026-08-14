@@ -20,7 +20,6 @@ import {
   Plus,
   RotateCcw,
   ShieldCheck,
-  Sparkles,
   Target,
   X,
 } from "lucide-react";
@@ -28,6 +27,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { buildDecisionMemo, toMarkdown } from "./domain/export";
 import { cloneSamplePack } from "./domain/fixture";
 import { buildClaims, draftExperiment } from "./domain/synthesis";
+import { buildSessionReceipt } from "./domain/session";
 import type {
   Claim,
   ClaimStatus,
@@ -92,6 +92,8 @@ const EMPTY_FORM: EvidenceFormState = {
   type: "interview",
   content: "",
 };
+
+const SESSION_FEEDBACK_URL = "https://github.com/asdc163/pm-signal-lab/issues/new?template=pm-session-feedback.md";
 
 function App() {
   const [currentStep, setCurrentStep] = useState<WorkflowStep>("collect");
@@ -390,6 +392,23 @@ function App() {
     }
   };
 
+  const copySessionReceipt = async () => {
+    const receipt = buildSessionReceipt({
+      currentStep,
+      evidenceCount: evidence.length,
+      reviewedCount,
+      supportedCount,
+      events,
+    });
+
+    try {
+      await navigator.clipboard.writeText(receipt);
+      showNotice("success", "Session 摘要已複製；送出前請先確認沒有私密內容。 ");
+    } catch {
+      showNotice("warning", "剪貼簿被瀏覽器擋住；請到回饋頁手動整理這次試用。 ");
+    }
+  };
+
   const downloadMarkdown = () => {
     if (!markdown) {
       exportMemo();
@@ -421,44 +440,45 @@ function App() {
 
   return (
     <div className="app-shell">
+      <a className="skip-link" href="#main-content">跳到主要內容</a>
       <Sidebar currentStep={currentStep} onSelectStep={selectStep} />
       <div className="app-body">
         <header className="topbar">
           <div className="topbar-mobile-brand">
-            <span className="brand-mark"><Sparkles size={16} strokeWidth={2.2} /></span>
+            <span className="brand-mark" aria-hidden="true">PS</span>
             <span>PM Signal Lab</span>
           </div>
           <div className="topbar-context">
-            <span className="topbar-kicker">LOCAL-FIRST WORKBENCH</span>
+            <span className="topbar-kicker">SOURCE → CLAIM → TEST</span>
             <span className="topbar-divider" aria-hidden="true" />
             <span>{pack?.title ?? "未建立工作區"}</span>
           </div>
-          <button className="icon-button topbar-menu" type="button" aria-label="開啟工作流程" title="開啟工作流程">
+          <button className="icon-button topbar-menu" type="button" aria-label="跳到工作流程" aria-controls="mobile-workflow" title="跳到工作流程" onClick={() => document.getElementById("mobile-workflow")?.scrollIntoView({ behavior: "smooth", block: "center" })}>
             <Menu size={18} />
           </button>
           <div className="topbar-status">
-            <span className="status-dot" aria-hidden="true" />
-            <span>Session only</span>
+            <span className="status-dot status-dot-neutral" aria-hidden="true" />
+            <span>本機 session</span>
           </div>
         </header>
 
-        <div className="mobile-stepper" aria-label="工作流程">
+        <div id="mobile-workflow" className="mobile-stepper" aria-label="工作流程">
           <WorkflowStepper currentStep={currentStep} onSelectStep={selectStep} mobile />
         </div>
 
-        <main className="workspace">
+        <main id="main-content" className="workspace" tabIndex={-1}>
           <section className="workbench" aria-labelledby="page-title">
             <div className="hero-block">
               <div>
                 <p className="eyebrow">PM SIGNAL LAB / EVIDENCE WORKBENCH</p>
-                <h1 id="page-title">把訊號變成下一步</h1>
+                <h1 id="page-title">先看來源，再決定下一步</h1>
                 <p className="hero-copy">
-                  把訪談、客服、埋點與競品觀察，整理成有來源、可審核的產品決策。
+                  把訪談、客服、埋點與競品觀察留在原文旁，逐筆確認 claim，最後只帶走一個最小實驗。
                 </p>
               </div>
               <div className="hero-action-stack">
                 <span className="progress-label"><span>{progress}</span> / 4 sample signals</span>
-                <div className="progress-track" aria-label={`目前有 ${progress} 個示範訊號，共四個示範訊號`}>
+                <div className="progress-track" role="progressbar" aria-label="範例訊號載入進度" aria-valuemin={0} aria-valuemax={4} aria-valuenow={progress}>
                   <span style={{ width: `${(progress / 4) * 100}%` }} />
                 </div>
                 {!pack && (
@@ -546,7 +566,7 @@ function App() {
 
             <div className="engine-note">
               <ShieldCheck size={16} />
-              <span><strong>Demo engine</strong> · 不需要 API key；這份結果只示範工作流，不代表外部模型品質。</span>
+              <span><strong>固定規則示範</strong> · 不需要 API key；這份結果只示範工作流，不代表外部模型品質。</span>
             </div>
           </section>
 
@@ -558,6 +578,8 @@ function App() {
             currentStep={currentStep}
             nextAction={nextAction}
             events={events}
+            onCopyReceipt={copySessionReceipt}
+            feedbackUrl={SESSION_FEEDBACK_URL}
           />
         </main>
 
@@ -576,7 +598,7 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
   return (
     <aside className="sidebar" aria-label="PM Signal Lab 導覽">
       <div className="sidebar-brand">
-        <span className="brand-mark"><Sparkles size={17} strokeWidth={2.2} /></span>
+        <span className="brand-mark" aria-hidden="true">PS</span>
         <div>
           <strong>PM Signal Lab</strong>
           <span>產品證據工作台</span>
@@ -591,6 +613,7 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
         <div className="sidebar-rule" />
         <span className="sidebar-section-label">SAFE BY DEFAULT</span>
         <p>資料只留在目前瀏覽器工作階段。沒有登入、外部傳送或自動修改。</p>
+        <a className="sidebar-link" href={SESSION_FEEDBACK_URL} target="_blank" rel="noreferrer">回報一次試用</a>
         <span className="version-label">v0.1 · local pilot</span>
       </div>
     </aside>
@@ -651,8 +674,9 @@ function CollectView({
           <div className="empty-icon"><ClipboardList size={28} /></div>
           <div className="empty-copy">
             <p className="section-eyebrow">COLLECT / FIRST RUN</p>
-            <h2 id="collect-title">還沒有工作區</h2>
-            <p>先載入一組範例資料，看看一個 claim 如何回到來源；也可以直接新增你手上的第一個 evidence。</p>
+            <h2 id="collect-title">先把一個問題放上桌</h2>
+            <p>給自己五分鐘：載入幾筆真實感的產品訊號，找出一個能回到來源、也值得再驗證的下一步。</p>
+            <div className="first-run-note"><span>試用任務</span><strong>哪一句話值得帶進下一次產品討論？</strong><small>來源 → claim → smallest test</small></div>
             <div className="empty-actions">
               <button className="button button-primary" type="button" onClick={onLoadSample}><ClipboardList size={16} />載入範例資料</button>
               <button className="button button-secondary" type="button" onClick={onOpenForm}><Plus size={16} />自己新增一筆 evidence</button>
@@ -735,9 +759,9 @@ function EvidenceRow({ evidence, expanded, onToggle }: { evidence: Evidence; exp
         <h4>{evidence.title}</h4>
         <p className="evidence-source"><Link2 size={14} />{evidence.source}</p>
         <p className="evidence-preview">{evidence.content}</p>
-        {expanded && <div className="source-detail"><span className="detail-label">SOURCE EXCERPT</span><p>{evidence.content}</p><span className="detail-meta">原始內容保留於目前 session · {evidence.id}</span></div>}
+        {expanded && <div id={`source-${evidence.id}`} className="source-detail"><span className="detail-label">SOURCE EXCERPT</span><p>{evidence.content}</p><span className="detail-meta">原始內容保留於目前 session · {evidence.id}</span></div>}
       </div>
-      <button className="row-toggle" type="button" onClick={onToggle} aria-expanded={expanded}>{expanded ? "收起來源" : "查看來源"}<ChevronDown size={15} className={expanded ? "rotate-180" : ""} /></button>
+      <button className="row-toggle" type="button" onClick={onToggle} aria-expanded={expanded} aria-controls={`source-${evidence.id}`}>{expanded ? "收起來源" : "查看來源"}<ChevronDown size={15} className={expanded ? "rotate-180" : ""} /></button>
     </article>
   );
 }
@@ -745,7 +769,7 @@ function EvidenceRow({ evidence, expanded, onToggle }: { evidence: Evidence; exp
 function VerifyView({ claims, evidence, activeClaimId, onActivate, onAccept, onKeep, onMissing, onEdit, onDraft }: { claims: Claim[]; evidence: Evidence[]; activeClaimId?: string; onActivate: (id: string) => void; onAccept: (claim: Claim) => void; onKeep: (claim: Claim) => void; onMissing: (claim: Claim) => void; onEdit: (claim: Claim) => void; onDraft: () => void }) {
   return (
     <section className="content-section" aria-labelledby="verify-title">
-      <div className="section-intro"><div><p className="section-eyebrow">VERIFY / HUMAN REVIEW</p><h2 id="verify-title">先確認結論從哪裡來</h2><p>候選 claim 不是事實。接受前，請看 source、時間和 limitation；你也可以把它留在假設區。</p></div><span className="engine-pill"><Sparkles size={14} />Demo engine</span></div>
+      <div className="section-intro"><div><p className="section-eyebrow">VERIFY / HUMAN REVIEW</p><h2 id="verify-title">先確認結論從哪裡來</h2><p>候選 claim 不是事實。接受前，請看 source、時間和 limitation；你也可以把它留在假設區。</p></div><span className="engine-pill"><ListChecks size={14} />固定規則示範</span></div>
       {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} /><div><h3>目前沒有可審核 claim</h3><p>回 Collect 新增 evidence，系統才有內容可以整理。</p></div></div> : <>
         <div className="claim-summary"><span><strong>{claims.length}</strong> 個候選 claim</span><span><BadgeCheck size={14} />{claims.filter((claim) => claim.status === "supported").length} 有支持來源</span><span><CircleAlert size={14} />{claims.filter((claim) => claim.status !== "supported").length} 需要判斷</span></div>
         <div className="claim-list">
@@ -766,9 +790,9 @@ function ClaimRow({ claim, evidence, expanded, onActivate, onAccept, onKeep, onM
       <div className="claim-spine" aria-hidden="true"><span className={`claim-node ${meta.className}`} /></div>
       <div className="claim-body">
         <div className="claim-topline"><span className={`status-badge ${meta.className}`}><StatusIcon size={14} />{meta.label}</span>{claim.reviewed && <span className="reviewed-label"><Check size={12} />已處理</span>}<span className="claim-id">{claim.id}</span></div>
-        <button className="claim-title-button" type="button" onClick={onActivate} aria-expanded={expanded}><span>{claim.text}</span><ChevronRight size={17} className={expanded ? "rotate-90" : ""} /></button>
+        <button className="claim-title-button" type="button" onClick={onActivate} aria-expanded={expanded} aria-controls={`claim-${claim.id}-detail`}><span>{claim.text}</span><ChevronRight size={17} className={expanded ? "rotate-90" : ""} /></button>
         <div className="claim-meta"><span><Link2 size={13} />{sourceItems.length ? `${sourceItems.length} 個來源` : "沒有來源"}</span><span><Info size={13} />{claim.limitation}</span></div>
-        {expanded && <div className="claim-detail">
+        {expanded && <div id={`claim-${claim.id}-detail`} className="claim-detail">
           <div className="detail-block"><span className="detail-label">SOURCE MAPPING</span>{sourceItems.length ? sourceItems.map((item) => <div className="mapped-source" key={item.id}><span className="source-dot" /><div><strong>{item.source}</strong><span>{EVIDENCE_LABELS[item.type]} · {formatDate(item.observedAt)}</span><p>{item.content}</p></div></div>) : <p className="missing-copy">這個 claim 沒有可回看的來源；請保留為假設，直到補上 evidence。</p>}</div>
           <div className="detail-block limitation-block"><span className="detail-label">LIMITATION</span><p>{claim.limitation}</p></div>
           <div className="claim-actions"><button className="button button-primary" type="button" onClick={onAccept}><Check size={15} />接受這個 claim</button><button className="button button-secondary" type="button" onClick={onKeep}><Flag size={15} />保留為假設</button><button className="button button-quiet" type="button" onClick={onEdit}><Pencil size={14} />編輯 claim</button>{claim.status !== "missing" && <button className="button button-quiet danger-text" type="button" onClick={onMissing}><CircleAlert size={14} />標記缺少證據</button>}</div>
@@ -784,8 +808,8 @@ function DecideView({ claims, activeClaimId, experiment, onSelectClaim, onDraft,
     <section className="content-section" aria-labelledby="decide-title">
       <div className="section-intro"><div><p className="section-eyebrow">DECIDE / EXPERIMENT BRIEF</p><h2 id="decide-title">把判斷縮成最小驗證</h2><p>一個好的 brief 不會假裝資料完整；它會說清楚要測什麼、怎麼停、還缺什麼。</p></div><span className="human-label"><Target size={14} />PM owns the decision</span></div>
       {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} /><div><h3>還沒有可用的 claim</h3><p>先回 Collect 載入資料，再到 Verify 做一次人為判斷。</p></div><button className="button button-secondary" type="button" onClick={onBack}>回到 Verify</button></div> : <>
-        <div className="opportunity-picker"><div><span className="card-eyebrow">CHOOSE AN OPPORTUNITY</span><p>{availableClaims.length ? "選一個已由你處理的 claim；缺少證據的項目仍可做成 Needs validation brief。" : "目前沒有已處理的 claim，先回 Verify 接受或保留一個假設。"}</p></div><div className="opportunity-options">{claims.map((claim) => <button key={claim.id} type="button" className={`opportunity-option ${activeClaimId === claim.id ? "is-selected" : ""}`} onClick={() => onSelectClaim(claim.id)}><span className={`mini-node ${STATUS_META[claim.status].className}`} /><span>{claim.text}</span><span className="option-status">{STATUS_META[claim.status].label}</span></button>)}</div><button className="button button-secondary" type="button" onClick={() => onDraft(activeClaimId)} disabled={!activeClaimId && !availableClaims.length}><Sparkles size={15} />草擬最小實驗</button></div>
-        {experiment ? <ExperimentEditor experiment={experiment} onUpdate={onUpdate} onExport={onExport} /> : <div className="state-panel state-panel-soft"><Lightbulb size={22} /><div><h3>先選一個 opportunity</h3><p>Demo engine 會把它整理成 hypothesis、metric、guardrail 和 smallest test；你仍要確認是否值得做。</p></div></div>}
+        <div className="opportunity-picker"><div><span className="card-eyebrow">CHOOSE AN OPPORTUNITY</span><p>{availableClaims.length ? "選一個已由你處理的 claim；缺少證據的項目仍可做成 Needs validation brief。" : "目前沒有已處理的 claim，先回 Verify 接受或保留一個假設。"}</p></div><div className="opportunity-options">{claims.map((claim) => <button key={claim.id} type="button" className={`opportunity-option ${activeClaimId === claim.id ? "is-selected" : ""}`} onClick={() => onSelectClaim(claim.id)}><span className={`mini-node ${STATUS_META[claim.status].className}`} /><span>{claim.text}</span><span className="option-status">{STATUS_META[claim.status].label}</span></button>)}</div><button className="button button-secondary" type="button" onClick={() => onDraft(activeClaimId)} disabled={!activeClaimId && !availableClaims.length}><Target size={15} />草擬最小實驗</button></div>
+        {experiment ? <ExperimentEditor experiment={experiment} onUpdate={onUpdate} onExport={onExport} /> : <div className="state-panel state-panel-soft"><Lightbulb size={22} /><div><h3>先選一個 opportunity</h3><p>固定規則會把它整理成 hypothesis、metric、guardrail 和 smallest test；你仍要確認是否值得做。</p></div></div>}
       </>}
     </section>
   );
@@ -794,7 +818,7 @@ function DecideView({ claims, activeClaimId, experiment, onSelectClaim, onDraft,
 function ExperimentEditor({ experiment, onUpdate, onExport }: { experiment: ExperimentBrief; onUpdate: (field: keyof ExperimentBrief, value: string) => void; onExport: () => void }) {
   return <div className="experiment-editor">
     <div className={`readiness-banner ${experiment.readiness === "ready" ? "is-ready" : "is-needs-validation"}`}><span className="readiness-icon">{experiment.readiness === "ready" ? <BadgeCheck size={17} /> : <CircleAlert size={17} />}</span><div><strong>{experiment.readiness === "ready" ? "Ready for your confirmation" : "Needs validation"}</strong><p>{experiment.readiness === "ready" ? "這個 opportunity 有你接受的來源支持；請再確認實驗細節。" : "這份 brief 還不能當成結論；先補上列出的證據。"}</p></div></div>
-    <div className="brief-heading"><div><span className="section-eyebrow">DRAFT / HUMAN-EDITABLE</span><h3>最小實驗 brief</h3></div><span className="engine-pill"><Sparkles size={14} />deterministic draft</span></div>
+    <div className="brief-heading"><div><span className="section-eyebrow">DRAFT / HUMAN-EDITABLE</span><h3>最小實驗 brief</h3></div><span className="engine-pill"><ListChecks size={14} />可編輯草稿</span></div>
     <div className="brief-fields"><BriefField label="Opportunity" value={experiment.opportunity} onChange={(value) => onUpdate("opportunity", value)} wide /><BriefField label="Hypothesis" value={experiment.hypothesis} onChange={(value) => onUpdate("hypothesis", value)} wide /><BriefField label="Primary metric" value={experiment.primaryMetric} onChange={(value) => onUpdate("primaryMetric", value)} /><BriefField label="Guardrail" value={experiment.guardrail} onChange={(value) => onUpdate("guardrail", value)} /><BriefField label="Smallest test" value={experiment.smallestTest} onChange={(value) => onUpdate("smallestTest", value)} wide textarea /><BriefField label="Decision rule" value={experiment.decisionRule} onChange={(value) => onUpdate("decisionRule", value)} wide textarea /><BriefField label="Owner" value={experiment.owner} onChange={(value) => onUpdate("owner", value)} /></div>
     <div className="brief-footer"><span><ShieldCheck size={14} />確認前仍可編輯；不會自動送出 issue 或通知。</span><button className="button button-primary" type="button" onClick={onExport}>匯出決策 brief<ArrowRight size={16} /></button></div>
   </div>;
@@ -813,8 +837,8 @@ function ShipView({ memo, markdown, onExport, onCopy, onDownload, onBack }: { me
 
 function MemoSection({ title, children }: { title: string; children: React.ReactNode }) { return <section className="memo-section"><h4>{title}</h4>{children}</section>; }
 
-function DecisionContext({ pack, evidenceCount, reviewedCount, supportedCount, currentStep, nextAction, events }: { pack: EvidencePack | null; evidenceCount: number; reviewedCount: number; supportedCount: number; currentStep: WorkflowStep; nextAction: { label: string; action: () => void }; events: ProductEvent[] }) {
-  return <aside className="decision-context" aria-label="決策上下文"><div className="context-heading"><div><p className="section-eyebrow">DECISION CONTEXT</p><h2>決策上下文</h2></div><span className="context-live"><span className="status-dot" />live</span></div><div className="context-project"><span className="card-eyebrow">CURRENT WORKSPACE</span><strong>{pack?.title ?? "未建立工作區"}</strong><span>{pack ? "session-local evidence pack" : "載入資料後，這裡會顯示實際狀態"}</span></div><div className="context-list"><ContextItem Icon={Target} label="目標" value={pack ? "找出一個可驗證的 PM 下一步" : "—"} /><ContextItem Icon={ListChecks} label="受影響的人" value={pack ? "AI PM、產品團隊" : "—"} /><ContextItem Icon={ShieldCheck} label="限制" value={pack ? "來源可回看；不代表模型品質" : "—"} /></div>{pack && <div className="context-counts"><span><strong>{evidenceCount}</strong><small>evidence</small></span><span><strong>{reviewedCount}</strong><small>已處理</small></span><span><strong>{supportedCount}</strong><small>可採用</small></span></div>}<div className="context-next"><span className="card-eyebrow">NEXT ACTION</span><div className="next-action-title"><Lightbulb size={16} /><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p><button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button></div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">LOCAL TRACE</span><span>{events.length} events</span></div>{events.length === 0 ? <p>操作紀錄只留在這個 session，不含原始 evidence 內容。</p> : <p>最近一次：{events[events.length - 1].name.replaceAll("_", " ")}</p>}</div></aside>;
+function DecisionContext({ pack, evidenceCount, reviewedCount, supportedCount, currentStep, nextAction, events, onCopyReceipt, feedbackUrl }: { pack: EvidencePack | null; evidenceCount: number; reviewedCount: number; supportedCount: number; currentStep: WorkflowStep; nextAction: { label: string; action: () => void }; events: ProductEvent[]; onCopyReceipt: () => void; feedbackUrl: string }) {
+  return <aside className="decision-context" aria-label="決策上下文"><div className="context-heading"><div><p className="section-eyebrow">DECISION CONTEXT</p><h2>決策上下文</h2></div><span className="context-live"><span className="status-dot status-dot-neutral" />本機</span></div><div className="context-project"><span className="card-eyebrow">CURRENT WORKSPACE</span><strong>{pack?.title ?? "未建立工作區"}</strong><span>{pack ? "session-local evidence pack" : "載入資料後，這裡會顯示實際狀態"}</span></div><div className="context-list"><ContextItem Icon={Target} label="目標" value={pack ? "找出一個可驗證的 PM 下一步" : "—"} /><ContextItem Icon={ListChecks} label="受影響的人" value={pack ? "PM、產品團隊" : "—"} /><ContextItem Icon={ShieldCheck} label="限制" value={pack ? "來源可回看；不代表模型品質" : "—"} /></div>{pack && <div className="context-counts"><span><strong>{evidenceCount}</strong><small>evidence</small></span><span><strong>{reviewedCount}</strong><small>已處理</small></span><span><strong>{supportedCount}</strong><small>可採用</small></span></div>}<div className="context-next"><span className="card-eyebrow">NEXT ACTION</span><div className="next-action-title"><Lightbulb size={16} /><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p><button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button></div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">LOCAL TRACE</span><span>{events.length} events</span></div>{events.length === 0 ? <p>操作紀錄只留在這個 session，不含原始 evidence 內容。</p> : <><p>最近一次：{events[events.length - 1].name.replaceAll("_", " ")}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>複製 session 摘要</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer">回報這次試用<ArrowRight size={13} /></a></div></>}</div></aside>;
 }
 
 function ContextItem({ Icon, label, value }: { Icon: typeof Target; label: string; value: string }) { return <div className="context-item"><Icon size={17} /><div><span>{label}</span><strong>{value}</strong></div></div>; }

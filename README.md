@@ -6,6 +6,8 @@ PM Signal Lab 是一個 local-first product evidence workbench。它把訪談、
 
 `Collect → Verify → Decide → Ship`
 
+Hosted demo：<https://asdc163.github.io/pm-signal-lab/>
+
 ![PM Signal Lab first-run](./docs/product/pm-signal-lab/assets/qa/first-run-1440.png)
 
 這個專案不是泛用聊天機器人，也不把規則輸出包裝成模型能力。v0 用 deterministic demo engine 建立一個可重跑、可檢查、沒有 API key 的產品切片，讓 PM 練習 evidence、claim、uncertainty、experiment 與 decision memo 之間的關係。
@@ -60,7 +62,8 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 - [`src/domain/synthesis.ts`](./src/domain/synthesis.ts)：deterministic candidate claims 與 experiment draft。
 - [`src/domain/export.ts`](./src/domain/export.ts)：decision memo readiness gate 與 Markdown export。
 - [`src/domain/fixture.ts`](./src/domain/fixture.ts)：可重跑的 product discovery sample pack。
-- [`src/styles.css`](./src/styles.css)：graphite shell、neutral workbench、evidence spine 與 responsive layout。
+- [`src/styles.css`](./src/styles.css)：deep-green shell、warm-paper workbench、evidence spine 與 responsive layout。
+- [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml)：每次 `main` 更新後自動建置並部署 hosted demo。
 - [`DESIGN.md`](./DESIGN.md)：視覺 DNA、tokens、狀態與排版規範。
 
 ## 目前不宣稱的事情
@@ -70,9 +73,11 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 - 沒有把 GitHub / MCP / issue mutation 接進去，因此不會代表使用者修改外部資源。
 - `4/5` 是 experiment brief 裡的 usability hypothesis，不是已完成的研究結果。
 
-## Public preview status
+## Public demo status
 
-這個 repository 先以 public preview 形式公開，方便收集 issue、task-session feedback 與後續貢獻。產品本身仍是 local pilot：沒有 hosted demo、登入、雲端資料庫、外部 provider 或自動修改 GitHub 資源。
+這個 repository 以 public preview 形式公開，並提供一個不需要登入的 hosted demo，方便收集 issue、task-session feedback 與後續貢獻。產品資料仍只留在目前瀏覽器 session：沒有登入、雲端資料庫、外部 provider 或自動修改 GitHub 資源。
+
+Hosted demo 目前由 GitHub Pages workflow 部署；Vercel 只作為本機部署排錯時的參考，不是作品集 canonical URL。
 
 如果你要回報問題，請提供最小可重現步驟；不要貼入 private customer data、API key、token 或原始敏感 evidence。
 
@@ -83,7 +88,7 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 1. ≥3 人主動要求帶入自己的 evidence pack，才評估 OpenAI、Anthropic 或 local model adapter。
 2. ≥3 個外部工作流需要 portable schema，才評估 JSON import/export。
 3. provider、source provenance 與 approval contract 穩定後，才評估 read-only GitHub/MCP adapter。
-4. usability gate 通過且取得明確授權後，才考慮公開 deploy；目前保持 local pilot。
+4. usability gate 通過且取得明確授權後，才考慮加入 provider、登入或外部 mutation；hosted demo 本身不代表真實 adoption 或 production readiness。
 
 ## License
 

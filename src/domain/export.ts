@@ -56,7 +56,7 @@ export function toMarkdown(memo: DecisionMemo): string {
 
   return `# Decision brief
 
-> Demo engine · 不需要 API key；這份結果只示範工作流，不代表外部模型品質。
+> 固定規則示範 · 不需要 API key；這份結果只示範工作流，不代表外部模型品質。
 
 ## Decision
 
