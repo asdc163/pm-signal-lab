@@ -1861,6 +1861,11 @@ textarea::placeholder {
   border-top: 1px solid #cfe0dc;
 }
 
+.feedback-output:focus {
+  outline: 3px solid rgba(47, 105, 113, 0.28);
+  outline-offset: 4px;
+}
+
 .feedback-output-heading {
   display: flex;
   align-items: flex-start;

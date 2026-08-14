@@ -20,7 +20,17 @@ This kit is for a real PM, founder, product designer, or product engineer trying
 7. On the `帶走` page, open `整理一次試用`, fill the field note from your own experience, confirm the privacy checkbox, generate the Markdown, and read it once.
 8. If you want to share it, copy the field note, open the public feedback issue, and submit it manually after removing anything sensitive.
 
-Please do the task without a walkthrough from the maintainer. Note where you hesitate, what you expect to happen, and what you would change.
+Please do the task without a walkthrough from the maintainer. Note one concrete moment where you hesitate, what you expected to happen, and what you would change. A short report about what you actually did is more useful than a general opinion.
+
+## Keyboard and assistive-technology observation
+
+If keyboard access matters to your work, repeat the core path once without a mouse:
+
+1. Start from a fresh page and use `Tab`, `Shift+Tab`, `Enter`, and `Space` to reach the sample, source, workflow, claim, editor, and export controls.
+2. Trigger the empty claim-edit error, then recover with a valid sentence. Note where focus goes and whether the error tells you what to do next.
+3. If you use a screen reader or other assistive technology, record the browser／technology and what was actually announced for the current step, source, limitation, error, and field note.
+
+The repository currently has owner-run keyboard and semantic fallback evidence, but no formal Chrome Extension or screen-reader sign-off. Please report your observed environment rather than inferring a pass from the visual layout.
 
 ## Feedback questions
 
@@ -48,7 +58,7 @@ The product can prepare these fields locally. When opening the feedback issue, r
 
 The generated field note includes a boundary statement: one self-reported session is not general usability, retention, model quality, adoption, or GitHub growth evidence.
 
-Do not include raw customer evidence in a public issue. A maintainer may ask for a private follow-up when the report needs more context.
+Do not include raw customer evidence in a public issue. A maintainer may ask for a private follow-up when the report needs more context. Before submitting, remove names, ticket IDs, API keys, tokens, confidential roadmap details, and anything copied from a real customer record.
 
 ## What this proves
 

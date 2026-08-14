@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.9 — 2026-08-15
+
+- 補上 PM 工作紙的 main／workflow／status／feedback landmark 與 live semantics；field note 產生後會把焦點帶到「先檢查，再手動送出」的結果區，不假裝是模型驗證。
+- 將公開試用 issue 收斂成五分鐘、具體 hesitation／trust／recovery 觀察與 keyboard／assistive-technology environment 回報；star 是可選行動，具體卡點優先。
+- 修正手機在 `整理一次試用` 開啟後被固定操作列覆蓋表單欄位的問題：回報表單開啟時暫時隱藏 mobile action，保留 local-only 與手動 GitHub handoff。
+- 本輪 owner-run keyboard／390px browser fallback、空白錯誤恢復、privacy block、field note focus 與 static gates 已重跑；Chrome Extension、螢幕閱讀器、真人 PM session、adoption 與 GitHub stars 仍未驗證。
+
 ## 0.1.8 — 2026-08-15
 
 - 將空白初次使用與已載入工作區分成兩種密度：first-run 保留 editorial cover；有 evidence pack 後收斂 masthead，讓 PM 更早看到來源與判斷工作。

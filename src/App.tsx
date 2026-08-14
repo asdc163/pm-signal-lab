@@ -196,6 +196,12 @@ function App() {
     if (claimEditError) claimEditRef.current?.focus();
   }, [claimEditError]);
 
+  useEffect(() => {
+    if (feedbackMarkdown) {
+      requestAnimationFrame(() => document.getElementById("feedback-output")?.focus());
+    }
+  }, [feedbackMarkdown]);
+
   const showNotice = (tone: NoticeTone, message: string) => {
     setNotice({ tone, message });
   };
@@ -588,11 +594,11 @@ function App() {
           <div className="topbar-status"><span>只在本頁處理</span></div>
         </header>
 
-        <div id="mobile-workflow" className="mobile-stepper" aria-label="工作流程">
+        <div id="mobile-workflow" className="mobile-stepper" role="navigation" aria-label="工作流程">
           <WorkflowStepper currentStep={currentStep} onSelectStep={selectStep} mobile />
         </div>
 
-        <main id="main-content" className="workspace" tabIndex={-1}>
+        <main id="main-content" className="workspace" tabIndex={-1} aria-label="PM Signal Lab 工作區" aria-busy={isLoading}>
           <section className={`workbench${pack ? " is-loaded" : ""}`} aria-labelledby="page-title">
             <div className="hero-block">
               <div>
@@ -609,7 +615,7 @@ function App() {
                   <span className="route-node"><b>03</b>驗證</span>
                 </div>
               </div>
-              <div className="hero-status" aria-label="目前工作紙狀態">
+              <div className="hero-status" aria-label="目前工作紙狀態" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
                   <span className="section-eyebrow">目前工作</span>
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
@@ -621,7 +627,7 @@ function App() {
             </div>
 
             {notice && (
-              <div className={`notice notice-${notice.tone}`} role={notice.tone === "error" ? "alert" : "status"}>
+              <div className={`notice notice-${notice.tone}`} role={notice.tone === "error" ? "alert" : "status"} aria-atomic="true">
                 <NoticeIcon tone={notice.tone} />
                 <span>{notice.message}</span>
                 <button className="notice-close" type="button" onClick={() => setNotice(undefined)} aria-label="關閉提示">
@@ -729,12 +735,14 @@ function App() {
           />
         </main>
 
-        <div className={`mobile-action-bar ${!pack ? "is-empty" : ""}`}>
-          <span>{WORKFLOW.find((item) => item.id === currentStep)?.description}</span>
-          <button className="button button-primary" type="button" onClick={nextAction.action} disabled={isLoading}>
-            {nextAction.label}<ArrowRight size={16} />
-          </button>
-        </div>
+        {!isFeedbackOpen && (
+          <div className={`mobile-action-bar ${!pack ? "is-empty" : ""}`} role="region" aria-label="目前工作操作">
+            <span>{WORKFLOW.find((item) => item.id === currentStep)?.description}</span>
+            <button className="button button-primary" type="button" onClick={nextAction.action} disabled={isLoading}>
+              {nextAction.label}<ArrowRight size={16} />
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );
@@ -810,7 +818,7 @@ function CollectView({
   onToggleEvidence: (id: string) => void;
 }) {
   if (isLoading) {
-    return <section className="state-panel loading-state" aria-live="polite"><Activity size={22} className="spin" /><div><h2>正在整理範例資料</h2><p>保留工作區邊界，載入完成後你仍可逐筆回看來源。</p></div></section>;
+    return <section className="state-panel loading-state" aria-live="polite" aria-busy="true"><Activity size={22} className="spin" /><div><h2>正在整理範例資料</h2><p>保留工作區邊界，載入完成後你仍可逐筆回看來源。</p></div></section>;
   }
 
   return (
@@ -1126,9 +1134,9 @@ function SessionFeedback({
             <label className="feedback-control"><span>回頭或出錯後發生什麼</span><textarea value={draft.recovery} onChange={(event) => onChange("recovery", event.target.value)} rows={3} placeholder="沒有遇到就寫沒有。" /></label>
             <label className="feedback-control feedback-control-wide"><span>一個會讓你再試一次的改動</span><textarea value={draft.oneChange} onChange={(event) => onChange("oneChange", event.target.value)} rows={2} placeholder="只寫一個最重要的改動。" /></label>
           </div>
-          <label className="feedback-privacy"><input type="checkbox" checked={draft.privacyConfirmed} onChange={(event) => onChange("privacyConfirmed", event.target.checked)} /><span>我確認這份回報不含客戶姓名、私密工單、API key、token 或機密 roadmap。</span></label>
+          <label className="feedback-privacy"><input type="checkbox" aria-label="確認試用回報不含私密資料" checked={draft.privacyConfirmed} onChange={(event) => onChange("privacyConfirmed", event.target.checked)} /><span>我確認這份回報不含客戶姓名、私密工單、API key、token 或機密 roadmap。</span></label>
           <div className="feedback-footer"><span><ShieldCheck size={14} />空白欄位會明確標成 Not provided。</span><div><button className="button button-secondary" type="button" onClick={onClose}>取消</button><button className="button button-primary" type="submit"><ClipboardList size={16} />產生回報內容</button></div></div>
-          {markdown && <div className="feedback-output"><div className="feedback-output-heading"><div><span className="section-eyebrow">回報內容／送出前先看一遍</span><strong>這是一份 field note，不是驗證結果。</strong></div><span className="status-badge status-supported"><BadgeCheck size={14} />已整理</span></div><textarea value={markdown} readOnly rows={12} aria-label="試用回報 Markdown 內容" /><div className="feedback-output-actions"><button className="button button-primary" type="button" onClick={onCopy}><FileText size={16} />複製回報內容</button><a className="button button-secondary" href={feedbackUrl} target="_blank" rel="noreferrer">開啟 GitHub 回報頁<Link2 size={15} /></a></div><p>GitHub 只會開新頁；請你自己檢查內容，再決定是否按下送出。</p></div>}
+          {markdown && <div id="feedback-output" className="feedback-output" role="region" aria-labelledby="feedback-output-title" tabIndex={-1}><div className="feedback-output-heading"><div><span className="section-eyebrow">回報內容／送出前先看一遍</span><strong id="feedback-output-title">這是一份 field note，不是驗證結果。</strong></div><span className="status-badge status-supported"><BadgeCheck size={14} />已整理</span></div><textarea value={markdown} readOnly rows={12} aria-label="試用回報 Markdown 內容" /><div className="feedback-output-actions"><button className="button button-primary" type="button" onClick={onCopy}><FileText size={16} />複製回報內容</button><a className="button button-secondary" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="開啟 GitHub 回報頁（新分頁，手動檢查後送出）">開啟 GitHub 回報頁<Link2 size={15} aria-hidden="true" /></a></div><p>GitHub 只會開新頁；請你自己檢查內容，再決定是否按下送出。</p></div>}
         </form>
       )}
     </section>
@@ -1139,7 +1147,7 @@ function MemoSection({ title, children }: { title: string; children: React.React
 
 function DecisionContext({ pack, evidenceCount, reviewedCount, supportedCount, currentStep, nextAction, events, onCopyReceipt, feedbackUrl }: { pack: EvidencePack | null; evidenceCount: number; reviewedCount: number; supportedCount: number; currentStep: WorkflowStep; nextAction: { label: string; action: () => void }; events: ProductEvent[]; onCopyReceipt: () => void; feedbackUrl: string }) {
   const contextRecord = `這張紙上有 ${evidenceCount} 筆訊號、${reviewedCount} 個已處理${supportedCount ? `、${supportedCount} 個有來源支持` : ""}。`;
-  return <aside className="decision-context" aria-label="這張工作紙的註記"><div className="context-heading"><div><p className="section-eyebrow">邊欄註記</p><h2>這張紙怎麼走</h2></div><span className="context-boundary">留在本頁</span></div><div className="context-project"><span className="card-eyebrow">這張紙</span><strong>{pack?.title ?? "還沒有訊號"}</strong><span>{pack ? SESSION_BOUNDARY_SHORT : "先留一段可回看的原話"}</span></div><div className="context-list"><ContextItem label="要回答" value={pack ? "找出一個可驗證的 PM 下一步" : "哪一句原話值得再查"} /><ContextItem label="要帶走" value={pack ? "一份能回到來源的 brief" : "一個最小驗證"} /><ContextItem label="現在知道" value={pack ? "來源可回看，不代表模型品質" : "原話會跟著判斷"} /></div>{pack && <p className="context-record"><span className="card-eyebrow">工作記錄</span>{contextRecord}</p>}<div className="context-next"><span className="card-eyebrow">下一個動作</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">先從中央的原話入口開始。</span>}</div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">這次試用</span><span>{events.length ? "有操作紀錄" : "尚未操作"}</span></div>{events.length === 0 ? <p>操作紀錄只留在這次試用，不含原始訊號內容。</p> : <><p>最近一次：{EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>複製試用摘要</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer">回報這次試用<ArrowRight size={13} /></a></div></>}</div></aside>;
+  return <aside className="decision-context" aria-label="這張工作紙的註記"><div className="context-heading"><div><p className="section-eyebrow">邊欄註記</p><h2>這張紙怎麼走</h2></div><span className="context-boundary">留在本頁</span></div><div className="context-project"><span className="card-eyebrow">這張紙</span><strong>{pack?.title ?? "還沒有訊號"}</strong><span>{pack ? SESSION_BOUNDARY_SHORT : "先留一段可回看的原話"}</span></div><div className="context-list"><ContextItem label="要回答" value={pack ? "找出一個可驗證的 PM 下一步" : "哪一句原話值得再查"} /><ContextItem label="要帶走" value={pack ? "一份能回到來源的 brief" : "一個最小驗證"} /><ContextItem label="現在知道" value={pack ? "來源可回看，不代表模型品質" : "原話會跟著判斷"} /></div>{pack && <p className="context-record"><span className="card-eyebrow">工作記錄</span>{contextRecord}</p>}<div className="context-next"><span className="card-eyebrow">下一個動作</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">先從中央的原話入口開始。</span>}</div><div className="context-trace"><div className="trace-header"><span className="card-eyebrow">這次試用</span><span>{events.length ? "有操作紀錄" : "尚未操作"}</span></div>{events.length === 0 ? <p>操作紀錄只留在這次試用，不含原始訊號內容。</p> : <><p>最近一次：{EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>複製試用摘要</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="回報這次試用（新分頁，手動檢查後送出）">回報這次試用<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div></aside>;
 }
 
 function ContextItem({ label, value }: { label: string; value: string }) { return <div className="context-item"><span className="context-item-rule" aria-hidden="true" /><div><span>{label}</span><strong>{value}</strong></div></div>; }

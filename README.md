@@ -102,6 +102,10 @@ Hosted demo 目前由 GitHub Pages workflow 部署；Vercel 只作為本機部�
 
 如果你是 PM、founder、designer 或 product engineer，可以用 [`五分鐘試用腳本`](./docs/operations/pm-session-kit.md) 自己走完一次，不需要 maintainer 逐步帶操作。完成後，使用帶走頁的 field note 整理卡點、信任或不信任的原因，以及一個你最希望先改的地方；檢查過後，再貼到 [公開試用 issue #4](https://github.com/asdc163/pm-signal-lab/issues/4)。
 
+如果你平常以鍵盤或輔助技術工作，也歡迎把同一條路徑再走一次；請在回報中寫明實際瀏覽器／技術與你真的聽到或看到的狀態。這個邀請是為了收集可修正的 session evidence，不是請你替產品背書；star 完全可選，具體卡點更有用。
+
+公開 issue 的可審查文字版本放在 [`public-pilot-issue-body.md`](./docs/operations/public-pilot-issue-body.md)，方便每次更新 invite 時對照實際邊界。
+
 這個回饋入口只需要任務觀察，不需要貼入 private customer data、API key、token 或原始敏感 evidence；若內容可能含有機密，請先不要公開提交。
 
 ## 下一輪 promotion triggers
