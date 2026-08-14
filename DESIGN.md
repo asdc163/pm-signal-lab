@@ -40,7 +40,7 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 
 ## Selected visual concept
 
-- Desktop first-run reference: `docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-1440.png`；第二輪 shell contract 在 `docs/product/pm-signal-lab/22-research-notebook-shell-reframe-contract-2026-08-15.md`。
+- Desktop first-run reference: `docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-1440.png`；本輪 density evidence 另見 `docs/product/pm-signal-lab/assets/qa/density-transition-first-run-1440.png`、`density-transition-loaded-1440.png` 與 `density-transition-loaded-390.png`；第二輪 shell contract 在 `docs/product/pm-signal-lab/22-research-notebook-shell-reframe-contract-2026-08-15.md`。
 - The concept is a direction anchor, not a pixel-perfect generated asset: keep the folio/workpaper/margin-note relationship, but implement exact product states, semantic controls, responsive behavior, and source trust details in React/CSS。
 - Deliberate correction during the second polish: reject the dark SaaS shell, icon-first context rows, pill-like status wall and generic hero language; the first-run page shows an actual source preview and one recoverable task。
 
@@ -139,6 +139,7 @@ The UI must show source identity, timestamp/freshness, limitations, manual edit,
 - Feedback field note must be checked for empty-field honesty, privacy confirmation, editable output, manual-submit boundary, and mobile form length.
 - The second polish pass also checks that the surface reads as a research notebook rather than an AI dashboard: no dark SaaS shell, no icon-first context wall, no generic hero promise, no decorative hamburger on desktop, no generic event names, and no status pill used where a divider or text label is enough.
 - The current shell reframe is recorded in [`22-research-notebook-shell-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/22-research-notebook-shell-reframe-contract-2026-08-15.md); it is a visual/product hypothesis, not a claim of complete usability or adoption.
+- The loaded-state density decision and fresh hosted evidence are recorded in [`24-workbench-density-transition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/24-workbench-density-transition-contract-2026-08-15.md) and [`25-workbench-density-transition-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/25-workbench-density-transition-release-audit-2026-08-15.md); they are not claims of complete usability, adoption, or star growth.
 - The current visual reframe is recorded in [`15-visual-product-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/15-visual-product-reframe-contract-2026-08-15.md); it is a decision-worksheet direction, not a claim of complete usability or adoption.
 - Fresh QA captures: [`first-run 1440`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-1440.png)、[`first-run 768`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-768.png)、[`first-run 390`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-390.png)、[`verify 1440`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-verify-1440.png)、[`verify 390`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-verify-390.png)。
 - Document any exception to this system in the feature UX spec and release evidence.
