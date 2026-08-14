@@ -1,6 +1,6 @@
 # PM Signal Lab：Editorial Field Note Release Audit — 2026-08-15
 
-狀態：local verified；公開 Pages release pending hosted smoke
+狀態：public Pages hosted smoke verified；更廣的 release／adoption 邊界仍未完成
 產品：PM Signal Lab public preview
 行為 commit：`eea0156`（`Reframe PM worksheet as editorial field note`）
 比較基線：`0314048`（`Clarify release audit branch evidence`）
@@ -50,15 +50,29 @@
 
 視覺 review 的結論是「符合本輪選定的 editorial field note composition」；這不是可泛化的 usability、conversion 或 adoption 結論。
 
+### Hosted GitHub Pages
+
+本輪由 `main` push 後讀回 GitHub Actions 與 canonical URL：
+
+- Push：`0314048..9b61a92` 到 `origin/main`。
+- CI：[`31837224235`](https://github.com/asdc163/pm-signal-lab/actions/runs/31837224235)；`verify` 的 test、typecheck、build 全部成功。
+- Pages deploy：[`31837224137`](https://github.com/asdc163/pm-signal-lab/actions/runs/31837224137)；artifact upload 與 GitHub Pages deploy 成功。
+- Canonical URL：<https://asdc163.github.io/pm-signal-lab/>；fresh HTTP GET `200`。
+- HTML 讀回的 production assets：`assets/index-BHzuwcbd.js` 與 `assets/index-DIbfQaU9.css`；兩個 asset fresh GET 都是 `200`。
+- Fresh hosted browser：desktop/mobile response 都是 `200`；首屏 `h1`、`0 progressbar`、`0 context-counts`、`只在本頁處理`、desktop `1440` no-overflow、mobile `390` no-overflow 均符合；hosted editor 的空值錯誤與 valid save 也重跑通過；desktop/mobile console/page errors 都是空陣列。
+
 ## Release boundary
 
 ### 待完成／未驗證
 
-- 本檔建立時，尚未完成本輪 commit 的 GitHub Actions／Pages hosted smoke；完成後要補上 exact workflow run、Pages 狀態、canonical HTTP、asset hash 與 fresh hosted browser path。
 - Chrome Extension control surface 目前 unavailable；Chrome browser、螢幕閱讀器、完整 assistive technology route 標記為 `未驗證`／`blocked`，不能用 Playwright local fallback 代替。
 - 尚未有非 owner PM session、5 位目標使用者 task-session evidence、真人「不像 AI」比較結果、adoption、retention、conversion 或外部 issue trend。
 - 尚未驗證 model quality；v0 沒有 external AI provider，也沒有自動修改 GitHub、MCP action、登入、資料庫或 telemetry。
 - GitHub repo 的 stars、forks、traffic 與 10,000 stars 目標仍是外部結果，不由本輪 UI QA 證明。
+
+### Current public baseline
+
+`gh api repos/asdc163/pm-signal-lab` 在本輪讀回：`visibility=public`、`default_branch=main`、`homepage=https://asdc163.github.io/pm-signal-lab/`、`stargazers_count=0`、`forks_count=0`、`open_issues_count=4`。這是 current snapshot，不是 growth forecast。
 
 ### Rollback
 
