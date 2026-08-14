@@ -4,7 +4,8 @@
 產品：PM Signal Lab<br>
 公開 repo：https://github.com/asdc163/pm-signal-lab<br>
 canonical demo：https://asdc163.github.io/pm-signal-lab/<br>
-本輪 commit：[`e3373c20ae4ab1c0305b78da040b4047b473b706`](https://github.com/asdc163/pm-signal-lab/commit/e3373c20ae4ab1c0305b78da040b4047b473b706)<br>
+本輪 product commit：[`e3373c20ae4ab1c0305b78da040b4047b473b706`](https://github.com/asdc163/pm-signal-lab/commit/e3373c20ae4ab1c0305b78da040b4047b473b706)<br>
+hosted verification head：[`7ac91ae72f82ba918eca4def631df2740e817156`](https://github.com/asdc163/pm-signal-lab/commit/7ac91ae72f82ba918eca4def631df2740e817156)<br>
 基準 public head：[`eda7f69f13ea122339d46b276754a3181d07541b`](https://github.com/asdc163/pm-signal-lab/commit/eda7f69f13ea122339d46b276754a3181d07541b)
 
 ## 本輪決策
@@ -63,18 +64,18 @@ canonical demo：https://asdc163.github.io/pm-signal-lab/<br>
 
 ## Hosted GitHub evidence
 
-- GitHub Actions [CI run `31849156344`](https://github.com/asdc163/pm-signal-lab/actions/runs/31849156344)：exact SHA `e3373c20ae4ab1c0305b78da040b4047b473b706`，test、typecheck、build jobs success。
-- GitHub Actions [Pages deploy run `31849156352`](https://github.com/asdc163/pm-signal-lab/actions/runs/31849156352)：exact SHA 相同，build、artifact upload、Pages deploy success。GitHub 額外顯示 Node.js 20 action deprecation annotation；它沒有造成 job failure，本輪沒有處理 action upgrade。
+- GitHub Actions [CI run `31849451778`](https://github.com/asdc163/pm-signal-lab/actions/runs/31849451778)：exact final SHA `7ac91ae72f82ba918eca4def631df2740e817156`，test、typecheck、build jobs success。
+- GitHub Actions [Pages deploy run `31849451792`](https://github.com/asdc163/pm-signal-lab/actions/runs/31849451792)：exact final SHA 相同，build、artifact upload、Pages deploy success。GitHub 額外顯示 Node.js 20 action deprecation annotation；它沒有造成 job failure，本輪沒有處理 action upgrade。
 - `curl -L https://asdc163.github.io/pm-signal-lab/`：HTTP `200`。
-- `gh api repos/asdc163/pm-signal-lab/commits/main`：回讀 SHA `e3373c20ae4ab1c0305b78da040b4047b473b706`；local `HEAD` 與 `git ls-remote origin refs/heads/main` 相同。
+- `gh api repos/asdc163/pm-signal-lab/commits/main`：在 hosted verification 時回讀 SHA `7ac91ae72f82ba918eca4def631df2740e817156`；local `HEAD` 與 `git ls-remote origin refs/heads/main` 在該 gate 相同。後續只會有 documentation-only audit follow-up，不改動 product bundle。
 
-fresh hosted browser session：`pm-signal-hosted-source-ledger-20260815`，Playwright CLI bundled browser fallback，不是 Codex Chrome Extension、既有 Chrome profile 或 screen-reader sign-off。
+fresh hosted browser session：`pm-signal-hosted-source-ledger-final-20260815`，Playwright CLI bundled browser fallback，不是 Codex Chrome Extension、既有 Chrome profile 或 screen-reader sign-off。
 
 - `https://asdc163.github.io/pm-signal-lab/` first-run → load sample：讀到 `來源帳頁／逐筆回看`、4 筆 evidence、來源 `01`–`04`、`原話`、source identity 與日期。
-- `1440×900` hosted capture `.playwright-cli/source-ledger-hosted-loaded-1440.png` 已人工檢視；來源編號成為左側閱讀欄，沒有回到 generic AI dashboard 的 gradient／orb／status wall。
+- `1440×900` hosted capture `.playwright-cli/source-ledger-hosted-final-1440.png` 已人工檢視；來源編號成為左側閱讀欄，沒有回到 generic AI dashboard 的 gradient／orb／status wall。
 - 第一筆展開：讀到 `原文摘錄` 與 `原始內容保留於目前試用 · 來源 01`；收起後控制項 `aria-expanded` 回復。
 - verify mapping：第一個判斷展開讀到 `來源 01`／`來源 02`，第二個判斷展開讀到 `來源 03`／`來源 04`；來源 mapping 與 local evidence 一致。
-- `390×844` hosted source ledger capture `.playwright-cli/source-ledger-hosted-section-390.png` 已人工檢視；展開來源仍可讀，`scrollWidth === 390`、`overflow: false`。
+- `390×844` hosted source ledger capture `.playwright-cli/source-ledger-hosted-final-390.png` 已人工檢視；展開來源仍可讀，`scrollWidth === 390`、`overflow: false`。
 - hosted body scan 不含 `model quality`、`模型品質`、`AI 會替你決定`、`信心分數`、`正在思考` 或可見 `evidence-*`／`claim-*` internal id。
 - hosted `console error`：Total messages `0`，Errors `0`、Warnings `0`。
 
@@ -82,9 +83,9 @@ Hosted smoke 證明的是本輪 exact SHA 已成功建置、部署，canonical U
 
 ## Public snapshot and release decision
 
-2026-08-15 push 後 GitHub API readback：repo `asdc163/pm-signal-lab` 為 `0 stargazers`、`0 forks`、`0 watchers`；公開 issue list 有 1 個 open issue：[#4 Public pilot: looking for 5 PM session testers](https://github.com/asdc163/pm-signal-lab/issues/4)，`0 comments`；另有 3 個 open Dependabot PR（#1–#3）。`open_issues_count: 4` 包含這些 open PR，不把它寫成 4 個真人 issue。
+2026-08-15 hosted verification 時的 GitHub API readback：repo `asdc163/pm-signal-lab` 為 `0 stargazers`、`0 forks`、`0 watchers`；公開 issue list 有 1 個 open issue：[#4 Public pilot: looking for 5 PM session testers](https://github.com/asdc163/pm-signal-lab/issues/4)，`0 comments`；另有 3 個 open Dependabot PR（#1–#3）。`open_issues_count: 4` 包含這些 open PR，不把它寫成 4 個真人 issue。
 
-本輪 release decision：維持 public preview，因 exact-SHA CI／Pages／canonical hosted smoke 已通過；不把這次 deploy 寫成「完全沒問題」、「已爆紅」、adoption success 或 star-growth success。若後續 hosted／真人 evidence 顯示退化，可回到 [`eda7f69f13ea122339d46b276754a3181d07541b`](https://github.com/asdc163/pm-signal-lab/commit/eda7f69f13ea122339d46b276754a3181d07541b)。本輪沒有 migration、dependency、provider、secret 或 database write。
+本輪 release decision：維持 public preview，因 exact-SHA CI／Pages／canonical hosted smoke 已通過；不把這次 deploy 寫成「完全沒問題」、「已爆紅」、adoption success 或 star-growth success。這次 audit follow-up 只整理 hosted evidence，不改動 product bundle。若後續 hosted／真人 evidence 顯示退化，可回到 [`eda7f69f13ea122339d46b276754a3181d07541b`](https://github.com/asdc163/pm-signal-lab/commit/eda7f69f13ea122339d46b276754a3181d07541b)。本輪沒有 migration、dependency、provider、secret 或 database write。
 
 ## Not covered
 
