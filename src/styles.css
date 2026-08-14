@@ -410,15 +410,15 @@ p {
 
 .hero-action-stack {
   display: grid;
-  min-width: 175px;
+  min-width: 210px;
   gap: 10px;
   justify-items: stretch;
 }
 
 .progress-label {
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 12px;
   text-align: right;
 }
 
@@ -721,7 +721,6 @@ p {
 
 .count-badge,
 .micro-status,
-.engine-pill,
 .human-label,
 .reviewed-label,
 .just-added {
@@ -763,13 +762,11 @@ p {
 }
 
 .micro-status,
-.engine-pill,
 .human-label {
   color: var(--trust);
   font-size: 12px;
 }
 
-.engine-pill,
 .human-label {
   padding: 7px 0 7px 10px;
   border: 0;
@@ -1571,7 +1568,7 @@ textarea::placeholder {
   margin-top: 10px;
 }
 
-.engine-note {
+.boundary-note {
   display: flex;
   align-items: flex-start;
   gap: 8px;
@@ -1583,7 +1580,7 @@ textarea::placeholder {
   line-height: 1.55;
 }
 
-.engine-note strong {
+.boundary-note strong {
   color: var(--ink);
 }
 
@@ -1612,7 +1609,7 @@ textarea::placeholder {
   letter-spacing: -0.03em;
 }
 
-.context-live {
+.context-boundary {
   display: inline-flex;
   align-items: center;
   gap: 7px;
@@ -1732,6 +1729,14 @@ textarea::placeholder {
   margin: 8px 0 14px;
   color: var(--muted);
   font-size: 11px;
+}
+
+.context-next-static {
+  display: block;
+  color: var(--accent-dark);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.5;
 }
 
 .context-trace {
@@ -1938,7 +1943,7 @@ textarea::placeholder {
     padding-bottom: 12px;
   }
 
-  .engine-note {
+  .boundary-note {
     margin-bottom: 25px;
   }
 }
@@ -2014,10 +2019,6 @@ textarea::placeholder {
   }
 
   .hero-action-stack {
-    width: 100%;
-  }
-
-  .hero-action-stack .button {
     width: 100%;
   }
 
@@ -2245,7 +2246,7 @@ textarea::placeholder {
     padding-bottom: 18px;
   }
 
-  .engine-note {
+  .boundary-note {
     margin-top: 26px;
     font-size: 10px;
   }
@@ -2280,6 +2281,6 @@ textarea::placeholder {
 
   .mobile-action-bar .button {
     flex: 0 0 auto;
-    min-height: 42px;
+    min-height: 44px;
   }
 }

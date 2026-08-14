@@ -26,7 +26,7 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 
 ## Composition Brief
 
-- First read: `先看來源，再決定下一步`、current step、sample/workspace status。
+- First read: `先看來源，再決定下一步`、current step、sample/workspace status；首屏只保留中央試用任務的主要 CTA。
 - Second read: evidence/claim rows 與 source mapping。
 - Primary action: 依 step 的單一 CTA。
 - Content relationship: flow + evidence + decision，使用 stepper、row、split pane、definition list，少用 card。
@@ -34,6 +34,7 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 - Alignment spine: workflow rail → central workbench → decision context rail。
 - Layout archetype: `sidebar + workbench split-pane + decision rail`。
 - Responsive reflow: rail → top stepper；right context → below main; CTA → sticky bottom action。
+- First-run gesture: hero 只報告範例狀態，中央 field note 承擔開始試用；右側空狀態提供下一步說明，不重複一顆按鈕。
 
 ## Selected visual concept
 
@@ -116,6 +117,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Rejected: generic purple/blue gradient hero, abstract orb/blob, glass background, bento feature wall, dark tiny-text default, copied README/brand assets, unverified “production-ready” or “viral” claims.
 - Low-risk alternative for trend decoration: actual evidence rows, source links, a deterministic sample output, status spine, and annotated decision memo.
 - Copy treatment: Chinese first, sentence-case labels, and literal verbs; English remains only where it helps a PM move an artifact into an existing workflow.
+- No-AI feel pass: 不用 `engine`、`live` 或抽象能力標籤做產品主角；fixture source 以訪談紀錄、客服信箱、產品觀察與競品拆解等可回看的物件命名。
 
 ## AI-native states and trust
 
