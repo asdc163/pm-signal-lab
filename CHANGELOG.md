@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.11 — 2026-08-15
+
+- 將右側註記、頁底 boundary、decision brief、session receipt 與 session feedback 的 defensive「模型品質」語氣改成來源／判斷／限制／下一步與 human-owned decision 語言。
+- 保留 local-first、privacy、外部採用未驗證與手動確認邊界；本輪是 copy／trust surface polish，不代表完整 AI UX、螢幕閱讀器、真人 adoption 或 GitHub stars。
+
 ## 0.1.10 — 2026-08-15
 
 - 將載入、採用、匯出與 privacy／validation notice 從整塊彩色提示卡收斂成透明 ruled annotation，保留 icon、語意色左線、文字、role／live semantics 與關閉動作。

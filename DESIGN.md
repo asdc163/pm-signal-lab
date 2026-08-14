@@ -98,6 +98,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Status marker: `有來源支持` / `需要你確認` / `缺少證據` with text, icon when useful, and underline/divider rather than a filled pill.
 - Alert/toast: success / warning / error / recovery action; `role=status` or `role=alert` by severity.
 - Notice：工作紙上的狀態回饋使用透明底、上下 ruled divider、icon 與 tone-specific 左線；不使用整塊彩色提示卡，避免把 UI state 做成 dashboard status wall。
+- Human-owned trust copy：可見 boundary 以來源、判斷、限制、下一步與「由你確認」為主詞；不把「模型品質」當成畫面上的自我辯護標語。local-only、privacy、外部採用未驗證等限制仍要保留。
 - Textarea/form: visible label, helper, `aria-describedby`, field-level error, preserved input on error；claim editor inline 呈現在 source／limitation 之後，不使用 native prompt。
 - Decision preview: definition list + source references + not-covered block + copy/download actions.
 - Session feedback field note: collapsed invitation → labelled local form → privacy gate → editable Markdown preview → manual GitHub handoff；不使用分數、AI insight 或自動提交狀態。
@@ -124,12 +125,13 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Copy treatment: Chinese first, sentence-case labels, and literal verbs; English remains only where it helps a PM move an artifact into an existing workflow.
 - No-AI feel pass: 不用 `engine`、`live` 或抽象能力標籤做產品主角；fixture source 以訪談紀錄、客服信箱、產品觀察與競品拆解等可回看的物件命名。
 - Notice pass：載入、採用、匯出與 privacy／validation feedback 都回到 ruled annotation 語法；狀態靠 literal copy、icon、語意色線與 recovery action 傳達，不靠彩色卡片或 fake activity。
+- Copy pass：不重複「不代表模型品質」這類 defensive disclaimer；改用「這張紙只保留來源、判斷與下一步；最後由你決定是否採用」等可行動、可回看的語言，並保留真正的 evidence boundary。
 
 ## AI-native states and trust
 
 `first read → source review → human decision → experiment brief → memo preview → export completed → human feedback field note → manual handoff → recovery`。
 
-The UI must show source identity, timestamp/freshness, limitations, manual edit, approval boundary, and fallback. Provider/engine language is kept out of the main surface because v0 is deterministic and local-first; no external side effect is present.
+The UI must show source identity, timestamp/freshness, limitations, manual edit, approval boundary, and fallback. Provider/engine language is kept out of the main surface because v0 is deterministic and local-first; human-owned decision language stays visible, and no external side effect is present.
 
 ## QA rules
 
@@ -144,5 +146,6 @@ The UI must show source identity, timestamp/freshness, limitations, manual edit,
 - The loaded-state density decision and fresh hosted evidence are recorded in [`24-workbench-density-transition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/24-workbench-density-transition-contract-2026-08-15.md) and [`25-workbench-density-transition-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/25-workbench-density-transition-release-audit-2026-08-15.md); they are not claims of complete usability, adoption, or star growth.
 - The current visual reframe is recorded in [`15-visual-product-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/15-visual-product-reframe-contract-2026-08-15.md); it is a decision-worksheet direction, not a claim of complete usability or adoption.
 - The notice annotation polish is recorded in [`28-notice-annotation-visual-polish-contract-2026-08-15.md`](./docs/product/pm-signal-lab/28-notice-annotation-visual-polish-contract-2026-08-15.md); its release evidence will name the exact visual and behavioral coverage rather than claim a full accessibility or adoption pass.
+- The human-owned trust copy pass is recorded in [`30-human-owned-trust-copy-contract-2026-08-15.md`](./docs/product/pm-signal-lab/30-human-owned-trust-copy-contract-2026-08-15.md); it changes visible wording only and does not claim complete AI UX, accessibility, adoption, or star growth.
 - Fresh QA captures: [`first-run 1440`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-1440.png)、[`first-run 768`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-768.png)、[`first-run 390`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-390.png)、[`verify 1440`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-verify-1440.png)、[`verify 390`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-verify-390.png)。
 - Document any exception to this system in the feature UX spec and release evidence.

@@ -39,7 +39,7 @@ export function buildDecisionMemo(
       experiment,
       nextAction: "由產品負責人確認最小測試的參與者與執行時間，再開始驗證。",
       notCovered: [
-        "尚未驗證真實模型品質、長期留存或轉換提升。",
+        "尚未驗證真實使用者是否完成這個流程、長期留存或轉換提升。",
         "尚未連接 GitHub、MCP、issue mutation 或外部 telemetry。",
         "這份 memo 是本機預覽輸出，不代表外部使用者採用。",
       ],
@@ -56,7 +56,7 @@ export function toMarkdown(memo: DecisionMemo): string {
 
   return `# Decision brief
 
-> 資料邊界 · 內容只留在目前這個頁面；重新整理會重設，沒有登入或外部傳送。這是一條可回看的工作流，不是模型品質證明。
+> 資料邊界 · 內容只留在目前這個頁面；重新整理會重設，沒有登入或外部傳送。這份 brief 保留來源、判斷與限制，最後由你決定是否採用。
 
 ## Decision
 

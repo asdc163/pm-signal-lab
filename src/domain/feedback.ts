@@ -90,7 +90,7 @@ export function buildSessionFeedbackReport(
       "- I confirm that this report contains no customer names, private tickets, API keys, tokens, or confidential roadmap material.",
       "",
       "## Boundary",
-      "- This is one self-reported session in one environment; it does not prove general usability, retention, model quality, adoption, or GitHub growth.",
+      "- This is one self-reported session in one environment; it does not prove general usability, retention, adoption, or GitHub growth.",
       "- The report was prepared locally; the user must review it and submit it manually.",
       "",
     ].join("\n"),

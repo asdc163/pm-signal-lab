@@ -26,7 +26,7 @@ export function buildSessionReceipt(input: SessionReceiptInput): string {
     ...events,
     "",
     "## Boundary",
-    "- This is a local browser-session record, not a product adoption or model-quality result.",
+    "- 這份紀錄只反映目前頁面的操作，不代表外部使用者已採用。",
     "- Original evidence text is intentionally excluded from this receipt.",
     "- Share only after checking that the receipt contains no private customer information.",
     "",

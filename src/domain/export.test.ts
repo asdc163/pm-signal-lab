@@ -32,6 +32,9 @@ describe("decision memo export", () => {
       expect(markdown).toContain("## Experiment");
       expect(markdown).toContain("## Not covered");
       expect(markdown).toContain("evidence-interview-01");
+      expect(markdown).toContain("最後由你決定是否採用");
+      expect(markdown).not.toContain("模型品質證明");
+      expect(markdown).not.toContain("真實模型品質");
     }
   });
 });

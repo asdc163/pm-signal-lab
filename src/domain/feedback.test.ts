@@ -39,8 +39,8 @@ describe("session feedback field note", () => {
     expect(result.markdown).toContain("Task result: partially completed");
     expect(result.markdown).toContain("Not provided");
     expect(result.markdown).toContain("讓回報更靠近匯出結果");
+    expect(result.markdown).not.toContain("model quality");
     expect(result.markdown).not.toContain("customer evidence");
     expect(result.markdown).not.toContain("session title");
   });
 });
-
