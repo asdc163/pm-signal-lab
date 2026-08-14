@@ -57,7 +57,7 @@ export function buildSessionFeedbackReport(
   if (!draft.privacyConfirmed) {
     return {
       ok: false,
-      error: "請先確認這份回報沒有客戶資料、私密內容、API key 或 token。",
+      error: "Please confirm that this report contains no customer data, private content, API keys, or tokens.",
     };
   }
 

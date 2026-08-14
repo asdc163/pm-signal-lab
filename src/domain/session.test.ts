@@ -21,9 +21,9 @@ describe("session receipt", () => {
     expect(receipt).toContain("Accepted claims: 1");
     expect(receipt).toContain("sample pack loaded");
     expect(receipt).toContain("Original evidence text is intentionally excluded");
-    expect(receipt).toContain("不代表外部使用者已採用");
+    expect(receipt).toContain("does not show external adoption");
     expect(receipt).not.toContain("model-quality");
-    expect(receipt).not.toContain("私密內容");
+    expect(receipt).not.toContain("private content");
   });
 
   it("does not copy a user-provided workspace title and preserves an empty trace", () => {

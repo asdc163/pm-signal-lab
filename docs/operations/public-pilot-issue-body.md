@@ -1,48 +1,48 @@
-## 這次在測什麼
+## What this pilot is testing
 
-PM Signal Lab 是一張 local-first 的產品證據工作紙：把訪談、客服、產品觀察與競品片段留在原文旁，逐筆確認暫定判斷，最後帶走一個最小驗證。
+PM Signal Lab is a local-first product evidence worksheet. It keeps interview, support, product-observation, and competitive-scan lines beside the claims they inform, asks a person to review each claim, and ends with a smallest-test brief.
 
-目前是 public preview。資料只留在目前瀏覽器工作階段；沒有登入、外部模型、API key、telemetry 或 GitHub 自動修改。這次要了解的是工作流、來源回看與信任邊界，不是 AI 品質或 adoption 宣稱。
+This is an `en-US` public preview. Content stays in the current browser session; there is no login, external model, API key, telemetry, GitHub automation, or automatic issue submission. The pilot is about workflow comprehension, source traceability, and trust boundaries. It is not a claim about AI quality or adoption.
 
-## 我在找誰
+## Who we are looking for
 
-5 位做 product discovery、PM、product design、research 或 founder-led product 的人。你不需要準備自己的資料，也不需要先懂這個 repo。
+Five people who work in product discovery, product management, product design, research, or founder-led product. You do not need your own data or prior knowledge of this repository.
 
-## 五分鐘試用
+## Five-minute trial
 
-1. 開啟 [hosted demo](https://asdc163.github.io/pm-signal-lab/)。
-2. 從空白頁按 `載入範例資料`。
-3. 展開一筆 `查看來源`，再按 `開始核對`。
-4. 對一個 claim 按 `採用這個判斷`，也可以把另一個保留為假設。
-5. 到 `安排` 草擬 `最小實驗`，再到 `帶走` 匯出 decision brief。
-6. 如果你願意，再開啟 `整理一次試用`，填寫你真正遇到的卡點；勾選 privacy confirmation 後，產生 field note。
+1. Open the [hosted preview](https://asdc163.github.io/pm-signal-lab/).
+2. From the empty page, select `Load sample data`.
+3. Expand one row with `View source`, then select `Start review`.
+4. Accept one claim. You can keep another as a hypothesis.
+5. Open `Decide`, draft the `Smallest experiment`, then export the decision brief from `Ship`.
+6. If you want to continue, open `Record this session`, write where you hesitated, what you trusted, and one change you would make. Confirm the privacy checkbox before generating the field note.
 
-請不要貼客戶姓名、私人 ticket、API key、token 或機密 roadmap。sample pack 已經足夠完成任務。
+Please do not paste customer names, private tickets, API keys, tokens, or confidential roadmap material. The sample pack is enough to complete the task.
 
-## 如果你用鍵盤或輔助技術
+## If you use a keyboard or assistive technology
 
-請用同一條路徑再走一次，記錄實際環境：
+Repeat the path in your real environment and record what actually happened:
 
-- `Tab`／`Shift+Tab`／`Enter`／`Space` 能不能找到 sample、source、workflow、claim、editor 與 export 控制？
-- claim 編輯留空後，錯誤有沒有說明下一步，焦點有沒有回到可修正的欄位？
-- 如果你使用 screen reader 或其他 assistive technology，請寫下實際聽到的 current step、source、limitation、error 或 field note 狀態。
+- Can `Tab`, `Shift+Tab`, `Enter`, and `Space` reach the sample, source, workflow, claim, editor, and export controls?
+- After submitting a blank claim edit, does the error explain what to do and does focus return to the field that can be fixed?
+- If you use a screen reader or other assistive technology, what did it announce for the current step, source, limitation, error, and field-note state?
 
-目前 repo 有 owner-run keyboard／semantic fallback evidence，但沒有把它寫成 Chrome Extension、VoiceOver、NVDA 或 TalkBack sign-off；你的環境與觀察會比一句「正常」更有用。
+The repository has owner-run keyboard and semantic fallback evidence. It does not have a Chrome Extension, VoiceOver, NVDA, or TalkBack sign-off. Your real environment and observation are more useful than a generic “works for me”.
 
-## 我需要的回饋
+## What to report
 
-- 前五秒，你以為這張工作紙在幫你做什麼？
-- 你是否看得懂哪一句是來源、哪一句只是暫定判斷？
-- 哪一步讓你停頓、誤解、回頭或找不到下一個動作？
-- 來源與 limitation 是否改變了你對 claim 的信任程度？
-- 匯出的 brief 是否適合貼進 issue、PRD 或團隊討論？
-- 你會不會想帶入一組去識別化的 evidence pack？為什麼？
-- 一個什麼改動會讓你願意再試一次？
+- After five seconds, what did you think this worksheet was for?
+- Could you tell which line was the source and which line was only a draft claim?
+- Where did you hesitate, misread something, go back, or look for a missing action?
+- Did the source mapping and limitation change how much you trusted the claim?
+- Could the exported brief fit into an issue, PRD, or team discussion?
+- Would you bring a de-identified evidence pack into this workflow? Why or why not?
+- What one change would make you try it again?
 
-可以用 [session feedback template](https://github.com/asdc163/pm-signal-lab/issues/new?template=pm-session-feedback.md)，或直接用自己的話回覆。請寫 `Tester role`、`Environment`、`Task result`、一個具體 hesitation、trust／recovery 觀察與一個改動。
+Use the [session feedback template](https://github.com/asdc163/pm-signal-lab/issues/new?template=pm-session-feedback.md), or reply in your own words. Include `Tester role`, `Environment`, `Task result`, one concrete hesitation, a trust or recovery observation, and one change.
 
-## 邊界
+## Boundary
 
-一份回覆只代表一個人在一個環境完成一次任務，不代表一般 usability、retention、model quality、adoption 或 GitHub growth。送出前請自己檢查內容；GitHub issue 不會由產品自動建立或送出。
+One reply represents one person completing one task in one environment. It does not prove general usability, retention, model quality, adoption, or GitHub growth. Review the content yourself before submitting; the product does not create or send a GitHub issue automatically.
 
-如果工作流真的對你有用，star 歡迎但完全可選；具體、可重現的回饋比數字更重要。
+If the workflow helps you, a star is welcome but optional. Specific, reproducible feedback is more valuable than a number without context.

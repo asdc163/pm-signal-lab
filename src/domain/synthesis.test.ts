@@ -31,6 +31,6 @@ describe("PM Signal Lab synthesis", () => {
     const brief = draftExperiment(claims, "claim-decision-adoption");
 
     expect(brief.readiness).toBe("needs-validation");
-    expect(brief.primaryMetric).toContain("需要再驗證");
+    expect(brief.primaryMetric).toContain("Needs validation");
   });
 });

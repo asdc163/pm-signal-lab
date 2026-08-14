@@ -15,14 +15,14 @@ export function buildDecisionMemo(
   if (reviewedClaims.length === 0) {
     return {
       ok: false,
-      error: "尚未有被你採用的判斷；先到核對處理至少一個有來源的結論。",
+      error: "No accepted claim yet. Go to Verify and accept at least one source-backed claim.",
     };
   }
 
   if (!experiment) {
     return {
       ok: false,
-      error: "還沒有 experiment brief；先在安排草擬一個最小實驗。",
+      error: "There is no experiment brief yet. Draft the smallest experiment in Decide.",
     };
   }
 
@@ -31,17 +31,17 @@ export function buildDecisionMemo(
     memo: {
       decision: reviewedClaims[0].text,
       evidenceSummary: reviewedClaims.map(
-        (claim) => `${claim.text}（來源：${claim.evidenceIds.join(", ") || "無"}）`,
+        (claim) => `${claim.text} (Sources: ${claim.evidenceIds.join(", ") || "none"})`,
       ),
       knownLimits: claims
         .filter((claim) => claim.status !== "supported")
-        .map((claim) => `${claim.text}：${claim.limitation}`),
+        .map((claim) => `${claim.text}: ${claim.limitation}`),
       experiment,
-      nextAction: "由產品負責人確認最小測試的參與者與執行時間，再開始驗證。",
+      nextAction: "The product owner confirms the smallest test's participants and timing before the test begins.",
       notCovered: [
-        "尚未驗證真實使用者是否完成這個流程、長期留存或轉換提升。",
-        "尚未連接 GitHub、MCP、issue mutation 或外部 telemetry。",
-        "這份 memo 是本機預覽輸出，不代表外部使用者採用。",
+        "We have not tested whether real users complete this workflow, return over time, or improve conversion.",
+        "GitHub, MCP, issue mutation, and external telemetry are not connected.",
+        "This memo was prepared in a local preview; it does not show external adoption.",
       ],
     },
   };
@@ -51,12 +51,12 @@ export function toMarkdown(memo: DecisionMemo): string {
   const evidence = memo.evidenceSummary.map((item) => `- ${item}`).join("\n");
   const limits = memo.knownLimits.length
     ? memo.knownLimits.map((item) => `- ${item}`).join("\n")
-    : "- 目前沒有額外標記的限制。";
+    : "- No additional limits marked.";
   const notCovered = memo.notCovered.map((item) => `- ${item}`).join("\n");
 
   return `# Decision brief
 
-> 資料邊界 · 內容只留在目前這個頁面；重新整理會重設，沒有登入或外部傳送。這份 brief 保留來源、判斷與限制，最後由你決定是否採用。
+> Data boundary · This content stays on this page; refresh resets it. There is no login or external transfer. This brief keeps the source, claim, and limitation visible. You decide whether to use it.
 
 ## Decision
 

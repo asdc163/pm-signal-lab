@@ -1,5 +1,5 @@
 :root {
-  font-family: "Noto Sans TC", "PingFang TC", Inter, "Microsoft JhengHei", system-ui, sans-serif;
+  font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
   color: #28251f;
   background: #f1ebe1;
   font-synthesis: none;
@@ -397,7 +397,7 @@ p {
   max-width: 760px;
   margin: 12px 0 13px;
   color: var(--ink);
-  font-family: "Noto Serif TC", "Songti TC", "STSong", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: clamp(2.3rem, 3.2vw, 3.45rem);
   font-weight: 650;
   letter-spacing: -0.012em;
@@ -467,7 +467,7 @@ p {
 
 .hero-status > strong {
   color: var(--ink);
-  font-family: "Noto Serif TC", "Songti TC", "STSong", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 15px;
   font-weight: 650;
   line-height: 1.45;
@@ -714,7 +714,7 @@ p {
 .section-intro h2 {
   margin: 9px 0 9px;
   font-size: 24px;
-  font-family: "Noto Serif TC", "Songti TC", "STSong", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-weight: 650;
   letter-spacing: -0.03em;
 }
@@ -2041,7 +2041,7 @@ textarea::placeholder {
 
 .context-heading h2 {
   margin: 8px 0 0;
-  font-family: "Noto Serif TC", "Songti TC", "STSong", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 21px;
   font-weight: 650;
   letter-spacing: -0.03em;
@@ -2065,7 +2065,7 @@ textarea::placeholder {
 
 .context-project strong {
   color: var(--ink);
-  font-family: "Noto Serif TC", "Songti TC", "STSong", serif;
+  font-family: Georgia, "Times New Roman", serif;
   font-size: 14px;
   font-weight: 650;
   line-height: 1.4;

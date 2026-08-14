@@ -26,7 +26,7 @@ export function buildSessionReceipt(input: SessionReceiptInput): string {
     ...events,
     "",
     "## Boundary",
-    "- 這份紀錄只反映目前頁面的操作，不代表外部使用者已採用。",
+    "- This record only reflects actions on this page; it does not show external adoption.",
     "- Original evidence text is intentionally excluded from this receipt.",
     "- Share only after checking that the receipt contains no private customer information.",
     "",

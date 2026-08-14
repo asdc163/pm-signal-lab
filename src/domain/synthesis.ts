@@ -14,32 +14,32 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
   const claims: Claim[] = [
     {
       id: "claim-next-step-friction",
-      text: "第一次整理產品訊號時，使用者最容易卡在「下一步要看什麼」而不是資料本身。",
+      text: "When PMs first sort product signals, the harder question is often what to look at next, not the data itself.",
       status: hasDirectSignal ? "supported" : "review",
       evidenceIds: interviewIds,
       limitation: hasDirectSignal
-        ? "目前由訪談與客服各一筆直接訊號支持；尚未驗證不同產品類型是否相同。"
-        : "目前缺少兩筆不同來源的直接訊號，先保留為待確認假設。",
+        ? "Supported by one interview and one support signal; not yet tested across different product types."
+        : "We need two direct signals from different sources before treating this as supported.",
       edited: false,
       reviewed: false,
     },
     {
       id: "claim-source-trust",
-      text: "把來源放在判斷旁邊，可能比把引用藏在摘要後面更容易讓 PM 回看。",
+      text: "Putting the source beside the claim may make it easier for a PM to review than hiding citations behind a summary.",
       status: hasObservedPattern ? "review" : "missing",
       evidenceIds: observationIds,
       limitation: hasObservedPattern
-        ? "這是設計方向與競品觀察，不等同於可量化的使用者偏好或成效證據。"
-        : "目前沒有競品或產品觀察可支持這個設計假設。",
+        ? "This is a design direction informed by a competitive observation, not a measured preference or outcome."
+        : "No competitive or product observation currently supports this design hypothesis.",
       edited: false,
       reviewed: false,
     },
     {
       id: "claim-decision-adoption",
-      text: "把摘要複製出去，會讓後續產品決策真的被採用。",
+      text: "Copying a summary will make the resulting product decision more likely to be adopted.",
       status: "missing",
       evidenceIds: [],
-      limitation: "沒有 issue、experiment 或決策採用的追蹤資料；不可把複製行為當成結果。",
+      limitation: "There is no issue, experiment, or decision-adoption trace; copying cannot stand in for the outcome.",
       edited: false,
       reviewed: false,
     },
@@ -55,22 +55,22 @@ export function draftExperiment(
   const opportunity = claims.find((claim) => claim.id === opportunityId);
   const needsValidation =
     !opportunity || opportunity.status !== "supported" || !opportunity.reviewed;
-  const limitation = opportunity?.limitation ?? "尚未選擇有來源的方向。";
+  const limitation = opportunity?.limitation ?? "No source-backed direction has been selected yet.";
 
   return {
     opportunity:
-      opportunity?.text ?? "先選擇一個有來源的方向，再開始草擬。",
+      opportunity?.text ?? "Choose a source-backed direction before drafting.",
     hypothesis: opportunity
-      ? `如果把「${opportunity.text.replace(/[。！？]$/, "")}」放進可以回看來源的工作流，PM 會更快找到下一個可驗證行動。`
-      : "尚未有足夠訊號形成假設。",
+      ? `If "${opportunity.text.replace(/[.!?]$/, "")}" is placed in a workflow where sources can be reviewed, PMs will find a testable next action faster.`
+      : "There is not enough signal to form a hypothesis yet.",
     primaryMetric: needsValidation
-      ? "需要再驗證：先定義完成一次決策 brief 的可觀測事件。"
-      : "從載入訊號到確認一個下一步的完成率。",
-    guardrail: "不能降低來源可回看的程度；每個採用的判斷都必須保留來源。",
+      ? "Needs validation: define an observable event for completing one decision brief."
+      : "Completion rate from loading a signal pack to confirming one next action.",
+    guardrail: "Do not make sources harder to review; every accepted claim must keep its source.",
     smallestTest:
-      "找 5 位 PM，用同一組訊號走完「收集 → 核對 → 安排」，記錄是否需要人工救援。",
-    decisionRule: `若至少 4/5 位能完成且不把缺少的證據當成結論，才進入下一輪；目前限制：${limitation}`,
-    owner: "產品負責人／待指定",
+      "Ask 5 PMs to run the same signal pack through Collect → Verify → Decide, and record whether anyone needs help.",
+    decisionRule: `Move to the next round only if at least 4 of 5 finish without treating missing evidence as a conclusion; current limit: ${limitation}`,
+    owner: "Product owner · TBD",
     readiness: needsValidation ? "needs-validation" : "ready",
   };
 }

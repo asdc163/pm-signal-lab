@@ -1,62 +1,72 @@
 # PM Signal Lab
 
-> 把產品訊號變成有來源、可審核的下一步。
+> Put a sentence back next to its source.
 
-PM Signal Lab 是一個 local-first product evidence workbench。它把訪談、客服、產品觀察與競品片段串成一條可回看的工作流：
+PM Signal Lab is a local-first product evidence workbench for turning raw product signals into source-linked claims, human review decisions, and the smallest next test.
 
-`收集 → 核對 → 安排 → 帶走`
+**Hosted preview:** [asdc163.github.io/pm-signal-lab](https://asdc163.github.io/pm-signal-lab/)
 
-Hosted demo：<https://asdc163.github.io/pm-signal-lab/>
+This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
-## 五分鐘試用
+## Five-minute trial
 
-不需要登入，也不用準備 API key：
+No login or API key is required.
 
-1. 開啟 [hosted demo](https://asdc163.github.io/pm-signal-lab/)，按 `載入範例資料`。
-2. 展開一筆 `查看來源`，先看左側的來源編號，再確認原文、時間與限制。
-3. 按 `開始核對`，對一個暫定判斷選擇 `採用這個判斷` 或 `保留為假設`。
-4. 到 `安排` 按 `草擬最小實驗`，再匯出或複製決策 brief。
-5. 在 `帶走` 的「試用回音」開啟 `整理一次試用`，填寫你真正遇到的卡點，勾選 privacy confirmation，產生並檢查 field note。
-6. 若你願意回報，複製 field note 後自行開啟 [公開試用 issue #4](https://github.com/asdc163/pm-signal-lab/issues/4)；產品不會自動送出。
+1. Open the [hosted preview](https://asdc163.github.io/pm-signal-lab/) and select `Load sample data`.
+2. Expand one row with `View source`. Check the source folio, original text, date, and limitation.
+3. Select `Start review`. Accept one claim, edit one, or keep one as a hypothesis.
+4. Open `Decide`, choose a direction, and select `Draft smallest experiment`.
+5. Review the primary metric, guardrail, smallest test, decision rule, and `Not covered` section.
+6. Export, copy, or download the Markdown decision brief.
+7. In `Ship`, optionally open `Record this session`. Write what you expected, where you hesitated, what you trusted, and one change that would make you try again.
+8. Inspect the generated field note before opening the public GitHub feedback page. Submission is always manual.
 
-這條路徑的目標不是讓你相信一個模型，而是讓你看見：哪一句來自哪個來源、哪裡仍然缺證據，以及下一步要怎麼驗證。
+The product path is:
 
-![PM Signal Lab first-run](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-1440.png)
+`Collect → Verify → Decide → Ship`
 
-這個專案不是泛用聊天機器人，也不把規則輸出包裝成模型能力。v0 先用固定規則完成一條可重跑、可檢查、沒有 API key 的產品工作流，讓 PM 練習 evidence、claim、uncertainty、experiment 與 decision memo 之間的關係。
+The point is to make the source, claim, limitation, and next action visible in one path. It is not to make you trust an opaque answer.
 
-這是 [John Wu](https://github.com/asdc163) 的 AI Product Manager portfolio project：重點不在「AI 看起來很會」，而在於能不能把訊號、來源、限制與下一步連成一個可被團隊使用的產品流程。
+![PM Signal Lab first-run](./docs/product/pm-signal-lab/assets/qa/english-first-first-run-1440.png)
 
-## 為什麼現在做
+## What is in the preview
 
-工具的門檻正在下降，但 PM 最難的部分仍然是：哪些訊號值得相信、結論能不能回到來源、缺口要如何轉成最小實驗。PM Signal Lab 以這個信任問題為產品核心，讓系統整理候選內容，但把判斷責任留在人身上。
+- A deterministic sample pack containing interview, support, product observation, and competitive-scan signals.
+- A source ledger with stable folios, source identity, dates, original text, and an expandable source view.
+- Candidate claims that keep their source mapping and limitation visible.
+- Human review actions: accept a claim, edit it, keep it as a hypothesis, or mark missing evidence.
+- An editable experiment brief with a primary metric, guardrail, smallest test, decision rule, owner, and readiness state.
+- A Markdown decision brief with evidence, known limits, next action, and a `Not covered` section.
+- A local session receipt and a privacy-gated session feedback field note that never includes raw evidence.
+- Responsive desktop, tablet, mobile, keyboard, loading, empty, error, and recovery states.
 
-本專案的方向建立在 2026-08-14 對 1,042 個公開 GitHub reference repos 的 metadata、README 結構與 20 個近鄰案例研究上。完整研究方法與證據邊界在 [`docs/research/github-reference-research-2026-08-14.md`](./docs/research/github-reference-research-2026-08-14.md)。這是 reference corpus，不是採用率或成功保證。
+All session content stays on the current page and resets on refresh. The preview has no login, database, external AI provider, API-key flow, GitHub mutation, MCP action, telemetry, or automatic issue submission. Copy or download anything you want to keep before leaving or refreshing.
 
-## 目前可以做什麼
+## Why this product exists
 
-- 載入一組含訪談、客服、產品觀察與競品訊號的 sample evidence pack。
-- 新增一筆本機 evidence；表單會保留錯誤輸入並標出來源、內容與長度問題。
-- 逐個查看 candidate claim 的 source mapping、timestamp 與 limitation。
-- `接受`、`編輯`、`保留為假設` 或標記缺少證據；編輯會留在來源旁，儲存後仍回到 `需要你確認`，只有人為處理過的 claim 才能進入決策 brief。
-- 草擬可編輯的 experiment brief，包含 primary metric、guardrail、smallest test 與 decision rule。
-- 匯出、複製或下載帶有 `Not covered` 的 Markdown decision memo。
-- 在帶走頁整理一份不含原始訊號的 session feedback field note，送出前由你自己檢查並決定是否貼到 GitHub issue。
+AI lowers the cost of producing a summary. The harder PM questions remain:
 
-所有內容目前只留在目前這個頁面；重新整理會重設，沒有登入、資料庫、外部 AI provider、GitHub mutation、MCP action、telemetry 或自動發送。若要保留 brief 或 field note，請在離開或重新整理前自行複製或下載。
+- Which line came from which source?
+- What is observation, what is a claim, and what is still a hypothesis?
+- Which limitation changes the decision?
+- What is the smallest test that could change what we do next?
+
+PM Signal Lab treats those questions as a product workflow. The interface keeps human review visible and keeps missing evidence from becoming a confident-looking conclusion.
+
+The product direction was informed by a reference study of 1,042 public GitHub repositories, including metadata, README structure, and 20 near-neighbor case studies. Read the [English research summary](./docs/research/github-reference-research-2026-08-14.en.md) and the [original working note](./docs/research/github-reference-research-2026-08-14.md). This is a reference corpus, not adoption evidence or a success guarantee.
 
 ## Quickstart
 
-需要 Node.js 20.19+ 與 npm。
+Requirements: Node.js 20.19+ and npm.
 
 ```bash
 npm install
 npm run dev
 ```
 
-開啟 Vite 顯示的 local URL，按下 `載入範例資料`，再依序完成 `核對`、`安排` 與 `帶走`。
+Open the Vite URL and follow `Collect → Verify → Decide → Ship`.
 
-在提交前執行完整本機 gate：
+Before submitting a change, run the local gate:
 
 ```bash
 npm test
@@ -64,60 +74,56 @@ npm run lint
 npm run build
 ```
 
-## 產品與工程設計
+## Product and engineering shape
 
-核心 domain object 是：
+The core domain path is:
 
 `Evidence → Claim → ExperimentBrief → DecisionMemo`
 
-UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 API key、模型漂移或外部 side effect 帶進第一版。主要檔案：
+The UI and domain engine are separate so a future provider adapter can be evaluated without putting API keys, model drift, or external side effects into the first release.
 
-- [`src/App.tsx`](./src/App.tsx)：工作流程、狀態與互動組合。
-- [`src/domain/synthesis.ts`](./src/domain/synthesis.ts)：deterministic candidate claims 與 experiment draft。
-- [`src/domain/export.ts`](./src/domain/export.ts)：decision memo readiness gate 與 Markdown export。
-- [`src/domain/feedback.ts`](./src/domain/feedback.ts)：privacy-gated session feedback field note export。
-- [`src/domain/fixture.ts`](./src/domain/fixture.ts)：可重跑的 product discovery sample pack。
-- [`src/styles.css`](./src/styles.css)：paper index rail、warm-paper workbench、evidence spine 與 responsive layout。
-- [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml)：每次 `main` 更新後自動建置並部署 hosted demo。
-- [`DESIGN.md`](./DESIGN.md)：視覺 DNA、tokens、狀態與排版規範。
-- [`research notebook shell contract`](./docs/product/pm-signal-lab/22-research-notebook-shell-reframe-contract-2026-08-15.md)：本輪將 shell 收斂成 PM 研究工作紙的設計決策、排除項目與驗證邊界。
-- [`workbench density transition contract`](./docs/product/pm-signal-lab/24-workbench-density-transition-contract-2026-08-15.md)：說明為什麼 first-run 保留 editorial cover、載入 evidence pack 後改用更密的工作台抬頭，以及本輪的驗證門檻。
-- [`source ledger composition contract`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md)：說明為什麼 loaded evidence 要改成有編號的來源帳頁，以及 claim mapping 如何回指相同來源。
+- [`src/App.tsx`](./src/App.tsx) composes the workflow, states, accessible controls, and local interactions.
+- [`src/domain/synthesis.ts`](./src/domain/synthesis.ts) builds deterministic candidate claims and experiment drafts.
+- [`src/domain/export.ts`](./src/domain/export.ts) enforces the decision-brief readiness gate and Markdown export.
+- [`src/domain/feedback.ts`](./src/domain/feedback.ts) prepares a privacy-gated session field note.
+- [`src/domain/fixture.ts`](./src/domain/fixture.ts) holds the repeatable product-discovery sample pack.
+- [`src/styles.css`](./src/styles.css) defines the warm-paper workbench, evidence spine, index rail, and responsive layout.
+- [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) builds and deploys the hosted preview from `main`.
+- [`DESIGN.md`](./DESIGN.md) records the visual DNA, tokens, states, and layout rules.
 
-## 目前不宣稱的事情
+The current English-first product contract is [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md). The current release evidence is recorded in [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md) once the hosted verification is complete.
 
-- 這不是 production AI quality benchmark。
-- 尚未驗證真實使用者 adoption、留存、conversion、模型準確率或 GitHub stars 成長。
-- 沒有把 GitHub / MCP / issue mutation 接進去，因此不會代表使用者修改外部資源。
-- `4/5` 是 experiment brief 裡的 usability hypothesis，不是已完成的研究結果。
+## English-first public preview
 
-## Public demo status
+The released product surface is `en-US`: UI copy, sample data, generated Markdown, accessible names, page metadata, README, trial kit, and public feedback handoff. Historical audits remain in the repository as an evidence trail; the current contract and release audit are written in English.
 
-這個 repository 以 public preview 形式公開，並提供一個不需要登入的 hosted demo，方便收集 issue、task-session feedback 與後續貢獻。產品資料仍只留在目前這個頁面；重新整理會重設：沒有登入、雲端資料庫、外部 provider 或自動修改 GitHub 資源。這是刻意的 local-first 邊界，不是持久化儲存承諾。
+This release intentionally does not add a locale selector or runtime translation framework. The next localization decision should follow evidence from international PM sessions, not an assumption that more language options automatically improve the first-run job.
 
-Hosted demo 目前由 GitHub Pages workflow 部署；Vercel 只作為本機部署排錯時的參考，不是作品集 canonical URL。
+## What this does not claim
 
-目前的公開版本與驗證範圍記錄在 [`source ledger composition release audit`](./docs/product/pm-signal-lab/33-source-ledger-composition-release-audit-2026-08-15.md)、[`source ledger composition contract`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md)、[`human-owned trust copy release audit`](./docs/product/pm-signal-lab/31-human-owned-trust-copy-release-audit-2026-08-15.md)、[`human-owned trust copy contract`](./docs/product/pm-signal-lab/30-human-owned-trust-copy-contract-2026-08-15.md)、[`notice annotation visual polish release audit`](./docs/product/pm-signal-lab/29-notice-annotation-visual-polish-release-audit-2026-08-15.md)、[`notice annotation visual polish contract`](./docs/product/pm-signal-lab/28-notice-annotation-visual-polish-contract-2026-08-15.md)、[`accessibility and session handoff release audit`](./docs/product/pm-signal-lab/27-accessibility-session-handoff-release-audit-2026-08-15.md)、[`accessibility and session handoff contract`](./docs/product/pm-signal-lab/26-accessibility-session-handoff-contract-2026-08-15.md)、[`workbench density transition release audit`](./docs/product/pm-signal-lab/25-workbench-density-transition-release-audit-2026-08-15.md)、[`research notebook shell release audit`](./docs/product/pm-signal-lab/23-research-notebook-shell-release-audit-2026-08-15.md)、[`editorial field note release audit`](./docs/product/pm-signal-lab/21-editorial-field-note-release-audit-2026-08-15.md)、[`inline claim editor release audit`](./docs/product/pm-signal-lab/19-inline-claim-editor-release-audit-2026-08-15.md)、[`inline editor / Chrome blocked QA report`](./docs/product/pm-signal-lab/18-chrome-extension-a11y-blocked-qa-report-2026-08-15.md) 與 [`visual product reframe release audit`](./docs/product/pm-signal-lab/16-visual-product-reframe-release-audit-2026-08-15.md)。它們證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
+- This is not a production AI-quality benchmark.
+- The preview has no external model provider, so it does not prove model quality.
+- No real-user task sessions, retention, conversion, adoption, or GitHub growth outcome are claimed by this repository.
+- GitHub stars, forks, traffic, and issue activity are external results; a polished preview is not evidence of any target number.
+- The `4 of 5` threshold inside the experiment brief is a proposed decision rule, not completed research.
 
-## 想一起試用
+## Try it and report one observation
 
-如果你是 PM、founder、designer 或 product engineer，可以用 [`五分鐘試用腳本`](./docs/operations/pm-session-kit.md) 自己走完一次，不需要 maintainer 逐步帶操作。完成後，使用帶走頁的 field note 整理卡點、信任或不信任的原因，以及一個你最希望先改的地方；檢查過後，再貼到 [公開試用 issue #4](https://github.com/asdc163/pm-signal-lab/issues/4)。
+If you are a PM, founder, product designer, or product engineer, use the [five-minute session kit](./docs/operations/pm-session-kit.md) without a maintainer walkthrough. The most useful report is one concrete hesitation, trust or doubt signal, recovery moment, and one change you would make.
 
-如果你平常以鍵盤或輔助技術工作，也歡迎把同一條路徑再走一次；請在回報中寫明實際瀏覽器／技術與你真的聽到或看到的狀態。這個邀請是為了收集可修正的 session evidence，不是請你替產品背書；star 完全可選，具體卡點更有用。
+The public feedback issue is [#4](https://github.com/asdc163/pm-signal-lab/issues/4). The copy-ready handoff is [`public-pilot-issue-body.md`](./docs/operations/public-pilot-issue-body.md). Review every line before submitting. Do not include customer names, private tickets, API keys, tokens, confidential roadmap material, or raw sensitive evidence.
 
-公開 issue 的可審查文字版本放在 [`public-pilot-issue-body.md`](./docs/operations/public-pilot-issue-body.md)，方便每次更新 invite 時對照實際邊界。
+Stars are optional. Specific, reproducible feedback is more useful than a number that cannot explain what happened.
 
-這個回饋入口只需要任務觀察，不需要貼入 private customer data、API key、token 或原始敏感 evidence；若內容可能含有機密，請先不要公開提交。
+## Promotion gates
 
-## 下一輪 promotion triggers
+The next product decision is gated by evidence, not visual polish:
 
-先取得至少 5 位目標使用者的 task-session evidence，再決定是否進入下一輪：
-
-1. ≥3 人主動要求帶入自己的 evidence pack，才評估 OpenAI、Anthropic 或 local model adapter。
-2. ≥3 個外部工作流需要 portable schema，才評估 JSON import/export。
-3. provider、source provenance 與 approval contract 穩定後，才評估 read-only GitHub/MCP adapter。
-4. usability gate 通過且取得明確授權後，才考慮加入 provider、登入或外部 mutation；hosted demo 本身不代表真實 adoption 或 production readiness。
+1. Collect at least five target-user task sessions before evaluating an external model or provider adapter.
+2. Evaluate a portable JSON schema only if several external workflows ask to bring their own evidence pack.
+3. Consider read-only GitHub or MCP integration only after source provenance and approval behavior are stable.
+4. Keep login, telemetry, and external mutation out of the hosted preview until usability evidence and explicit authorization support that scope.
 
 ## License
 
-目前尚未宣告 license。除非另有書面授權，請先把這個 repository 視為可閱讀的 public preview，不要直接重新發布或把程式碼放進商業產品。
+No license has been declared yet. Unless written permission says otherwise, treat this repository as a readable public preview and do not republish it or include its code in a commercial product.
