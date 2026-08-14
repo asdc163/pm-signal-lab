@@ -58,12 +58,12 @@
 
 ## Task sequence
 
-- [ ] Step 1：在 `src/App.tsx` 將 boundary note 與 `DecisionContext` 的 `現在知道` 改成 human-owned wording；Expected：可見 UI 不再使用「不代表模型品質」，但仍明確說出來源與人為確認責任。
-- [ ] Step 2：在 `src/domain/export.ts`、`src/domain/session.ts` 與 `src/domain/feedback.ts` 改寫 Markdown／session receipt／session feedback boundary；Expected：輸出仍保留 local-only、privacy、source、limitation 與 manual adoption boundary，且不出現 defensive model-quality phrase。
-- [ ] Step 3：在 `src/domain/export.test.ts`、`src/domain/session.test.ts` 補 deterministic copy assertions，執行 `npm test -- --run`；Expected：4 files、9 tests 或更新後的實際總數全部通過，且新 boundary copy 被測到。
-- [ ] Step 4：更新 `DESIGN.md`、`CHANGELOG.md`，建立 `31-human-owned-trust-copy-release-audit-2026-08-15.md`；Expected：公開文件說明本輪只改 trust copy，不宣稱 adoption、AI quality 或 stars。
-- [ ] Step 5：啟動 `http://127.0.0.1:5179/`，以 browser 重跑 first-run、sample、verify、decide、ship、privacy block、keyboard 與 390px；Expected：console／page errors 為 0、無 horizontal overflow、主要 CTA 與原有 focus path 可操作。
-- [ ] Step 6：push 後等待 CI／Pages，對 `https://asdc163.github.io/pm-signal-lab/` 做 final smoke；Expected：canonical HTTP `200`、final SHA 與 `origin/main` 相同、hosted copy 與 local evidence 一致。
+- [x] Step 1：在 `src/App.tsx` 將 boundary note 與 `DecisionContext` 的 `現在知道` 改成 human-owned wording；Expected：可見 UI 不再使用「不代表模型品質」，但仍明確說出來源與人為確認責任。
+- [x] Step 2：在 `src/domain/export.ts`、`src/domain/session.ts` 與 `src/domain/feedback.ts` 改寫 Markdown／session receipt／session feedback boundary；Expected：輸出仍保留 local-only、privacy、source、limitation 與 manual adoption boundary，且不出現 defensive model-quality phrase。
+- [x] Step 3：在 `src/domain/export.test.ts`、`src/domain/session.test.ts`、`src/domain/feedback.test.ts` 補 deterministic copy assertions，執行 `npm test -- --run`；Expected：4 files、9 tests 全部通過，且新 boundary copy 被測到。
+- [x] Step 4：更新 `DESIGN.md`、`CHANGELOG.md`，建立 `31-human-owned-trust-copy-release-audit-2026-08-15.md`；Expected：公開文件說明本輪只改 trust copy，不宣稱 adoption、AI quality 或 stars。
+- [x] Step 5：啟動 `http://127.0.0.1:5179/`，以 browser 重跑 first-run、sample、verify、decide、ship、privacy block、keyboard 與 390px；Expected：console／page errors 為 0、無 horizontal overflow、主要 CTA 與原有 focus path 可操作。
+- [x] Step 6：push 後等待 CI／Pages，對 `https://asdc163.github.io/pm-signal-lab/` 做 final smoke；Expected：canonical HTTP `200`、final SHA 與 `origin/main` 相同、hosted copy 與 local evidence 一致。
 
 ## Execution Contract
 
