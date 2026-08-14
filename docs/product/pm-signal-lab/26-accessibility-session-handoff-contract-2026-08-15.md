@@ -96,11 +96,11 @@
 
 ### Implementation sequence
 
-- [ ] Step 1：先檢查現有 DOM／state flow，列出需要補的 landmark、live、focus 與 link name；不改 domain。
-- [ ] Step 2：實作 scoped semantic attributes、live output 與 focus-safe CSS；保留現有 copy／visual DNA。
-- [ ] Step 3：執行 static gates 與 fresh keyboard-only flow，記錄每個 focus transition、error recovery、mobile overlap 與 console/page errors。
-- [ ] Step 4：更新 session kit、README、pilot issue copy；只做可回滾的 public pilot handoff，不自動送 issue 或聯絡陌生人。
-- [ ] Step 5：CI／Pages／canonical smoke 後建立 release audit；若 Chrome Extension／AT control surface 仍不可用，明確保持 blocked／未執行。
+- [x] Step 1：先檢查現有 DOM／state flow，列出需要補的 landmark、live、focus 與 link name；不改 domain。Evidence：本 contract 的 product scope 與 current-turn DOM readback。
+- [x] Step 2：實作 scoped semantic attributes、live output 與 focus-safe CSS；保留現有 copy／visual DNA。Evidence：`src/App.tsx`、`src/styles.css`，並修正 mobile feedback form 的 fixed-action overlap。
+- [x] Step 3：執行 static gates 與 fresh keyboard-only flow，記錄每個 focus transition、error recovery、mobile overlap 與 console/page errors。Evidence：本輪 local desktop／390 fallback trace 與 `27-accessibility-session-handoff-release-audit-2026-08-15.md`。
+- [x] Step 4：更新 session kit、README、pilot issue copy；只做可回滾的 public pilot handoff，不自動送 issue 或聯絡陌生人。Evidence：session kit、README、`public-pilot-issue-body.md` 與 issue #4 readback。
+- [x] Step 5：CI／Pages／canonical smoke 後建立 release audit；若 Chrome Extension／AT control surface 仍不可用，明確保持 blocked／未執行。Evidence：CI `31843521426`、Pages `31843521415`、hosted `200` 與 audit not-covered list。
 
 ## UX/AI/security gate
 
