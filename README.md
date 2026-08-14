@@ -16,7 +16,8 @@ Hosted demo：<https://asdc163.github.io/pm-signal-lab/>
 2. 展開一筆 `查看來源`，確認原文、時間與限制。
 3. 按 `開始核對`，對一個暫定判斷選擇 `採用這個判斷` 或 `保留為假設`。
 4. 到 `安排` 按 `草擬最小實驗`，再匯出或複製決策 brief。
-5. 若你願意回報，請把不含私密資料的操作摘要貼到 [公開試用 issue #4](https://github.com/asdc163/pm-signal-lab/issues/4)。
+5. 在 `帶走` 的「試用回音」開啟 `整理一次試用`，填寫你真正遇到的卡點，勾選 privacy confirmation，產生並檢查 field note。
+6. 若你願意回報，複製 field note 後自行開啟 [公開試用 issue #4](https://github.com/asdc163/pm-signal-lab/issues/4)；產品不會自動送出。
 
 這條路徑的目標不是讓你相信一個模型，而是讓你看見：哪一句來自哪個來源、哪裡仍然缺證據，以及下一步要怎麼驗證。
 
@@ -40,6 +41,7 @@ Hosted demo：<https://asdc163.github.io/pm-signal-lab/>
 - `接受`、`編輯`、`保留為假設` 或標記缺少證據；只有人為處理過的 claim 才能進入決策 brief。
 - 草擬可編輯的 experiment brief，包含 primary metric、guardrail、smallest test 與 decision rule。
 - 匯出、複製或下載帶有 `Not covered` 的 Markdown decision memo。
+- 在帶走頁整理一份不含原始訊號的 session feedback field note，送出前由你自己檢查並決定是否貼到 GitHub issue。
 
 所有內容目前只存在於瀏覽器 session。沒有登入、資料庫、外部 AI provider、GitHub mutation、MCP action、telemetry 或自動發送。
 
@@ -73,6 +75,7 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 - [`src/App.tsx`](./src/App.tsx)：工作流程、狀態與互動組合。
 - [`src/domain/synthesis.ts`](./src/domain/synthesis.ts)：deterministic candidate claims 與 experiment draft。
 - [`src/domain/export.ts`](./src/domain/export.ts)：decision memo readiness gate 與 Markdown export。
+- [`src/domain/feedback.ts`](./src/domain/feedback.ts)：privacy-gated session feedback field note export。
 - [`src/domain/fixture.ts`](./src/domain/fixture.ts)：可重跑的 product discovery sample pack。
 - [`src/styles.css`](./src/styles.css)：deep-green shell、warm-paper workbench、evidence spine 與 responsive layout。
 - [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml)：每次 `main` 更新後自動建置並部署 hosted demo。
@@ -91,11 +94,11 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 
 Hosted demo 目前由 GitHub Pages workflow 部署；Vercel 只作為本機部署排錯時的參考，不是作品集 canonical URL。
 
-目前的公開版本與驗證範圍記錄在 [`Editorial Evidence Desk release audit`](./docs/product/pm-signal-lab/11-editorial-evidence-desk-release-2026-08-15.md)。它證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
+目前的公開版本與驗證範圍記錄在 [`session feedback field note release audit`](./docs/product/pm-signal-lab/14-session-feedback-field-note-release-audit-2026-08-15.md)。它證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
 
 ## 想一起試用
 
-如果你是 PM、founder、designer 或 product engineer，可以用 [`五分鐘試用腳本`](./docs/operations/pm-session-kit.md) 自己走完一次，不需要 maintainer 逐步帶操作。完成後，請在 [公開試用 issue #4](https://github.com/asdc163/pm-signal-lab/issues/4) 留下你卡住的地方、信任或不信任的原因，以及一個你最希望先改的地方。
+如果你是 PM、founder、designer 或 product engineer，可以用 [`五分鐘試用腳本`](./docs/operations/pm-session-kit.md) 自己走完一次，不需要 maintainer 逐步帶操作。完成後，使用帶走頁的 field note 整理卡點、信任或不信任的原因，以及一個你最希望先改的地方；檢查過後，再貼到 [公開試用 issue #4](https://github.com/asdc163/pm-signal-lab/issues/4)。
 
 這個回饋入口只需要任務觀察，不需要貼入 private customer data、API key、token 或原始敏感 evidence；若內容可能含有機密，請先不要公開提交。
 

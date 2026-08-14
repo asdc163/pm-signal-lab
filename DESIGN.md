@@ -10,7 +10,7 @@
 
 ## Product truth and signature
 
-The product is not a generic chat wrapper. Its domain objects are `Evidence`、`Claim`、`Opportunity`、`Experiment Brief`、`Decision Memo` and `Not Covered`. The visual signature is an `Evidence spine`: sources and claims are visually connected so provenance is part of the layout, not a footnote.
+The product is not a generic chat wrapper. Its domain objects are `Evidence`、`Claim`、`Opportunity`、`Experiment Brief`、`Decision Memo`、`Session Feedback Field Note` and `Not Covered`. The visual signature is an `Evidence spine`: sources and claims are visually connected so provenance is part of the layout, not a footnote.
 
 ## Selected DNA
 
@@ -35,6 +35,7 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 - Layout archetype: `sidebar + workbench split-pane + decision rail`。
 - Responsive reflow: rail → top stepper；right context → below main; CTA → sticky bottom action。
 - First-run gesture: hero 只報告範例狀態，中央 field note 承擔開始試用；右側空狀態提供下一步說明，不重複一顆按鈕。
+- Feedback gesture: decision brief 之後才出現低干擾的 field note；它整理人的試用經驗，不預測感受、不讀取原始 evidence，也不代替使用者送出 issue。
 
 ## Selected visual concept
 
@@ -96,6 +97,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Alert/toast: success / warning / error / recovery action; `role=status` or `role=alert` by severity.
 - Textarea/form: visible label, helper, `aria-describedby`, field-level error, preserved input on error.
 - Decision preview: definition list + source references + not-covered block + copy/download actions.
+- Session feedback field note: collapsed invitation → labelled local form → privacy gate → editable Markdown preview → manual GitHub handoff；不使用分數、AI insight 或自動提交狀態。
 - Skeleton/empty/error: no blank content; each state contains the next action.
 
 ## Responsive rules
@@ -121,7 +123,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 ## AI-native states and trust
 
-`first read → source review → human decision → experiment brief → memo preview → export completed → recovery`。
+`first read → source review → human decision → experiment brief → memo preview → export completed → human feedback field note → manual handoff → recovery`。
 
 The UI must show source identity, timestamp/freshness, limitations, manual edit, approval boundary, and fallback. Provider/engine language is kept out of the main surface because v0 is deterministic and local-first; no external side effect is present.
 
@@ -131,5 +133,6 @@ The UI must show source identity, timestamp/freshness, limitations, manual edit,
 - Screenshot review at 390×844、768×1024、1440×900。
 - Behavior matrix covers first-time、empty、loading、error、recovery、success、mobile、keyboard、long Traditional Chinese。
 - Do a second polish pass for hierarchy, spacing, container count, focus visibility, sticky CTA overlap, and status color independence.
+- Feedback field note must be checked for empty-field honesty, privacy confirmation, editable output, manual-submit boundary, and mobile form length.
 - The second polish pass also checks that the surface reads as an evidence desk rather than an AI dashboard: no decorative hamburger on desktop, no generic event names, and no status pill used where a divider or text label is enough.
 - Document any exception to this system in the feature UX spec and release evidence.

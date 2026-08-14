@@ -24,6 +24,14 @@ import {
   X,
 } from "lucide-react";
 import { FormEvent, useEffect, useRef, useState } from "react";
+import {
+  buildSessionFeedbackReport,
+  FEEDBACK_RESULT_LABELS,
+  FEEDBACK_RESULTS,
+  FEEDBACK_ROLE_LABELS,
+  FEEDBACK_ROLES,
+  type SessionFeedbackDraft,
+} from "./domain/feedback";
 import { buildDecisionMemo, toMarkdown } from "./domain/export";
 import { cloneSamplePack, SAMPLE_PACK } from "./domain/fixture";
 import { buildClaims, draftExperiment } from "./domain/synthesis";
@@ -93,6 +101,18 @@ const EMPTY_FORM: EvidenceFormState = {
   content: "",
 };
 
+const EMPTY_FEEDBACK: SessionFeedbackDraft = {
+  role: "pm",
+  environment: "",
+  result: "completed",
+  expectation: "",
+  hesitation: "",
+  trust: "",
+  recovery: "",
+  oneChange: "",
+  privacyConfirmed: false,
+};
+
 const SESSION_FEEDBACK_URL = "https://github.com/asdc163/pm-signal-lab/issues/new?template=pm-session-feedback.md";
 
 const EVENT_LABELS: Record<ProductEventName, string> = {
@@ -101,6 +121,8 @@ const EVENT_LABELS: Record<ProductEventName, string> = {
   claim_reviewed: "處理一個判斷",
   experiment_drafted: "草擬最小實驗",
   decision_exported: "準備決策 brief",
+  feedback_drafted: "整理試用回報",
+  feedback_copied: "複製試用回報",
   recovery_used: "使用恢復動作",
 };
 
@@ -122,6 +144,9 @@ function App() {
   const [expandedEvidenceId, setExpandedEvidenceId] = useState<string>();
   const [notice, setNotice] = useState<Notice>();
   const [events, setEvents] = useState<ProductEvent[]>([]);
+  const [feedbackDraft, setFeedbackDraft] = useState<SessionFeedbackDraft>(EMPTY_FEEDBACK);
+  const [feedbackMarkdown, setFeedbackMarkdown] = useState("");
+  const [isFeedbackOpen, setIsFeedbackOpen] = useState(false);
   const titleRef = useRef<HTMLInputElement>(null);
   const sourceRef = useRef<HTMLInputElement>(null);
   const contentRef = useRef<HTMLTextAreaElement>(null);
@@ -140,6 +165,12 @@ function App() {
       ...previous,
       { name, properties, at: new Date().toISOString() },
     ]);
+  };
+
+  const resetFeedbackState = () => {
+    setFeedbackDraft(EMPTY_FEEDBACK);
+    setFeedbackMarkdown("");
+    setIsFeedbackOpen(false);
   };
 
   useEffect(() => {
@@ -169,6 +200,7 @@ function App() {
         setExperiment(undefined);
         setMemo(undefined);
         setMarkdown("");
+        resetFeedbackState();
         setCurrentStep("collect");
         setIsLoading(false);
         showNotice("success", "範例資料已載入；下一步是看每個判斷如何回到來源。 ");
@@ -188,6 +220,7 @@ function App() {
     setExperiment(undefined);
     setMemo(undefined);
     setMarkdown("");
+    resetFeedbackState();
     setCurrentStep("collect");
     setIsFormOpen(false);
     setForm(EMPTY_FORM);
@@ -202,6 +235,8 @@ function App() {
     setExperiment(undefined);
     setMemo(undefined);
     setMarkdown("");
+    setFeedbackMarkdown("");
+    setIsFeedbackOpen(false);
   };
 
   const submitEvidence = (event: FormEvent<HTMLFormElement>) => {
@@ -383,6 +418,8 @@ function App() {
     const nextMarkdown = toMarkdown(result.memo);
     setMemo(result.memo);
     setMarkdown(nextMarkdown);
+    setFeedbackMarkdown("");
+    setIsFeedbackOpen(false);
     setCurrentStep("ship");
     showNotice("success", "決策 brief 已準備好；你可以複製或下載 Markdown。 ");
     logEvent("decision_exported", { format: "markdown", copy_or_download: "prepared", complete: true });
@@ -417,6 +454,41 @@ function App() {
       showNotice("success", "試用摘要已複製；送出前請先確認沒有私密內容。 ");
     } catch {
       showNotice("warning", "剪貼簿被瀏覽器擋住；請到回饋頁手動整理這次試用。 ");
+    }
+  };
+
+  const updateFeedback = (field: keyof SessionFeedbackDraft, value: string | boolean) => {
+    setFeedbackDraft((previous) => ({ ...previous, [field]: value } as SessionFeedbackDraft));
+    setFeedbackMarkdown("");
+  };
+
+  const prepareFeedback = () => {
+    const result = buildSessionFeedbackReport(feedbackDraft);
+    if (!result.ok) {
+      showNotice("warning", result.error);
+      return;
+    }
+    setFeedbackMarkdown(result.markdown);
+    showNotice("success", "試用回報內容已整理；開啟 GitHub 前請先自己看一遍。 ");
+    logEvent("feedback_drafted", {
+      role: feedbackDraft.role,
+      task_result: feedbackDraft.result,
+      privacy_confirmed: true,
+    });
+  };
+
+  const copyFeedback = async () => {
+    if (!feedbackMarkdown) {
+      prepareFeedback();
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(feedbackMarkdown);
+      showNotice("success", "試用回報已複製；送出前請再確認沒有私密內容。 ");
+      logEvent("feedback_copied", { format: "markdown", manual_submit_required: true });
+    } catch {
+      showNotice("warning", "剪貼簿被瀏覽器擋住；回報內容仍留在下方文字框。 ");
+      logEvent("recovery_used", { state: "feedback_clipboard_blocked", action: "use_feedback_textarea" });
     }
   };
 
@@ -563,6 +635,15 @@ function App() {
                 onCopy={copyMarkdown}
                 onDownload={downloadMarkdown}
                 onBack={() => setCurrentStep("decide")}
+                feedbackDraft={feedbackDraft}
+                feedbackMarkdown={feedbackMarkdown}
+                isFeedbackOpen={isFeedbackOpen}
+                onOpenFeedback={() => setIsFeedbackOpen(true)}
+                onCloseFeedback={() => setIsFeedbackOpen(false)}
+                onChangeFeedback={updateFeedback}
+                onPrepareFeedback={prepareFeedback}
+                onCopyFeedback={copyFeedback}
+                feedbackUrl={SESSION_FEEDBACK_URL}
               />
             )}
 
@@ -834,11 +915,144 @@ function BriefField({ label, value, onChange, wide = false, textarea = false }: 
   return <label className={`brief-field ${wide ? "field-wide" : ""}`}><span>{label}</span>{textarea ? <textarea value={value} rows={3} onChange={(event) => onChange(event.target.value)} /> : <input value={value} onChange={(event) => onChange(event.target.value)} />}</label>;
 }
 
-function ShipView({ memo, markdown, onExport, onCopy, onDownload, onBack }: { memo?: DecisionMemo; markdown: string; onExport: () => void; onCopy: () => void; onDownload: () => void; onBack: () => void }) {
-  return <section className="content-section" aria-labelledby="ship-title">
-    <div className="section-intro"><div><p className="section-eyebrow">第四步／帶走決策 brief</p><h2 id="ship-title">帶走一份誠實的 brief</h2><p>可貼到 GitHub issue、PRD 或團隊討論；未涵蓋的部分也會一起出去。</p></div><span className="human-label"><FileText size={14} />可帶走的 Markdown</span></div>
-    {!memo ? <div className="state-panel"><CircleAlert size={22} /><div><h3>尚未準備好匯出</h3><p>請先在核對採用至少一個有來源的判斷，再到安排草擬最小實驗。</p></div><button className="button button-secondary" type="button" onClick={onBack}>回到安排</button></div> : <div className="memo-preview"><div className="memo-toolbar"><div><span className="section-eyebrow">決策 brief／預覽</span><h3>可以分享，但不是完成保證</h3></div><span className="status-badge status-supported"><BadgeCheck size={14} />內容已準備</span></div><div className="memo-content"><MemoSection title="決定"><p>{memo.decision}</p></MemoSection><MemoSection title="來源摘要"><ul>{memo.evidenceSummary.map((item) => <li key={item}>{item}</li>)}</ul></MemoSection><MemoSection title="已知限制"><ul>{(memo.knownLimits.length ? memo.knownLimits : ["目前沒有額外標記的限制。"]).map((item) => <li key={item}>{item}</li>)}</ul></MemoSection><MemoSection title="最小實驗"><dl className="memo-definition-list"><dt>假設</dt><dd>{memo.experiment.hypothesis}</dd><dt>主要指標</dt><dd>{memo.experiment.primaryMetric}</dd><dt>護欄指標</dt><dd>{memo.experiment.guardrail}</dd><dt>最小測試</dt><dd>{memo.experiment.smallestTest}</dd><dt>判定規則</dt><dd>{memo.experiment.decisionRule}</dd></dl></MemoSection><MemoSection title="未涵蓋"><ul className="not-covered-list">{memo.notCovered.map((item) => <li key={item}>{item}</li>)}</ul></MemoSection></div><div className="export-actions"><button className="button button-secondary" type="button" onClick={onCopy}><FileText size={16} />複製 Markdown</button><button className="button button-primary" type="button" onClick={onDownload}><Download size={16} />下載 .md</button></div><label className="markdown-fallback"><span>內容備援 · 下載被阻擋時仍可選取</span><textarea value={markdown} readOnly rows={7} aria-label="Decision brief Markdown 內容" /></label><button className="text-button" type="button" onClick={onExport}><RotateCcw size={14} />重新整理 brief</button></div>}
-  </section>;
+function ShipView({
+  memo,
+  markdown,
+  onExport,
+  onCopy,
+  onDownload,
+  onBack,
+  feedbackDraft,
+  feedbackMarkdown,
+  isFeedbackOpen,
+  onOpenFeedback,
+  onCloseFeedback,
+  onChangeFeedback,
+  onPrepareFeedback,
+  onCopyFeedback,
+  feedbackUrl,
+}: {
+  memo?: DecisionMemo;
+  markdown: string;
+  onExport: () => void;
+  onCopy: () => void;
+  onDownload: () => void;
+  onBack: () => void;
+  feedbackDraft: SessionFeedbackDraft;
+  feedbackMarkdown: string;
+  isFeedbackOpen: boolean;
+  onOpenFeedback: () => void;
+  onCloseFeedback: () => void;
+  onChangeFeedback: (field: keyof SessionFeedbackDraft, value: string | boolean) => void;
+  onPrepareFeedback: () => void;
+  onCopyFeedback: () => void;
+  feedbackUrl: string;
+}) {
+  return (
+    <section className="content-section" aria-labelledby="ship-title">
+      <div className="section-intro">
+        <div>
+          <p className="section-eyebrow">第四步／帶走決策 brief</p>
+          <h2 id="ship-title">帶走一份誠實的 brief</h2>
+          <p>可貼到 GitHub issue、PRD 或團隊討論；未涵蓋的部分也會一起出去。</p>
+        </div>
+        <span className="human-label"><FileText size={14} />可帶走的 Markdown</span>
+      </div>
+      {!memo ? (
+        <div className="state-panel">
+          <CircleAlert size={22} />
+          <div><h3>尚未準備好匯出</h3><p>請先在核對採用至少一個有來源的判斷，再到安排草擬最小實驗。</p></div>
+          <button className="button button-secondary" type="button" onClick={onBack}>回到安排</button>
+        </div>
+      ) : (
+        <>
+          <div className="memo-preview">
+            <div className="memo-toolbar">
+              <div><span className="section-eyebrow">決策 brief／預覽</span><h3>可以分享，但不是完成保證</h3></div>
+              <span className="status-badge status-supported"><BadgeCheck size={14} />內容已準備</span>
+            </div>
+            <div className="memo-content">
+              <MemoSection title="決定"><p>{memo.decision}</p></MemoSection>
+              <MemoSection title="來源摘要"><ul>{memo.evidenceSummary.map((item) => <li key={item}>{item}</li>)}</ul></MemoSection>
+              <MemoSection title="已知限制"><ul>{(memo.knownLimits.length ? memo.knownLimits : ["目前沒有額外標記的限制。"]).map((item) => <li key={item}>{item}</li>)}</ul></MemoSection>
+              <MemoSection title="最小實驗"><dl className="memo-definition-list"><dt>假設</dt><dd>{memo.experiment.hypothesis}</dd><dt>主要指標</dt><dd>{memo.experiment.primaryMetric}</dd><dt>護欄指標</dt><dd>{memo.experiment.guardrail}</dd><dt>最小測試</dt><dd>{memo.experiment.smallestTest}</dd><dt>判定規則</dt><dd>{memo.experiment.decisionRule}</dd></dl></MemoSection>
+              <MemoSection title="未涵蓋"><ul className="not-covered-list">{memo.notCovered.map((item) => <li key={item}>{item}</li>)}</ul></MemoSection>
+            </div>
+            <div className="export-actions">
+              <button className="button button-secondary" type="button" onClick={onCopy}><FileText size={16} />複製 Markdown</button>
+              <button className="button button-primary" type="button" onClick={onDownload}><Download size={16} />下載 .md</button>
+            </div>
+            <label className="markdown-fallback"><span>內容備援 · 下載被阻擋時仍可選取</span><textarea value={markdown} readOnly rows={7} aria-label="Decision brief Markdown 內容" /></label>
+            <button className="text-button" type="button" onClick={onExport}><RotateCcw size={14} />重新整理 brief</button>
+          </div>
+          <SessionFeedback
+            draft={feedbackDraft}
+            markdown={feedbackMarkdown}
+            isOpen={isFeedbackOpen}
+            feedbackUrl={feedbackUrl}
+            onOpen={onOpenFeedback}
+            onClose={onCloseFeedback}
+            onChange={onChangeFeedback}
+            onPrepare={onPrepareFeedback}
+            onCopy={onCopyFeedback}
+          />
+        </>
+      )}
+    </section>
+  );
+}
+
+function SessionFeedback({
+  draft,
+  markdown,
+  isOpen,
+  feedbackUrl,
+  onOpen,
+  onClose,
+  onChange,
+  onPrepare,
+  onCopy,
+}: {
+  draft: SessionFeedbackDraft;
+  markdown: string;
+  isOpen: boolean;
+  feedbackUrl: string;
+  onOpen: () => void;
+  onClose: () => void;
+  onChange: (field: keyof SessionFeedbackDraft, value: string | boolean) => void;
+  onPrepare: () => void;
+  onCopy: () => void;
+}) {
+  return (
+    <section className={`feedback-field-note ${isOpen ? "is-open" : ""}`} aria-labelledby="feedback-title">
+      <div className="feedback-heading">
+        <div>
+          <span className="section-eyebrow">試用回音／可選</span>
+          <h3 id="feedback-title">把這次試用留下來</h3>
+          <p>不用貼原始訊號；選幾個背景、寫下卡點，整理成一份你送出前可以檢查的 field note。</p>
+        </div>
+        {isOpen ? <button className="text-button" type="button" onClick={onClose}>先收起</button> : <button className="button button-secondary" type="button" onClick={onOpen}>整理一次試用<ArrowRight size={15} /></button>}
+      </div>
+      {isOpen && (
+        <form className="feedback-form" onSubmit={(event) => { event.preventDefault(); onPrepare(); }}>
+          <div className="feedback-boundary"><ShieldCheck size={16} /><span>只產生本機 Markdown，不讀取原始訊號，也不會自動送出 GitHub issue。</span></div>
+          <div className="feedback-fields">
+            <label className="feedback-control"><span>你的角色</span><select value={draft.role} onChange={(event) => onChange("role", event.target.value)}>{FEEDBACK_ROLES.map((role) => <option key={role} value={role}>{FEEDBACK_ROLE_LABELS[role]}</option>)}</select></label>
+            <label className="feedback-control"><span>瀏覽器／裝置（可選）</span><input value={draft.environment} onChange={(event) => onChange("environment", event.target.value)} placeholder="例如：Chrome · desktop" /></label>
+            <label className="feedback-control"><span>這次任務結果</span><select value={draft.result} onChange={(event) => onChange("result", event.target.value)}>{FEEDBACK_RESULTS.map((result) => <option key={result} value={result}>{FEEDBACK_RESULT_LABELS[result]}</option>)}</select></label>
+            <label className="feedback-control feedback-control-wide"><span>你原本期待什麼</span><textarea value={draft.expectation} onChange={(event) => onChange("expectation", event.target.value)} rows={2} placeholder="例如：想知道哪一句訊號值得再查。" /></label>
+            <label className="feedback-control feedback-control-wide"><span>哪一步讓你停下來</span><textarea value={draft.hesitation} onChange={(event) => onChange("hesitation", event.target.value)} rows={2} placeholder="寫下具體步驟或看到的文字。" /></label>
+            <label className="feedback-control"><span>什麼讓你信任／不信任</span><textarea value={draft.trust} onChange={(event) => onChange("trust", event.target.value)} rows={3} placeholder="例如：來源可回看；但我不確定…" /></label>
+            <label className="feedback-control"><span>回頭或出錯後發生什麼</span><textarea value={draft.recovery} onChange={(event) => onChange("recovery", event.target.value)} rows={3} placeholder="沒有遇到就寫沒有。" /></label>
+            <label className="feedback-control feedback-control-wide"><span>一個會讓你再試一次的改動</span><textarea value={draft.oneChange} onChange={(event) => onChange("oneChange", event.target.value)} rows={2} placeholder="只寫一個最重要的改動。" /></label>
+          </div>
+          <label className="feedback-privacy"><input type="checkbox" checked={draft.privacyConfirmed} onChange={(event) => onChange("privacyConfirmed", event.target.checked)} /><span>我確認這份回報不含客戶姓名、私密工單、API key、token 或機密 roadmap。</span></label>
+          <div className="feedback-footer"><span><ShieldCheck size={14} />空白欄位會明確標成 Not provided。</span><div><button className="button button-secondary" type="button" onClick={onClose}>取消</button><button className="button button-primary" type="submit"><ClipboardList size={16} />產生回報內容</button></div></div>
+          {markdown && <div className="feedback-output"><div className="feedback-output-heading"><div><span className="section-eyebrow">回報內容／送出前先看一遍</span><strong>這是一份 field note，不是驗證結果。</strong></div><span className="status-badge status-supported"><BadgeCheck size={14} />已整理</span></div><textarea value={markdown} readOnly rows={12} aria-label="試用回報 Markdown 內容" /><div className="feedback-output-actions"><button className="button button-primary" type="button" onClick={onCopy}><FileText size={16} />複製回報內容</button><a className="button button-secondary" href={feedbackUrl} target="_blank" rel="noreferrer">開啟 GitHub 回報頁<Link2 size={15} /></a></div><p>GitHub 只會開新頁；請你自己檢查內容，再決定是否按下送出。</p></div>}
+        </form>
+      )}
+    </section>
+  );
 }
 
 function MemoSection({ title, children }: { title: string; children: React.ReactNode }) { return <section className="memo-section"><h4>{title}</h4>{children}</section>; }

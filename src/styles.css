@@ -1568,6 +1568,178 @@ textarea::placeholder {
   margin-top: 10px;
 }
 
+.feedback-field-note {
+  margin-top: 26px;
+  padding: 21px;
+  border: 1px solid #bfd8d5;
+  border-left: 3px solid var(--trust);
+  border-radius: 0;
+  background: #f5faf8;
+}
+
+.feedback-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.feedback-heading h3 {
+  margin: 7px 0 5px;
+  font-size: 18px;
+}
+
+.feedback-heading p {
+  max-width: 610px;
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.feedback-form {
+  margin-top: 19px;
+  padding-top: 18px;
+  border-top: 1px solid #cfe0dc;
+}
+
+.feedback-boundary {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 11px 12px;
+  color: var(--trust);
+  border: 1px solid #c8ded9;
+  background: #eaf4f1;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.feedback-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 19px;
+}
+
+.feedback-control {
+  display: grid;
+  gap: 7px;
+  min-width: 0;
+}
+
+.feedback-control-wide {
+  grid-column: 1 / -1;
+}
+
+.feedback-control > span {
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.feedback-control input,
+.feedback-control select,
+.feedback-control textarea {
+  border-color: #c8d8d2;
+  background: #fff;
+  font-size: 12px;
+}
+
+.feedback-control textarea {
+  min-height: 0;
+}
+
+.feedback-privacy {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  margin-top: 19px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.feedback-privacy input {
+  width: 17px;
+  height: 17px;
+  flex: 0 0 17px;
+  margin: 1px 0 0;
+  accent-color: var(--trust);
+}
+
+.feedback-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  margin-top: 18px;
+  padding-top: 15px;
+  border-top: 1px solid #cfe0dc;
+}
+
+.feedback-footer > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 11px;
+}
+
+.feedback-footer > div,
+.feedback-output-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.feedback-output {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid #cfe0dc;
+}
+
+.feedback-output-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.feedback-output-heading > div {
+  display: grid;
+  gap: 5px;
+}
+
+.feedback-output-heading strong {
+  color: var(--ink);
+  font-size: 13px;
+}
+
+.feedback-output textarea {
+  min-height: 250px;
+  color: var(--ink);
+  border-color: #c8d8d2;
+  background: #fff;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 11px;
+  line-height: 1.6;
+}
+
+.feedback-output-actions {
+  margin-top: 12px;
+}
+
+.feedback-output-actions .button {
+  text-decoration: none;
+}
+
+.feedback-output > p {
+  margin: 10px 0 0;
+  color: var(--muted);
+  font-size: 11px;
+}
+
 .boundary-note {
   display: flex;
   align-items: flex-start;
@@ -2035,7 +2207,8 @@ textarea::placeholder {
   .state-panel,
   .evidence-form,
   .experiment-editor,
-  .memo-preview {
+  .memo-preview,
+  .feedback-field-note {
     border-radius: 9px;
   }
 
@@ -2218,6 +2391,46 @@ textarea::placeholder {
 
   .memo-toolbar {
     align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .feedback-field-note {
+    padding: 17px 16px;
+  }
+
+  .feedback-heading,
+  .feedback-output-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .feedback-heading .button {
+    width: 100%;
+  }
+
+  .feedback-fields {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .feedback-control-wide {
+    grid-column: auto;
+  }
+
+  .feedback-footer {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .feedback-footer > div,
+  .feedback-footer > div .button,
+  .feedback-output-actions,
+  .feedback-output-actions .button {
+    width: 100%;
+  }
+
+  .feedback-footer > div,
+  .feedback-output-actions {
     flex-direction: column;
   }
 

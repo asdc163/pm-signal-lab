@@ -16,7 +16,9 @@ This kit is for a real PM, founder, product designer, or product engineer trying
 3. Open one source and answer: 「這句話真的能回到哪個來源？」
 4. Go to Verify and accept, edit, or keep one claim as a hypothesis.
 5. Draft the smallest experiment and read the `Known limits` / `Not covered` sections.
-6. Export the decision brief and copy the session summary.
+6. Export the decision brief.
+7. On the `帶走` page, open `整理一次試用`, fill the field note from your own experience, confirm the privacy checkbox, generate the Markdown, and read it once.
+8. If you want to share it, copy the field note, open the public feedback issue, and submit it manually after removing anything sensitive.
 
 Please do the task without a walkthrough from the maintainer. Note where you hesitate, what you expect to happen, and what you would change.
 
@@ -33,7 +35,7 @@ Please do the task without a walkthrough from the maintainer. Note where you hes
 
 ## Session evidence format
 
-When opening the feedback issue, include:
+The product can prepare these fields locally. When opening the feedback issue, review every line and include:
 
 - `Tester role`: PM / founder / designer / engineer / other
 - `Environment`: hosted URL or local URL, browser, desktop/mobile
@@ -43,6 +45,8 @@ When opening the feedback issue, include:
 - `Recovery`: what happened after an error or backtrack
 - `One change`: the single change that would make you try again
 - `Permission`: confirm that the report contains no private customer data
+
+The generated field note includes a boundary statement: one self-reported session is not general usability, retention, model quality, adoption, or GitHub growth evidence.
 
 Do not include raw customer evidence in a public issue. A maintainer may ask for a private follow-up when the report needs more context.
 

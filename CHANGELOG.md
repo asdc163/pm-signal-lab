@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.3 — 2026-08-15
+
+- 在帶走頁加入 local-only session feedback field note：用角色、任務結果與具體卡點整理可 triage 的 Markdown。
+- privacy confirmation 未完成前不會生成回報內容；剪貼簿失敗時保留可手動選取的文字備援。
+- GitHub issue 仍由使用者自行開啟、檢查與送出；沒有 telemetry、原始 evidence 上傳或自動 mutation。
+
+這一版改善的是試用回饋的可整理性，不代表真人 usability、adoption、模型品質、production readiness 或 GitHub stars 成長。
+
 ## 0.1.2 — 2026-08-15
 
 - 首屏只保留中央試用任務的開始入口；右側空狀態改成文字指引，不再重複載入按鈕。

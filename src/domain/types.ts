@@ -66,6 +66,8 @@ export type ProductEventName =
   | "claim_reviewed"
   | "experiment_drafted"
   | "decision_exported"
+  | "feedback_drafted"
+  | "feedback_copied"
   | "recovery_used";
 
 export interface ProductEvent {
