@@ -1,0 +1,45 @@
+{
+  "collected_at": "2026-08-14T00:00:00+08:00",
+  "unique_repositories": 1042,
+  "raw_rows": 1221,
+  "sources": {
+    "github_rest_search_unique": 821,
+    "github_trending_supplement_unique": 221,
+    "readme_deep_sample": 100,
+    "close_comparator_qualitative_review": 20
+  },
+  "raw_evidence_sha256": {
+    "github_reference_corpus": "e34eeebe378dbb482d3b3cb8fb3dd7e26e5ee77f8f0597d2958313e5900d9252",
+    "github_deep_sample": "7078b5b79a913eda4c84f18d0c52720eca386599cf837dd236d629a5f0340ccb"
+  },
+  "rest_queries": [
+    "stars:>100 topic:ai",
+    "stars:>100 topic:llm",
+    "stars:>50 topic:ai-agents",
+    "stars:>20 topic:mcp",
+    "stars:>50 topic:llmops",
+    "stars:>100 topic:developer-tools",
+    "stars:>50 topic:analytics",
+    "stars:>50 topic:automation",
+    "stars:>50 topic:knowledge-management",
+    "stars:>20 topic:product-management"
+  ],
+  "trending_pages": [
+    "all/monthly",
+    "all/weekly",
+    "all/daily",
+    "python/monthly",
+    "javascript/monthly",
+    "typescript/monthly",
+    "go/monthly",
+    "rust/monthly",
+    "swift/monthly",
+    "jupyter-notebook/monthly",
+    "java/monthly",
+    "ruby/monthly",
+    "dart/monthly",
+    "kotlin/monthly"
+  ],
+  "score_note": "Reference-selection priority only; stars are not adoption, PMF, quality, or revenue evidence.",
+  "selected_direction": "PM Signal Lab — local-first evidence-to-decision workbench"
+}
