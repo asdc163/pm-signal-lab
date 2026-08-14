@@ -384,7 +384,7 @@ p {
 
 .hero-block {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 32px;
   padding-bottom: 30px;
@@ -399,6 +399,7 @@ p {
   font-weight: 710;
   letter-spacing: -0.025em;
   line-height: 1.16;
+  text-wrap: balance;
 }
 
 .hero-copy {
@@ -408,11 +409,78 @@ p {
   font-size: 16px;
 }
 
-.hero-action-stack {
+.hero-route {
+  display: flex;
+  max-width: 560px;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 22px;
+  color: var(--muted);
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 11px;
+}
+
+.hero-route > svg {
+  color: var(--line-strong);
+}
+
+.route-node {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.route-node b {
+  color: var(--accent-dark);
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.hero-status {
   display: grid;
-  min-width: 210px;
-  gap: 10px;
-  justify-items: stretch;
+  width: min(100%, 255px);
+  flex: 0 0 255px;
+  gap: 8px;
+  padding: 3px 0 0 19px;
+  border-left: 1px solid var(--line-strong);
+}
+
+.hero-status-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hero-status-step {
+  color: var(--accent-dark);
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 10px;
+  font-weight: 800;
+}
+
+.hero-status > strong {
+  color: var(--ink);
+  font-size: 15px;
+  line-height: 1.45;
+}
+
+.hero-status > p {
+  margin: -1px 0 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.hero-status-boundary {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-top: 2px;
+  color: var(--trust);
+  font-size: 10px;
+  line-height: 1.5;
 }
 
 .progress-label {
@@ -705,6 +773,28 @@ p {
   font-weight: 700;
 }
 
+.first-run-sequence {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 4px;
+  color: var(--accent-dark);
+  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+  font-size: 11px;
+}
+
+.first-run-sequence b {
+  font-weight: 800;
+}
+
+.first-run-sequence span {
+  color: var(--line-strong);
+  font-size: 12px;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
 .pack-header,
 .section-intro {
   display: flex;
@@ -936,12 +1026,12 @@ p {
   display: flex;
   align-items: flex-start;
   gap: 13px;
-  margin: 26px 0 14px;
-  padding: 17px 18px;
-  border: 1px solid #e3c9aa;
-  border-left: 3px solid var(--accent);
+  margin: 27px 0 14px;
+  padding: 17px 2px;
+  border-top: 1px solid #e3c9aa;
+  border-bottom: 1px solid #e3c9aa;
   border-radius: 0;
-  background: #fcf4e9;
+  background: transparent;
 }
 
 .next-action-icon {
@@ -1999,13 +2089,16 @@ textarea::placeholder {
     flex-direction: column;
   }
 
-  .hero-action-stack {
+  .hero-status {
     width: min(100%, 350px);
+    flex-basis: auto;
+    padding-top: 15px;
+    padding-left: 0;
+    border-top: 1px solid var(--line);
+    border-left: 0;
   }
 
-  .progress-label {
-    text-align: left;
-  }
+  .hero-status-heading { max-width: 350px; }
 }
 
 @media (max-width: 1024px) {
@@ -2190,8 +2283,10 @@ textarea::placeholder {
     font-size: 14px;
   }
 
-  .hero-action-stack {
+  .hero-status {
     width: 100%;
+    max-width: none;
+    padding-top: 17px;
   }
 
   .notice {

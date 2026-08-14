@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.4 — 2026-08-15
+
+- 將首屏重新聚焦成 `PM 工作紙`：用 `來源 → 判斷 → 驗證` 路徑、當頁進度與資料邊界說清楚這個產品要幫 PM 完成什麼。
+- 以暖紙張 workbench、deep-green workflow rail、evidence spine 與平面 ledger row 強化視覺層級；移除重複 CTA 與容易像 AI dashboard 的裝飾語法。
+- 補上 1440、768、390 的 fresh visual QA captures，並重跑完整 local workflow、privacy gate、手動 GitHub handoff、clipboard fallback、新增訊號 recovery 與鍵盤路徑。
+
+這一版改善的是產品理解與可回看的試用路徑，不代表完全無 bug、真人 adoption、模型品質、production readiness 或 GitHub stars 成長。
+
 ## 0.1.3 — 2026-08-15
 
 - 在帶走頁加入 local-only session feedback field note：用角色、任務結果與具體卡點整理可 triage 的 Markdown。

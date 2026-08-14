@@ -2,7 +2,7 @@
 
 ## Product Frame
 
-- Product type: local-first product evidence-to-decision workbench
+- Product type: local-first PM decision worksheet for evidence-to-decision work
 - Target user: PM / founder / product engineer（作品集敘事聚焦 AI product management，但產品本身不假裝有外部模型）
 - Primary action: 從 evidence pack 走到可審核、可匯出的 decision brief
 - Brand mood: precise、calm、evidence-first、slightly editorial
@@ -26,7 +26,7 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 
 ## Composition Brief
 
-- First read: `先看來源，再決定下一步`、current step、sample/workspace status；首屏只保留中央試用任務的主要 CTA。
+- First read: `先看來源，再決定下一步`、`來源 → 判斷 → 驗證` route、current step、sample/workspace status；首屏只保留中央試用任務的主要 CTA。
 - Second read: evidence/claim rows 與 source mapping。
 - Primary action: 依 step 的單一 CTA。
 - Content relationship: flow + evidence + decision，使用 stepper、row、split pane、definition list，少用 card。
@@ -34,12 +34,12 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 - Alignment spine: workflow rail → central workbench → decision context rail。
 - Layout archetype: `sidebar + workbench split-pane + decision rail`。
 - Responsive reflow: rail → top stepper；right context → below main; CTA → sticky bottom action。
-- First-run gesture: hero 只報告範例狀態，中央 field note 承擔開始試用；右側空狀態提供下一步說明，不重複一顆按鈕。
+- First-run gesture: hero 只報告 `這一頁的進度` 與資料邊界，中央 field note 承擔開始試用；右側空狀態提供下一步說明，不重複一顆按鈕。
 - Feedback gesture: decision brief 之後才出現低干擾的 field note；它整理人的試用經驗，不預測感受、不讀取原始 evidence，也不代替使用者送出 issue。
 
 ## Selected visual concept
 
-- Desktop first-run reference: `docs/product/pm-signal-lab/assets/concept-desktop.png`。
+- Desktop first-run reference: `docs/product/pm-signal-lab/assets/qa/visual-reframe-first-run-1440.png`；方向概念仍保留在 `docs/product/pm-signal-lab/assets/concept-desktop.png`。
 - The concept is a direction anchor, not a pixel-perfect generated asset: keep its shell/workbench/decision-rail hierarchy, but implement exact product states, semantic controls, responsive behavior, and source trust details in React/CSS。
 - Deliberate correction during generation: reject invented dashboard metrics and project KPIs; v0 opens with an honest `0 / 4` first-run state and only introduces evidence-derived content after the user loads the fixture。
 
@@ -135,4 +135,6 @@ The UI must show source identity, timestamp/freshness, limitations, manual edit,
 - Do a second polish pass for hierarchy, spacing, container count, focus visibility, sticky CTA overlap, and status color independence.
 - Feedback field note must be checked for empty-field honesty, privacy confirmation, editable output, manual-submit boundary, and mobile form length.
 - The second polish pass also checks that the surface reads as an evidence desk rather than an AI dashboard: no decorative hamburger on desktop, no generic event names, and no status pill used where a divider or text label is enough.
+- The current visual reframe is recorded in [`15-visual-product-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/15-visual-product-reframe-contract-2026-08-15.md); it is a decision-worksheet direction, not a claim of complete usability or adoption.
+- Fresh QA captures: [`first-run 1440`](./docs/product/pm-signal-lab/assets/qa/visual-reframe-first-run-1440.png)、[`loaded 390`](./docs/product/pm-signal-lab/assets/qa/visual-reframe-loaded-390.png)、[`loaded 768`](./docs/product/pm-signal-lab/assets/qa/visual-reframe-loaded-768.png)。
 - Document any exception to this system in the feature UX spec and release evidence.
