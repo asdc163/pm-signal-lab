@@ -2,18 +2,20 @@
 
 ## Verdict
 
-本輪新增的 local-only session feedback field note 已在本機完成程式與互動驗證；它把「完成一次試用」到「留下可 triage 回饋」之間的手動整理工作收斂成一條可檢查的路徑。
+本輪新增的 local-only session feedback field note 已完成本機與 canonical GitHub Pages 的程式、互動與 responsive 驗證；它把「完成一次試用」到「留下可 triage 回饋」之間的手動整理工作收斂成一條可檢查的路徑。
 
-這份 audit 不宣稱產品沒有任何問題、真人 usability、adoption、模型品質、production readiness、爆紅或 10,000 GitHub stars。公開 hosted release 的 CI、Pages 與 canonical URL readback 會在推送後補上；在那之前不把本機結果當成遠端完成證據。
+這份 audit 不宣稱產品沒有任何問題、真人 usability、adoption、模型品質、production readiness、爆紅或 10,000 GitHub stars。它證明的是本輪指定覆蓋範圍內的可重跑 public preview，不延伸到未執行的真機、螢幕閱讀器或真實使用者證據。
 
 ## Release identity
 
 | 項目 | 本輪證據 |
 |---|---|
 | Repository | [`asdc163/pm-signal-lab`](https://github.com/asdc163/pm-signal-lab) |
+| Release head | [`976bbac`](https://github.com/asdc163/pm-signal-lab/commit/976bbac57d44b4c202bcb066304e9c249c3d6951) — `Document feedback field note release audit` |
 | Code commit | [`1f58e2d`](https://github.com/asdc163/pm-signal-lab/commit/1f58e2d602d1af2e8cefefa04a860330b2cef056) — `Add local session feedback field note` |
-| Canonical URL | [`https://asdc163.github.io/pm-signal-lab/`](https://asdc163.github.io/pm-signal-lab/) — post-push readback pending |
-| CI / Pages | post-push run IDs pending；尚未宣稱遠端部署完成 |
+| Canonical URL | [`https://asdc163.github.io/pm-signal-lab/`](https://asdc163.github.io/pm-signal-lab/) — HTTP/2 200，last-modified `2026-08-14T18:46:37Z` |
+| CI | [`31830208985`](https://github.com/asdc163/pm-signal-lab/actions/runs/31830208985) — success |
+| Pages deploy | [`31830209025`](https://github.com/asdc163/pm-signal-lab/actions/runs/31830209025) — success |
 | Browser route | Playwright CLI fallback；本輪沒有可呼叫的 Codex Chrome Extension QA 工具 |
 | Data boundary | in-memory browser state + local Markdown generation；沒有登入、外部 provider、telemetry 或自動 GitHub mutation |
 
@@ -72,17 +74,31 @@
 - 1440×900：已截圖檢查 loaded/exported field note；深綠 workflow rail、暖紙工作區、青綠 trust surface 與黏土色 primary action 維持原有 evidence desk hierarchy，沒有新增 AI dashboard、gradient、orb 或 card wall。
 - Playwright console：Errors 0、Warnings 0。
 
+### Hosted canonical
+
+新鮮 hosted session `pm-signal-feedback-hosted-v1` 實際重跑：
+
+`載入範例資料 → 開始核對 → 採用 → 草擬最小實驗 → 匯出 → 整理 field note → privacy block → 填寫 → 生成 → 複製`
+
+- 頁面 title 為 `PM Signal Lab — 產品訊號到決策`，`lang=zh-Hant`。
+- 1200px 預設 viewport：`scrollWidth = clientWidth = 1200`；console Errors 0、Warnings 0。
+- hosted feedback output 沒有 sample 原文或 `evidence-interview-01`，包含 `submit it manually` boundary。
+- hosted clipboard success 顯示「試用回報已複製；送出前請再確認沒有私密內容」。
+- hosted 390×844：`scrollWidth = clientWidth = 390`、8 個 feedback fields、表單按鈕高度均為 44px、mobile action bar `flex`。
+- hosted 768×1024：`scrollWidth = clientWidth = 768`；sidebar `none`、decision context `grid`、feedback fields 為兩欄 `321px 321px`。
+- bundle readback：`把這次試用留下來`、`產生回報內容`、privacy gate、`開啟 GitHub 回報頁` 與 `不讀取原始訊號` 均存在於最新 hosted JS bundle。
+
 ## Remote release gate
 
-以下項目在本檔建立時尚未推送，因此不預先填寫：
+本輪 remote gate 已讀回：
 
-- [ ] `git push origin main` 完成。
-- [ ] GitHub Actions build run readback 為 success。
-- [ ] GitHub Pages deploy run readback 為 success。
-- [ ] canonical URL 回傳 HTTP 200，且 hosted bundle 含 field note 字串。
-- [ ] 新鮮 hosted browser session 重跑 normal、privacy block、clipboard fallback、390px 與 768px。
+- [x] `git push origin main` 完成，遠端 head 為 `976bbac57d44b4c202bcb066304e9c249c3d6951`。
+- [x] GitHub Actions CI [`31830208985`](https://github.com/asdc163/pm-signal-lab/actions/runs/31830208985) readback 為 success。
+- [x] GitHub Pages deploy [`31830209025`](https://github.com/asdc163/pm-signal-lab/actions/runs/31830209025) readback 為 success。
+- [x] canonical URL 回傳 HTTP/2 200，且 hosted bundle 含 field note 字串。
+- [x] 新鮮 hosted browser session 重跑 normal、privacy block、clipboard success、390px 與 768px。
 
-只有上述 remote gate 讀回後，這份文件才可以改成「本輪 public preview 已更新」；未通過前不使用 `ready`、`complete` 或「正式網站完成」等說法。
+這些 remote gate 只證明 hosted public preview 在本輪指定範圍內可重跑；不等於 production readiness、真人 adoption 或星星成長。
 
 ## Not covered / not claimed
 
@@ -97,4 +113,3 @@
 若 field note 增加負擔、讓回饋品質下降或產生新的信任問題，回滾 code commit [`1f58e2d`](https://github.com/asdc163/pm-signal-lab/commit/1f58e2d602d1af2e8cefefa04a860330b2cef056) 即可；既有 decision brief、session receipt 與 issue template 不需移除。
 
 下一個 gate 是請至少 5 位目標使用者自己完成 hosted trial，觀察是否能在不被 maintainer 帶領的情況下留下可 triage 的 field note。只有真實 session evidence 出現後，才決定是否改欄位、改入口，或進入下一個 adoption hypothesis。
-
