@@ -124,7 +124,8 @@ Desired outcome: visitor can make one defensible next-check decision
 - [x] Step 3：在 `src/styles.css` 以 divider、alignment、type rhythm 取代不必要的 container weight，讓 evidence spine 與 next-action row 成為主視覺結構。Expected：1440px 灰階／模糊檢查仍可辨識 hero → first-run sheet → next action；loaded rows 不被卡片陰影切碎。
 - [x] Step 4：在 `src/styles.css` 重排 390px 與 768px 的 hero status、first-run sheet、context rail、sticky action 與長中文。Expected：`scrollWidth === clientWidth`，主要 controls ≥44px，沒有文字重疊或 sticky bar 蓋住內容。
 - [x] Step 5：以現有 domain tests 與 browser path 做回歸，記錄 normal、friction、recovery、keyboard、trust 與未覆蓋 scope。Expected：測試／lint／build exit 0，browser console errors/warnings 皆為 0，clipboard／privacy／manual GitHub boundary 保持可見。
-- [ ] Step 6：把 fresh screenshot／hosted evidence 回寫到 `DESIGN.md` 與 `docs/product/pm-signal-lab/` audit；只有 CI、Pages、canonical HTTP 與 bundle readback 都讀回後才 push。Expected：remote head、workflow run、Pages deploy、canonical URL 與 release artifact 可互相對上。
+- [x] Step 6：把 fresh screenshot／hosted evidence 回寫到 `DESIGN.md` 與 `docs/product/pm-signal-lab/` audit；只有 CI、Pages、canonical HTTP 與 bundle readback 都讀回後才 push。Expected：remote head、workflow run、Pages deploy、canonical URL 與 release artifact 可互相對上。
+- [ ] Follow-up gate：收集至少五位非 owner 的 hosted session 後，回寫外部證據再決定下一個功能切片；在此之前不擴大 scope。
 
 ### User-facing UX/AI/security gate
 
