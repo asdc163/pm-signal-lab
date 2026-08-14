@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.8 — 2026-08-15
+
+- 將空白初次使用與已載入工作區分成兩種密度：first-run 保留 editorial cover；有 evidence pack 後收斂 masthead，讓 PM 更早看到來源與判斷工作。
+- mobile 工作區補上 sticky action 的 safe-area 底部餘裕；保留 44px 操作高度、focus、recovery、local-only 邊界與手動 GitHub handoff。
+- 這是 owner-run 的 layout／behavior 調整；目前沒有真人 usability、Chrome Extension、螢幕閱讀器、adoption 或 GitHub stars 成長證據，也不代表完全無 bug。
+
 ## 0.1.7 — 2026-08-15
 
 - 將 app shell 收斂成 PM 研究工作紙：以 paper index、暖紙張、serif page title、evidence spine 與邊欄註記組織閱讀順序，移除深色 SaaS shell、icon-first context wall 與 pill status wall。

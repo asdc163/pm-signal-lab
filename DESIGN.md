@@ -35,6 +35,7 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 - Layout archetype: `research folio + index strip + annotated workpaper + margin note`；右欄是工作註記，不是 dashboard metric rail。
 - Responsive reflow: rail → top stepper；right context → below main; CTA → sticky bottom action。
 - First-run gesture: hero 用具體的 source-to-decision copy 報告工作；中央 folio 顯示一段原文與唯一主要 CTA；右側 margin note 提供下一步說明，不重複一顆按鈕。
+- Loaded-work gesture: pack 存在後，hero 轉成較密的 workbench masthead，讓 evidence／claim section 更早進入首屏；這是由真實 domain state 驅動的密度變化，不是 loading／AI activity 動畫。
 - Feedback gesture: decision brief 之後才出現低干擾的 field note；它整理人的試用經驗，不預測感受、不讀取原始 evidence，也不代替使用者送出 issue。
 
 ## Selected visual concept
@@ -134,6 +135,7 @@ The UI must show source identity, timestamp/freshness, limitations, manual edit,
 - Screenshot review at 390×844、768×1024、1440×900。
 - Behavior matrix covers first-time、empty、loading、error、recovery、success、mobile、keyboard、long Traditional Chinese。
 - Do a second polish pass for hierarchy, spacing, container count, focus visibility, sticky CTA overlap, and status color independence.
+- Loaded-state density check: first-run 保留 editorial cover；sample 載入後縮短 masthead，但仍保留 current step、source／limitation、human review 與 local-only boundary。這項 owner-run layout observation 不等同於真人 usability 或 adoption 證據。
 - Feedback field note must be checked for empty-field honesty, privacy confirmation, editable output, manual-submit boundary, and mobile form length.
 - The second polish pass also checks that the surface reads as a research notebook rather than an AI dashboard: no dark SaaS shell, no icon-first context wall, no generic hero promise, no decorative hamburger on desktop, no generic event names, and no status pill used where a divider or text label is enough.
 - The current shell reframe is recorded in [`22-research-notebook-shell-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/22-research-notebook-shell-reframe-contract-2026-08-15.md); it is a visual/product hypothesis, not a claim of complete usability or adoption.

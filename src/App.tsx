@@ -593,7 +593,7 @@ function App() {
         </div>
 
         <main id="main-content" className="workspace" tabIndex={-1}>
-          <section className="workbench" aria-labelledby="page-title">
+          <section className={`workbench${pack ? " is-loaded" : ""}`} aria-labelledby="page-title">
             <div className="hero-block">
               <div>
                 <p className="eyebrow">PM 工作紙／第 01 頁</p>

@@ -490,6 +490,44 @@ p {
   line-height: 1.5;
 }
 
+/* A loaded workpaper is a tool surface, not a second landing page. */
+.workbench.is-loaded .hero-block {
+  gap: 26px;
+  padding-bottom: 20px;
+}
+
+.workbench.is-loaded .hero-block h1 {
+  max-width: 650px;
+  margin-top: 7px;
+  margin-bottom: 9px;
+  font-size: clamp(1.95rem, 2.45vw, 2.9rem);
+}
+
+.workbench.is-loaded .hero-copy {
+  max-width: 590px;
+  font-size: 14px;
+}
+
+.workbench.is-loaded .hero-route {
+  gap: 7px;
+  margin-top: 13px;
+  font-size: 10px;
+}
+
+.workbench.is-loaded .hero-status {
+  gap: 6px;
+  padding-top: 11px;
+}
+
+.workbench.is-loaded .hero-status > strong {
+  font-size: 14px;
+}
+
+.workbench.is-loaded .hero-status > p {
+  margin-bottom: 2px;
+  font-size: 11px;
+}
+
 .button,
 .icon-button,
 .text-button {
@@ -2299,7 +2337,7 @@ textarea::placeholder {
   }
 
   .workspace {
-    padding: 23px 16px 100px;
+    padding: 23px 16px calc(112px + env(safe-area-inset-bottom));
   }
 
   .desktop-stepper-wrap {
@@ -2314,6 +2352,29 @@ textarea::placeholder {
   .hero-block h1 {
     margin-top: 10px;
     font-size: clamp(2.1rem, 11vw, 3.2rem);
+  }
+
+  .workbench.is-loaded .hero-block {
+    gap: 17px;
+    padding-bottom: 18px;
+  }
+
+  .workbench.is-loaded .hero-block h1 {
+    margin-top: 7px;
+    margin-bottom: 8px;
+    font-size: clamp(1.75rem, 8vw, 2.2rem);
+  }
+
+  .workbench.is-loaded .hero-copy {
+    font-size: 13px;
+  }
+
+  .workbench.is-loaded .hero-route {
+    margin-top: 11px;
+  }
+
+  .workbench.is-loaded .hero-status {
+    padding-top: 13px;
   }
 
   .hero-copy {

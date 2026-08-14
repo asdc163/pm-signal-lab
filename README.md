@@ -81,6 +81,7 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 - [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml)：每次 `main` 更新後自動建置並部署 hosted demo。
 - [`DESIGN.md`](./DESIGN.md)：視覺 DNA、tokens、狀態與排版規範。
 - [`research notebook shell contract`](./docs/product/pm-signal-lab/22-research-notebook-shell-reframe-contract-2026-08-15.md)：本輪將 shell 收斂成 PM 研究工作紙的設計決策、排除項目與驗證邊界。
+- [`workbench density transition contract`](./docs/product/pm-signal-lab/24-workbench-density-transition-contract-2026-08-15.md)：說明為什麼 first-run 保留 editorial cover、載入 evidence pack 後改用更密的工作台抬頭，以及本輪的驗證門檻。
 
 ## 目前不宣稱的事情
 
