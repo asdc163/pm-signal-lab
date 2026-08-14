@@ -13,7 +13,7 @@ Hosted demo：<https://asdc163.github.io/pm-signal-lab/>
 不需要登入，也不用準備 API key：
 
 1. 開啟 [hosted demo](https://asdc163.github.io/pm-signal-lab/)，按 `載入範例資料`。
-2. 展開一筆 `查看來源`，確認原文、時間與限制。
+2. 展開一筆 `查看來源`，先看左側的來源編號，再確認原文、時間與限制。
 3. 按 `開始核對`，對一個暫定判斷選擇 `採用這個判斷` 或 `保留為假設`。
 4. 到 `安排` 按 `草擬最小實驗`，再匯出或複製決策 brief。
 5. 在 `帶走` 的「試用回音」開啟 `整理一次試用`，填寫你真正遇到的卡點，勾選 privacy confirmation，產生並檢查 field note。
@@ -82,6 +82,7 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 - [`DESIGN.md`](./DESIGN.md)：視覺 DNA、tokens、狀態與排版規範。
 - [`research notebook shell contract`](./docs/product/pm-signal-lab/22-research-notebook-shell-reframe-contract-2026-08-15.md)：本輪將 shell 收斂成 PM 研究工作紙的設計決策、排除項目與驗證邊界。
 - [`workbench density transition contract`](./docs/product/pm-signal-lab/24-workbench-density-transition-contract-2026-08-15.md)：說明為什麼 first-run 保留 editorial cover、載入 evidence pack 後改用更密的工作台抬頭，以及本輪的驗證門檻。
+- [`source ledger composition contract`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md)：說明為什麼 loaded evidence 要改成有編號的來源帳頁，以及 claim mapping 如何回指相同來源。
 
 ## 目前不宣稱的事情
 
@@ -96,7 +97,7 @@ UI 與 domain engine 分開，便於日後加入 provider adapter，而不把 AP
 
 Hosted demo 目前由 GitHub Pages workflow 部署；Vercel 只作為本機部署排錯時的參考，不是作品集 canonical URL。
 
-目前的公開版本與驗證範圍記錄在 [`human-owned trust copy release audit`](./docs/product/pm-signal-lab/31-human-owned-trust-copy-release-audit-2026-08-15.md)、[`human-owned trust copy contract`](./docs/product/pm-signal-lab/30-human-owned-trust-copy-contract-2026-08-15.md)、[`notice annotation visual polish release audit`](./docs/product/pm-signal-lab/29-notice-annotation-visual-polish-release-audit-2026-08-15.md)、[`notice annotation visual polish contract`](./docs/product/pm-signal-lab/28-notice-annotation-visual-polish-contract-2026-08-15.md)、[`accessibility and session handoff release audit`](./docs/product/pm-signal-lab/27-accessibility-session-handoff-release-audit-2026-08-15.md)、[`accessibility and session handoff contract`](./docs/product/pm-signal-lab/26-accessibility-session-handoff-contract-2026-08-15.md)、[`workbench density transition release audit`](./docs/product/pm-signal-lab/25-workbench-density-transition-release-audit-2026-08-15.md)、[`research notebook shell release audit`](./docs/product/pm-signal-lab/23-research-notebook-shell-release-audit-2026-08-15.md)、[`editorial field note release audit`](./docs/product/pm-signal-lab/21-editorial-field-note-release-audit-2026-08-15.md)、[`inline claim editor release audit`](./docs/product/pm-signal-lab/19-inline-claim-editor-release-audit-2026-08-15.md)、[`inline editor / Chrome blocked QA report`](./docs/product/pm-signal-lab/18-chrome-extension-a11y-blocked-qa-report-2026-08-15.md) 與 [`visual product reframe release audit`](./docs/product/pm-signal-lab/16-visual-product-reframe-release-audit-2026-08-15.md)。它們證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
+目前的公開版本與驗證範圍記錄在 [`source ledger composition release audit`](./docs/product/pm-signal-lab/33-source-ledger-composition-release-audit-2026-08-15.md)、[`source ledger composition contract`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md)、[`human-owned trust copy release audit`](./docs/product/pm-signal-lab/31-human-owned-trust-copy-release-audit-2026-08-15.md)、[`human-owned trust copy contract`](./docs/product/pm-signal-lab/30-human-owned-trust-copy-contract-2026-08-15.md)、[`notice annotation visual polish release audit`](./docs/product/pm-signal-lab/29-notice-annotation-visual-polish-release-audit-2026-08-15.md)、[`notice annotation visual polish contract`](./docs/product/pm-signal-lab/28-notice-annotation-visual-polish-contract-2026-08-15.md)、[`accessibility and session handoff release audit`](./docs/product/pm-signal-lab/27-accessibility-session-handoff-release-audit-2026-08-15.md)、[`accessibility and session handoff contract`](./docs/product/pm-signal-lab/26-accessibility-session-handoff-contract-2026-08-15.md)、[`workbench density transition release audit`](./docs/product/pm-signal-lab/25-workbench-density-transition-release-audit-2026-08-15.md)、[`research notebook shell release audit`](./docs/product/pm-signal-lab/23-research-notebook-shell-release-audit-2026-08-15.md)、[`editorial field note release audit`](./docs/product/pm-signal-lab/21-editorial-field-note-release-audit-2026-08-15.md)、[`inline claim editor release audit`](./docs/product/pm-signal-lab/19-inline-claim-editor-release-audit-2026-08-15.md)、[`inline editor / Chrome blocked QA report`](./docs/product/pm-signal-lab/18-chrome-extension-a11y-blocked-qa-report-2026-08-15.md) 與 [`visual product reframe release audit`](./docs/product/pm-signal-lab/16-visual-product-reframe-release-audit-2026-08-15.md)。它們證明的是目前覆蓋範圍內的可重跑 workflow，不是「完全沒問題」、真人 adoption、模型品質或 10,000 顆星的保證。
 
 ## 想一起試用
 

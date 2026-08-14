@@ -93,8 +93,8 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Button: primary / secondary / ghost / danger; default / hover / active / focus / disabled / loading.
 - Stepper: current / completed / available / blocked; semantic `aria-current`.
-- Evidence row: source badge, type, timestamp, status, content preview, expanded source.
-- Claim row: status text/icon, evidence spine, source references, accept/edit/flag actions.
+- Evidence row: deterministic current-pack source folio (`來源 01`), type, timestamp, source identity, original-phrase preview, and expanded source detail.
+- Claim row: status text/icon, claim folio, evidence spine, source references that reuse the source folio, accept/edit/flag actions.
 - Status marker: `有來源支持` / `需要你確認` / `缺少證據` with text, icon when useful, and underline/divider rather than a filled pill.
 - Alert/toast: success / warning / error / recovery action; `role=status` or `role=alert` by severity.
 - Notice：工作紙上的狀態回饋使用透明底、上下 ruled divider、icon 與 tone-specific 左線；不使用整塊彩色提示卡，避免把 UI state 做成 dashboard status wall。
@@ -147,5 +147,6 @@ The UI must show source identity, timestamp/freshness, limitations, manual edit,
 - The current visual reframe is recorded in [`15-visual-product-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/15-visual-product-reframe-contract-2026-08-15.md); it is a decision-worksheet direction, not a claim of complete usability or adoption.
 - The notice annotation polish is recorded in [`28-notice-annotation-visual-polish-contract-2026-08-15.md`](./docs/product/pm-signal-lab/28-notice-annotation-visual-polish-contract-2026-08-15.md); its release evidence will name the exact visual and behavioral coverage rather than claim a full accessibility or adoption pass.
 - The human-owned trust copy pass is recorded in [`30-human-owned-trust-copy-contract-2026-08-15.md`](./docs/product/pm-signal-lab/30-human-owned-trust-copy-contract-2026-08-15.md); it changes visible wording only and does not claim complete AI UX, accessibility, adoption, or star growth.
+- The source-ledger composition pass is recorded in [`32-source-ledger-composition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md) and its release evidence in [`33-source-ledger-composition-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/33-source-ledger-composition-release-audit-2026-08-15.md); source numbering and mapping are product-specific provenance cues, not decorative trend treatment or adoption evidence.
 - Fresh QA captures: [`first-run 1440`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-1440.png)、[`first-run 768`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-768.png)、[`first-run 390`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-first-run-390.png)、[`verify 1440`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-verify-1440.png)、[`verify 390`](./docs/product/pm-signal-lab/assets/qa/notebook-shell-verify-390.png)。
 - Document any exception to this system in the feature UX spec and release evidence.

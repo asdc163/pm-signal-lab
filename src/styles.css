@@ -876,6 +876,24 @@ p {
   font-size: 13px;
 }
 
+.source-ledger-heading {
+  align-items: flex-end;
+}
+
+.source-ledger-heading .section-eyebrow {
+  margin-bottom: 7px;
+}
+
+.source-ledger-heading .micro-status {
+  padding-bottom: 4px;
+}
+
+.source-ledger-heading .micro-status strong {
+  color: var(--ink);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+}
+
 .micro-status,
 .human-label {
   color: var(--trust);
@@ -900,10 +918,18 @@ p {
 .claim-row {
   position: relative;
   display: grid;
-  grid-template-columns: 25px minmax(0, 1fr) auto;
   gap: 14px;
   padding: 18px 0 18px 4px;
   border-bottom: 1px solid var(--line);
+}
+
+.evidence-row {
+  grid-template-columns: 48px minmax(0, 1fr) auto;
+  gap: 16px;
+}
+
+.claim-row {
+  grid-template-columns: 25px minmax(0, 1fr);
 }
 
 .evidence-spine,
@@ -916,11 +942,13 @@ p {
 .evidence-spine::before,
 .claim-spine::before {
   position: absolute;
+  left: 50%;
   top: 12px;
   bottom: -30px;
   width: 1px;
   content: "";
   background: #b9c8d1;
+  transform: translateX(-50%);
 }
 
 .evidence-row:last-child .evidence-spine::before,
@@ -928,7 +956,7 @@ p {
   display: none;
 }
 
-.evidence-spine span,
+.evidence-spine .evidence-node,
 .claim-node {
   position: relative;
   z-index: 1;
@@ -940,6 +968,46 @@ p {
   border-radius: 50%;
   background: var(--surface);
   box-shadow: none;
+}
+
+.evidence-spine {
+  align-items: center;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.evidence-index {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  min-width: 42px;
+  align-items: center;
+  flex-direction: column;
+  gap: 1px;
+  padding: 4px 3px 5px;
+  color: var(--accent-dark);
+  border-top: 1px solid #d9b494;
+  border-bottom: 1px solid #d9b494;
+  background: var(--surface);
+  font-family: "JetBrains Mono", monospace;
+  line-height: 1;
+}
+
+.evidence-index small {
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 8px;
+  letter-spacing: 0.08em;
+}
+
+.evidence-index strong {
+  color: var(--accent-dark);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.evidence-spine .evidence-node {
+  margin-top: 11px;
 }
 
 .evidence-main,
@@ -1005,6 +1073,15 @@ p {
   margin: 0;
   color: var(--muted);
   font-size: 13px;
+}
+
+.preview-label {
+  display: inline-block;
+  margin-right: 7px;
+  color: var(--accent-dark);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
 }
 
 .row-toggle {
@@ -1318,10 +1395,19 @@ textarea::placeholder {
 .status-missing { color: var(--danger); background: transparent; }
 
 .claim-id {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 4px;
   margin-left: auto;
   color: #9aa5a7;
   font-family: "JetBrains Mono", monospace;
   font-size: 10px;
+}
+
+.claim-id small {
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 9px;
 }
 
 .claim-title-button {
@@ -1375,18 +1461,23 @@ textarea::placeholder {
 
 .mapped-source {
   display: flex;
+  align-items: flex-start;
   gap: 10px;
   margin-top: 12px;
 }
 
-.source-dot {
-  display: block;
-  width: 8px;
-  height: 8px;
-  flex: 0 0 8px;
-  margin-top: 5px;
-  border-radius: 50%;
-  background: var(--trust);
+.mapped-source-index {
+  display: inline-flex;
+  min-width: 47px;
+  flex: 0 0 auto;
+  justify-content: center;
+  padding: 4px 5px 3px;
+  color: var(--trust);
+  border-top: 1px solid #a5c4c0;
+  border-bottom: 1px solid #a5c4c0;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 9px;
+  line-height: 1.1;
 }
 
 .mapped-source strong,
@@ -2470,9 +2561,39 @@ textarea::placeholder {
 
   .evidence-row,
   .claim-row {
-    grid-template-columns: 19px minmax(0, 1fr);
     gap: 9px;
     padding: 16px 0;
+  }
+
+  .evidence-row {
+    grid-template-columns: 42px minmax(0, 1fr);
+    gap: 11px;
+  }
+
+  .claim-row {
+    grid-template-columns: 19px minmax(0, 1fr);
+  }
+
+  .evidence-spine::before {
+    top: 42px;
+  }
+
+  .evidence-index {
+    min-width: 38px;
+    padding-top: 3px;
+    padding-bottom: 4px;
+  }
+
+  .evidence-index strong {
+    font-size: 14px;
+  }
+
+  .evidence-index small {
+    font-size: 7px;
+  }
+
+  .evidence-spine .evidence-node {
+    margin-top: 9px;
   }
 
   .row-toggle {
@@ -2539,7 +2660,7 @@ textarea::placeholder {
   }
 
   .claim-id {
-    display: none;
+    font-size: 9px;
   }
 
   .claim-meta {

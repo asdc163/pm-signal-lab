@@ -861,13 +861,17 @@ function CollectView({
               <button className="button button-secondary" type="button" onClick={onOpenForm}><Plus size={16} />新增訊號</button>
             </div>
           </div>
-          <div className="section-heading-row">
-            <div><h3>訊號來源</h3><p>先看原文，再讓暫定判斷往下一步走。</p></div>
-            <span className="micro-status">只在本頁處理</span>
+          <div className="section-heading-row source-ledger-heading">
+            <div>
+              <p className="section-eyebrow">來源帳頁／逐筆回看</p>
+              <h3>原文先留在桌上</h3>
+              <p>每一筆都有編號；下一頁的判斷會標回這些來源。</p>
+            </div>
+            <span className="micro-status"><strong>{evidence.length}</strong> 筆可回看</span>
           </div>
           <div className="evidence-list">
             {evidence.map((item) => (
-              <EvidenceRow key={item.id} evidence={item} expanded={expandedEvidenceId === item.id} onToggle={() => onToggleEvidence(item.id)} />
+              <EvidenceRow key={item.id} evidence={item} sourceIndex={evidence.findIndex((candidate) => candidate.id === item.id) + 1} expanded={expandedEvidenceId === item.id} onToggle={() => onToggleEvidence(item.id)} />
             ))}
           </div>
           <div className="next-action-card">
@@ -913,16 +917,16 @@ function Field({ label, error, htmlFor, children, helper, className = "" }: { la
   return <div className={`field ${className}`}><div className="field-label-row"><label htmlFor={htmlFor}>{label}</label>{helper && <span id={`${htmlFor}-help`}>{helper}</span>}</div>{children}{error && <span className="field-error" id={`${htmlFor}-error`} role="alert">{error}</span>}</div>;
 }
 
-function EvidenceRow({ evidence, expanded, onToggle }: { evidence: Evidence; expanded: boolean; onToggle: () => void }) {
+function EvidenceRow({ evidence, sourceIndex, expanded, onToggle }: { evidence: Evidence; sourceIndex: number; expanded: boolean; onToggle: () => void }) {
   return (
     <article className={`evidence-row ${expanded ? "is-expanded" : ""}`}>
-      <div className="evidence-spine" aria-hidden="true"><span /></div>
+      <div className="evidence-spine" aria-hidden="true"><span className="evidence-index"><small>來源</small><strong>{formatFolioNumber(sourceIndex)}</strong></span><span className="evidence-node" /></div>
       <div className="evidence-main">
         <div className="evidence-row-top"><span className="evidence-type">{EVIDENCE_LABELS[evidence.type]}</span>{evidence.added && <span className="just-added">剛加入</span>}<time dateTime={evidence.observedAt}>{formatDate(evidence.observedAt)}</time></div>
         <h4>{evidence.title}</h4>
         <p className="evidence-source"><Link2 size={14} />{evidence.source}</p>
-        <p className="evidence-preview">{evidence.content}</p>
-        {expanded && <div id={`source-${evidence.id}`} className="source-detail" role="region" aria-label={`原文摘錄：${evidence.title}`}><span className="detail-label">原文摘錄</span><p>{evidence.content}</p><span className="detail-meta">原始內容保留於目前試用 · {evidence.id}</span></div>}
+        <p className="evidence-preview"><span className="preview-label">原話</span>{evidence.content}</p>
+        {expanded && <div id={`source-${evidence.id}`} className="source-detail" role="region" aria-label={`原文摘錄：${evidence.title}`}><span className="detail-label">原文摘錄</span><p>{evidence.content}</p><span className="detail-meta">原始內容保留於目前試用 · 來源 {formatFolioNumber(sourceIndex)}</span></div>}
       </div>
       <button className="row-toggle" type="button" onClick={onToggle} aria-expanded={expanded} aria-controls={`source-${evidence.id}`}>{expanded ? "收起來源" : "查看來源"}<ChevronDown size={15} className={expanded ? "rotate-180" : ""} /></button>
     </article>
@@ -936,7 +940,7 @@ function VerifyView({ claims, evidence, activeClaimId, editingClaimId, editingCl
       {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} /><div><h3>目前沒有可核對的判斷</h3><p>回收集新增訊號，系統才有內容可以整理。</p></div></div> : <>
         <div className="claim-summary"><span><strong>{claims.length}</strong> 個暫定判斷</span><span><BadgeCheck size={14} />{claims.filter((claim) => claim.status === "supported").length} 有支持來源</span><span><CircleAlert size={14} />{claims.filter((claim) => claim.status !== "supported").length} 等你判斷</span></div>
         <div className="claim-list">
-          {claims.map((claim) => <ClaimRow key={claim.id} claim={claim} evidence={evidence} expanded={activeClaimId === claim.id} isEditing={editingClaimId === claim.id} editText={editingClaimText} editError={claimEditError} editRef={claimEditRef} onActivate={() => onActivate(claim.id)} onAccept={() => onAccept(claim)} onKeep={() => onKeep(claim)} onMissing={() => onMissing(claim)} onEdit={() => onEdit(claim)} onEditText={onEditText} onSaveEdit={() => onSaveEdit(claim)} onCancelEdit={onCancelEdit} />)}
+          {claims.map((claim, index) => <ClaimRow key={claim.id} claim={claim} claimIndex={index + 1} evidence={evidence} expanded={activeClaimId === claim.id} isEditing={editingClaimId === claim.id} editText={editingClaimText} editError={claimEditError} editRef={claimEditRef} onActivate={() => onActivate(claim.id)} onAccept={() => onAccept(claim)} onKeep={() => onKeep(claim)} onMissing={() => onMissing(claim)} onEdit={() => onEdit(claim)} onEditText={onEditText} onSaveEdit={() => onSaveEdit(claim)} onCancelEdit={onCancelEdit} />)}
         </div>
         <div className="human-boundary"><ShieldCheck size={17} /><div><strong>這是建議，不是決策。</strong><span>只有你按下採用或保留為假設後，下一步 brief 才會記錄這個判斷。</span></div><button className="button button-secondary" type="button" onClick={onDraft}>前往安排<ArrowRight size={15} /></button></div>
       </>}
@@ -944,7 +948,7 @@ function VerifyView({ claims, evidence, activeClaimId, editingClaimId, editingCl
   );
 }
 
-function ClaimRow({ claim, evidence, expanded, isEditing, editText, editError, editRef, onActivate, onAccept, onKeep, onMissing, onEdit, onEditText, onSaveEdit, onCancelEdit }: { claim: Claim; evidence: Evidence[]; expanded: boolean; isEditing: boolean; editText: string; editError: string; editRef: React.RefObject<HTMLTextAreaElement | null>; onActivate: () => void; onAccept: () => void; onKeep: () => void; onMissing: () => void; onEdit: () => void; onEditText: (value: string) => void; onSaveEdit: () => void; onCancelEdit: () => void }) {
+function ClaimRow({ claim, claimIndex, evidence, expanded, isEditing, editText, editError, editRef, onActivate, onAccept, onKeep, onMissing, onEdit, onEditText, onSaveEdit, onCancelEdit }: { claim: Claim; claimIndex: number; evidence: Evidence[]; expanded: boolean; isEditing: boolean; editText: string; editError: string; editRef: React.RefObject<HTMLTextAreaElement | null>; onActivate: () => void; onAccept: () => void; onKeep: () => void; onMissing: () => void; onEdit: () => void; onEditText: (value: string) => void; onSaveEdit: () => void; onCancelEdit: () => void }) {
   const meta = STATUS_META[claim.status];
   const StatusIcon = meta.Icon;
   const sourceItems = evidence.filter((item) => claim.evidenceIds.includes(item.id));
@@ -952,11 +956,11 @@ function ClaimRow({ claim, evidence, expanded, isEditing, editText, editError, e
     <article className={`claim-row ${expanded ? "is-expanded" : ""} ${claim.reviewed ? "is-reviewed" : ""}`}>
       <div className="claim-spine" aria-hidden="true"><span className={`claim-node ${meta.className}`} /></div>
       <div className="claim-body">
-        <div className="claim-topline"><span className={`status-badge ${meta.className}`}><StatusIcon size={14} />{meta.label}</span>{claim.reviewed && <span className="reviewed-label"><Check size={12} />已處理</span>}<span className="claim-id">{claim.id}</span></div>
+        <div className="claim-topline"><span className={`status-badge ${meta.className}`}><StatusIcon size={14} />{meta.label}</span>{claim.reviewed && <span className="reviewed-label"><Check size={12} />已處理</span>}<span className="claim-id"><small>判斷</small> {formatFolioNumber(claimIndex)}</span></div>
         <button id={`claim-title-${claim.id}`} className="claim-title-button" type="button" onClick={onActivate} aria-expanded={expanded} aria-controls={`claim-${claim.id}-detail`}><span>{claim.text}</span><ChevronRight size={17} className={expanded ? "rotate-90" : ""} /></button>
-        <div className="claim-meta"><span><Link2 size={13} />{sourceItems.length ? `${sourceItems.length} 個來源` : "沒有來源"}</span><span><Info size={13} />{claim.limitation}</span></div>
+        <div className="claim-meta"><span><Link2 size={13} />{sourceItems.length ? `${sourceItems.length} 筆來源` : "沒有來源"}</span><span><Info size={13} />{claim.limitation}</span></div>
         {expanded && <div id={`claim-${claim.id}-detail`} className="claim-detail" role="region" aria-labelledby={`claim-title-${claim.id}`}>
-          <div className="detail-block"><span className="detail-label">來源對照</span>{sourceItems.length ? sourceItems.map((item) => <div className="mapped-source" key={item.id}><span className="source-dot" /><div><strong>{item.source}</strong><span>{EVIDENCE_LABELS[item.type]} · {formatDate(item.observedAt)}</span><p>{item.content}</p></div></div>) : <p className="missing-copy">這個判斷沒有可回看的來源；請保留為假設，直到補上訊號。</p>}</div>
+          <div className="detail-block"><span className="detail-label">來源對照</span>{sourceItems.length ? sourceItems.map((item) => { const sourceIndex = evidence.findIndex((candidate) => candidate.id === item.id) + 1; return <div className="mapped-source" key={item.id}><span className="mapped-source-index">來源 {formatFolioNumber(sourceIndex)}</span><div><strong>{item.source}</strong><span>{EVIDENCE_LABELS[item.type]} · {formatDate(item.observedAt)}</span><p>{item.content}</p></div></div>; }) : <p className="missing-copy">這個判斷沒有可回看的來源；請保留為假設，直到補上訊號。</p>}</div>
           <div className="detail-block limitation-block"><span className="detail-label">目前限制</span><p>{claim.limitation}</p></div>
           {isEditing ? (
             <form className="claim-edit-form" onSubmit={(event) => { event.preventDefault(); onSaveEdit(); }}>
@@ -1155,6 +1159,7 @@ function ContextItem({ label, value }: { label: string; value: string }) { retur
 function NoticeIcon({ tone }: { tone: NoticeTone }) { if (tone === "success") return <CheckCircle2 size={16} />; if (tone === "warning") return <CircleAlert size={16} />; if (tone === "error") return <CircleAlert size={16} />; return <Info size={16} />; }
 
 function formatDate(value: string) { return new Intl.DateTimeFormat("zh-TW", { month: "short", day: "numeric" }).format(new Date(value)); }
+function formatFolioNumber(value: number) { return String(value).padStart(2, "0"); }
 
 function contextNextCopy(step: WorkflowStep, pack: EvidencePack | null) {
   if (!pack) return "先載入資料，讓這裡出現一條可以回看的工作路徑。";
