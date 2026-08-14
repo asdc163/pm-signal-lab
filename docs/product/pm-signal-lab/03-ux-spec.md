@@ -5,13 +5,13 @@
 PM Signal Lab 是一個「證據工作台」，不是聊天頁。使用者第一眼應該理解：
 
 1. 我現在有一包什麼訊號；
-2. 哪些結論有證據、哪些還要審核；
+2. 哪些是來源、哪些只是暫定判斷；
 3. 我下一個可以做的 PM 行動是什麼；
-4. AI 在哪裡只是協助，最後決策仍由我負責。
+4. 哪些部分還沒被驗證，最後決策仍由我負責。
 
 ## Composition Brief
 
-- First read: `把訊號變成下一步` + current step + sample pack status。
+- First read: `先看來源，再決定下一步` + current step + sample pack status。
 - Second read: 中央 evidence/claim workbench 中的 source、status、uncertainty；不是抽象 AI 文案。
 - Primary action: 依目前 step 顯示唯一主 CTA：`載入範例` → `開始審核` → `草擬實驗` → `匯出決策 brief`。
 - Content relationship: 這是「流程 + 證據 + 決策」的工作台；不是 card grid、pricing page 或 chat transcript。
@@ -23,10 +23,10 @@ PM Signal Lab 是一個「證據工作台」，不是聊天頁。使用者第一
 
 ## Product design direction
 
-- Selected DNA: `Orclaw / ALPHA_INTELLIGENCE` 的技術訊號與密度 + `Pillow Fit` 的專業信任與低焦慮狀態。
+- Selected DNA: `Pillow Fit` 的專業信任與低焦慮工具感 + `Altoslab` 的克制排版；深色 rail 只作導航簽名，不讓 AI dashboard 語法主導畫面。
 - Project personality: precise、calm、evidence-first、slightly editorial。
 - Surfaces: 深 graphite app shell + warm neutral workspace + solid white/ink panels；不用純黑與全螢幕漸層。
-- Signature detail: `Evidence spine`：每一個 claim 左側有與 source 對應的細線/節點，讓「結論從哪裡來」成為視覺骨架。
+- Signature detail: `Evidence spine`：source rows、claim review、限制與下一個動作沿同一條視覺骨架排列；空狀態先放一段真實 fixture 原文，不用抽象 AI 插畫填空。
 - Accent: amber/orange 只用於 primary action、當前 step 與少量 attention state；blue/teal 用於 source/trust；success/warning/error 各自有文字 label。
 - Motion: 150–200ms micro feedback；synthesis 只用有語意的 progress rows，不用打字機或假 thinking animation；支援 `prefers-reduced-motion`。
 
@@ -146,18 +146,18 @@ compose / discover
 | Context | Copy |
 |---|---|
 | Product title | `PM Signal Lab` |
-| Hero / first read | `把訊號變成下一步` |
+| Hero / first read | `先看來源，再決定下一步` |
 | Hero support | `把訪談、客服、埋點與競品觀察，整理成有來源、可審核的產品決策。` |
-| Engine note | `Demo engine · 不需要 API key；這份結果只示範工作流，不代表外部模型品質。` |
-| Empty workspace | `還沒有工作區。先載入一組範例資料，看看一個 claim 如何回到來源。` |
+| Data boundary | `資料邊界 · 內容只留在這個瀏覽器工作階段；這是一條可回看的工作流，不是模型品質證明。` |
+| Empty workspace | `先把一個問題放上桌；載入幾筆真實感的產品訊號，找出一個能回到來源、也值得再驗證的下一步。` |
 | Primary empty CTA | `載入範例資料` |
-| Secondary empty CTA | `自己新增一筆 evidence` |
-| Evidence add CTA | `新增 evidence` |
-| Verify CTA | `開始審核` |
+| Secondary empty CTA | `自己新增一筆訊號` |
+| Evidence add CTA | `新增訊號` |
+| Verify CTA | `開始核對` |
 | Status supported | `有來源支持` |
 | Status needs review | `需要你確認` |
 | Status missing | `缺少證據` |
-| Accept claim | `接受這個 claim` |
+| Accept claim | `採用這個判斷` |
 | Keep hypothesis | `保留為假設` |
 | Draft experiment | `草擬最小實驗` |
 | Needs validation | `這份 brief 還不能當成結論；先補上列出的證據。` |

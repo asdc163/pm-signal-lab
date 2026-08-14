@@ -14,7 +14,7 @@ The product is not a generic chat wrapper. Its domain objects are `Evidence`、`
 
 ## Selected DNA
 
-`Orclaw / ALPHA_INTELLIGENCE` 的技術訊號與密度，加入 `Pillow Fit` 的專業信任與低焦慮狀態。只移植決策鏈：深色 shell、可掃描 metadata、source/provenance、低誇張 motion；不複製任何專案的品牌、文字或程式碼。
+以 `Pillow Fit` 的專業信任與低焦慮工具感為主，加入 `Altoslab` 的克制排版與 enterprise clarity；深色 workflow rail 只作為導航簽名，中央畫面維持暖紙張與 evidence desk 的閱讀節奏。保留 source/provenance、可掃描 metadata、低誇張 motion；不複製任何專案的品牌、文字或程式碼，也不把 AI dashboard 的視覺語法當成主角。
 
 ## Principles
 
@@ -66,7 +66,7 @@ Brand/accent color should remain a signal, roughly 5–10% of a screen. Status u
 ### Typography
 
 ```css
-font-family: Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+font-family: "Noto Sans TC", "PingFang TC", Inter, "Microsoft JhengHei", system-ui, sans-serif;
 font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 ```
 
@@ -82,7 +82,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Primitive: 4px; layout rhythm: 8px.
 - Main gaps: 12 / 16 / 24 / 32 / 48.
-- Control radius: 8px; panel radius: 12px; pill only for compact status tags.
+- Control radius: 6px; panel radius: 0–9px，依狀態分組需要使用；pill only for compact status tags.
 - Default elevation: border + surface; shadow only for menus/dialogs/sticky action.
 
 ## Components and states
@@ -119,9 +119,9 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 ## AI-native states and trust
 
-`compose → accepted → working/activity → partial claims → human decision → memo preview → export completed → recovery`。
+`first read → source review → human decision → experiment brief → memo preview → export completed → recovery`。
 
-The UI must show engine/provider state, source identity, timestamp/freshness, limitations, manual edit, approval boundary, and fallback. No external side effect is present in v0.
+The UI must show source identity, timestamp/freshness, limitations, manual edit, approval boundary, and fallback. Provider/engine language is kept out of the main surface because v0 is deterministic and local-first; no external side effect is present.
 
 ## QA rules
 

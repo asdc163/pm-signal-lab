@@ -56,7 +56,7 @@ export function toMarkdown(memo: DecisionMemo): string {
 
   return `# Decision brief
 
-> 本機試用邊界 · 不需要 API key；這份結果只示範工作流，不代表外部模型品質。
+> 資料邊界 · 內容只留在這個瀏覽器工作階段；這是一條可回看的工作流，不是模型品質證明。
 
 ## Decision
 

@@ -1,5 +1,5 @@
 :root {
-  font-family: Inter, "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  font-family: "Noto Sans TC", "PingFang TC", Inter, "Microsoft JhengHei", system-ui, sans-serif;
   color: #202824;
   background: #f3efe7;
   font-synthesis: none;
@@ -149,8 +149,8 @@ p {
   border: 1px solid rgba(232, 176, 144, 0.58);
   border-radius: 5px;
   background: rgba(184, 100, 61, 0.2);
-  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 11px;
   font-weight: 800;
   letter-spacing: 0.03em;
 }
@@ -211,7 +211,7 @@ p {
   color: #aab5b9;
   text-align: left;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 4px;
   background: transparent;
   transition: color 180ms ease, background 180ms ease, border-color 180ms ease;
 }
@@ -223,9 +223,9 @@ p {
 
 .stepper-item.is-current > button {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.13);
-  background: var(--shell-surface);
-  box-shadow: inset 3px 0 0 var(--accent);
+  border-color: transparent;
+  background: transparent;
+  box-shadow: inset 2px 0 0 var(--accent);
 }
 
 .step-number {
@@ -236,8 +236,8 @@ p {
   place-items: center;
   color: #d4dcde;
   border: 1px solid #647077;
-  border-radius: 50%;
-  font-family: "JetBrains Mono", monospace;
+  border-radius: 4px;
+  font-family: inherit;
   font-size: 11px;
   font-weight: 700;
 }
@@ -305,7 +305,7 @@ p {
   display: block;
   margin: 0 9px;
   color: #647077;
-  font-family: "JetBrains Mono", monospace;
+  font-family: inherit;
   font-size: 10px;
 }
 
@@ -455,8 +455,8 @@ p {
   justify-content: center;
   gap: 8px;
   padding: 9px 15px;
-  border-radius: 8px;
-  font-size: 13px;
+  border-radius: 6px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.2;
   transition: color 180ms ease, background 180ms ease, border-color 180ms ease, transform 180ms ease;
@@ -514,7 +514,7 @@ p {
   place-items: center;
   color: var(--muted);
   border: 1px solid var(--line);
-  border-radius: 8px;
+  border-radius: 6px;
   background: var(--surface);
 }
 
@@ -589,26 +589,29 @@ p {
 }
 
 .empty-panel {
-  display: flex;
+  display: grid;
+  grid-template-columns: 58px minmax(0, 1fr);
   min-height: 340px;
   align-items: center;
   gap: 28px;
-  padding: 48px;
+  padding: 42px 44px;
   border-radius: 0;
   border-left: 3px solid var(--accent);
-  background: #faf5ed;
+  background: #faf3e8;
 }
 
-.empty-icon {
+.empty-index {
   display: grid;
-  width: 66px;
-  height: 66px;
-  flex: 0 0 66px;
+  width: 58px;
+  height: 76px;
   place-items: center;
   color: var(--accent);
-  border: 1px solid #ebcf9d;
-  border-radius: 8px;
-  background: var(--accent-soft);
+  border-top: 1px solid #d8b18f;
+  border-bottom: 1px solid #d8b18f;
+  font-size: 38px;
+  font-weight: 350;
+  letter-spacing: -0.08em;
+  line-height: 1;
 }
 
 .empty-copy {
@@ -647,6 +650,33 @@ p {
   margin-top: 25px;
 }
 
+.sample-quote {
+  max-width: 700px;
+  margin: 22px 0 0;
+  padding: 13px 16px 14px;
+  border-left: 2px solid var(--trust);
+  background: rgba(255, 253, 248, 0.62);
+}
+
+.sample-quote span {
+  display: block;
+  color: var(--trust);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+.sample-quote p {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 7px 0 0;
+  color: var(--ink);
+  font-size: 14px;
+  line-height: 1.65;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
 .first-run-note {
   display: grid;
   gap: 4px;
@@ -658,8 +688,8 @@ p {
 .first-run-note span,
 .first-run-note small {
   color: var(--muted);
-  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 11px;
 }
 
 .first-run-note span {
@@ -703,8 +733,8 @@ p {
 
 .count-badge {
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 11px;
+  font-family: inherit;
+  font-size: 12px;
 }
 
 .count-badge strong {
@@ -736,7 +766,7 @@ p {
 .engine-pill,
 .human-label {
   color: var(--trust);
-  font-size: 11px;
+  font-size: 12px;
 }
 
 .engine-pill,
@@ -797,7 +827,7 @@ p {
   border: 2px solid var(--trust);
   border-radius: 50%;
   background: var(--surface);
-  box-shadow: 0 0 0 4px var(--trust-soft);
+  box-shadow: none;
 }
 
 .evidence-main,
@@ -821,8 +851,8 @@ p {
 .evidence-row-top {
   justify-content: flex-start;
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 11px;
 }
 
 .evidence-type {
@@ -837,8 +867,8 @@ p {
 .just-added,
 .reviewed-label {
   color: var(--success);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 11px;
 }
 
 .evidence-main h4 {
@@ -900,8 +930,8 @@ p {
 
 .detail-meta {
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 11px;
   overflow-wrap: anywhere;
 }
 
@@ -1104,7 +1134,9 @@ textarea::placeholder {
 
 .section-intro {
   align-items: center;
-  padding: 21px 23px;
+  padding: 20px 0 20px 18px;
+  border-left: 3px solid var(--trust);
+  border-radius: 0;
 }
 
 .claim-summary {
@@ -1113,8 +1145,8 @@ textarea::placeholder {
   gap: 18px;
   margin: 20px 0 12px;
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 12px;
 }
 
 .claim-summary span {
@@ -1145,11 +1177,11 @@ textarea::placeholder {
   height: 12px;
   border-color: var(--warning);
   background: var(--warning-soft);
-  box-shadow: 0 0 0 4px var(--warning-soft);
+  box-shadow: none;
 }
 
-.claim-node.status-supported { border-color: var(--success); background: var(--success-soft); box-shadow: 0 0 0 4px var(--success-soft); }
-.claim-node.status-missing { border-color: var(--danger); background: var(--danger-soft); box-shadow: 0 0 0 4px var(--danger-soft); }
+.claim-node.status-supported { border-color: var(--success); background: var(--success-soft); }
+.claim-node.status-missing { border-color: var(--danger); background: var(--danger-soft); }
 
 .claim-topline {
   justify-content: flex-start;
@@ -1162,8 +1194,8 @@ textarea::placeholder {
   padding: 4px 7px;
   border: 1px solid transparent;
   border-radius: 5px;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 11px;
   font-weight: 700;
 }
 
@@ -1366,14 +1398,15 @@ textarea::placeholder {
 
 .option-status {
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 9px;
+  font-family: inherit;
+  font-size: 10px;
   white-space: nowrap;
 }
 
 .experiment-editor {
   margin-top: 19px;
   padding: 21px;
+  border-radius: 0;
 }
 
 .readiness-banner {
@@ -1442,6 +1475,7 @@ textarea::placeholder {
 .memo-preview {
   margin-top: 20px;
   padding: 21px;
+  border-radius: 0;
 }
 
 .memo-toolbar {
@@ -1467,10 +1501,9 @@ textarea::placeholder {
 .memo-section h4 {
   margin: 0 0 9px;
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  font-family: inherit;
+  font-size: 11px;
+  letter-spacing: 0.05em;
 }
 
 .memo-section p,
@@ -1546,7 +1579,7 @@ textarea::placeholder {
   padding-top: 14px;
   color: var(--trust);
   border-top: 1px solid var(--line);
-  font-size: 11px;
+  font-size: 12px;
   line-height: 1.55;
 }
 
@@ -1560,6 +1593,8 @@ textarea::placeholder {
   align-self: start;
   min-width: 0;
   padding: 21px 0 0;
+  padding-left: 24px;
+  border-left: 1px solid var(--line);
 }
 
 .context-heading {
@@ -1582,8 +1617,8 @@ textarea::placeholder {
   align-items: center;
   gap: 7px;
   color: var(--success);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 11px;
 }
 
 .context-project {
@@ -1632,8 +1667,8 @@ textarea::placeholder {
 
 .context-item span {
   color: var(--muted);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
+  font-family: inherit;
+  font-size: 11px;
 }
 
 .context-item strong {
@@ -1646,17 +1681,17 @@ textarea::placeholder {
 .context-counts {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 1px;
+  gap: 0;
   margin: 18px 0;
-  border: 1px solid var(--line);
-  background: var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .context-counts span {
   display: grid;
   gap: 3px;
-  padding: 10px 8px;
-  background: var(--surface);
+  padding: 10px 8px 10px 0;
+  background: transparent;
 }
 
 .context-counts strong {
@@ -1707,7 +1742,7 @@ textarea::placeholder {
 
 .trace-header span:last-child {
   color: #9aa5a7;
-  font-family: "JetBrains Mono", monospace;
+  font-family: inherit;
   font-size: 9px;
 }
 
@@ -1749,6 +1784,10 @@ textarea::placeholder {
 }
 
 .mobile-action-bar {
+  display: none;
+}
+
+.mobile-action-bar.is-empty {
   display: none;
 }
 
@@ -1876,7 +1915,9 @@ textarea::placeholder {
     gap: 20px 32px;
     margin-top: 35px;
     padding: 22px 0 0;
+    padding-left: 0;
     border-top: 1px solid var(--line);
+    border-left: 0;
   }
 
   .decision-context .context-heading,
@@ -1999,16 +2040,17 @@ textarea::placeholder {
 
   .empty-panel {
     min-height: 0;
-    align-items: flex-start;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
     gap: 20px;
     padding: 25px 20px;
   }
 
-  .empty-icon {
-    width: 48px;
-    height: 48px;
-    flex-basis: 48px;
+  .empty-index {
+    width: 42px;
+    height: 42px;
+    font-size: 28px;
   }
 
   .empty-copy h2,
@@ -2036,7 +2078,7 @@ textarea::placeholder {
   .pack-header,
   .section-intro {
     flex-direction: column;
-    padding: 19px 0;
+    padding: 19px 0 19px 14px;
   }
 
   .pack-actions {
@@ -2191,6 +2233,8 @@ textarea::placeholder {
     display: block;
     margin-top: 25px;
     padding-top: 20px;
+    padding-left: 0;
+    border-left: 0;
   }
 
   .decision-context .context-next {
@@ -2220,6 +2264,10 @@ textarea::placeholder {
     border-top: 1px solid var(--line);
     background: #ffffff;
     box-shadow: 0 -8px 24px rgba(21, 32, 41, 0.08);
+  }
+
+  .mobile-action-bar.is-empty {
+    display: none;
   }
 
   .mobile-action-bar > span {
