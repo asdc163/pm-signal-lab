@@ -6,7 +6,8 @@
 
 本輪把 claim 編輯從瀏覽器原生 prompt 改成來源旁的 inline editor，並把 local-first 的保存邊界改成使用者看得懂的 literal copy：`只留在目前頁面；重新整理會重設`。編輯後仍回到 `需要你確認`，不會自動採用。
 
-- Audited commit：`0d9ca4918be529075ef23726aa177431eb78069d` (`Replace native claim prompt with inline editor`)
+- Audited behavior commit：`0d9ca4918be529075ef23726aa177431eb78069d` (`Replace native claim prompt with inline editor`)
+- Documentation / current branch head：`d7cc11e09496add9ecb43886afe3a1f552c56feb` (`Document inline editor release evidence`)
 - Repository：<https://github.com/asdc163/pm-signal-lab>
 - Canonical demo：<https://asdc163.github.io/pm-signal-lab/>
 - QA blocker report：[`18-chrome-extension-a11y-blocked-qa-report-2026-08-15.md`](./18-chrome-extension-a11y-blocked-qa-report-2026-08-15.md)
@@ -59,11 +60,14 @@ These screenshots prove rendered states in the local fallback runtime. They do n
 
 ### 3. GitHub and Pages evidence
 
-The public push was read back after `git push origin main`:
+The public pushes were read back after `git push origin main`:
 
 - Push: `03cc873..0d9ca49 main -> main` succeeded.
-- CI run `31835005257`: `success` for `0d9ca4918be529075ef23726aa177431eb78069d`.
-- Deploy hosted demo run `31835005188`: `success`; deploy job `94879239449` completed all steps.
+- CI run `31835005257`: `success` for behavior commit `0d9ca4918be529075ef23726aa177431eb78069d`.
+- Deploy hosted demo run `31835005188`: `success`; deploy job `94879239449` completed all steps for the behavior commit.
+- Push: `0d9ca49..d7cc11e main -> main` succeeded.
+- CI run `31835217935`: `success` for documentation commit `d7cc11e09496add9ecb43886afe3a1f552c56feb`.
+- Deploy hosted demo run `31835217895`: `success`; deploy job `94879908433` completed all steps for the current branch head.
 - Canonical HTTP: `HTTP/2 200`。
 - Pages `Last-Modified`: `Fri, 14 Aug 2026 19:49:47 GMT`。
 - Hosted HTML bundle: `/pm-signal-lab/assets/index-Cm2JtHi8.js` and `/pm-signal-lab/assets/index-CxD14fWd.css`。
@@ -88,7 +92,7 @@ Read from GitHub API after the push:
 - Stars：`0`
 - Forks：`0`
 - Open issues：`4`
-- Default branch latest commit：`0d9ca4918be529075ef23726aa177431eb78069d`
+- Default branch latest commit：`d7cc11e09496add9ecb43886afe3a1f552c56feb`；產品行為仍由上一個 audited behavior commit `0d9ca4918be529075ef23726aa177431eb78069d` 提供。
 
 This is a current snapshot, not a growth metric or forecast. No one was auto-starred, followed, messaged, liked, mass-replied to or represented as an adopter.
 
