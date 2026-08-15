@@ -19,7 +19,7 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
   const claims: Claim[] = [
     {
       id: "claim-next-step-friction",
-      text: "When a support copilot presents a polished answer before its source or freshness, the operator may spend the review time checking the draft instead of deciding what to do next.",
+      text: "When a support draft presents a polished answer before its source or freshness, the operator may spend the review time checking the draft instead of deciding what to do next.",
       status: hasDirectSignal ? "supported" : "review",
       evidenceIds: interviewIds,
       limitation: hasDirectSignal
@@ -30,7 +30,7 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
     },
     {
       id: "claim-source-trust",
-      text: "Keeping the source, freshness, and missing-evidence state beside an assistant draft may make human review easier than showing the conclusion first.",
+      text: "Keeping the source, freshness, and missing-evidence state beside a support draft may make human review easier than showing the conclusion first.",
       status: hasObservedPattern ? "review" : "missing",
       evidenceIds: observationIds,
       limitation: hasObservedPattern
@@ -41,7 +41,7 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
     },
     {
       id: "claim-decision-adoption",
-      text: "A copied assistant response will resolve a support case.",
+      text: "A copied draft response will resolve a support case.",
       status: "missing",
       evidenceIds: [],
       limitation: "There is no outcome trace for a resolved case; copying is not resolution, and no production result is represented.",
@@ -66,14 +66,14 @@ export function draftExperiment(
     opportunity:
       opportunity?.text ?? "Choose a source-backed direction before drafting.",
     hypothesis: opportunity
-      ? `If "${opportunity.text.replace(/[.!?]$/, "")}" is shown in a support-copilot review flow, reviewers will identify a source or uncertainty issue before accepting the draft.`
+      ? `If "${opportunity.text.replace(/[.!?]$/, "")}" is shown in a support-draft review flow, reviewers will identify a source or uncertainty issue before accepting the draft.`
       : "There is not enough signal to form a hypothesis yet.",
     primaryMetric: needsValidation
       ? "Needs validation: define an observable event for naming one source, one uncertainty, and one next action."
-      : "Completion rate from loading the AI support-copilot pack to confirming one source-linked next action.",
-    guardrail: "Do not make the assistant draft look complete before its source and freshness are reviewable.",
+      : "Completion rate from opening the support-draft worksheet to confirming one source-linked next action.",
+    guardrail: "Do not make the support draft look complete before its source and freshness are reviewable.",
     smallestTest:
-      "Ask 5 PMs to review the same support-copilot pack through Collect → Verify → Decide; record whether each can name the source, uncertainty, and next test without help.",
+      "Ask 5 PMs to review the same support-draft worksheet through Collect → Verify → Decide; record whether each can name the source, uncertainty, and next test without help.",
     decisionRule: `Move to the next round only if at least 4 of 5 finish without treating missing evidence as a conclusion; current limit: ${limitation}`,
     owner: "Experiment owner · TBD",
     readiness: needsValidation ? "needs-validation" : "ready",

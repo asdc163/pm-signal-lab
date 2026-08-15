@@ -11,7 +11,9 @@ describe("PM Signal Lab synthesis", () => {
     expect(fixtureText).toContain("Evaluation review");
     expect(SAMPLE_PACK.evidence.find((item) => item.type === "evaluation")?.source).toContain("24 cases");
     const claims = buildClaims(SAMPLE_PACK.evidence);
-    expect(claims[0].text).toContain("support copilot");
+    expect(claims[0].text).toContain("support draft");
+    expect(claims[0].text).not.toContain("support copilot");
+    expect(claims[1].text).not.toContain("assistant draft");
     expect(claims[0].text).toContain("source or freshness");
     expect(claims[1].limitation).toContain("evaluation review");
   });
@@ -45,5 +47,8 @@ describe("PM Signal Lab synthesis", () => {
 
     expect(brief.readiness).toBe("needs-validation");
     expect(brief.primaryMetric).toContain("Needs validation");
+    expect(brief.guardrail).toContain("support draft");
+    expect(brief.smallestTest).toContain("support-draft worksheet");
+    expect(brief.hypothesis).not.toContain("support-copilot");
   });
 });

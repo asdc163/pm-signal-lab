@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), [subject-specificity contract](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md), [local QA report](./docs/product/pm-signal-lab/73-less-ai-subject-specificity-local-qa-2026-08-15.md), and [hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md). The canonical URL, bundle, and hosted behavior were rechecked after the Pages deploy.
+Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), [subject-specificity contract](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md), [domain-language contract](./docs/product/pm-signal-lab/75-less-ai-domain-language-contract-2026-08-15.md), [current local QA report](./docs/product/pm-signal-lab/76-less-ai-domain-language-local-qa-2026-08-15.md), and [previous hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md). The canonical URL and hosted behavior still require a new Pages release audit for this slice.
 
 PM Signal Lab is a local-first product evidence field folio for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses an AI-assisted support-draft review because the product is meant to show AI-PM judgment, not because the interface pretends to be an assistant.
 
@@ -126,7 +126,7 @@ This release intentionally does not add a locale selector or runtime translation
 ## What this does not claim
 
 - This is not a production AI-quality benchmark.
-- The hosted demo has no external model provider; its AI support-copilot pack is a deterministic fixture, so it does not prove model quality.
+- The hosted demo has no external model provider; its support-draft worksheet is a deterministic fixture, so it does not prove model quality.
 - No real-user task sessions, retention, conversion, adoption, or GitHub growth outcome are claimed by this repository.
 - GitHub stars, forks, traffic, and issue activity are external results; a polished hosted demo is not evidence of any target number.
 - The `4 of 5` threshold inside the experiment brief is a proposed decision rule, not completed research.
