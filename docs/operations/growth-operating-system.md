@@ -8,6 +8,13 @@ The goal is not to manufacture stars. The goal is to make the repository useful 
 
 Stars are a lagging signal. They must be read together with repository visits, clones, issues, pull requests, repeat task sessions, and direct feedback. No number is treated as proof of product-market fit.
 
+## Current pilot gate — 2026-08-15
+
+- The canonical English-first preview is live at [asdc163.github.io/pm-signal-lab](https://asdc163.github.io/pm-signal-lab/).
+- The public pilot is pinned as [issue #4](https://github.com/asdc163/pm-signal-lab/issues/4), with `user-session` and `needs-triage` labels.
+- The next evidence gate is five unguided sessions from international PMs, founders, designers, or product engineers. A session report is one environment-level observation, not general usability or adoption evidence.
+- Until those sessions exist, the operating decision is `Iterate / recruit`, not `Scale`. No provider integration, telemetry, automated GitHub submission, or star-oriented campaign is justified by the current evidence.
+
 ## Weekly operating loop
 
 1. **Listen** — review issues, discussions, search questions, and current product-workflow pain without collecting private evidence.

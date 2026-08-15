@@ -1,5 +1,14 @@
 # Changelog
 
+## 0.1.14 — 2026-08-15
+
+- Reframed the public surface as a case-file evidence desk with a direct `Source line → Claim → Smallest test` reading order.
+- Replaced generic AI-demo summary language with live review-docket counts, source folios, limitations, and human-owned next actions.
+- Added the hosted visual refresh audit and kept the five-tester public pilot as the next evidence gate.
+- Aligned the repository README, profile handoff, and pilot entry around the English-first hosted preview.
+
+This release does not claim real-user comprehension, native screen-reader coverage, adoption, or GitHub star growth.
+
 ## 0.1.13 — 2026-08-15
 
 - Made the current public product surface English-first (`en-US`), including UI, sample data, claim synthesis, decision Markdown, session receipts, feedback handoff, metadata, README, design system, and trial documentation.
