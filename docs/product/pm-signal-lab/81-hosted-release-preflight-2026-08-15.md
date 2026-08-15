@@ -16,8 +16,8 @@ the point of action.
 |---|---|
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
-| Candidate code commit | `ef3a222` — `Require human review before experiment drafting` |
-| PR head observed at last check | `f1950b8` — `Record green PR preflight evidence` |
+| Candidate code commit | `6f32bde` — `Simplify worksheet language and mobile status layout` |
+| PR head observed at last check | `6f32bde` — current pushed candidate |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -53,20 +53,25 @@ All of the following must be true at the moment of release:
 
 - [x] Candidate is isolated on `codex/less-ai-editorial-sheet`.
 - [x] Local tests, typecheck, production build, diff check, and local static
-  verifier pass for `ef3a222` — 4 files / 11 tests; current assets
-  `index-Dxdk9HcE.js` and `index-BAq-wObY.css`.
+  verifier pass for `6f32bde` — 4 files / 11 tests; current assets
+  `index-DrnySMU3.js` and `index-CbwmMWdO.css`.
 - [x] The machine-readable QA evidence manifest validates, and it keeps local
   pass, hosted blocked, native AT out of scope, and participant/adoption gaps
   separate.
 - [x] Experiment drafting is blocked until at least one claim has an explicit
   human review state; accepted, edited, hypothesis, and missing-evidence
   outcomes remain visible.
-- [x] Fresh owner-run Chrome evidence covers blank → sample → source → claim →
-  test → Ship, keyboard skip link, mobile fixed action, and Chrome AX tree.
+- [x] Owner-run Chrome evidence covers the pre-fix blank → sample → source →
+  claim → test → Ship path, keyboard skip link, mobile fixed action, and
+  Chrome AX tree.
+- [ ] Fresh post-fix Chrome evidence confirms the mobile status-height
+  correction; the Chrome Extension timed out while controlling the existing
+  and a fresh local tab, so this candidate's post-fix mobile behavior is
+  `未驗證`.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [x] PR #44 CI is green for the pushed head observed as `f1950b8`; CI run
-  `31890446638` completed Test, Typecheck, and Build successfully.
+- [x] PR #44 CI is green for the pushed head observed as `6f32bde`; CI run
+  `31892616158` completed Verify successfully.
 - [ ] The user explicitly approves the public merge/deploy action.
 
 The last two items are intentionally unresolved. A local pass does not
@@ -100,7 +105,7 @@ No rollback action has been performed in this preflight.
 After explicit approval, execute these steps in order and retain raw output:
 
 1. Confirm PR #44 is open, clean, and CI-green, and that its current head
-   contains candidate code commit `ef3a222`.
+   contains candidate code commit `6f32bde`.
 2. Merge PR #44 into `main` using the repository's normal review path.
 3. Watch the merge CI and Pages deployment workflows to successful completion.
 4. Run:
@@ -115,7 +120,8 @@ After explicit approval, execute these steps in order and retain raw output:
 6. Use a fresh Codex Chrome Extension tab against the canonical URL at desktop
    and `390×844` mobile sizes. Re-run the blank → sample → source → Verify →
    Decide → Ship path, keyboard skip link, mobile action, console/request
-   checks, and Chrome accessibility tree.
+   checks, and Chrome accessibility tree. Include the post-fix mobile status
+   measurement; do not reuse the pre-fix screenshot as proof.
 7. Only after those checks pass, update a new hosted release audit with the
    merge SHA, Pages run, verifier timestamp, served asset hashes, and exact
    browser evidence.
