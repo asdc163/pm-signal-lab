@@ -125,7 +125,10 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 ## Evidence and release references
 
 - First-run design reference: [`case-file-first-run-1440.png`](./docs/product/pm-signal-lab/assets/qa/case-file-first-run-1440.png).
-- Latest first-run action reference: [`first-run-action-1280.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-1280.png) and [`first-run-action-mobile-390.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-mobile-390.png).
+- Current first-run screenshot: [`first-run-current-1280.png`](./docs/product/pm-signal-lab/assets/qa/first-run-current-1280.png).
+- Current first-run mobile screenshot: [`first-run-current-390.png`](./docs/product/pm-signal-lab/assets/qa/first-run-current-390.png).
+- Current loaded workbench screenshot: [`loaded-current-1280.png`](./docs/product/pm-signal-lab/assets/qa/loaded-current-1280.png).
+- Historical first-run action reference: [`first-run-action-1280.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-1280.png) and [`first-run-action-mobile-390.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-mobile-390.png). Current visuals are the screenshots listed above.
 - Source ledger contract: [`32-source-ledger-composition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md).
 - English-first messaging and localization contract: [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md).
 - No-AI-feel visual refresh QA audit: [`37-no-ai-feel-visual-refresh-qa-audit-2026-08-15.md`](./docs/product/pm-signal-lab/37-no-ai-feel-visual-refresh-qa-audit-2026-08-15.md).
@@ -152,6 +155,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Direct workbench no-AI-feel contract: [`60-direct-workbench-no-ai-feel-contract-2026-08-15.md`](./docs/product/pm-signal-lab/60-direct-workbench-no-ai-feel-contract-2026-08-15.md).
 - Direct workbench no-AI-feel local QA: [`61-direct-workbench-no-ai-feel-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/61-direct-workbench-no-ai-feel-local-qa-2026-08-15.md).
 - Direct workbench hosted release audit: [`62-direct-workbench-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/62-direct-workbench-hosted-release-audit-2026-08-15.md).
+- Direct workbench copy and semantic polish contract: [`63-direct-workbench-copy-and-semantic-polish-contract-2026-08-15.md`](./docs/product/pm-signal-lab/63-direct-workbench-copy-and-semantic-polish-contract-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.

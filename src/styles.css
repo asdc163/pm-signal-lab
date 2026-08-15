@@ -388,7 +388,7 @@ p {
   display: flex;
   height: 64px;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
   padding: 0 46px;
   border-bottom: 1px solid var(--line);
   background: var(--workspace);
@@ -399,8 +399,7 @@ p {
   display: none;
 }
 
-.topbar-context,
-.topbar-status {
+.topbar-context {
   display: flex;
   align-items: center;
   gap: 11px;
@@ -417,12 +416,6 @@ p {
   width: 1px;
   height: 14px;
   background: var(--line-strong);
-}
-
-.topbar-status {
-  color: var(--trust);
-  font-family: "JetBrains Mono", monospace;
-  font-size: 10px;
 }
 
 .status-dot {
@@ -2499,10 +2492,6 @@ textarea::placeholder {
 @media (max-width: 700px) {
   .topbar {
     padding: 0 16px;
-  }
-
-  .topbar-status {
-    display: none;
   }
 
   .mobile-stepper {
