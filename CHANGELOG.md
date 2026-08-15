@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.26 — 2026-08-15
+
+- Aligned the visible product shell, decision memo boundary, README, and session kit around `Hosted demo` while keeping `local-first` as the data boundary.
+- Added hosted smoke assertions so the public bundle cannot silently regress to `local preview` or `Public preview` wording.
+
+This is a copy-alignment release, not evidence of external usability, native screen-reader coverage, adoption, qualified stars, or a completed 10,000-star outcome.
+
 ## 0.1.25 — 2026-08-15
 
 - Recorded the formal hosted demo release audit after the current-main Pages deployment and post-deploy hosted smoke passed.

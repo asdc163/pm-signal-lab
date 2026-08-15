@@ -1,4 +1,4 @@
-# Growth operating system — public preview
+# Growth operating system — formal hosted demo
 
 The goal is not to manufacture stars. The goal is to make the repository useful enough that the right people choose to save it, try it, discuss it, and return to it.
 
@@ -10,7 +10,7 @@ Stars are a lagging signal. They must be read together with repository visits, c
 
 ## Current pilot gate — 2026-08-15
 
-- The canonical English-first preview is live at [asdc163.github.io/pm-signal-lab](https://asdc163.github.io/pm-signal-lab/).
+- The canonical English-first hosted demo is live at [asdc163.github.io/pm-signal-lab](https://asdc163.github.io/pm-signal-lab/).
 - The public pilot is pinned as [issue #4](https://github.com/asdc163/pm-signal-lab/issues/4), with `user-session` and `needs-triage` labels.
 - The English-first human-reviewed outreach drafts and operating rules are in the [international pilot launch kit](./international-pilot-launch-kit-2026-08-15.md); no automatic public posting is enabled.
 - The next evidence gate is five unguided sessions from international PMs, founders, designers, or product engineers. A session report is one environment-level observation, not general usability or adoption evidence.
