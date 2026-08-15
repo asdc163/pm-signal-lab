@@ -1,0 +1,31 @@
+name: Verify hosted demo
+
+on:
+  workflow_run:
+    workflows: ["Deploy hosted demo"]
+    types: [completed]
+  schedule:
+    - cron: "37 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    name: Check canonical hosted demo
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    env:
+      HOSTED_URL: https://asdc163.github.io/pm-signal-lab/
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Verify HTTPS, bundle, and current product copy
+        run: npm run verify:hosted
