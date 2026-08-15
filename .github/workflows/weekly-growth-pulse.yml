@@ -24,27 +24,31 @@ jobs:
         run: |
           set -euo pipefail
 
-          repo_json="$(gh api "repos/${REPOSITORY}")"
-          issues_json="$(gh api "repos/${REPOSITORY}/issues?state=open&per_page=100")"
-          runs_json="$(gh api "repos/${REPOSITORY}/actions/runs?branch=main&per_page=20")"
-          releases_json="$(gh api "repos/${REPOSITORY}/releases?per_page=5")"
-          commit_json="$(gh api "repos/${REPOSITORY}/commits/$(jq -r '.default_branch' <<<"${repo_json}")")"
+          pulse_tmp="$(mktemp -d)"
+          trap 'rm -rf "$pulse_tmp"' EXIT
+
+          gh api "repos/${REPOSITORY}" > "$pulse_tmp/repo.json"
+          gh api "repos/${REPOSITORY}/issues?state=open&per_page=100" > "$pulse_tmp/issues.json"
+          gh api "repos/${REPOSITORY}/actions/runs?branch=main&per_page=20" > "$pulse_tmp/runs.json"
+          gh api "repos/${REPOSITORY}/releases?per_page=5" > "$pulse_tmp/releases.json"
+          default_branch="$(jq -r '.default_branch' "$pulse_tmp/repo.json")"
+          gh api "repos/${REPOSITORY}/commits/${default_branch}" > "$pulse_tmp/commit.json"
 
           jq -n \
             --arg collected_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
             --arg repository "${REPOSITORY}" \
-            --argjson repo "${repo_json}" \
-            --argjson issues "${issues_json}" \
-            --argjson runs "${runs_json}" \
-            --argjson releases "${releases_json}" \
-            --argjson commit "${commit_json}" \
+            --slurpfile repo "$pulse_tmp/repo.json" \
+            --slurpfile issues "$pulse_tmp/issues.json" \
+            --slurpfile runs "$pulse_tmp/runs.json" \
+            --slurpfile releases "$pulse_tmp/releases.json" \
+            --slurpfile commit "$pulse_tmp/commit.json" \
             '
               def public_issues:
-                [$issues[] | select(.pull_request == null)];
+                [$issues[0][] | select(.pull_request == null)];
               def feedback_issues:
                 [public_issues[] | select([(.labels // [])[] | .name] | any(. == "user-session" or . == "needs-triage"))];
               def recent_runs:
-                [$runs.workflow_runs[] | {
+                [$runs[0].workflow_runs[] | {
                   name,
                   status,
                   conclusion,
@@ -57,21 +61,21 @@ jobs:
                 schema_version: 1,
                 collected_at_utc: $collected_at,
                 repository: {
-                  name: $repo.full_name,
-                  url: $repo.html_url,
-                  default_branch: $repo.default_branch,
-                  homepage: ($repo.homepage // ""),
-                  stars: $repo.stargazers_count,
-                  forks: $repo.forks_count,
-                  open_issues: $repo.open_issues_count,
-                  watchers: ($repo.subscribers_count // $repo.watchers_count),
-                  pushed_at: $repo.pushed_at
+                  name: $repo[0].full_name,
+                  url: $repo[0].html_url,
+                  default_branch: $repo[0].default_branch,
+                  homepage: ($repo[0].homepage // ""),
+                  stars: $repo[0].stargazers_count,
+                  forks: $repo[0].forks_count,
+                  open_issues: $repo[0].open_issues_count,
+                  watchers: ($repo[0].subscribers_count // $repo[0].watchers_count),
+                  pushed_at: $repo[0].pushed_at
                 },
                 main_commit: {
-                  sha: $commit.sha,
-                  subject: ($commit.commit.message | split("\n")[0]),
-                  committed_at: $commit.commit.author.date,
-                  url: $commit.html_url
+                  sha: $commit[0].sha,
+                  subject: ($commit[0].commit.message | split("\n")[0]),
+                  committed_at: $commit[0].commit.author.date,
+                  url: $commit[0].html_url
                 },
                 public_feedback_queue: {
                   open_issue_count: (public_issues | length),
@@ -86,7 +90,7 @@ jobs:
                   }]
                 },
                 release_signal: {
-                  latest: (if ($releases | length) == 0 then null else ($releases[0] | {
+                  latest: (if ($releases[0] | length) == 0 then null else ($releases[0][0] | {
                     tag: .tag_name,
                     name,
                     published_at,
@@ -122,13 +126,13 @@ jobs:
           {
             echo "## Weekly growth pulse"
             echo
-            echo "Read-only public signals for `${REPOSITORY}`. This workflow does not create stars, follows, replies, posts, or external mutations."
+            echo "Read-only public signals for ${REPOSITORY}. This workflow does not create stars, follows, replies, posts, or external mutations."
             echo
             echo "| Signal | Value |"
             echo "| --- | ---: |"
             jq -r '"| Stars | \(.repository.stars) |\n| Forks | \(.repository.forks) |\n| Open issues | \(.public_feedback_queue.open_issue_count) |\n| Labelled feedback items | \(.public_feedback_queue.labelled_feedback_count) |\n| Latest CI conclusion | \(.ci_signal.latest_conclusion) |\n| Latest release | \(.release_signal.latest.tag // "Not available") |\n| Traffic | \(.traffic_signal.status) |"' growth-pulse.json
             echo
-            echo "**Operating decision:** `$(jq -r '.operating_decision.mode' growth-pulse.json)`"
+            echo "**Operating decision:** $(jq -r '.operating_decision.mode' growth-pulse.json)"
             echo
             jq -r '.operating_decision.rule' growth-pulse.json
             echo
