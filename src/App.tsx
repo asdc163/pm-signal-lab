@@ -623,6 +623,7 @@ function App() {
                 <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} on the desk` : "No source line on the desk"}</strong>
                 <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Load the sample case or add one real signal to begin."}</p>
                 <span className="hero-status-boundary"><ShieldCheck size={14} />{pack ? "Local case · refresh resets it" : SESSION_BOUNDARY_SHORT}</span>
+                {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} />Load sample data<ArrowRight size={15} /></button></div>}
               </div>
             </div>
 
@@ -652,7 +653,6 @@ function App() {
                 sourceRef={sourceRef}
                 contentRef={contentRef}
                 expandedEvidenceId={expandedEvidenceId}
-                onLoadSample={loadSample}
                 onReset={resetDemo}
                 onOpenForm={() => setIsFormOpen(true)}
                 onCloseForm={() => { setIsFormOpen(false); setFormErrors({}); }}
@@ -798,7 +798,7 @@ function WorkflowStepper({ currentStep, onSelectStep, mobile = false }: { curren
 
 function CollectView({
   pack, evidence, isLoading, isFormOpen, form, formErrors, titleRef, sourceRef, contentRef, expandedEvidenceId,
-  onLoadSample, onReset, onOpenForm, onCloseForm, onChangeForm, onSubmitForm, onToggleEvidence,
+  onReset, onOpenForm, onCloseForm, onChangeForm, onSubmitForm, onToggleEvidence,
 }: {
   pack: EvidencePack | null;
   evidence: Evidence[];
@@ -810,7 +810,6 @@ function CollectView({
   sourceRef: React.RefObject<HTMLInputElement | null>;
   contentRef: React.RefObject<HTMLTextAreaElement | null>;
   expandedEvidenceId?: string;
-  onLoadSample: () => void;
   onReset: () => void;
   onOpenForm: () => void;
   onCloseForm: () => void;
@@ -842,7 +841,6 @@ function CollectView({
                 <small>Every step stays editable, reviewable, and local.</small>
               </div>
               <div className="empty-actions">
-                <button className="button button-primary" type="button" onClick={onLoadSample}><ClipboardList size={16} />Load sample data</button>
                 <button className="button button-secondary" type="button" onClick={onOpenForm}><Plus size={16} />Add your own signal</button>
               </div>
             </div>

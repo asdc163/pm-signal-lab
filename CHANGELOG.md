@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.15 — 2026-08-15
+
+- Put the first-run `Load sample data` action in the desktop case-status block so the primary job is reachable in a normal laptop viewport.
+- Restored a visible mobile empty-state action bar while keeping `Add your own signal` as the secondary path in the case file.
+- Added fresh 1280px and 390px visual evidence for the first-run action surface and documented the keyboard and no-overflow checks.
+
+This release does not claim general usability, formal Chrome Extension or screen-reader coverage, adoption, or GitHub star growth.
+
 ## 0.1.14 — 2026-08-15
 
 - Reframed the public surface as a case-file evidence desk with a direct `Source line → Claim → Smallest test` reading order.
