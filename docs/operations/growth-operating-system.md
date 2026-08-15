@@ -40,6 +40,8 @@ Safe automation may run tests, prepare release notes, open a draft issue, check 
 
 The repository now has a [`weekly-growth-pulse.yml`](../../.github/workflows/weekly-growth-pulse.yml) workflow. It runs on a weekly schedule or by manual dispatch, reads public repository metadata, open feedback items, recent CI runs, the latest main commit, and release state, then uploads a 30-day JSON artifact and writes a workflow summary. GitHub traffic remains explicitly `not_collected` because it is maintainer-authenticated data. The pulse is an operating aid, not adoption instrumentation and not a star-growth guarantee.
 
+The first manual dispatch hit a real runner argument-limit failure and was repaired before the corrected path was accepted. The hosted release, the failed-run learning signal, and the successful artifact snapshot are recorded in the [latest hosted release audit](../../docs/product/pm-signal-lab/48-signal-review-growth-pulse-hosted-release-audit-2026-08-15.md).
+
 ## Promotion gate
 
 Do not promote a feature because it looks polished. Promote it only when the release evidence says what was tested, what users can do, what remains unverified, and how the change can be rolled back.
