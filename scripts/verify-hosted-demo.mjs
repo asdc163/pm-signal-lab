@@ -38,6 +38,10 @@ try {
 
   const javascript = assetBodies.find((asset) => asset.path.endsWith(".js"))?.body ?? "";
   const requiredStrings = [
+    "From one product signal to one testable decision",
+    "Bring in one source line",
+    "What does this line actually support?",
+    "No source line yet",
     "Keep the source in frame",
     "Review docket",
     "No claim travels without its source.",
@@ -47,6 +51,9 @@ try {
     "Hosted demo 0.1 · refresh resets it",
   ];
   const forbiddenStrings = [
+    "Put a product signal back next to its source",
+    "Put one traceable line on the desk",
+    "Start with the source. Decide what to test.",
     "What needs your attention",
     "context-stats",
     "Evidence desk / local preview",
