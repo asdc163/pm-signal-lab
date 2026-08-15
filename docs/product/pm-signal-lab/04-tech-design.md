@@ -53,7 +53,7 @@
 ## Data model
 
 ```ts
-type EvidenceType = "interview" | "support" | "analytics" | "competitor" | "market" | "expert";
+type EvidenceType = "interview" | "support" | "analytics" | "competitor" | "market" | "evaluation" | "expert";
 type ClaimStatus = "supported" | "review" | "missing";
 type WorkflowStep = "collect" | "verify" | "decide" | "ship";
 

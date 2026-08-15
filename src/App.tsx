@@ -66,7 +66,8 @@ const EVIDENCE_LABELS: Record<EvidenceType, string> = {
   support: "Support",
   analytics: "Product observation",
   competitor: "Competitive scan",
-  market: "Market",
+  market: "Market scan",
+  evaluation: "Evaluation review",
   expert: "Expert",
 };
 
@@ -643,7 +644,7 @@ function App() {
                   {pack ? "Trace the source, mark the limit, and name the smallest test." : "Keep the source attached before you decide what it can support."}
                 </p>
               </div>
-              <div className="hero-status" aria-label="Current work status" aria-live="polite" aria-atomic="true">
+              <div className="hero-status" role="status" aria-label="Current work status" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
                   <span className="section-eyebrow">Current work</span>
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>

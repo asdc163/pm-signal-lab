@@ -2,9 +2,9 @@
 
 ## Product frame
 
-- Product type: local-first PM worksheet for moving from evidence to a decision.
+- Product type: local-first AI product evidence worksheet for moving from source signals to a decision.
 - Target user: PM, founder, product designer, or product engineer evaluating a practical AI-PM portfolio project.
-- Primary action: move from a source-backed evidence pack to a reviewable, exportable decision brief.
+- Primary action: move from an AI support-copilot signal pack to a reviewable, exportable decision brief.
 - Brand mood: precise, calm, evidence-first, and closer to a field notebook / decision instrument than an AI dashboard.
 - Platforms: responsive web; desktop workbench, tablet reflow, and mobile single-column recovery.
 - Public locale: English-first `en-US` for the current hosted demo.
@@ -21,18 +21,19 @@
 
 ## Product truth and signature
 
-This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`.
+This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional AI support-copilot review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue.
 
-The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A cool paper index rail, ruled annotations, source folios, and a quiet desk summary establish the reading order. A rust line marks the next action and teal marks provenance; neither is used as wallpaper. The summary keeps actual source, claim, and review counts below the workpaper instead of turning secondary context into a persistent dashboard rail.
+The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A cool paper index rail, ruled annotations, source folios, evaluation-review limits, and a quiet desk summary establish the reading order. A rust line marks the next action and teal marks provenance; neither is used as wallpaper. The summary keeps actual source, claim, and review counts below the workpaper instead of turning secondary context into a persistent dashboard rail.
 
 ## Principles
 
 1. Evidence before persuasion: source, date, and limitation matter more than an “AI thinks” label.
-2. One next action: each step has one clear primary CTA.
-3. State before decoration: first run, empty, loading, error, recovery, and approval must work before polish matters.
-4. Dense where it helps: evidence rows can be compact; decision briefs and explanations need room to breathe.
-5. Human owns the decision: the system proposes a candidate; a person accepts, edits, keeps it as a hypothesis, or marks evidence missing.
-6. Boundary near trust: local-only behavior, manual GitHub handoff, and unverified outcomes stay visible at the point of action.
+2. AI product specificity without AI theatre: assistant draft, source freshness, evaluation coverage, and the stop condition appear as evidence objects, not as a simulated assistant.
+3. One next action: each step has one clear primary CTA.
+4. State before decoration: first run, empty, loading, error, recovery, and approval must work before polish matters.
+5. Dense where it helps: evidence rows can be compact; decision briefs and explanations need room to breathe.
+6. Human owns the decision: the system proposes a candidate; a person accepts, edits, keeps it as a hypothesis, or marks evidence missing.
+7. Boundary near trust: local-only behavior, manual GitHub handoff, and unverified outcomes stay visible at the point of action.
 
 ## Composition brief
 
@@ -125,9 +126,10 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 ## Evidence and release references
 
 - First-run design reference: [`case-file-first-run-1440.png`](./docs/product/pm-signal-lab/assets/qa/case-file-first-run-1440.png).
-- Current first-run screenshot: [`first-run-current-1280.png`](./docs/product/pm-signal-lab/assets/qa/first-run-current-1280.png).
-- Current first-run mobile screenshot: [`first-run-current-390.png`](./docs/product/pm-signal-lab/assets/qa/first-run-current-390.png).
-- Current loaded workbench screenshot: [`loaded-current-1280.png`](./docs/product/pm-signal-lab/assets/qa/loaded-current-1280.png).
+- Current AI PM fixture first-run screenshot: [`ai-pm-fixture-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-first-run-1280.png).
+- Current AI PM fixture first-run mobile screenshot: [`ai-pm-fixture-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-first-run-390.png).
+- Current AI PM fixture loaded workbench screenshot: [`ai-pm-fixture-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-loaded-1280.png).
+- Current AI PM fixture loaded mobile screenshot: [`ai-pm-fixture-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-loaded-390.png).
 - Historical first-run action reference: [`first-run-action-1280.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-1280.png) and [`first-run-action-mobile-390.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-mobile-390.png). Current visuals are the screenshots listed above.
 - Source ledger contract: [`32-source-ledger-composition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md).
 - English-first messaging and localization contract: [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md).
@@ -158,6 +160,8 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Direct workbench copy and semantic polish contract: [`63-direct-workbench-copy-and-semantic-polish-contract-2026-08-15.md`](./docs/product/pm-signal-lab/63-direct-workbench-copy-and-semantic-polish-contract-2026-08-15.md).
 - Direct workbench copy and semantic polish local QA: [`64-direct-workbench-copy-and-semantic-polish-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/64-direct-workbench-copy-and-semantic-polish-local-qa-2026-08-15.md).
 - Direct workbench copy and semantic polish hosted release audit: [`65-direct-workbench-copy-and-semantic-polish-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/65-direct-workbench-copy-and-semantic-polish-hosted-release-audit-2026-08-15.md).
+- AI product signal-pack contract: [`66-ai-product-signal-pack-contract-2026-08-15.md`](./docs/product/pm-signal-lab/66-ai-product-signal-pack-contract-2026-08-15.md).
+- AI product signal-pack local QA record: [`67-ai-product-signal-pack-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/67-ai-product-signal-pack-local-qa-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
