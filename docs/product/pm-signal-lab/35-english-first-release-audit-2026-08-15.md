@@ -99,11 +99,14 @@ The public hosted release was checked against the exact release commit:
 
 ### Hosted evidence record
 
-- Release commit: `2a0314d432e2986baf2acf5d5a7e7d4b2dbce18f`.
-- CI workflow: [run 31852122066](https://github.com/asdc163/pm-signal-lab/actions/runs/31852122066), conclusion `success`, head SHA matched the release commit.
-- Pages workflow: [run 31852122089](https://github.com/asdc163/pm-signal-lab/actions/runs/31852122089), conclusion `success`, head SHA matched the release commit.
-- Canonical URL: [`https://asdc163.github.io/pm-signal-lab/`](https://asdc163.github.io/pm-signal-lab/), HTTP `200`, `content-type: text/html; charset=utf-8`, served HTML contained `<html lang="en-US">`, the expected title, and the English bundle `assets/index-u2jiU_zd.js`.
-- Fresh hosted browser smoke: Playwright CLI fallback session `en-first-hosted-20260815`, 2026-08-15. The page title and `en-US` language matched; first run showed `Start with a source line`; sample loading showed `Preparing sample data`; the loaded state exposed four `View source` controls; source excerpt opened and closed; review produced three claims with source mapping; accept → decide → export produced the four expected Markdown sections and no Han characters; a fresh `390x844` run measured `scrollWidth = clientWidth = 390`; console output was `0` messages (`0` errors, `0` warnings).
+- Product runtime commit: `2a0314d432e2986baf2acf5d5a7e7d4b2dbce18f`.
+- Product runtime CI: [run 31852122066](https://github.com/asdc163/pm-signal-lab/actions/runs/31852122066), conclusion `success`, head SHA matched the runtime commit.
+- Product runtime Pages: [run 31852122089](https://github.com/asdc163/pm-signal-lab/actions/runs/31852122089), conclusion `success`, head SHA matched the runtime commit.
+- Final evidence commit: `09063d33b5a4af6a8b07170a7367de12b0264db4` (audit-only update).
+- Final evidence CI: [run 31852336575](https://github.com/asdc163/pm-signal-lab/actions/runs/31852336575), conclusion `success`, head SHA matched the final evidence commit.
+- Final evidence Pages: [run 31852336584](https://github.com/asdc163/pm-signal-lab/actions/runs/31852336584), conclusion `success`, head SHA matched the final evidence commit.
+- Canonical URL: [`https://asdc163.github.io/pm-signal-lab/`](https://asdc163.github.io/pm-signal-lab/), HTTP `200`, `content-type: text/html; charset=utf-8`, final hosted HTML contained `<html lang="en-US">`, the expected title, and the English bundle `assets/index-u2jiU_zd.js`.
+- Fresh hosted browser smoke: Playwright CLI fallback session `en-first-hosted-final-20260815`, 2026-08-15, after the final Pages deployment. The page title and `en-US` language matched; first run showed `Start with a source line`; sample loading exposed four `View source` controls; source excerpt opened and closed; review produced three claims with source mapping; accept → decide → export produced the four expected Markdown sections and no Han characters; fresh `1440x1000` and `390x844` runs measured equal document `scrollWidth` and `clientWidth`; console output was `0` messages (`0` errors, `0` warnings).
 
 ## Not covered
 
