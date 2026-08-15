@@ -3944,3 +3944,152 @@ textarea {
     font-size: 15px;
   }
 }
+
+/* Quiet workpaper polish — direct labels carry the product voice. */
+.eyebrow,
+.section-eyebrow,
+.card-eyebrow,
+.detail-label,
+.topbar-kicker,
+.sidebar-section-label,
+.sample-quote span,
+.evidence-type,
+.status-badge,
+.source-ledger-heading .micro-status,
+.count-badge,
+.pack-subject {
+  text-transform: none;
+  letter-spacing: 0.035em;
+}
+
+.sidebar-section-label {
+  letter-spacing: 0.06em;
+}
+
+.pack-subject {
+  letter-spacing: 0.02em;
+}
+
+.first-run-note span {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+.status-badge,
+.evidence-type {
+  font-weight: 650;
+}
+
+.source-ledger-heading .micro-status {
+  font-size: 10px;
+}
+
+/* Loaded state is an operating surface: bring the first source row forward. */
+@media (min-width: 1025px) {
+  .workbench.is-loaded .hero-block {
+    gap: 38px;
+    padding-bottom: 18px;
+  }
+
+  .workbench.is-loaded .hero-block h1 {
+    margin-top: 8px;
+    margin-bottom: 6px;
+  }
+
+  .workbench.is-loaded .hero-copy {
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .notice {
+    min-height: 44px;
+    margin-top: 12px;
+  }
+
+  .workbench.is-loaded .content-section {
+    padding-top: 24px;
+  }
+
+  .workbench.is-loaded .pack-header {
+    padding-top: 16px;
+    padding-bottom: 18px;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 26px;
+  }
+
+  .workbench.is-loaded .pack-subject {
+    margin-top: 8px;
+    padding-top: 5px;
+  }
+
+  .workbench.is-loaded .section-heading-row {
+    margin-top: 26px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-block > div,
+  .empty-copy,
+  .pack-header > div,
+  .section-intro > div {
+    min-width: 0;
+  }
+
+  .hero-block h1,
+  .empty-copy h2,
+  .pack-header h2,
+  .section-intro h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .workbench.is-loaded .hero-block {
+    gap: 13px;
+    padding-bottom: 14px;
+  }
+
+  .workbench.is-loaded .hero-status {
+    padding-top: 9px;
+  }
+
+  .workbench.is-loaded .notice {
+    min-height: 44px;
+    margin-top: 12px;
+  }
+
+  .workbench.is-loaded .content-section {
+    padding-top: 18px;
+  }
+
+  .workbench.is-loaded .pack-header {
+    padding-top: 14px;
+    padding-bottom: 16px;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .workbench.is-loaded .pack-subject {
+    margin-top: 8px;
+  }
+
+  .workbench.is-loaded .section-heading-row {
+    margin-top: 22px;
+  }
+
+  .mobile-action-bar > span {
+    min-width: 0;
+  }
+
+  .mobile-action-bar .button {
+    flex: 0 1 auto;
+    max-width: 62%;
+    padding-right: 10px;
+    padding-left: 10px;
+    white-space: normal;
+  }
+}

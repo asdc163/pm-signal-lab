@@ -1,7 +1,7 @@
 {
-  "run_id": "pm-signal-lab-editorial-mobile-fix-2026-08-15",
+  "run_id": "pm-signal-lab-quiet-workpaper-polish-2026-08-16",
   "product": "PM Signal Lab",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; owner-run Codex Chrome Extension session",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; current static candidate; Chrome Extension rerun blocked because the Mac was locked",
   "layers": [
     {
       "layer": "domain_tests",
@@ -22,7 +22,7 @@
       "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-DrnySMU3.js and index-CbwmMWdO.css emitted"
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-D4JhwZId.js and index-gWMif4jN.css emitted"
     },
     {
       "layer": "local_static_verifier",
@@ -33,17 +33,19 @@
     },
     {
       "layer": "chrome_extension_behavior_trace",
-      "status": "pass",
+      "status": "blocked",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Fresh Chrome agent tab: blank → sample → source expansion → Verify → human review → Decide → Ship"
+      "command_or_click_path": "Fresh Chrome agent tab: blank → sample → source expansion → Verify → human review → Decide → Ship",
+      "blocked_reason": "This polish changes visible copy and typography. The current-candidate Chrome Extension rerun could not start because the Mac was locked; the prior trace is retained as historical evidence, not promoted to this candidate."
     },
     {
       "layer": "human_review_gate",
-      "status": "pass",
+      "status": "blocked",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Attempt Decide with 0 reviewed claims; attempt draft with selected unreviewed claim; review one claim; draft again"
+      "command_or_click_path": "Attempt Decide with 0 reviewed claims; attempt draft with selected unreviewed claim; review one claim; draft again",
+      "blocked_reason": "No current-candidate browser interaction was possible after the quiet-workpaper polish because the Mac was locked. Domain tests still cover the gate logic; browser behavior remains unverified for this candidate."
     },
     {
       "layer": "keyboard_skip_link",
@@ -58,14 +60,15 @@
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
       "command_or_click_path": "Post-fix Chrome viewport 390×844 rerun after flex-basis correction",
-      "blocked_reason": "Pre-fix mobile evidence observed scrollWidth=375 and fixed action geometry, but the post-fix Chrome Extension rerun timed out on the existing and fresh controlled tab. The pre-fix screenshot is not current proof."
+      "blocked_reason": "A fallback 390×844 render exposed min-content overflow in the long empty-state heading and fixed action. A narrow min-width/shrink correction is now in the candidate, but the post-change capture did not finish; the current-candidate Chrome Extension rerun also could not start because the Mac was locked. No mobile pass is claimed."
     },
     {
       "layer": "chrome_accessibility_tree",
-      "status": "pass",
+      "status": "blocked",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Chrome AX tree inspection — 503 nodes; unnamed image, button, and link roles: none"
+      "command_or_click_path": "Chrome AX tree inspection — 503 nodes; unnamed image, button, and link roles: none",
+      "blocked_reason": "The current candidate was not reopened through Chrome after the copy and metadata polish because the Mac was locked. Prior AX counts are not reused as current proof."
     },
     {
       "layer": "visual_inspection",
@@ -73,14 +76,15 @@
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
       "command_or_click_path": "Post-fix desktop and 390×844 mobile screenshot inspection",
-      "blocked_reason": "The desktop visual pass is current in substance, but the required post-fix mobile screenshot was not captured because the Chrome Extension control surface timed out."
+      "blocked_reason": "A fallback 1280×900 screenshot was captured for the blank state, and a 390×844 fallback screenshot exposed a mobile overflow issue. The narrow correction is static-only so far; the post-change 390×844 capture did not finish, and the preferred Chrome route was unavailable because the Mac was locked. Current loaded-state visual inspection remains unverified."
     },
     {
       "layer": "app_origin_console_and_network_boundary",
-      "status": "pass",
+      "status": "blocked",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Filter browser logs and requests to http://127.0.0.1:4179/; app-origin errors/warnings=0; privacy path outbound requests=0"
+      "command_or_click_path": "Filter browser logs and requests to http://127.0.0.1:4179/; app-origin errors/warnings=0; privacy path outbound requests=0",
+      "blocked_reason": "No current-candidate browser session was available after the polish; the previous request-boundary result is historical for this manifest run."
     },
     {
       "layer": "canonical_hosted_release",
@@ -125,6 +129,6 @@
   ],
   "notes": [
     "Third-party MetaMask content-script warnings were observed in the browser session and excluded from the localhost app-origin pass; they are recorded in the QA report.",
-    "This manifest records evidence for the current local candidate only. Mobile post-fix layout and visual inspection are blocked until a fresh Chrome Extension run succeeds. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
+    "This manifest records static evidence for the current local candidate only. A headless fallback exposed a mobile min-content overflow and the candidate includes a narrow correction, but the post-change 390×844 capture did not finish. Current-candidate browser interaction, keyboard, accessibility tree, mobile layout, visual inspection, and app-origin request checks remain blocked because the Mac was locked and the preferred Chrome route could not start. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
   ]
 }

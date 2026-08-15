@@ -2,7 +2,7 @@
 
 ## Product frame
 
-- Product type: local-first PM field folio for moving from source lines to a defensible decision.
+- Product type: local-first PM workpaper for moving from source lines to a defensible decision.
 - Target user: PM, founder, product designer, or product engineer evaluating a practical AI-PM portfolio project.
 - Primary action: move from a support-draft signal pack to a reviewable, exportable decision brief.
 - Brand mood: precise, calm, evidence-first, and closer to a field notebook / decision instrument than an AI dashboard.
@@ -12,18 +12,18 @@
 ## Project Style Direction
 
 - Selected DNA: Pillow Fit's tool/trust discipline + Altoslab's restrained professional language.
-- Original direction: warm paper, ink hierarchy, one red correction line, blue provenance marks, and a ruled folio structure.
+- Original direction: warm paper, ink hierarchy, one red correction line, blue provenance marks, and ruled source rows.
 - Must feel like: a PM can bring this into a real product review and defend the next step.
 - Must not feel like: an AI landing-page template, a card-heavy dashboard, a model chat wrapper, or a decorative moodboard.
 - Density: medium on first run; medium-high once a source pack is loaded.
-- Signature detail: folio numbers, source lines, and editorial review marks that keep the original line beside the next decision. The brand mark is a simple sheet index; it does not represent model activity, confidence, or verified output.
+- Signature detail: source numbers, source lines, and restrained review marks that keep the original line beside the next decision. The brand mark is a simple sheet index; it does not represent model activity, confidence, or verified output.
 - Motion: low; transitions explain state changes and never simulate model thinking.
 
 ## Product truth and signature
 
 This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional support-draft review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue. The AI-PM framing belongs in the portfolio and fixture boundary, not as a badge that takes over the work surface.
 
-The visual signature is an editorial case sheet: the workflow is a thin paper index, the case subject leads the page, source rows and claim rows are visibly related, and provenance stays in the workpaper rather than a dashboard rail. A warm paper surface, ruled annotations, source folios, evaluation-review limits, and a quiet margin note establish the reading order. A red line marks the next action and blue marks provenance; neither is used as wallpaper. Actual source, claim, and review counts remain metadata, not the main visual event.
+The visual signature is a quiet workpaper: the workflow is a thin paper index, the case subject leads the page, source rows and claim rows are visibly related, and provenance stays in the workpaper rather than a dashboard rail. A warm paper surface, ruled annotations, source numbers, evaluation-review limits, and a quiet margin note establish the reading order. A red line marks the next action and blue marks provenance; neither is used as wallpaper. Actual source, claim, and review counts remain metadata, not the main visual event.
 
 ## Principles
 
@@ -36,7 +36,7 @@ The visual signature is an editorial case sheet: the workflow is a thin paper in
 7. Boundary near trust: local-only behavior, manual GitHub handoff, and unverified outcomes stay visible at the point of action.
 8. Review before decision: the Decide step cannot draft an experiment until at least one claim has an explicit human review state.
 
-9. Editorial case-sheet shell: concrete case records, margins, and review marks carry the visual identity; AI terms stay inside the portfolio framing, product fixture, and source content.
+9. Quiet workpaper shell: concrete source rows, margins, and review marks carry the visual identity; AI terms stay inside the portfolio framing, product fixture, and source content.
 
 ## Composition brief
 
@@ -46,7 +46,7 @@ The visual signature is an editorial case sheet: the workflow is a thin paper in
 - Content relationship: `Source → Claim → Smallest test`; use a stepper, rows, split areas, and definition lists before adding cards.
 - Desktop density: medium-high. Mobile density: stacked medium.
 - Alignment spine: masthead → paper index → case title → ruled source record. The workflow index is navigation, not a persistent dashboard rail; the margin summary stays below the workpaper.
-- Layout archetype: editorial case sheet + index strip + annotated source ledger + desk summary.
+- Layout archetype: quiet workpaper + index strip + annotated source rows + desk summary.
 - Responsive reflow: the desktop index becomes the existing top stepper below 1024px; the desk summary remains below the workbench; the primary CTA becomes a sticky bottom action on mobile.
 - Loaded state: when the pack exists, the masthead and hero use `Support draft review` so the case appears before the AI context. The working file uses `Review subject · support draft · fictional worksheet`; AI-PM framing remains in the repository and fixture boundary, not as a visual badge. The source lines end in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
 - Second polish: the masthead uses `Working sheet`, the loaded hero says `Four source lines. One decision to test next.`, and the evidence surface uses `Source lines`; these direct labels reduce design jargon while keeping the product object explicit.
@@ -97,15 +97,15 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Main gaps: 12 / 16 / 24 / 32 / 48px.
 - Control radius: 3px. Input radius: 3px. Panel radius: 0.
 - Status uses text, underline, and dividers rather than default pill surfaces.
-- The brand mark is a folio index, never a node graph or a signal of model activity.
+- The brand mark is a sheet index, never a node graph or a signal of model activity.
 - Use borders and surfaces by default; reserve shadows for menus, dialogs, and the sticky action.
 
 ## Components and states
 
 - Button: primary, secondary, quiet, and danger; default, hover, active, focus, disabled, and loading.
 - Stepper: current, completed, available, and blocked; semantic `aria-current`.
-- Evidence row: source folio, type, timestamp, source identity, original line, and expandable source detail.
-- Claim row: status text/icon, claim folio, evidence spine, source references, limitation, accept/edit/keep/missing actions.
+- Evidence row: source number, type, timestamp, source identity, original line, and expandable source detail.
+- Claim row: status text/icon, claim number, evidence spine, source references, limitation, accept/edit/keep/missing actions.
 - Review gate: Decide is blocked until a claim is explicitly reviewed; the recovery message names the valid human outcomes rather than silently drafting a test.
 - Status marker: `Source-backed`, `Needs your review`, and `Missing evidence` with text and icon.
 - Notice: success, warning, error, and recovery action; use `role=status` or `role=alert` by severity.
@@ -118,7 +118,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Below 640px: one column, top stepper, stacked rows, full-width primary controls, sticky bottom action with safe-area padding.
 - 640–1024px: use two columns where space allows; move context below the main workbench.
-- Above 1024px: full-width masthead, thin horizontal workflow index, central case sheet, and lower context band, max content width 1260px.
+- Above 1024px: full-width masthead, thin horizontal workflow index, central workpaper, and lower context band, max content width 1260px.
 - Touch targets are at least 44×44px. No action depends on hover.
 - Long source strings wrap. Focus remains visible. Text expansion is checked at 390px.
 - Reduced-motion preferences disable non-essential transitions.
@@ -129,10 +129,12 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Synthesis is shown as a set of claims and limitations, not fake typing, hidden chain-of-thought, or a model activity feed.
 - Avoid generic gradient hero art, abstract orbs, glass panels, bento feature walls, repeated rounded containers, unsupported “production-ready” claims, and status chrome that does not represent product proof.
 - Avoid network-like brand marks, graph nodes, fake confidence meters, chat bubbles, typing indicators, and shell copy that makes the preview look like an AI agent.
-- Prefer actual source rows, folios, limitations, a deterministic sample output, and an annotated decision brief as the visual language.
+- Prefer actual source rows, source numbers, limitations, a deterministic sample output, and an annotated decision brief as the visual language.
 - Keep AI language in subject/context and evidence objects; do not make it the loaded worksheet headline.
 
 ## Evidence and release references
+
+- Quiet workpaper second-polish contract: [`82-quiet-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md).
 
 - First-run design reference: [`case-file-first-run-1440.png`](./docs/product/pm-signal-lab/assets/qa/case-file-first-run-1440.png).
 - Current AI PM fixture first-run screenshot: [`ai-pm-fixture-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-first-run-1280.png).

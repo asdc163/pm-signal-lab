@@ -875,8 +875,8 @@ function CollectView({
                 <small>Local fixture only · no external research is attached.</small>
               </blockquote>
               <div className="first-run-note">
-                <span>Margin rule</span>
-                <strong>Start with what you can defend.</strong>
+                <span>Start with one line</span>
+                <strong>Write down one line you can defend.</strong>
                 <div className="first-run-sequence" aria-label="The path this worksheet keeps"><b>Source line</b><span>→</span><b>Claim</b><span>→</span><b>Smallest test</b></div>
                 <small>Every step stays editable, reviewable, and local.</small>
               </div>
@@ -907,10 +907,10 @@ function CollectView({
           </div>
           <div className="section-heading-row source-ledger-heading">
             <div>
-              <h3>Read the record before you make the case</h3>
-              <p>Each folio keeps the original line, source, date, and limit together.</p>
+              <h3>The source comes first</h3>
+              <p>Each row keeps the original line, source, date, and limit together.</p>
             </div>
-            <span className="micro-status"><strong>01–{formatFolioNumber(evidence.length)}</strong> source folios</span>
+            <span className="micro-status"><strong>01–{formatFolioNumber(evidence.length)}</strong> source rows</span>
           </div>
           <div className="evidence-list">
             {evidence.map((item) => (
@@ -1213,7 +1213,7 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
         <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "On this page" : "Blank sheet"}</span>
       </div>
       <div className="context-middle">
-        <div className="context-project"><span className="card-eyebrow">Source file {pack ? "active" : "empty"}</span><strong>{pack?.title ?? "No source file"}</strong><span>{pack ? "Source lines stay on this page." : "Start with one source line."}</span></div>
+        <div className="context-project"><span className="card-eyebrow">Source pack {pack ? "active" : "empty"}</span><strong>{pack?.title ?? "No source pack"}</strong><span>{pack ? "This source pack stays on this page." : "Start with one source line."}</span></div>
         <p className="context-record"><span className="card-eyebrow">Sheet record</span>{contextRecord}</p>
         <div className="context-list"><ContextItem label="Question on the desk" value={contextQuestion} /><ContextItem label="Rule" value={contextRule} /></div>
       </div>

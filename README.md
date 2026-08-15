@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest visual pass: [editorial case-sheet visual reframe contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md), [editorial case-sheet local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md), and [previous hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md). The canonical URL and hosted behavior still require a new Pages release audit for this branch; the local report is not a hosted-release claim.
+Latest visual pass: [quiet workpaper second-polish contract](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md), [editorial case-sheet visual reframe contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md), and [editorial case-sheet local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md). The canonical URL and hosted behavior still require a new Pages release audit for this branch; the local report is not a hosted-release claim.
 
 PM Signal Lab is a local-first product evidence worksheet for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses a fictional support-draft review because the portfolio is meant to show AI-PM judgment; the working surface leads with the PM case and keeps AI context out of the visual chrome.
 
@@ -14,7 +14,7 @@ PM Signal Lab is a local-first product evidence worksheet for turning raw signal
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
 
-**Design and QA evidence:** The current visual direction and local evidence are in the [editorial case-sheet contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md) and [editorial case-sheet local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md). The earlier no-AI-feel, keyboard/semantic, copy, AI-PM, and hosted audits remain available as a historical release trail in the [field notebook design contract](./docs/product/pm-signal-lab/53-no-ai-feel-field-notebook-contract-2026-08-15.md), [keyboard and semantic oracle audit](./docs/product/pm-signal-lab/55-keyboard-semantic-oracle-audit-2026-08-15.md), [AI product signal-pack local QA record](./docs/product/pm-signal-lab/67-ai-product-signal-pack-local-qa-2026-08-15.md), and [formal hosted demo contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md).
+**Design and QA evidence:** The current visual direction is in the [quiet workpaper second-polish contract](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md), with the [editorial case-sheet contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md) and [local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md) preserving the preceding rationale and evidence boundary. The earlier no-AI-feel, keyboard/semantic, copy, AI-PM, and hosted audits remain available as a historical release trail in the [field notebook design contract](./docs/product/pm-signal-lab/53-no-ai-feel-field-notebook-contract-2026-08-15.md), [keyboard and semantic oracle audit](./docs/product/pm-signal-lab/55-keyboard-semantic-oracle-audit-2026-08-15.md), [AI product signal-pack local QA record](./docs/product/pm-signal-lab/67-ai-product-signal-pack-local-qa-2026-08-15.md), and [formal hosted demo contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md).
 
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
@@ -23,7 +23,7 @@ This is an AI product manager portfolio project by [John Wu](https://github.com/
 No login or API key is required.
 
 1. Open the [hosted demo](https://asdc163.github.io/pm-signal-lab/) and select `Open the sample worksheet`.
-2. Expand one row with `View source`. Check the source folio, original text, date, and limitation.
+2. Expand one row with `View source`. Check the source number, original text, date, and limitation.
 3. Select `Start review`. Accept one claim, edit one, or keep one as a hypothesis.
 4. Open `Decide`, choose a direction, and select `Draft smallest experiment`.
 5. Review the primary metric, guardrail, smallest test, decision rule, and `Not covered` section.
@@ -39,17 +39,19 @@ The point is to make the source, claim, limitation, and next action visible in o
 
 ![PM Signal Lab editorial case sheet first-run](./docs/product/pm-signal-lab/assets/qa/editorial-case-sheet-local-blank-1280-2026-08-15.png)
 
-Current editorial case-sheet first-run screenshot captured from the local
-branch on 2026-08-15 at 1280×900. The [local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md)
-records the loaded desktop/mobile screenshots and the executed review, export,
-keyboard, validation, refresh, and privacy-gated feedback flows. A new
-canonical hosted release audit is intentionally pending merge and Pages
-deployment.
+This is a prior editorial case-sheet calibration snapshot captured from the
+local branch on 2026-08-15 at 1280×900; it is not current proof for the quiet
+workpaper candidate. The [local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md)
+records the preceding loaded desktop/mobile screenshots and executed review,
+export, keyboard, validation, refresh, and privacy-gated feedback flows. The
+current candidate's browser rerun and a new canonical hosted release audit are
+still intentionally pending because the Mac was locked and PR #44 has not
+been explicitly approved for merge and Pages deployment.
 
 ## What is in the hosted demo
 
 - A deterministic, fictional AI-assisted support-draft sample pack containing interview, support, product-observation, and evaluation-review signals.
-- A source ledger with stable folios, source identity, dates, original text, and an expandable source view.
+- Source rows with stable numbers, source identity, dates, original text, and an expandable source view.
 - Candidate claims that keep their source mapping and limitation visible.
 - Human review actions: accept a claim, edit it, keep it as a hypothesis, or mark missing evidence.
 - An editable experiment brief with a primary metric, guardrail, smallest test, decision rule, owner, and readiness state.
@@ -105,14 +107,14 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 - [`src/domain/export.ts`](./src/domain/export.ts) enforces the decision-brief readiness gate and Markdown export.
 - [`src/domain/feedback.ts`](./src/domain/feedback.ts) prepares a privacy-gated session field note.
 - [`src/domain/fixture.ts`](./src/domain/fixture.ts) holds the repeatable signal-review sample pack.
-- [`src/styles.css`](./src/styles.css) defines the warm-paper worksheet, ruled source records, index rail, and responsive layout.
+- [`src/styles.css`](./src/styles.css) defines the warm-paper workpaper, ruled source rows, index strip, and responsive layout.
 - [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) builds and deploys the hosted demo from `main`.
 - [`.github/workflows/hosted-demo-smoke.yml`](./.github/workflows/hosted-demo-smoke.yml) checks the canonical hosted demo after deployment, daily, and on manual dispatch.
 - [`scripts/verify-hosted-demo.mjs`](./scripts/verify-hosted-demo.mjs) performs the read-only HTTPS, asset, and current-copy check used by the hosted smoke workflow.
 - [`.github/workflows/weekly-growth-pulse.yml`](./.github/workflows/weekly-growth-pulse.yml) records read-only public repository signals as a reviewable artifact; it does not automate social activity.
 - [`DESIGN.md`](./DESIGN.md) records the visual DNA, tokens, states, and layout rules.
 
-The current English-first product contract is [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md). The latest less-AI visual direction is [`69-less-ai-field-folio-visual-direction-contract-2026-08-15.md`](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), with the current loaded-subject correction in [`72-less-ai-subject-specificity-contract-2026-08-15.md`](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md). The current direct-workbench visual contract is [`60-direct-workbench-no-ai-feel-contract-2026-08-15.md`](./docs/product/pm-signal-lab/60-direct-workbench-no-ai-feel-contract-2026-08-15.md), with the latest copy, semantic, and recovery decisions in [`63-direct-workbench-copy-and-semantic-polish-contract-2026-08-15.md`](./docs/product/pm-signal-lab/63-direct-workbench-copy-and-semantic-polish-contract-2026-08-15.md). The latest local evidence is [`64-direct-workbench-copy-and-semantic-polish-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/64-direct-workbench-copy-and-semantic-polish-local-qa-2026-08-15.md), the AI PM-specific contract is [`66-ai-product-signal-pack-contract-2026-08-15.md`](./docs/product/pm-signal-lab/66-ai-product-signal-pack-contract-2026-08-15.md), the current AI PM local evidence is [`67-ai-product-signal-pack-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/67-ai-product-signal-pack-local-qa-2026-08-15.md), and the canonical hosted release evidence is [`68-ai-product-signal-pack-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/68-ai-product-signal-pack-hosted-release-audit-2026-08-15.md). Historical audits remain available as a release trail.
+The current English-first product contract is [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md). The latest quiet workpaper second-polish contract is [`82-quiet-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md). The editorial case-sheet contract and local evidence remain available in [`78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md) and [`79-editorial-case-sheet-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md). Historical audits remain available as a release trail.
 
 ## English-first hosted demo
 

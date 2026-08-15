@@ -857,3 +857,71 @@ The correction remains intentionally fail-closed in the QA manifest: current
 local desktop copy and loaded-state evidence are present, while exact mobile,
 post-fix keyboard, canonical hosted, participant, adoption, and star-growth
 evidence are still separate gates.
+
+## Quiet workpaper second-polish addendum — 2026-08-16 00:08 +08:00
+
+The next visual pass applies the Design Brain, Product Craft, composition, and
+anti-AI-writing rules to the remaining model-average signals in the surface.
+It is deliberately small: direct work language, less all-caps metadata, and
+source rows as the visual unit. It adds no feature and no AI capability.
+
+### Implemented slice
+
+- `Margin rule` became `Start with one line`, followed by the direct instruction
+  `Write down one line you can defend.`
+- `Read the record before you make the case` became `The source comes first`.
+- `Each folio keeps the original line, source, date, and limit together.` became
+  `Each row keeps the original line, source, date, and limit together.`
+- The count now says `source rows`; the context note says `Source pack` and
+  `This source pack stays on this page.`
+- Content-oriented labels no longer force all-caps rendering. The red action
+  rule and blue provenance rule remain the product's restrained signature.
+- The loaded composition is slightly tighter on desktop and mobile so the
+  first source row arrives earlier in the reading path instead of leaving the
+  first viewport dominated by shell and hero spacing.
+
+### Fresh static evidence
+
+| Check | Result |
+|---|---|
+| KB plan compiler | PASS — contract score `100/100` |
+| `npm test` | PASS — 4 files, 11 tests |
+| `npm run lint` | PASS |
+| `npm run build` | PASS — JS `index-vrFItkc1.js`, CSS `index-D9lZW6kV.css` |
+| `git diff --check` | PASS |
+| `python3 .../validate_qa_evidence_manifest.py` | PASS |
+| `HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted` | PASS — HTTP 200, current copy present, stale copy absent; `canonical_https=false` is expected on localhost |
+
+### Browser evidence boundary
+
+The preferred Codex Chrome Extension route was not available in the current
+tool surface. The explicitly announced Computer Use fallback then stopped at
+the system boundary because the Mac was locked and requested manual unlock. No
+attempt was made to bypass the lock, and no previous screenshot or AX tree was
+promoted to current-candidate evidence.
+
+Current-candidate browser interaction, exact `390×844` mobile layout,
+post-polish keyboard focus, current accessibility tree, app-origin console and
+request trace, native screen reader output, canonical hosted behavior, and
+participant/adoption evidence remain `未驗證`. The manifest is intentionally
+blocked for those layers.
+
+## Mobile overflow hardening addendum — 2026-08-16 00:31 +08:00
+
+A supplemental headless render at `390×844` exposed a real mobile layout risk:
+the blank-state heading and the fixed action button were retaining their
+min-content width, so the right side of both could be clipped in the viewport.
+This was not promoted as a mobile pass. The correction is intentionally small:
+mobile grid/flex children now allow `min-width: 0`, headings can wrap within the
+viewport, and the fixed action button can shrink and wrap while its label stays
+available.
+
+Static verification after the correction remains green: `npm test` (4 files,
+11 tests), `npm run lint`, `npm run build` (`index-D4JhwZId.js` and
+`index-gWMif4jN.css`), `git diff --check`, the KB plan scorer (`100/100`), the
+QA manifest validator, and the localhost verifier all pass. A second
+post-change 390×844 headless capture did not finish, and the preferred Chrome
+Extension route remained unavailable because the Mac was locked. Therefore the
+mobile correction, exact no-overflow geometry, fixed-action reachability,
+loaded source-row view, keyboard focus, AX tree, native AT, canonical hosted
+behavior, and participant/adoption layers remain `未驗證`.

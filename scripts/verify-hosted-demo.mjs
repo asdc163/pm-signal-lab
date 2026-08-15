@@ -56,6 +56,13 @@ try {
     "Review subject",
     "support draft",
     "fictional worksheet",
+    "Start with one line",
+    "Write down one line you can defend.",
+    "The source comes first",
+    "Each row keeps the original line, source, date, and limit together.",
+    "source rows",
+    "Source pack",
+    "This source pack stays on this page.",
     "Evaluation review",
     "source or freshness",
     "copy is not resolution",
@@ -119,6 +126,9 @@ try {
     "Source ledger",
     "Case record",
     "Case subject",
+    "Read the record before you make the case",
+    "source folios",
+    "No source file",
   ];
   for (const text of requiredStrings) {
     assert(javascript.includes(text), `Current hosted JavaScript is missing: ${text}`);
