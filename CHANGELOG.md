@@ -6,7 +6,7 @@
 - Told testers that three concrete lines are enough: what they expected, where they hesitated, and one change they would make.
 - Renamed the local preparation and copy actions to `Prepare field note` and `Copy field note` while keeping the privacy gate and manual GitHub handoff.
 
-This release has local deterministic and browser evidence. Hosted verification is recorded separately; it does not claim real-user comprehension, adoption, or GitHub star growth.
+Hosted verification is recorded in [`43-pilot-note-feedback-loop-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/43-pilot-note-feedback-loop-hosted-release-audit-2026-08-15.md). This does not claim real-user comprehension, adoption, or GitHub star growth.
 
 ## 0.1.16 — 2026-08-15
 
