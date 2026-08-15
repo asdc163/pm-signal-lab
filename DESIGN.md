@@ -13,7 +13,7 @@
 
 This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`.
 
-The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A paper index rail, ruled annotations, source folios, and worksheet context establish the reading order. The context reports actual source, claim, and review counts plus the question currently in front of the PM; it does not fill space with generic AI explanations.
+The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A paper index rail, ruled annotations, source folios, and a margin-note context rail establish the reading order. The context keeps actual source, claim, and review counts in a literal desk record beside the question currently in front of the PM; it does not promote them as generic dashboard proof or fill space with AI explanations.
 
 ## Principles
 
@@ -34,7 +34,7 @@ The visual signature is an evidence spine: source rows and claim rows are visibl
 - Alignment spine: masthead → worksheet title → evidence spine. The right rail aligns to the same vertical rule.
 - Layout archetype: source ledger + index strip + annotated workpaper + worksheet context.
 - Responsive reflow: rail becomes a top stepper; context moves below the workbench; the primary CTA becomes a sticky bottom action.
-- Loaded state: when the pack exists, the masthead becomes denser and switches to direct work language so evidence appears sooner. The source ledger ends in a review docket with the actual candidate-claim count and the primary `Start review` action; the worksheet context explains that action without duplicating it on desktop Collect. This is domain-state reflow, not fake AI activity.
+- Loaded state: when the pack exists, the masthead becomes denser and switches to direct work language so evidence appears sooner. The source ledger ends in a review docket with the actual candidate-claim count and the primary `Start review` action; the right rail becomes a margin note with a literal `Desk record` and explains that action without duplicating it on desktop Collect. This is domain-state reflow, not fake AI activity.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
@@ -131,6 +131,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Signal-review and weekly-growth-pulse local QA: [`47-signal-review-growth-pulse-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/47-signal-review-growth-pulse-local-qa-2026-08-15.md).
 - Signal-review and weekly-growth-pulse hosted release audit: [`48-signal-review-growth-pulse-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/48-signal-review-growth-pulse-hosted-release-audit-2026-08-15.md).
 - Review-docket workbench contract and hosted audit: [`49-review-docket-workbench-contract-and-hosted-audit-2026-08-15.md`](./docs/product/pm-signal-lab/49-review-docket-workbench-contract-and-hosted-audit-2026-08-15.md).
+- Margin-note context contract and hosted audit: [`50-margin-note-context-contract-and-hosted-audit-2026-08-15.md`](./docs/product/pm-signal-lab/50-margin-note-context-contract-and-hosted-audit-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
