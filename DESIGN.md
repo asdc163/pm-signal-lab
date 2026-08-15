@@ -5,7 +5,7 @@
 - Product type: local-first PM worksheet for moving from evidence to a decision.
 - Target user: PM, founder, product designer, or product engineer evaluating a practical AI-PM portfolio project.
 - Primary action: move from a source-backed evidence pack to a reviewable, exportable decision brief.
-- Brand mood: precise, calm, evidence-first, and closer to a case file than an AI dashboard.
+- Brand mood: precise, calm, evidence-first, and closer to a working PM worksheet than an AI dashboard.
 - Platforms: responsive web; desktop workbench, tablet reflow, and mobile single-column recovery.
 - Public locale: English-first `en-US` for the current preview.
 
@@ -13,7 +13,7 @@
 
 This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`.
 
-The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A paper index rail, ruled annotations, source folios, and a review docket establish the reading order. The docket reports actual case counts and the question currently in front of the PM; it does not fill space with generic AI explanations.
+The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A paper index rail, ruled annotations, source folios, and worksheet context establish the reading order. The context reports actual source, claim, and review counts plus the question currently in front of the PM; it does not fill space with generic AI explanations.
 
 ## Principles
 
@@ -26,15 +26,15 @@ The visual signature is an evidence spine: source rows and claim rows are visibl
 
 ## Composition brief
 
-- First read: “Put a product signal back next to its source”, the current case status, and `Load sample data`.
-- Second read: the case docket, evidence rows, source mapping, date, and limitation.
+- First read: “Put a product signal back next to its source”, the current worksheet status, and `Load sample data`.
+- Second read: the worksheet context, evidence rows, source mapping, date, and limitation.
 - Primary action: one step-specific CTA.
 - Content relationship: `Source → Claim → Smallest test`; use a stepper, rows, split areas, and definition lists before adding cards.
 - Desktop density: medium-high. Mobile density: stacked medium.
-- Alignment spine: masthead → case title → evidence spine. The right rail aligns to the same vertical rule.
-- Layout archetype: case file + index strip + annotated workpaper + review docket.
+- Alignment spine: masthead → worksheet title → evidence spine. The right rail aligns to the same vertical rule.
+- Layout archetype: source ledger + index strip + annotated workpaper + worksheet context.
 - Responsive reflow: rail becomes a top stepper; context moves below the workbench; the primary CTA becomes a sticky bottom action.
-- Loaded state: when the pack exists, the masthead becomes denser so evidence appears sooner and the docket shows live source/claim/review counts. This is domain-state reflow, not fake AI activity.
+- Loaded state: when the pack exists, the masthead becomes denser so evidence appears sooner and the worksheet context shows live source/claim/review counts. This is domain-state reflow, not fake AI activity.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
@@ -125,6 +125,8 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - First-run action visibility hosted audit: [`41-first-run-action-visibility-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/41-first-run-action-visibility-hosted-release-audit-2026-08-15.md).
 - Pilot-note feedback loop contract: [`42-pilot-note-feedback-loop-contract-2026-08-15.md`](./docs/product/pm-signal-lab/42-pilot-note-feedback-loop-contract-2026-08-15.md).
 - Pilot-note feedback loop hosted audit: [`43-pilot-note-feedback-loop-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/43-pilot-note-feedback-loop-hosted-release-audit-2026-08-15.md).
+- Design and accessibility completion contract: [`44-design-a11y-completion-contract-2026-08-15.md`](./docs/product/pm-signal-lab/44-design-a11y-completion-contract-2026-08-15.md).
+- Design and accessibility polish local QA: [`45-design-a11y-polish-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/45-design-a11y-polish-local-qa-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.

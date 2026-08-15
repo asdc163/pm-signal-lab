@@ -155,6 +155,8 @@ function App() {
   const sourceRef = useRef<HTMLInputElement>(null);
   const contentRef = useRef<HTMLTextAreaElement>(null);
   const claimEditRef = useRef<HTMLTextAreaElement>(null);
+  const previousPackRef = useRef(Boolean(pack));
+  const previousStepRef = useRef(currentStep);
 
   const reviewedCount = claims.filter((claim) => claim.reviewed).length;
   const supportedCount = claims.filter(
@@ -201,6 +203,29 @@ function App() {
       requestAnimationFrame(() => document.getElementById("feedback-output")?.focus());
     }
   }, [feedbackMarkdown]);
+
+  useEffect(() => {
+    const packBecameReady = Boolean(pack) && !previousPackRef.current;
+    const stepChanged = previousStepRef.current !== currentStep;
+
+    if (packBecameReady || (stepChanged && currentStep !== "collect")) {
+      requestAnimationFrame(() => {
+        const isCompactViewport = window.matchMedia("(max-width: 700px)").matches;
+        const preferredSelector = isCompactViewport
+          ? ".mobile-action-bar [data-current-action]"
+          : ".context-next [data-current-action]";
+        const preferredAction = document.querySelector<HTMLButtonElement>(preferredSelector);
+        const visibleAction = preferredAction && preferredAction.offsetParent !== null && !preferredAction.disabled
+          ? preferredAction
+          : Array.from(document.querySelectorAll<HTMLButtonElement>("[data-current-action]"))
+            .find((button) => button.offsetParent !== null && !button.disabled);
+        visibleAction?.focus();
+      });
+    }
+
+    previousPackRef.current = Boolean(pack);
+    previousStepRef.current = currentStep;
+  }, [currentStep, pack]);
 
   const showNotice = (tone: NoticeTone, message: string) => {
     setNotice({ tone, message });
@@ -584,14 +609,14 @@ function App() {
             <span>PM Signal Lab</span>
           </div>
           <div className="topbar-context">
-            <span className="topbar-kicker">Case 01</span>
+            <span className="topbar-kicker">Worksheet</span>
             <span className="topbar-divider" aria-hidden="true" />
             <span>{pack?.title ?? "No evidence on the desk"}</span>
           </div>
           <button className="icon-button topbar-menu" type="button" aria-label="Jump to workflow" aria-controls="mobile-workflow" title="Jump to workflow" onClick={() => document.getElementById("mobile-workflow")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" })}>
             <Menu size={18} />
           </button>
-          <div className="topbar-status"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "Local case / sources loaded" : "Local preview / no transfer"}</div>
+          <div className="topbar-status"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "Local worksheet / sources loaded" : "Local preview / no transfer"}</div>
         </header>
 
         <div id="mobile-workflow" className="mobile-stepper" role="navigation" aria-label="Workflow">
@@ -607,7 +632,7 @@ function App() {
                 <p className="hero-copy">
                   Bring one line from an interview, support case, or product observation. Leave with a claim you can challenge and a test you can name.
                 </p>
-                <div className="hero-route" aria-label="Case path">
+                <div className="hero-route" aria-label="Decision path">
                   <span className="route-node"><b>01</b>Source line</span>
                   <ArrowRight size={14} aria-hidden="true" />
                   <span className="route-node"><b>02</b>Claim</span>
@@ -617,12 +642,12 @@ function App() {
               </div>
               <div className="hero-status" aria-label="Current worksheet status" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
-                  <span className="section-eyebrow">Case 01 / Current work</span>
+                  <span className="section-eyebrow">Current worksheet</span>
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
                 </div>
                 <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} on the desk` : "No source line on the desk"}</strong>
-                <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Load the sample case or add one real signal to begin."}</p>
-                <span className="hero-status-boundary"><ShieldCheck size={14} />{pack ? "Local case · refresh resets it" : SESSION_BOUNDARY_SHORT}</span>
+                <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Load the sample worksheet or add one real signal to begin."}</p>
+                <span className="hero-status-boundary"><ShieldCheck size={14} />{pack ? "Local worksheet · refresh resets it" : SESSION_BOUNDARY_SHORT}</span>
                 {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} />Load sample data<ArrowRight size={15} /></button></div>}
               </div>
             </div>
@@ -739,7 +764,7 @@ function App() {
         {!isFeedbackOpen && (
           <div className={`mobile-action-bar ${!pack ? "is-empty" : ""}`} role="region" aria-label="Current work action">
             <span>{WORKFLOW.find((item) => item.id === currentStep)?.description}</span>
-            <button className="button button-primary" type="button" onClick={nextAction.action} disabled={isLoading}>
+            <button className="button button-primary" type="button" onClick={nextAction.action} disabled={isLoading} data-current-action>
               {nextAction.label}<ArrowRight size={16} />
             </button>
           </div>
@@ -761,7 +786,7 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
       </div>
       <div className="sidebar-rule" />
       <nav className="workflow-nav" aria-label="Workflow">
-        <span className="sidebar-section-label">Case workflow</span>
+        <span className="sidebar-section-label">Workflow</span>
         <WorkflowStepper currentStep={currentStep} onSelectStep={onSelectStep} />
       </nav>
       <div className="sidebar-footer">
@@ -827,7 +852,7 @@ function CollectView({
           <div className="empty-panel">
             <div className="empty-index" aria-hidden="true">01</div>
             <div className="empty-copy">
-              <p className="section-eyebrow">Case 01 / Start with evidence</p>
+              <p className="section-eyebrow">Start with evidence</p>
               <h2 id="collect-title">Put one traceable line on the desk</h2>
               <p>Start with the line someone actually said. The source stays attached while you check what it can support.</p>
               <blockquote className="sample-quote">
@@ -851,7 +876,7 @@ function CollectView({
         <>
           <div className="pack-header">
             <div>
-            <p className="section-eyebrow">Case file / source lines</p>
+            <p className="section-eyebrow">Source lines</p>
               <h2 id="collect-title">{pack.title}</h2>
               <p>{pack.description}</p>
             </div>
@@ -862,7 +887,7 @@ function CollectView({
           </div>
           <div className="section-heading-row source-ledger-heading">
             <div>
-              <p className="section-eyebrow">Source ledger / case file</p>
+              <p className="section-eyebrow">Source ledger</p>
               <h3>Read the source lines before the claim</h3>
               <p>Each folio holds the original line, date, and limit that the next step needs.</p>
             </div>
@@ -935,7 +960,7 @@ function EvidenceRow({ evidence, sourceIndex, expanded, onToggle }: { evidence: 
 function VerifyView({ claims, evidence, activeClaimId, editingClaimId, editingClaimText, claimEditError, claimEditRef, onActivate, onAccept, onKeep, onMissing, onEdit, onEditText, onSaveEdit, onCancelEdit, onDraft }: { claims: Claim[]; evidence: Evidence[]; activeClaimId?: string; editingClaimId?: string; editingClaimText: string; claimEditError: string; claimEditRef: React.RefObject<HTMLTextAreaElement | null>; onActivate: (id: string) => void; onAccept: (claim: Claim) => void; onKeep: (claim: Claim) => void; onMissing: (claim: Claim) => void; onEdit: (claim: Claim) => void; onEditText: (value: string) => void; onSaveEdit: (claim: Claim) => void; onCancelEdit: () => void; onDraft: () => void }) {
   return (
     <section className="content-section" aria-labelledby="verify-title">
-      <div className="section-intro"><div><p className="section-eyebrow">Case file / Verify</p><h2 id="verify-title">Check the claim against the line</h2><p>A draft claim is not a fact. Check the source, date, and limitation before you carry it into a decision.</p></div><span className="human-label">You make the call</span></div>
+      <div className="section-intro"><div><p className="section-eyebrow">Review claim</p><h2 id="verify-title">Check the claim against the line</h2><p>A draft claim is not a fact. Check the source, date, and limitation before you carry it into a decision.</p></div><span className="human-label">You make the call</span></div>
       {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} /><div><h3>Nothing to review yet</h3><p>Return to Collect and add a signal before reviewing claims.</p></div></div> : <>
         <div className="claim-summary"><span><strong>{claims.length}</strong> draft claims</span><span><BadgeCheck size={14} />{claims.filter((claim) => claim.status === "supported").length} source-backed</span><span><CircleAlert size={14} />{claims.filter((claim) => claim.status !== "supported").length} need your review</span></div>
         <div className="claim-list">
@@ -984,7 +1009,7 @@ function DecideView({ claims, activeClaimId, experiment, onSelectClaim, onDraft,
   const availableClaims = claims.filter((claim) => claim.reviewed);
   return (
     <section className="content-section" aria-labelledby="decide-title">
-      <div className="section-intro"><div><p className="section-eyebrow">Case file / Decide</p><h2 id="decide-title">Name the smallest test</h2><p>Write the metric, guardrail, and stop rule before the team spends time.</p></div><span className="human-label"><Target size={14} />You still own the stop rule</span></div>
+      <div className="section-intro"><div><p className="section-eyebrow">Test brief</p><h2 id="decide-title">Name the smallest test</h2><p>Write the metric, guardrail, and stop rule before the team spends time.</p></div><span className="human-label"><Target size={14} />You still own the stop rule</span></div>
       {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} /><div><h3>No usable claims yet</h3><p>Load data in Collect, then make a human review decision in Verify.</p></div><button className="button button-secondary" type="button" onClick={onBack}>Back to Verify</button></div> : <>
         <div className="opportunity-picker"><div><span className="card-eyebrow">Choose a direction to test</span><p>{availableClaims.length ? "Choose a claim you reviewed; missing-evidence items can still become a needs-validation brief." : "No claims have been reviewed yet. Return to Verify to accept one or keep a hypothesis."}</p></div><div className="opportunity-options">{claims.map((claim) => <button key={claim.id} type="button" className={`opportunity-option ${activeClaimId === claim.id ? "is-selected" : ""}`} onClick={() => onSelectClaim(claim.id)}><span className={`mini-node ${STATUS_META[claim.status].className}`} /><span>{claim.text}</span><span className="option-status">{STATUS_META[claim.status].label}</span></button>)}</div><button className="button button-secondary" type="button" onClick={() => onDraft(activeClaimId)} disabled={!activeClaimId && !availableClaims.length}><Target size={15} />Draft smallest experiment</button></div>
         {experiment ? <ExperimentEditor experiment={experiment} onUpdate={onUpdate} onExport={onExport} /> : <div className="state-panel state-panel-soft"><Lightbulb size={22} /><div><h3>Choose a direction to test</h3><p>This will become a hypothesis, primary metric, guardrail, and smallest test. You still decide whether it is worth doing.</p></div></div>}
@@ -1043,7 +1068,7 @@ function ShipView({
     <section className="content-section" aria-labelledby="ship-title">
       <div className="section-intro">
         <div>
-          <p className="section-eyebrow">Case file / Carry forward</p>
+          <p className="section-eyebrow">Decision brief</p>
           <h2 id="ship-title">Take a brief someone can challenge</h2>
           <p>Carry the source, limitation, next action, and not-covered list into the next product conversation.</p>
         </div>
@@ -1152,7 +1177,7 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
   const openClaims = Math.max(claimCount - reviewedCount, 0);
   const contextRecord = pack
     ? `${evidenceCount} ${evidenceCount === 1 ? "source line" : "source lines"} · ${claimCount} candidate claims · ${reviewedCount} reviewed.`
-    : "No source lines yet. The case starts with one traceable line.";
+    : "No source lines yet. The worksheet starts with one traceable line.";
   const contextQuestion = !pack
     ? "Which source line can you defend?"
     : currentStep === "collect"
@@ -1165,20 +1190,20 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
   const contextRule = pack ? "No claim travels without its source." : "The source line stays attached to the claim.";
   const contextCarry = pack ? `${supportedCount} accepted · ${openClaims} still open.` : "One line becomes a claim only after review.";
   return (
-    <aside className="decision-context" aria-label="Review docket">
+    <aside className="decision-context" aria-label="Worksheet context">
       <div className="context-heading">
-        <div><p className="section-eyebrow">Review docket</p><h2>{pack ? "What is on the desk" : "Open a case"}</h2></div>
-        <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "Local case" : "Empty desk"}</span>
+        <div><p className="section-eyebrow">On this worksheet</p><h2>{pack ? "What needs your attention" : "Start with a source"}</h2></div>
+        <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "Local worksheet" : "Empty worksheet"}</span>
       </div>
-      <div className="context-project"><span className="card-eyebrow">Case 01 / {pack ? "Active" : "Empty"}</span><strong>{pack?.title ?? "No evidence on the desk"}</strong><span>{pack ? "Source lines stay in this session." : "Start with one traceable line."}</span></div>
-      <div className="context-stats" aria-label="Case counts">
+      <div className="context-project"><span className="card-eyebrow">Worksheet {pack ? "active" : "empty"}</span><strong>{pack?.title ?? "No evidence on the desk"}</strong><span>{pack ? "Source lines stay in this session." : "Start with one traceable line."}</span></div>
+      <div className="context-stats" aria-label="Worksheet counts">
         <div className="context-stat"><strong>{evidenceCount}</strong><span>Sources</span></div>
         <div className="context-stat"><strong>{claimCount}</strong><span>Claims</span></div>
         <div className="context-stat"><strong>{reviewedCount}</strong><span>Reviewed</span></div>
       </div>
       <div className="context-list"><ContextItem label="Open question" value={contextQuestion} /><ContextItem label="Evidence rule" value={contextRule} /><ContextItem label="Carry forward" value={contextCarry} /></div>
-      <p className="context-record"><span className="card-eyebrow">Case record</span>{contextRecord}</p>
-      <div className="context-next"><span className="card-eyebrow">Next move</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action}>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
+      <p className="context-record"><span className="card-eyebrow">Worksheet record</span>{contextRecord}</p>
+      <div className="context-next"><span className="card-eyebrow">Next move</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
       <div className="context-trace"><div className="trace-header"><span className="card-eyebrow">Session trail</span><span>{events.length ? "Activity recorded" : "No activity yet"}</span></div>{events.length === 0 ? <p>Activity stays in this session and does not include raw signal content.</p> : <><p>Last action: {EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>Copy session receipt</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Report this session in a new tab for manual review">Report this session<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div>
     </aside>
   );
@@ -1192,7 +1217,7 @@ function formatDate(value: string) { return new Intl.DateTimeFormat("en-US", { m
 function formatFolioNumber(value: number) { return String(value).padStart(2, "0"); }
 
 function contextNextCopy(step: WorkflowStep, pack: EvidencePack | null) {
-  if (!pack) return "Load the sample case or add a source line.";
+  if (!pack) return "Load the sample worksheet or add a source line.";
   if (step === "collect") return "Bring in the lines before asking what they mean.";
   if (step === "verify") return "Accept, edit, or keep the claim open; do not skip the source check.";
   if (step === "decide") return "Write the metric, guardrail, and stop rule.";
