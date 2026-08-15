@@ -1,5 +1,5 @@
 {
-  "run_id": "pm-signal-lab-local-review-gate-2026-08-15",
+  "run_id": "pm-signal-lab-editorial-mobile-fix-2026-08-15",
   "product": "PM Signal Lab",
   "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; owner-run Codex Chrome Extension session",
   "layers": [
@@ -22,7 +22,7 @@
       "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-Dxdk9HcE.js and index-BAq-wObY.css emitted"
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-DrnySMU3.js and index-CbwmMWdO.css emitted"
     },
     {
       "layer": "local_static_verifier",
@@ -54,10 +54,11 @@
     },
     {
       "layer": "responsive_mobile_emulation",
-      "status": "pass",
+      "status": "blocked",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/assets/qa/visual-reframe-loaded-390.png",
-      "command_or_click_path": "Chrome viewport 390×844; scrollWidth=375; fixed action bar 375×66 at top 778; no horizontal overflow observed"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "Post-fix Chrome viewport 390×844 rerun after flex-basis correction",
+      "blocked_reason": "Pre-fix mobile evidence observed scrollWidth=375 and fixed action geometry, but the post-fix Chrome Extension rerun timed out on the existing and fresh controlled tab. The pre-fix screenshot is not current proof."
     },
     {
       "layer": "chrome_accessibility_tree",
@@ -68,10 +69,11 @@
     },
     {
       "layer": "visual_inspection",
-      "status": "pass",
+      "status": "blocked",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/assets/qa/visual-reframe-loaded-1440.png",
-      "command_or_click_path": "Fresh blank/loaded desktop and loaded mobile screenshots inspected for hierarchy, density, paper surface, provenance marks, and absence of AI dashboard theatre"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "Post-fix desktop and 390×844 mobile screenshot inspection",
+      "blocked_reason": "The desktop visual pass is current in substance, but the required post-fix mobile screenshot was not captured because the Chrome Extension control surface timed out."
     },
     {
       "layer": "app_origin_console_and_network_boundary",
@@ -123,6 +125,6 @@
   ],
   "notes": [
     "Third-party MetaMask content-script warnings were observed in the browser session and excluded from the localhost app-origin pass; they are recorded in the QA report.",
-    "This manifest records evidence for the current local candidate only. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
+    "This manifest records evidence for the current local candidate only. Mobile post-fix layout and visual inspection are blocked until a fresh Chrome Extension run succeeds. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
   ]
 }
