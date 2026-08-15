@@ -17,7 +17,7 @@ the point of action.
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
 | Candidate code commit | `ef3a222` — `Require human review before experiment drafting` |
-| PR head observed at last check | `5445d99` — `Refresh hosted release preflight` |
+| PR head observed at last check | `f1950b8` — `Record green PR preflight evidence` |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -65,8 +65,8 @@ All of the following must be true at the moment of release:
   test → Ship, keyboard skip link, mobile fixed action, and Chrome AX tree.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [x] PR #44 CI is green for the pushed head observed as `5445d99`; CI run
-  `31890348863` completed Test, Typecheck, and Build successfully.
+- [x] PR #44 CI is green for the pushed head observed as `f1950b8`; CI run
+  `31890446638` completed Test, Typecheck, and Build successfully.
 - [ ] The user explicitly approves the public merge/deploy action.
 
 The last two items are intentionally unresolved. A local pass does not
