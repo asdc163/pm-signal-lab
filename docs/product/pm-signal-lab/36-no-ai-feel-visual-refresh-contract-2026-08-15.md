@@ -3,7 +3,7 @@
 Date: 2026-08-15
 Product: PM Signal Lab
 Audience: international PMs, founders, product designers, and product engineers
-Status: local implementation complete; hosted verification pending
+Status: hosted release verified for `037cf1ad82306633ce7e6200cea8f678915a9533`
 
 ## Problem frame
 
@@ -156,7 +156,7 @@ Selected direction: `Case file` with the `Direct workbench` reading order and `F
 - [x] Step 3: update `DESIGN.md` with the selected Project Style Direction and the rejected generic AI treatments. Expected: the next contributor can reproduce the visual decisions without guessing.
 - [x] Step 4: run `npm test -- --run`, `npm run lint`, `npm run build`, and `git diff --check`. Expected: each command exits 0.
 - [x] Step 5: run a fresh browser behavior matrix at 1440px, 768px, and 390px, including a keyboard route. Expected: the primary job, next action, focus route, recovery states, and no-overflow result are observable.
-- [ ] Step 6: run the same core journey against the canonical hosted URL after deployment. Expected: title, `en-US`, case-file copy, source ledger, export sections, mobile reflow, and console state match the release candidate.
+- [x] Step 6: run the same core journey against the canonical hosted URL after deployment. Expected: title, `en-US`, case-file copy, source ledger, export sections, mobile reflow, and console state match the release candidate.
 
 ## UX/AI/security gate
 
