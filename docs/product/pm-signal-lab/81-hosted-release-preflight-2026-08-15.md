@@ -16,7 +16,7 @@ the point of action.
 |---|---|
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
-| Candidate commit | `d6cceaa` — `Reduce repeated case-sheet chrome` |
+| Candidate commit | `ef3a222` — `Require human review before experiment drafting` |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -52,7 +52,14 @@ All of the following must be true at the moment of release:
 
 - [x] Candidate is isolated on `codex/less-ai-editorial-sheet`.
 - [x] Local tests, typecheck, production build, diff check, and local static
-  verifier pass for `d6cceaa`.
+  verifier pass for `ef3a222` — 4 files / 11 tests; current assets
+  `index-Dxdk9HcE.js` and `index-BAq-wObY.css`.
+- [x] The machine-readable QA evidence manifest validates, and it keeps local
+  pass, hosted blocked, native AT out of scope, and participant/adoption gaps
+  separate.
+- [x] Experiment drafting is blocked until at least one claim has an explicit
+  human review state; accepted, edited, hypothesis, and missing-evidence
+  outcomes remain visible.
 - [x] Fresh owner-run Chrome evidence covers blank → sample → source → claim →
   test → Ship, keyboard skip link, mobile fixed action, and Chrome AX tree.
 - [x] The public/private boundary is preserved; the private star plan is not
@@ -90,7 +97,7 @@ No rollback action has been performed in this preflight.
 
 After explicit approval, execute these steps in order and retain raw output:
 
-1. Confirm the PR head is `d6cceaa` and PR #44 is open, clean, and CI-green.
+1. Confirm the PR head is `ef3a222` and PR #44 is open, clean, and CI-green.
 2. Merge PR #44 into `main` using the repository's normal review path.
 3. Watch the merge CI and Pages deployment workflows to successful completion.
 4. Run:
