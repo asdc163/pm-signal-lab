@@ -4,7 +4,7 @@
 
 - Product type: local-first PM field folio for moving from source lines to a defensible decision.
 - Target user: PM, founder, product designer, or product engineer evaluating a practical AI-PM portfolio project.
-- Primary action: move from an AI support-copilot signal pack to a reviewable, exportable decision brief.
+- Primary action: move from a support-draft signal pack to a reviewable, exportable decision brief.
 - Brand mood: precise, calm, evidence-first, and closer to a field notebook / decision instrument than an AI dashboard.
 - Platforms: responsive web; desktop workbench, tablet reflow, and mobile single-column recovery.
 - Public locale: English-first `en-US` for the current hosted demo.
@@ -21,7 +21,7 @@
 
 ## Product truth and signature
 
-This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional AI support-copilot review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue. AI appears in the fixture because it is the product being reviewed, not because the shell pretends to be an assistant.
+This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional AI-assisted support-draft review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue. AI appears in the fixture because it is the product being reviewed, not because the shell pretends to be an assistant.
 
 The visual signature is a field folio: source rows and claim rows are visibly related so provenance is part of the workpaper rather than a footnote. A warm paper index rail, ruled annotations, source folios, evaluation-review limits, and a quiet margin note establish the reading order. A red line marks the next action and blue marks provenance; neither is used as wallpaper. The summary keeps actual source, claim, and review counts below the workpaper instead of turning secondary context into a persistent dashboard rail.
 
@@ -47,7 +47,7 @@ The visual signature is a field folio: source rows and claim rows are visibly re
 - Alignment spine: masthead → folio title → ruled source record. The workflow rail remains navigation; the margin summary is a lower-priority horizontal band below the workpaper.
 - Layout archetype: single-sheet source ledger + index strip + annotated workpaper + desk summary.
 - Responsive reflow: the workflow rail becomes a top stepper; the desk summary moves below the workbench; the primary CTA becomes a sticky bottom action.
-- Loaded state: when the pack exists, the masthead switches to direct work language so evidence appears sooner. The source ledger ends in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
+- Loaded state: when the pack exists, the masthead switches to direct work language so evidence appears sooner. The working file uses `Support draft review` as the visible subject and keeps `AI-assisted support drafting` as a quiet subject-under-review line. The source ledger ends in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
@@ -127,6 +127,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Avoid generic gradient hero art, abstract orbs, glass panels, bento feature walls, repeated rounded containers, unsupported “production-ready” claims, and status chrome that does not represent product proof.
 - Avoid network-like brand marks, graph nodes, fake confidence meters, chat bubbles, typing indicators, and shell copy that makes the preview look like an AI agent.
 - Prefer actual source rows, folios, limitations, a deterministic sample output, and an annotated decision brief as the visual language.
+- Keep AI language in subject/context and evidence objects; do not make it the loaded worksheet headline.
 
 ## Evidence and release references
 
@@ -183,6 +184,8 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Less-AI field folio visual direction contract: [`69-less-ai-field-folio-visual-direction-contract-2026-08-15.md`](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md).
 - Less-AI field folio local QA report: [`70-less-ai-field-folio-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md).
 - Less-AI field folio hosted release audit: [`71-less-ai-field-folio-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/71-less-ai-field-folio-hosted-release-audit-2026-08-15.md).
+- Less-AI subject-specificity contract: [`72-less-ai-subject-specificity-contract-2026-08-15.md`](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md).
+- Less-AI subject-specificity local QA report: [`73-less-ai-subject-specificity-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/73-less-ai-subject-specificity-local-qa-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.

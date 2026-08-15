@@ -3742,3 +3742,51 @@ textarea {
     background: #fffdf8;
   }
 }
+
+/* Loaded subject cue — keep AI context specific and subordinate to the PM job. */
+.pack-subject {
+  display: flex;
+  max-width: 760px;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 11px;
+  margin: 14px 0 0;
+  padding: 9px 0 1px 12px;
+  border-left: 2px solid var(--trust);
+  color: var(--trust);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.025em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.pack-subject-label {
+  color: var(--accent-dark);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.pack-subject-note {
+  color: var(--muted);
+  text-transform: none;
+}
+
+.pack-subject > span + span::before {
+  margin-right: 11px;
+  color: var(--line-strong);
+  content: "·";
+}
+
+@media (max-width: 700px) {
+  .pack-subject {
+    gap: 4px 8px;
+    margin-top: 12px;
+    padding-left: 10px;
+    font-size: 9px;
+  }
+
+  .pack-subject > span + span::before {
+    margin-right: 8px;
+  }
+}

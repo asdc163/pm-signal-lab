@@ -6,7 +6,8 @@ describe("PM Signal Lab synthesis", () => {
   it("keeps the public fixture grounded in an AI product-review job", () => {
     const fixtureText = [SAMPLE_PACK.title, SAMPLE_PACK.description, ...SAMPLE_PACK.evidence.map((item) => `${item.title} ${item.content}`)].join(" ");
 
-    expect(SAMPLE_PACK.title).toBe("AI support copilot: deciding what to test next");
+    expect(SAMPLE_PACK.title).toBe("Support draft review: deciding what to test next");
+    expect(fixtureText).toContain("support draft");
     expect(fixtureText).toContain("Evaluation review");
     expect(SAMPLE_PACK.evidence.find((item) => item.type === "evaluation")?.source).toContain("24 cases");
     const claims = buildClaims(SAMPLE_PACK.evidence);
