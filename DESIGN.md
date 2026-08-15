@@ -156,6 +156,8 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Direct workbench no-AI-feel local QA: [`61-direct-workbench-no-ai-feel-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/61-direct-workbench-no-ai-feel-local-qa-2026-08-15.md).
 - Direct workbench hosted release audit: [`62-direct-workbench-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/62-direct-workbench-hosted-release-audit-2026-08-15.md).
 - Direct workbench copy and semantic polish contract: [`63-direct-workbench-copy-and-semantic-polish-contract-2026-08-15.md`](./docs/product/pm-signal-lab/63-direct-workbench-copy-and-semantic-polish-contract-2026-08-15.md).
+- Direct workbench copy and semantic polish local QA: [`64-direct-workbench-copy-and-semantic-polish-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/64-direct-workbench-copy-and-semantic-polish-local-qa-2026-08-15.md).
+- Direct workbench copy and semantic polish hosted release audit: [`65-direct-workbench-copy-and-semantic-polish-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/65-direct-workbench-copy-and-semantic-polish-hosted-release-audit-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
