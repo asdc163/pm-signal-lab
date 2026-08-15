@@ -139,6 +139,10 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Current less-AI field folio first-run mobile screenshot: [`field-folio-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-first-run-390.png).
 - Current less-AI field folio loaded desktop screenshot: [`field-folio-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-loaded-1280.png).
 - Current less-AI field folio loaded mobile screenshot: [`field-folio-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-loaded-390.png).
+- Current hosted less-AI field folio first-run desktop screenshot: [`field-folio-hosted-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-hosted-first-run-1280.png).
+- Current hosted less-AI field folio first-run mobile screenshot: [`field-folio-hosted-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-hosted-first-run-390.png).
+- Current hosted less-AI field folio loaded desktop screenshot: [`field-folio-hosted-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-hosted-loaded-1280.png).
+- Current hosted less-AI field folio loaded mobile screenshot: [`field-folio-hosted-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-hosted-loaded-390.png).
 - Current hosted AI PM fixture first-run desktop screenshot: [`ai-pm-fixture-hosted-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-first-run-1280.png).
 - Current hosted AI PM fixture loaded desktop screenshot: [`ai-pm-fixture-hosted-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-loaded-1280.png).
 - Current hosted AI PM fixture first-run mobile screenshot: [`ai-pm-fixture-hosted-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-first-run-390.png).
@@ -178,6 +182,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - AI product signal-pack hosted release audit: [`68-ai-product-signal-pack-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/68-ai-product-signal-pack-hosted-release-audit-2026-08-15.md).
 - Less-AI field folio visual direction contract: [`69-less-ai-field-folio-visual-direction-contract-2026-08-15.md`](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md).
 - Less-AI field folio local QA report: [`70-less-ai-field-folio-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md).
+- Less-AI field folio hosted release audit: [`71-less-ai-field-folio-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/71-less-ai-field-folio-hosted-release-audit-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
