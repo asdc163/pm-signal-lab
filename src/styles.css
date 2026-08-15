@@ -167,8 +167,6 @@ p {
 }
 
 .sidebar-section-label,
-.section-eyebrow,
-.card-eyebrow,
 .detail-label,
 .topbar-kicker {
   display: block;
@@ -179,6 +177,28 @@ p {
   letter-spacing: 0.08em;
   line-height: 1.45;
   text-transform: none;
+}
+
+.section-eyebrow,
+.card-eyebrow {
+  display: block;
+  color: var(--muted);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  line-height: 1.45;
+  text-transform: none;
+}
+
+.eyebrow {
+  margin: 0 0 11px;
+  color: var(--accent-dark);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  line-height: 1.4;
+  text-transform: uppercase;
 }
 
 .sidebar-section-label {
@@ -512,10 +532,10 @@ p {
 }
 
 .workbench.is-loaded .hero-block h1 {
-  max-width: 650px;
+  max-width: 570px;
   margin-top: 7px;
   margin-bottom: 9px;
-  font-size: clamp(1.95rem, 2.45vw, 2.9rem);
+  font-size: clamp(1.85rem, 2.15vw, 2.55rem);
 }
 
 .workbench.is-loaded .hero-copy {
@@ -1174,6 +1194,14 @@ p {
   margin: 0;
   color: var(--muted);
   font-size: 12px;
+}
+
+.next-action-copy {
+  min-width: 0;
+}
+
+.next-action-card .button {
+  margin-top: 13px;
 }
 
 .reset-button {

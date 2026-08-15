@@ -592,7 +592,11 @@ function App() {
 
   const nextAction = (() => {
     if (!pack) return { label: "Load sample data", action: loadSample };
-    if (currentStep === "collect" && claims.length > 0) return { label: "Start review", action: startReview };
+    if (currentStep === "collect") {
+      return claims.length > 0
+        ? { label: "Start review", action: startReview }
+        : { label: "Add a signal", action: () => setIsFormOpen(true) };
+    }
     if (currentStep === "verify") return { label: "Draft smallest experiment", action: () => startExperiment() };
     if (currentStep === "decide") return { label: "Export decision brief", action: exportMemo };
     return { label: "Copy Markdown", action: copyMarkdown };
@@ -627,10 +631,10 @@ function App() {
           <section className={`workbench${pack ? " is-loaded" : ""}`} aria-labelledby="page-title">
             <div className="hero-block">
               <div>
-                <p className="eyebrow">PM SIGNAL LAB / EVIDENCE DESK</p>
-                <h1 id="page-title">Put a product signal back next to its source</h1>
+                <p className="eyebrow">{pack ? "Signal review" : "PM Signal Lab"}</p>
+                <h1 id="page-title">{pack ? "Start with the source. Decide what to test." : "Put a product signal back next to its source"}</h1>
                 <p className="hero-copy">
-                  Bring one line from an interview, support case, or product observation. Leave with a claim you can challenge and a test you can name.
+                  {pack ? "Read the line, challenge the claim, then name the smallest test." : "Bring one line from an interview, support case, or product observation. Leave with a claim you can challenge and a test you can name."}
                 </p>
                 <div className="hero-route" aria-label="Decision path">
                   <span className="route-node"><b>01</b>Source line</span>
@@ -672,6 +676,7 @@ function App() {
                 evidence={evidence}
                 isLoading={isLoading}
                 isFormOpen={isFormOpen}
+                claimCount={claims.length}
                 form={form}
                 formErrors={formErrors}
                 titleRef={titleRef}
@@ -684,6 +689,7 @@ function App() {
                 onChangeForm={(field, value) => setForm((previous) => ({ ...previous, [field]: value }))}
                 onSubmitForm={submitEvidence}
                 onToggleEvidence={(id) => setExpandedEvidenceId((previous) => previous === id ? undefined : id)}
+                onStartReview={startReview}
               />
             )}
 
@@ -823,12 +829,13 @@ function WorkflowStepper({ currentStep, onSelectStep, mobile = false }: { curren
 
 function CollectView({
   pack, evidence, isLoading, isFormOpen, form, formErrors, titleRef, sourceRef, contentRef, expandedEvidenceId,
-  onReset, onOpenForm, onCloseForm, onChangeForm, onSubmitForm, onToggleEvidence,
+  claimCount, onReset, onOpenForm, onCloseForm, onChangeForm, onSubmitForm, onToggleEvidence, onStartReview,
 }: {
   pack: EvidencePack | null;
   evidence: Evidence[];
   isLoading: boolean;
   isFormOpen: boolean;
+  claimCount: number;
   form: EvidenceFormState;
   formErrors: Partial<Record<keyof EvidenceFormState, string>>;
   titleRef: React.RefObject<HTMLInputElement | null>;
@@ -841,6 +848,7 @@ function CollectView({
   onChangeForm: (field: keyof EvidenceFormState, value: string) => void;
   onSubmitForm: (event: FormEvent<HTMLFormElement>) => void;
   onToggleEvidence: (id: string) => void;
+  onStartReview: () => void;
 }) {
   if (isLoading) {
     return <section className="state-panel loading-state" aria-live="polite" aria-busy="true"><Activity size={22} className="spin" /><div><h2>Preparing sample data</h2><p>The local boundary stays in place; you can trace each source after loading finishes.</p></div></section>;
@@ -900,7 +908,7 @@ function CollectView({
           </div>
           <div className="next-action-card">
             <div className="next-action-icon"><ArrowRight size={18} /></div>
-            <div><span className="card-eyebrow">Next move</span><h3>The desk is ready. Review one claim against its source.</h3><p>Accept, edit, or keep the claim open; missing evidence stays visible.</p></div>
+            <div className="next-action-copy"><span className="card-eyebrow">Review docket</span><h3>{claimCount === 1 ? "One candidate claim is waiting for a source check." : claimCount > 1 ? `${claimCount} candidate claims are waiting for a source check.` : "No claim is ready for review yet."}</h3><p>Accept, edit, or keep each claim open; missing evidence stays visible.</p>{claimCount > 0 ? <button className="button button-primary" type="button" onClick={onStartReview} data-current-action>Start review<ArrowRight size={16} /></button> : <button className="button button-secondary" type="button" onClick={onOpenForm}>Add a signal<Plus size={16} /></button>}</div>
           </div>
           <button className="text-button reset-button" type="button" onClick={onReset}><RotateCcw size={14} />Reset this set</button>
         </>
@@ -1203,7 +1211,7 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
       </div>
       <div className="context-list"><ContextItem label="Open question" value={contextQuestion} /><ContextItem label="Evidence rule" value={contextRule} /><ContextItem label="Carry forward" value={contextCarry} /></div>
       <p className="context-record"><span className="card-eyebrow">Worksheet record</span>{contextRecord}</p>
-      <div className="context-next"><span className="card-eyebrow">Next move</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
+      <div className="context-next"><span className="card-eyebrow">Next move</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack && currentStep === "collect" ? <span className="context-next-static">Use the review docket in the workpaper.</span> : pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
       <div className="context-trace"><div className="trace-header"><span className="card-eyebrow">Session trail</span><span>{events.length ? "Activity recorded" : "No activity yet"}</span></div>{events.length === 0 ? <p>Activity stays in this session and does not include raw signal content.</p> : <><p>Last action: {EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>Copy session receipt</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Report this session in a new tab for manual review">Report this session<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div>
     </aside>
   );
