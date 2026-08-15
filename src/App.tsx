@@ -609,7 +609,11 @@ function App() {
       <div className="app-body">
         <header className="topbar">
           <div className="topbar-mobile-brand">
-            <span className="brand-mark" aria-hidden="true">PS</span>
+            <span className="brand-mark" aria-hidden="true">
+              <span className="brand-mark-node brand-mark-node-top" />
+              <span className="brand-mark-node brand-mark-node-middle" />
+              <span className="brand-mark-node brand-mark-node-bottom" />
+            </span>
             <span>PM Signal Lab</span>
           </div>
           <div className="topbar-context">
@@ -784,7 +788,11 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
   return (
     <aside className="sidebar" aria-label="PM Signal Lab navigation">
       <div className="sidebar-brand">
-        <span className="brand-mark" aria-hidden="true">PS</span>
+        <span className="brand-mark" aria-hidden="true">
+          <span className="brand-mark-node brand-mark-node-top" />
+          <span className="brand-mark-node brand-mark-node-middle" />
+          <span className="brand-mark-node brand-mark-node-bottom" />
+        </span>
         <div>
           <strong>PM Signal Lab</strong>
           <span>Evidence desk / hosted demo</span>
