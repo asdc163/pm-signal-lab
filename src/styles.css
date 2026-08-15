@@ -440,12 +440,10 @@ p {
 }
 
 .workspace {
-  display: grid;
-  max-width: 1536px;
-  grid-template-columns: minmax(0, 1fr) 302px;
-  gap: 34px;
+  display: block;
+  max-width: 1320px;
   margin: 0 auto;
-  padding: 44px 46px 80px;
+  padding: 39px 46px 80px;
 }
 
 .workbench {
@@ -456,17 +454,42 @@ p {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 32px;
-  padding-bottom: 30px;
+  gap: 54px;
+  padding-bottom: 25px;
   border-bottom: 1px solid var(--line);
 }
 
+.hero-folio {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 10px;
+}
+
+.hero-folio-index {
+  display: inline-grid;
+  min-width: 29px;
+  height: 20px;
+  place-items: center;
+  color: var(--accent-dark);
+  border-top: 1px solid #d19d82;
+  border-bottom: 1px solid #d19d82;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.hero-folio .eyebrow {
+  margin: 0;
+}
+
 .hero-block h1 {
-  max-width: 760px;
+  max-width: 680px;
   margin: 12px 0 13px;
   color: var(--ink);
   font-family: var(--display);
-  font-size: clamp(2.3rem, 3.2vw, 3.45rem);
+  font-size: clamp(2.05rem, 2.8vw, 2.9rem);
   font-weight: 650;
   letter-spacing: -0.012em;
   line-height: 1.2;
@@ -474,38 +497,10 @@ p {
 }
 
 .hero-copy {
-  max-width: 650px;
+  max-width: 590px;
   margin-bottom: 0;
   color: var(--muted);
-  font-size: 16px;
-}
-
-.hero-route {
-  display: flex;
-  max-width: 560px;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 9px;
-  margin-top: 22px;
-  color: var(--muted);
-  font-family: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-  font-size: 11px;
-}
-
-.hero-route > svg {
-  color: var(--line-strong);
-}
-
-.route-node {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.route-node b {
-  color: var(--accent-dark);
-  font-size: 10px;
-  font-weight: 800;
+  font-size: 15px;
 }
 
 .hero-status {
@@ -573,26 +568,20 @@ p {
 
 /* A loaded workpaper is a tool surface, not a second landing page. */
 .workbench.is-loaded .hero-block {
-  gap: 26px;
-  padding-bottom: 20px;
+  gap: 42px;
+  padding-bottom: 19px;
 }
 
 .workbench.is-loaded .hero-block h1 {
-  max-width: 570px;
-  margin-top: 7px;
-  margin-bottom: 9px;
-  font-size: clamp(1.85rem, 2.15vw, 2.55rem);
+  max-width: 610px;
+  margin-top: 9px;
+  margin-bottom: 8px;
+  font-size: clamp(1.8rem, 2.25vw, 2.45rem);
 }
 
 .workbench.is-loaded .hero-copy {
   max-width: 590px;
   font-size: 14px;
-}
-
-.workbench.is-loaded .hero-route {
-  gap: 7px;
-  margin-top: 13px;
-  font-size: 10px;
 }
 
 .workbench.is-loaded .hero-status {
@@ -763,10 +752,10 @@ p {
 .empty-panel {
   display: grid;
   grid-template-columns: 58px minmax(0, 1fr);
-  min-height: 320px;
+  min-height: 300px;
   align-items: center;
   gap: 28px;
-  padding: 38px 42px 38px 0;
+  padding: 34px 42px 34px 0;
   border-top: 1px solid var(--line);
   border-right: 0;
   border-bottom: 1px solid var(--line);
@@ -1354,6 +1343,14 @@ textarea {
   resize: vertical;
   padding: 10px 11px;
   line-height: 1.6;
+}
+
+.sample-quote small {
+  display: block;
+  margin-top: 9px;
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.5;
 }
 
 input::placeholder,
@@ -2115,22 +2112,21 @@ textarea::placeholder {
 }
 
 .decision-context {
-  position: sticky;
-  top: 36px;
-  align-self: start;
-  min-width: 0;
+  display: grid;
+  grid-template-columns: minmax(210px, 0.78fr) minmax(0, 1.45fr) minmax(245px, 0.82fr);
+  gap: 0 28px;
+  margin-top: 38px;
   padding: 21px 0 0;
-  padding-left: 24px;
-  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
 }
 
 .context-heading {
+  grid-column: 1;
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid var(--line);
+  padding: 0;
 }
 
 .context-heading h2 {
@@ -2150,10 +2146,15 @@ textarea::placeholder {
   font-size: 11px;
 }
 
+.context-middle {
+  grid-column: 2;
+  min-width: 0;
+}
+
 .context-project {
   display: grid;
   gap: 7px;
-  padding: 17px 0;
+  padding: 0 0 13px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -2171,19 +2172,24 @@ textarea::placeholder {
 }
 
 .context-list {
-  border-bottom: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+  padding-top: 15px;
 }
 
 .context-item {
   display: flex;
   align-items: flex-start;
   gap: 10px;
-  padding: 15px 0;
-  border-bottom: 1px solid #e8ece8;
+  min-width: 0;
+  padding: 0 17px 0 0;
+  border-right: 1px solid #e8ece8;
 }
 
 .context-item:last-child {
-  border-bottom: 0;
+  padding-right: 0;
+  border-right: 0;
 }
 
 .context-item-rule {
@@ -2220,9 +2226,8 @@ textarea::placeholder {
 
 .context-record {
   margin: 0;
-  padding: 15px 0;
+  padding: 12px 0 0;
   color: var(--muted);
-  border-bottom: 1px solid var(--line);
   font-size: 11px;
   line-height: 1.6;
 }
@@ -2232,7 +2237,10 @@ textarea::placeholder {
 }
 
 .context-next {
-  margin-top: 21px;
+  grid-column: 3;
+  grid-row: 1 / span 3;
+  align-self: start;
+  margin-top: 0;
   padding: 16px;
   border-top: 1px solid #d7a68c;
   border-right: 0;
@@ -2271,8 +2279,9 @@ textarea::placeholder {
 }
 
 .context-trace {
+  grid-column: 1 / -1;
   margin-top: 20px;
-  padding-top: 15px;
+  padding-top: 14px;
   border-top: 1px solid var(--line);
 }
 
@@ -2348,7 +2357,6 @@ textarea::placeholder {
 
 @media (max-width: 1180px) {
   .workspace {
-    gap: 27px;
     padding-right: 32px;
     padding-left: 32px;
   }
@@ -2461,9 +2469,7 @@ textarea::placeholder {
   }
 
   .decision-context .context-heading,
-  .decision-context .context-project,
-  .decision-context .context-list,
-  .decision-context .context-record,
+  .decision-context .context-middle,
   .decision-context .context-trace {
     grid-column: 1;
   }
@@ -2482,9 +2488,6 @@ textarea::placeholder {
     margin-bottom: 25px;
   }
 
-  .hero-status-actions {
-    display: none;
-  }
 }
 
 @media (max-width: 700px) {
@@ -2550,7 +2553,7 @@ textarea::placeholder {
 
   .hero-block h1 {
     margin-top: 10px;
-    font-size: clamp(2.1rem, 11vw, 3.2rem);
+    font-size: clamp(1.95rem, 10vw, 2.75rem);
   }
 
   .workbench.is-loaded .hero-block {
@@ -2568,10 +2571,6 @@ textarea::placeholder {
     font-size: 13px;
   }
 
-  .workbench.is-loaded .hero-route {
-    margin-top: 11px;
-  }
-
   .workbench.is-loaded .hero-status {
     padding-top: 13px;
   }
@@ -2584,6 +2583,10 @@ textarea::placeholder {
     width: 100%;
     max-width: none;
     padding-top: 17px;
+  }
+
+  .hero-status-actions {
+    display: none;
   }
 
   .notice {
@@ -2884,6 +2887,23 @@ textarea::placeholder {
 
   .decision-context .context-next {
     margin-top: 20px;
+  }
+
+  .context-list {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .context-item,
+  .context-item:last-child {
+    padding: 0 0 12px;
+    border-right: 0;
+    border-bottom: 1px solid #e8ece8;
+  }
+
+  .context-item:last-child {
+    padding-bottom: 0;
+    border-bottom: 0;
   }
 
   .context-trace {

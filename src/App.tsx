@@ -591,7 +591,7 @@ function App() {
   };
 
   const nextAction = (() => {
-    if (!pack) return { label: "Load sample data", action: loadSample };
+    if (!pack) return { label: "Open the sample worksheet", action: loadSample };
     if (currentStep === "collect") {
       return claims.length > 0
         ? { label: "Start review", action: startReview }
@@ -635,18 +635,14 @@ function App() {
           <section className={`workbench${pack ? " is-loaded" : ""}`} aria-labelledby="page-title">
             <div className="hero-block">
               <div>
-                <p className="eyebrow">{pack ? "Source review" : "Product evidence worksheet"}</p>
-                <h1 id="page-title">{pack ? "What does this line actually support?" : "From one product signal to one testable decision"}</h1>
-                <p className="hero-copy">
-                  {pack ? "Check the source, mark the limit, then name the smallest test." : "Keep the original line attached, mark what it supports, and leave with the smallest test worth discussing."}
-                </p>
-                <div className="hero-route" aria-label="Decision path">
-                  <span className="route-node"><b>01</b>Source line</span>
-                  <ArrowRight size={14} aria-hidden="true" />
-                  <span className="route-node"><b>02</b>Claim</span>
-                  <ArrowRight size={14} aria-hidden="true" />
-                  <span className="route-node"><b>03</b>Smallest test</span>
+                <div className="hero-folio" aria-label={pack ? "Source review, collect step" : "New worksheet, collect step"}>
+                  <span className="hero-folio-index">{pack ? "01" : "—"}</span>
+                  <span className="eyebrow">{pack ? "Source review" : "New worksheet"}</span>
                 </div>
+                <h1 id="page-title">{pack ? "Check what this line supports" : "Put one signal on the desk"}</h1>
+                <p className="hero-copy">
+                  {pack ? "Trace the source, mark the limit, and name the smallest test." : "Keep the source attached before you decide what it can support."}
+                </p>
               </div>
               <div className="hero-status" aria-label="Current worksheet status" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
@@ -656,7 +652,7 @@ function App() {
                 <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} in this working set` : "No source line yet"}</strong>
                 <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Load a sample or add one real signal to begin."}</p>
                 <span className="hero-status-boundary"><ShieldCheck size={14} />{pack ? "Local worksheet · refresh resets it" : SESSION_BOUNDARY_SHORT}</span>
-                {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} />Load sample data<ArrowRight size={15} /></button></div>}
+                {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} />Open the sample worksheet<ArrowRight size={15} /></button></div>}
               </div>
             </div>
 
@@ -872,8 +868,9 @@ function CollectView({
               <h2 id="collect-title">Bring in one source line</h2>
               <p>Paste the line someone actually said. Keep its source attached while you decide what it can support.</p>
               <blockquote className="sample-quote">
-                <span>{EVIDENCE_LABELS[SAMPLE_PREVIEW.type]} · {SAMPLE_PREVIEW.source}</span>
+                <span>Sample signal · {EVIDENCE_LABELS[SAMPLE_PREVIEW.type]} · {SAMPLE_PREVIEW.source}</span>
                 <p>“{SAMPLE_PREVIEW.content}”</p>
+                <small>Local fixture only · no external research is attached.</small>
               </blockquote>
               <div className="first-run-note">
                 <span>Working rule</span>
@@ -1190,9 +1187,8 @@ function SessionFeedback({
 function MemoSection({ title, children }: { title: string; children: React.ReactNode }) { return <section className="memo-section"><h4>{title}</h4>{children}</section>; }
 
 function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, supportedCount, currentStep, nextAction, events, onCopyReceipt, feedbackUrl }: { pack: EvidencePack | null; evidenceCount: number; claimCount: number; reviewedCount: number; supportedCount: number; currentStep: WorkflowStep; nextAction: { label: string; action: () => void }; events: ProductEvent[]; onCopyReceipt: () => void; feedbackUrl: string }) {
-  const openClaims = Math.max(claimCount - reviewedCount, 0);
   const contextRecord = pack
-    ? `${evidenceCount} ${evidenceCount === 1 ? "source line" : "source lines"} · ${claimCount} candidate claims · ${reviewedCount} reviewed.`
+    ? `${evidenceCount} ${evidenceCount === 1 ? "source line" : "source lines"} · ${claimCount} candidate claims · ${reviewedCount} reviewed · ${supportedCount} accepted.`
     : "No source lines yet. Start with one line you can trace.";
   const contextQuestion = !pack
     ? "Which source line can you defend?"
@@ -1204,16 +1200,17 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
           ? "What would change the next move?"
           : "What should the team carry forward?";
   const contextRule = pack ? "No claim travels without its source." : "The source line stays attached to the claim.";
-  const contextCarry = pack ? `${supportedCount} accepted · ${openClaims} still open.` : "One line becomes a claim only after review.";
   return (
     <aside className="decision-context" aria-label="Worksheet context">
       <div className="context-heading">
-        <div><p className="section-eyebrow">Margin note</p><h2>{pack ? "Keep the source in frame" : "Start with a source"}</h2></div>
+        <div><p className="section-eyebrow">Desk note</p><h2>{pack ? "Keep the source in frame" : "Start with a source"}</h2></div>
         <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "Local worksheet" : "Empty worksheet"}</span>
       </div>
-      <div className="context-project"><span className="card-eyebrow">Working set {pack ? "active" : "empty"}</span><strong>{pack?.title ?? "No source set"}</strong><span>{pack ? "Source lines stay on this page." : "Start with one source line."}</span></div>
-      <p className="context-record"><span className="card-eyebrow">Desk record</span>{contextRecord}</p>
-      <div className="context-list"><ContextItem label="Open question" value={contextQuestion} /><ContextItem label="Evidence rule" value={contextRule} /><ContextItem label="Carry forward" value={contextCarry} /></div>
+      <div className="context-middle">
+        <div className="context-project"><span className="card-eyebrow">Source set {pack ? "active" : "empty"}</span><strong>{pack?.title ?? "No source set"}</strong><span>{pack ? "Source lines stay on this page." : "Start with one source line."}</span></div>
+        <p className="context-record"><span className="card-eyebrow">Desk record</span>{contextRecord}</p>
+        <div className="context-list"><ContextItem label="Question on the desk" value={contextQuestion} /><ContextItem label="Rule" value={contextRule} /></div>
+      </div>
       <div className="context-next"><span className="card-eyebrow">Next move</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack && currentStep === "collect" ? <span className="context-next-static">Use the review docket in the workpaper.</span> : pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
       <div className="context-trace"><div className="trace-header"><span className="card-eyebrow">Session trail</span><span>{events.length ? "Activity recorded" : "No activity yet"}</span></div>{events.length === 0 ? <p>Activity stays in this session and does not include raw signal content.</p> : <><p>Last action: {EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>Copy session receipt</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Report this session in a new tab for manual review">Report this session<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div>
     </aside>
@@ -1228,7 +1225,7 @@ function formatDate(value: string) { return new Intl.DateTimeFormat("en-US", { m
 function formatFolioNumber(value: number) { return String(value).padStart(2, "0"); }
 
 function contextNextCopy(step: WorkflowStep, pack: EvidencePack | null) {
-  if (!pack) return "Load the sample worksheet or add a source line.";
+  if (!pack) return "Open the sample worksheet or add a source line.";
   if (step === "collect") return "Bring in the lines before asking what they mean.";
   if (step === "verify") return "Accept, edit, or keep the claim open; do not skip the source check.";
   if (step === "decide") return "Write the metric, guardrail, and stop rule.";
