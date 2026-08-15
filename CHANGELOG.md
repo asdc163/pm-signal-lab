@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.23 — 2026-08-15
+
+- Replaced the loaded context KPI strip with a quieter `Margin note / Keep the source in frame` treatment.
+- Kept the real source, claim, and review counts in a literal `Desk record` while preserving the central review docket and mobile action.
+- Re-verified the current English-first bundle at the canonical Pages URL after separating a stale cached tab from fresh hosted evidence.
+
+This is a scoped hosted pass, not a claim of external usability, adoption, qualified stars, native screen-reader coverage, or a completed 10,000-star outcome. See [`50-margin-note-context-contract-and-hosted-audit-2026-08-15.md`](./docs/product/pm-signal-lab/50-margin-note-context-contract-and-hosted-audit-2026-08-15.md).
+
 ## 0.1.22 — 2026-08-15
 
 - Put the real `Start review` action in the central source-ledger review docket so the loaded PM workbench ends where the next action begins.
