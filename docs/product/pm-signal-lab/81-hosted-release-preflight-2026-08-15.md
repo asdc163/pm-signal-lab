@@ -16,7 +16,8 @@ the point of action.
 |---|---|
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
-| Candidate commit | `ef3a222` — `Require human review before experiment drafting` |
+| Candidate code commit | `ef3a222` — `Require human review before experiment drafting` |
+| PR head observed at last check | `5445d99` — `Refresh hosted release preflight` |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -64,7 +65,8 @@ All of the following must be true at the moment of release:
   test → Ship, keyboard skip link, mobile fixed action, and Chrome AX tree.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [ ] PR #44 CI is green for the final pushed candidate commit.
+- [x] PR #44 CI is green for the pushed head observed as `5445d99`; CI run
+  `31890348863` completed Test, Typecheck, and Build successfully.
 - [ ] The user explicitly approves the public merge/deploy action.
 
 The last two items are intentionally unresolved. A local pass does not
@@ -97,7 +99,8 @@ No rollback action has been performed in this preflight.
 
 After explicit approval, execute these steps in order and retain raw output:
 
-1. Confirm the PR head is `ef3a222` and PR #44 is open, clean, and CI-green.
+1. Confirm PR #44 is open, clean, and CI-green, and that its current head
+   contains candidate code commit `ef3a222`.
 2. Merge PR #44 into `main` using the repository's normal review path.
 3. Watch the merge CI and Pages deployment workflows to successful completion.
 4. Run:
