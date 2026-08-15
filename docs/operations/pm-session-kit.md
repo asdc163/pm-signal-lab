@@ -12,7 +12,7 @@ This kit is for a real PM, founder, product designer, or product engineer trying
 ## The task
 
 1. Start from the empty first-run screen.
-2. Load the sample evidence pack.
+2. Open the sample worksheet.
 3. Open one source and answer: “Which source can this line actually return to?”
 4. Go to Verify and accept, edit, or keep one claim as a hypothesis.
 5. Draft the smallest experiment and read the `Known limits` / `Not covered` sections.

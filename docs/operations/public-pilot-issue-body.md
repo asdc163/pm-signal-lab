@@ -11,7 +11,7 @@ Five people who work in product discovery, product management, product design, r
 ## Five-minute trial
 
 1. Open the [hosted demo](https://asdc163.github.io/pm-signal-lab/).
-2. From the empty page, select `Load sample data`.
+2. From the empty page, select `Open the sample worksheet`.
 3. Expand one row with `View source`, then select `Start review`.
 4. Accept one claim. You can keep another as a hypothesis.
 5. Open `Decide`, draft the `Smallest experiment`, then export the decision brief from `Ship`.

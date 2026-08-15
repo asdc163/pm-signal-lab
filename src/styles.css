@@ -508,8 +508,8 @@ p {
   width: min(100%, 255px);
   flex: 0 0 255px;
   gap: 8px;
-  padding: 16px 0 0;
-  border-top: 1px solid var(--line-strong);
+  padding: 6px 0 0 18px;
+  border-left: 1px solid var(--line-strong);
 }
 
 .hero-status-heading {
@@ -849,8 +849,9 @@ p {
   display: grid;
   gap: 4px;
   margin-top: 20px;
-  padding: 10px 0 10px 13px;
-  border-left: 2px solid var(--trust);
+  padding: 12px 0 11px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .first-run-note span,
@@ -955,12 +956,17 @@ p {
   align-items: flex-end;
 }
 
-.source-ledger-heading .section-eyebrow {
-  margin-bottom: 7px;
+.source-ledger-heading h3 {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.03em;
 }
 
 .source-ledger-heading .micro-status {
-  padding-bottom: 4px;
+  padding: 7px 0 4px 12px;
+  border-left: 1px solid var(--line-strong);
 }
 
 .source-ledger-heading .micro-status strong {
