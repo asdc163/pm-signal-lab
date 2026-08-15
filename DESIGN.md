@@ -146,6 +146,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Formal hosted demo release audit: [`51-formal-hosted-demo-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/51-formal-hosted-demo-release-audit-2026-08-15.md).
 - Hosted-demo copy alignment audit: [`52-hosted-demo-copy-alignment-audit-2026-08-15.md`](./docs/product/pm-signal-lab/52-hosted-demo-copy-alignment-audit-2026-08-15.md).
 - No-AI-feel field notebook contract: [`53-no-ai-feel-field-notebook-contract-2026-08-15.md`](./docs/product/pm-signal-lab/53-no-ai-feel-field-notebook-contract-2026-08-15.md).
+- Keyboard and semantic oracle audit: [`55-keyboard-semantic-oracle-audit-2026-08-15.md`](./docs/product/pm-signal-lab/55-keyboard-semantic-oracle-audit-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
