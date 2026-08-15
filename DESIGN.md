@@ -130,6 +130,10 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Current AI PM fixture first-run mobile screenshot: [`ai-pm-fixture-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-first-run-390.png).
 - Current AI PM fixture loaded workbench screenshot: [`ai-pm-fixture-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-loaded-1280.png).
 - Current AI PM fixture loaded mobile screenshot: [`ai-pm-fixture-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-loaded-390.png).
+- Current hosted AI PM fixture first-run desktop screenshot: [`ai-pm-fixture-hosted-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-first-run-1280.png).
+- Current hosted AI PM fixture loaded desktop screenshot: [`ai-pm-fixture-hosted-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-loaded-1280.png).
+- Current hosted AI PM fixture first-run mobile screenshot: [`ai-pm-fixture-hosted-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-first-run-390.png).
+- Current hosted AI PM fixture loaded mobile screenshot: [`ai-pm-fixture-hosted-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-loaded-390.png).
 - Historical first-run action reference: [`first-run-action-1280.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-1280.png) and [`first-run-action-mobile-390.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-mobile-390.png). Current visuals are the screenshots listed above.
 - Source ledger contract: [`32-source-ledger-composition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md).
 - English-first messaging and localization contract: [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md).
@@ -162,6 +166,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Direct workbench copy and semantic polish hosted release audit: [`65-direct-workbench-copy-and-semantic-polish-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/65-direct-workbench-copy-and-semantic-polish-hosted-release-audit-2026-08-15.md).
 - AI product signal-pack contract: [`66-ai-product-signal-pack-contract-2026-08-15.md`](./docs/product/pm-signal-lab/66-ai-product-signal-pack-contract-2026-08-15.md).
 - AI product signal-pack local QA record: [`67-ai-product-signal-pack-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/67-ai-product-signal-pack-local-qa-2026-08-15.md).
+- AI product signal-pack hosted release audit: [`68-ai-product-signal-pack-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/68-ai-product-signal-pack-hosted-release-audit-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
