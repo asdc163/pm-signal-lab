@@ -829,4 +829,31 @@ snapshot could be collected. The earlier pre-fix screenshot must not be used
 as proof that the correction works. Acceptance remains: fresh Chrome at
 `390×844` must show the loaded pack heading without the fixed action covering
 the heading, preserve `scrollWidth <= viewport`, and keep the fixed action
-reachable. Canonical Pages remains `未驗證` as well.
+ reachable. Canonical Pages remains `未驗證` as well.
+
+### Computer Use fallback observation — 2026-08-15 23:44 +08:00
+
+Because the Chrome Extension timed out again after the CSS correction, one
+explicitly announced Computer Use fallback was used against the local preview
+only. This is supplemental observation, not a replacement for the preferred
+Chrome Extension route or native assistive-technology QA.
+
+- The current post-fix local page loaded in Chrome and its accessibility tree
+  exposed `Start with a source line`, `Review sheet`, `Support draft review`,
+  `Sheet status`, `Source lines`, and `Review subject`.
+- The current loaded worksheet was visibly rendered and showed the simplified
+  English labels in the screenshot. No external page, account, GitHub action,
+  feedback submission, or network-backed product flow was touched.
+- The Computer Use screenshot showed the app in a narrow pane, but the active
+  viewport was not independently measured as `390×844`; therefore this does
+  not turn the mobile correction into a pass. Exact post-fix mobile layout,
+  no-obscured-heading behavior, and `scrollWidth <= viewport` remain `未驗證`.
+- Two `Tab` actions produced no reliable focus announcement in the returned
+  accessibility tree. The earlier Chrome Extension keyboard evidence remains
+  valid for the pre-correction run, but this fallback did not provide a fresh
+  post-fix keyboard pass. Native VoiceOver/NVDA/TalkBack remains `未驗證`.
+
+The correction remains intentionally fail-closed in the QA manifest: current
+local desktop copy and loaded-state evidence are present, while exact mobile,
+post-fix keyboard, canonical hosted, participant, adoption, and star-growth
+evidence are still separate gates.
