@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.21 — 2026-08-15
+
+- Recorded the canonical hosted release audit after personally checking the English-first desktop, mobile, source-trace, review, decision-brief, and privacy-gated manual-feedback paths.
+- Verified the corrected weekly growth pulse through a fresh manual GitHub Actions dispatch and retained the first large-response failure as an engineering learning signal.
+
+This release keeps the project in `Iterate / recruit`: the repository has 1 star, the public pilot issue has no comments, and external sessions, adoption, traffic, star quality, and native assistive-technology coverage remain unverified.
+
 ## 0.1.20 — 2026-08-15
 
 - Fixed the first remote weekly-growth-pulse dispatch: large GitHub API responses no longer travel through `jq --argjson` command-line arguments, which had exceeded the runner's argument limit.
