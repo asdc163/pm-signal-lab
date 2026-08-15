@@ -6,6 +6,8 @@ PM Signal Lab is a local-first product evidence workbench for turning raw produc
 
 **Hosted preview:** [asdc163.github.io/pm-signal-lab](https://asdc163.github.io/pm-signal-lab/)
 
+**Public pilot:** The current release is looking for five international PMs, founders, designers, or product engineers to complete one unguided five-minute trial. Use the [session kit](./docs/operations/pm-session-kit.md), then leave one concrete observation in [pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4).
+
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
 ## Five-minute trial
@@ -91,7 +93,7 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 - [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) builds and deploys the hosted preview from `main`.
 - [`DESIGN.md`](./DESIGN.md) records the visual DNA, tokens, states, and layout rules.
 
-The current English-first product contract is [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md). The current release evidence is recorded in [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md) once the hosted verification is complete.
+The current English-first product contract is [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md). The latest no-AI-feel hosted evidence is recorded in [`38-no-ai-feel-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/38-no-ai-feel-hosted-release-audit-2026-08-15.md). Historical audits remain available as a release trail.
 
 ## English-first public preview
 
@@ -111,7 +113,7 @@ This release intentionally does not add a locale selector or runtime translation
 
 If you are a PM, founder, product designer, or product engineer, use the [five-minute session kit](./docs/operations/pm-session-kit.md) without a maintainer walkthrough. The most useful report is one concrete hesitation, trust or doubt signal, recovery moment, and one change you would make.
 
-The public feedback issue is [#4](https://github.com/asdc163/pm-signal-lab/issues/4). The copy-ready handoff is [`public-pilot-issue-body.md`](./docs/operations/public-pilot-issue-body.md). Review every line before submitting. Do not include customer names, private tickets, API keys, tokens, confidential roadmap material, or raw sensitive evidence.
+The public feedback issue is [#4](https://github.com/asdc163/pm-signal-lab/issues/4) and is pinned in the repository. The copy-ready handoff is [`public-pilot-issue-body.md`](./docs/operations/public-pilot-issue-body.md). Review every line before submitting. Do not include customer names, private tickets, API keys, tokens, confidential roadmap material, or raw sensitive evidence.
 
 Stars are optional. Specific, reproducible feedback is more useful than a number that cannot explain what happened.
 

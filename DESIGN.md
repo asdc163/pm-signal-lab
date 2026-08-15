@@ -119,6 +119,6 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - English-first messaging and localization contract: [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md).
 - No-AI-feel visual refresh QA audit: [`37-no-ai-feel-visual-refresh-qa-audit-2026-08-15.md`](./docs/product/pm-signal-lab/37-no-ai-feel-visual-refresh-qa-audit-2026-08-15.md).
 - No-AI-feel hosted release audit: [`38-no-ai-feel-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/38-no-ai-feel-hosted-release-audit-2026-08-15.md).
-- Current English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
+- Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
