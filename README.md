@@ -8,6 +8,8 @@ PM Signal Lab is a local-first product evidence workbench for turning raw produc
 
 **Public pilot:** The current release is looking for five international PMs, founders, designers, or product engineers to complete one unguided five-minute trial. Use the [session kit](./docs/operations/pm-session-kit.md), then leave one concrete observation in [pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4).
 
+**International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
+
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
 ## Five-minute trial
@@ -20,7 +22,7 @@ No login or API key is required.
 4. Open `Decide`, choose a direction, and select `Draft smallest experiment`.
 5. Review the primary metric, guardrail, smallest test, decision rule, and `Not covered` section.
 6. Export, copy, or download the Markdown decision brief.
-7. In `Ship`, optionally open `Record this session`. Write what you expected, where you hesitated, what you trusted, and one change that would make you try again.
+7. In `Ship`, open `Help decide what to fix next` after the brief. Three lines are enough: what you expected, where you hesitated, and one change that would make you try again. Add trust or recovery detail if it matters.
 8. Inspect the generated field note before opening the public GitHub feedback page. Submission is always manual.
 
 The product path is:

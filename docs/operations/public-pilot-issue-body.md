@@ -15,7 +15,7 @@ Five people who work in product discovery, product management, product design, r
 3. Expand one row with `View source`, then select `Start review`.
 4. Accept one claim. You can keep another as a hypothesis.
 5. Open `Decide`, draft the `Smallest experiment`, then export the decision brief from `Ship`.
-6. If you want to continue, open `Record this session`, write where you hesitated, what you trusted, and one change you would make. Confirm the privacy checkbox before generating the field note.
+6. If you want to continue, open `Help decide what to fix next`. Three lines are enough: what you expected, where you hesitated, and one change you would make. Add trust or recovery detail if it matters, then confirm the privacy checkbox before preparing the field note.
 
 Please do not paste customer names, private tickets, API keys, tokens, or confidential roadmap material. The sample pack is enough to complete the task.
 
