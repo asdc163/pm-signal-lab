@@ -3,7 +3,7 @@
 Date: 2026-08-15
 Product: PM Signal Lab
 Audience: international PMs, product designers, founders, and product engineers
-Release status: local English-first candidate verified; hosted verification is pending until the release commit is pushed and the exact deployed commit is checked.
+Release status: English-first hosted smoke verified for the release commit; formal Chrome Extension and assistive-technology sign-off remain unverified.
 
 ## Decision
 
@@ -89,7 +89,7 @@ Visual captures from the same local verification pass:
 
 ## Hosted verification gate
 
-Before this file can claim a public hosted release, all of the following must be checked against the exact release commit:
+The public hosted release was checked against the exact release commit:
 
 1. `main` is pushed to `https://github.com/asdc163/pm-signal-lab`.
 2. The repository verification workflow passes for that commit.
@@ -97,15 +97,13 @@ Before this file can claim a public hosted release, all of the following must be
 4. `https://asdc163.github.io/pm-signal-lab/` returns HTTP 200 and serves the expected English metadata and asset bundle.
 5. A fresh hosted browser smoke test repeats the title, `en-US`, first-run, sample-load, source expansion, decision-brief, mobile overflow, and console checks.
 
-Until those checks are recorded below, hosted English-first behavior is `unverified`.
-
 ### Hosted evidence record
 
-- Release commit: pending push.
-- CI workflow run: pending push.
-- Pages workflow run: pending push.
-- Canonical URL HTTP check: pending push.
-- Fresh hosted browser smoke: pending push.
+- Release commit: `2a0314d432e2986baf2acf5d5a7e7d4b2dbce18f`.
+- CI workflow: [run 31852122066](https://github.com/asdc163/pm-signal-lab/actions/runs/31852122066), conclusion `success`, head SHA matched the release commit.
+- Pages workflow: [run 31852122089](https://github.com/asdc163/pm-signal-lab/actions/runs/31852122089), conclusion `success`, head SHA matched the release commit.
+- Canonical URL: [`https://asdc163.github.io/pm-signal-lab/`](https://asdc163.github.io/pm-signal-lab/), HTTP `200`, `content-type: text/html; charset=utf-8`, served HTML contained `<html lang="en-US">`, the expected title, and the English bundle `assets/index-u2jiU_zd.js`.
+- Fresh hosted browser smoke: Playwright CLI fallback session `en-first-hosted-20260815`, 2026-08-15. The page title and `en-US` language matched; first run showed `Start with a source line`; sample loading showed `Preparing sample data`; the loaded state exposed four `View source` controls; source excerpt opened and closed; review produced three claims with source mapping; accept → decide → export produced the four expected Markdown sections and no Han characters; a fresh `390x844` run measured `scrollWidth = clientWidth = 390`; console output was `0` messages (`0` errors, `0` warnings).
 
 ## Not covered
 
