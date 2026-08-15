@@ -17,7 +17,7 @@ the point of action.
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
 | Candidate code commit | `b556020` — `Refine quiet workpaper reading path` |
-| PR head observed at last check | `b556020` — current local candidate; push pending |
+| PR head observed at last check | `9981cb0` — current pushed candidate; CI run `31895895457` is green |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -70,8 +70,8 @@ All of the following must be true at the moment of release:
   `未驗證`.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [ ] PR #44 CI for `b556020` is pending the push and a fresh run; the previous
-  green run covered an older candidate and is not reused as current proof.
+- [x] PR #44 CI is green for pushed head `9981cb0` and the candidate code
+  commit `b556020`; CI run `31895895457` completed Verify successfully.
 - [ ] The user explicitly approves the public merge/deploy action.
 
 The last two items are intentionally unresolved. A local pass does not
