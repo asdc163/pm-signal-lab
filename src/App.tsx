@@ -117,7 +117,7 @@ const SESSION_BOUNDARY_SHORT = "Stays on this page; refresh resets it";
 const SESSION_BOUNDARY_LONG = "Content stays on this page; refresh resets it. There is no login or external transfer.";
 
 const EVENT_LABELS: Record<ProductEventName, string> = {
-  sample_pack_loaded: "Loaded sample data",
+  sample_pack_loaded: "Opened sample worksheet",
   evidence_added: "Added an evidence row",
   claim_reviewed: "Reviewed a claim",
   experiment_drafted: "Drafted the smallest experiment",
@@ -249,11 +249,11 @@ function App() {
         setClaimEditError("");
         setCurrentStep("collect");
         setIsLoading(false);
-        showNotice("success", "Sample data is ready. Next, trace each claim back to its source.");
+        showNotice("success", "Sample worksheet is open. Next, trace each claim back to its source.");
         logEvent("sample_pack_loaded", { pack_id: nextPack.id, source: "fixture" });
       } catch {
         setIsLoading(false);
-        showNotice("error", "The sample data could not load. Your original workspace is still safe.");
+        showNotice("error", "The sample worksheet could not open. Your original workspace is still safe.");
         logEvent("recovery_used", { state: "fixture_error", action: "reset_demo_data" });
       }
     }, 260);
@@ -274,7 +274,7 @@ function App() {
     setIsFormOpen(false);
     setForm(EMPTY_FORM);
     setFormErrors({});
-    showNotice("info", "Workspace reset. Load the sample data or add your own signal.");
+    showNotice("info", "Workspace reset. Open the sample worksheet or add your own signal.");
     logEvent("recovery_used", { state: "workspace", action: "reset_demo_data" });
   };
 
@@ -426,7 +426,7 @@ function App() {
       return;
     }
     if (nextStep === "verify" && evidence.length === 0) {
-      showNotice("info", "Load the sample data or add a signal before opening Verify.");
+      showNotice("info", "Open the sample worksheet or add a signal before opening Verify.");
       setCurrentStep("collect");
       return;
     }
@@ -650,7 +650,7 @@ function App() {
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
                 </div>
                 <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} in this working set` : "No source line yet"}</strong>
-                <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Load a sample or add one real signal to begin."}</p>
+                <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Open the sample worksheet or add one real signal to begin."}</p>
                 <span className="hero-status-boundary"><ShieldCheck size={14} />{pack ? "Local worksheet · refresh resets it" : SESSION_BOUNDARY_SHORT}</span>
                 {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} />Open the sample worksheet<ArrowRight size={15} /></button></div>}
               </div>
@@ -855,7 +855,7 @@ function CollectView({
   onStartReview: () => void;
 }) {
   if (isLoading) {
-    return <section className="state-panel loading-state" aria-live="polite" aria-busy="true"><Activity size={22} className="spin" /><div><h2>Preparing sample data</h2><p>The local boundary stays in place; you can trace each source after loading finishes.</p></div></section>;
+    return <section className="state-panel loading-state" aria-live="polite" aria-busy="true"><Activity size={22} className="spin" /><div><h2>Opening the sample worksheet</h2><p>The local boundary stays in place; you can trace each source after it opens.</p></div></section>;
   }
 
   return (
@@ -889,7 +889,7 @@ function CollectView({
         <>
           <div className="pack-header">
             <div>
-            <p className="section-eyebrow">Source lines</p>
+            <p className="section-eyebrow">Working set</p>
               <h2 id="collect-title">{pack.title}</h2>
               <p>{pack.description}</p>
             </div>
@@ -900,11 +900,10 @@ function CollectView({
           </div>
           <div className="section-heading-row source-ledger-heading">
             <div>
-              <p className="section-eyebrow">Source ledger</p>
               <h3>Read the source lines before the claim</h3>
               <p>Each folio holds the original line, date, and limit that the next step needs.</p>
             </div>
-            <span className="micro-status"><strong>{evidence.length}</strong> traceable</span>
+            <span className="micro-status"><strong>01–{formatFolioNumber(evidence.length)}</strong> folios</span>
           </div>
           <div className="evidence-list">
             {evidence.map((item) => (
