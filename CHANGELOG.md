@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.16 — 2026-08-15
+
+- Recorded the hosted verification for the first-run action visibility release at the canonical Pages URL.
+- Confirmed the desktop sample action, mobile empty-state action bar, 4-row fixture load, `Start review` transition, and zero browser console error/warning messages in a fresh browser run.
+
+This release does not claim real-user comprehension, formal Chrome Extension or screen-reader coverage, adoption, or GitHub star growth.
+
 ## 0.1.15 — 2026-08-15
 
 - Put the first-run `Load sample data` action in the desktop case-status block so the primary job is reachable in a normal laptop viewport.
