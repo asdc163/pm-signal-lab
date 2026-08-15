@@ -883,10 +883,10 @@ function CollectView({
             <div>
             <p className="section-eyebrow">Working file</p>
               <h2 id="collect-title">{pack.title}</h2>
-              <div className="pack-subject" aria-label="Subject under review: AI-assisted support drafting, deterministic sample">
+              <div className="pack-subject" aria-label="Subject under review: AI-assisted support drafting, fictional worksheet">
                 <span className="pack-subject-label">Subject under review</span>
                 <span>AI-assisted support drafting</span>
-                <span className="pack-subject-note">deterministic sample</span>
+                <span className="pack-subject-note">fictional worksheet</span>
               </div>
               <p>{pack.description}</p>
             </div>

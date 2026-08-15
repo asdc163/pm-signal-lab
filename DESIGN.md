@@ -28,7 +28,7 @@ The visual signature is a field folio: source rows and claim rows are visibly re
 ## Principles
 
 1. Evidence before persuasion: source, date, and limitation matter more than an “AI thinks” label.
-2. AI product specificity without AI theatre: assistant draft, source freshness, evaluation coverage, and the stop condition appear as evidence objects, not as a simulated assistant.
+2. AI product specificity without AI theatre: the support draft, source freshness, evaluation coverage, and stop condition appear as evidence objects, not as a simulated assistant.
 3. One next action: each step has one clear primary CTA.
 4. State before decoration: first run, empty, loading, error, recovery, and approval must work before polish matters.
 5. Dense where it helps: evidence rows can be compact; decision briefs and explanations need room to breathe.
@@ -47,7 +47,7 @@ The visual signature is a field folio: source rows and claim rows are visibly re
 - Alignment spine: masthead → folio title → ruled source record. The workflow rail remains navigation; the margin summary is a lower-priority horizontal band below the workpaper.
 - Layout archetype: single-sheet source ledger + index strip + annotated workpaper + desk summary.
 - Responsive reflow: the workflow rail becomes a top stepper; the desk summary moves below the workbench; the primary CTA becomes a sticky bottom action.
-- Loaded state: when the pack exists, the masthead switches to direct work language so evidence appears sooner. The working file uses `Support draft review` as the visible subject and keeps `AI-assisted support drafting` as a quiet subject-under-review line. The source ledger ends in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
+- Loaded state: when the pack exists, the masthead switches to direct work language so evidence appears sooner. The working file uses `Support draft review` as the visible subject and keeps `AI-assisted support drafting` as a quiet subject-under-review line beside the `fictional worksheet` boundary. The source ledger ends in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
@@ -187,6 +187,8 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Less-AI subject-specificity contract: [`72-less-ai-subject-specificity-contract-2026-08-15.md`](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md).
 - Less-AI subject-specificity local QA report: [`73-less-ai-subject-specificity-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/73-less-ai-subject-specificity-local-qa-2026-08-15.md).
 - Less-AI subject-specificity hosted release audit: [`74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md).
+- Less-AI domain-language contract: [`75-less-ai-domain-language-contract-2026-08-15.md`](./docs/product/pm-signal-lab/75-less-ai-domain-language-contract-2026-08-15.md).
+- Less-AI domain-language local QA: [`76-less-ai-domain-language-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/76-less-ai-domain-language-local-qa-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
