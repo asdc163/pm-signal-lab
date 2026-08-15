@@ -24,10 +24,11 @@ surface:
    from an unreviewed claim, even when the stepper is used directly.
 
 Second-polish direction: remove repeated interface labels before adding any
-new decoration. `Field folio` names the shell once, `Support draft review`
-names the loaded case, and `Source ledger` names the evidence surface. The
-loaded sentence `Four source lines. One decision to test next.` uses a count
-and a human decision rather than a capability claim.
+new decoration. The current language pass uses `Working sheet` for the shell,
+`Review sheet` for the loaded work object, `Sheet status` for the live count,
+and `Source lines` for the evidence surface. The loaded sentence `Four source
+lines. One decision to test next.` uses a count and a human decision rather
+than a capability claim.
 
 ## Problem frame
 

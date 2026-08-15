@@ -743,3 +743,90 @@ The addendum is a governance record, not a claim that every layer is green.
 In particular, the local pass cannot substitute for canonical hosted proof,
 native assistive technology, non-owner PM sessions, a live model evaluation,
 or public adoption data.
+
+## Current language simplification addendum — 2026-08-15 23:01 +08:00
+
+This addendum records the small copy-and-semantics pass that followed the
+editorial review. It changes no data flow, dependency, provider, or external
+side effect. The goal was to remove design jargon from the first read while
+keeping the paper treatment and the PM work object specific.
+
+### Changed surface
+
+| Previous label | Current label | Reason |
+|---|---|---|
+| `Field folio` | `Working sheet` | Directly names the working surface. |
+| `Case sheet` | `Review sheet` | Keeps the review job visible without a generic case metaphor. |
+| `Case record` | `Sheet status` | Describes the live count and current workflow step. |
+| `Source ledger` | `Source lines` | Names what the user actually reads. |
+| `Case subject` | `Review subject` | Keeps the fictional support-draft subject subordinate and explicit. |
+
+### Fresh Chrome evidence
+
+- Route: `Codex Chrome Extension`, existing Chrome session, agent-created local
+  tab `1280574737`, no foreground takeover; no alternate browser or prohibited
+  bridge was used.
+- Environment: `http://127.0.0.1:4179/`, English `en-US`, production Vite
+  preview built from the working tree.
+- Blank desktop: the first read was `Start with a source line`; the visible
+  shell label was `Working sheet`, and the primary action was `Open the sample
+  worksheet`.
+- Loaded desktop: `Review sheet`, `Support draft review`, `Sheet status`,
+  `Source lines`, and `Review subject` were present in the live DOM and the
+  screenshot; no assistant persona, chat surface, gradient, or confidence
+  theatre was introduced.
+- Pre-fix loaded mobile at `390×844`: `innerWidth=390`, `innerHeight=844`,
+  `scrollWidth=375`, no horizontal overflow; the fixed action measured
+  `375×66` at `top=778`. The lower source heading begins behind the fixed
+  action at the initial scroll position and remains reachable by scrolling;
+  this was the evidence that motivated the small mobile CSS correction below,
+  not post-fix evidence.
+- Keyboard: first `Tab` reached `Skip to main content`; `Enter` focused
+  `main#main-content` and produced `scrollY=125` in this run.
+- Human-review gate: `Go to Decide` with zero reviewed claims stayed in
+  Verify and showed `Review the selected claim before drafting the smallest
+  experiment.` After `Accept claim`, Decide opened and the experiment brief
+  remained editable.
+- Complete local path: sample → Verify → blocked Decide attempt → accept →
+  Decide → Ship → pilot note.
+- Privacy recovery: unchecked feedback preparation produced the warning
+  `Please confirm that this report contains no customer data, private content,
+  API keys, or tokens.` and no output; after the synthetic report was checked,
+  the field note was generated locally and did not contain the raw fixture
+  quote.
+- Accessibility heuristic: 35 live interactive controls had no unnamed
+  `button`, `link`, input, textarea, or select; images were absent; native
+  VoiceOver/NVDA/TalkBack remains `未驗證`.
+- App-origin console errors/warnings: 0. The tab also received repeated
+  third-party MetaMask content-script warnings; they were excluded by URL and
+  remain external browser noise.
+
+### Local gate after this pass
+
+| Check | Result |
+|---|---|
+| `npm test` | PASS — 4 files, 11 tests |
+| `npm run lint` | PASS |
+| `npm run build` | PASS — JS `index-DrnySMU3.js`, CSS `index-CbwmMWdO.css` |
+| `HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted` | PASS for local HTML/assets/current-copy checks; `canonical_https=false` is expected for localhost |
+| Canonical Pages | `未驗證` for this candidate; prior hosted bundle remains live until PR #44 is explicitly merged and redeployed |
+
+This is a local owner-run evidence update. It does not prove international
+comprehension, non-owner sessions, adoption, GitHub traffic, or star growth.
+
+### Mobile correction verification status — 2026-08-15 23:09 +08:00
+
+The live pre-fix measurement showed the desktop editorial rule
+`flex-basis: 272px` stretching the mobile status block. The implementation now
+adds `flex-basis: auto` inside the `max-width: 700px` rule so the mobile status
+can size to its content. This is a narrow, reversible CSS correction with no
+new feature or dependency.
+
+The post-fix browser rerun is currently `未驗證`: the Codex Chrome Extension
+timed out while controlling the existing agent tab, the browser session was
+rebootstrapped once, and a fresh controlled tab also timed out before a DOM
+snapshot could be collected. The earlier pre-fix screenshot must not be used
+as proof that the correction works. Acceptance remains: fresh Chrome at
+`390×844` must show the loaded pack heading without the fixed action covering
+the heading, preserve `scrollWidth <= viewport`, and keep the fixed action
+reachable. Canonical Pages remains `未驗證` as well.

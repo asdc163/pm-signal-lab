@@ -624,7 +624,7 @@ function App() {
             <span>PM Signal Lab</span>
           </div>
           <div className="topbar-context">
-            <span className="topbar-kicker">Field folio</span>
+            <span className="topbar-kicker">Working sheet</span>
             <span className="topbar-divider" aria-hidden="true" />
             <span>{pack?.title ?? "Blank sheet"}</span>
           </div>
@@ -637,7 +637,7 @@ function App() {
           <WorkflowStepper currentStep={currentStep} onSelectStep={selectStep} mobile />
         </div>
 
-        <main id="main-content" className="workspace" tabIndex={-1} aria-label="PM Signal Lab field folio" aria-busy={isLoading}>
+        <main id="main-content" className="workspace" tabIndex={-1} aria-label="PM Signal Lab worksheet" aria-busy={isLoading}>
           <section className={`workbench${pack ? " is-loaded" : ""}`} aria-labelledby="page-title">
             <div className="desktop-stepper-wrap">
               <WorkflowStepper currentStep={currentStep} onSelectStep={selectStep} />
@@ -645,18 +645,18 @@ function App() {
 
             <div className="hero-block">
               <div>
-                <div className="hero-folio" aria-label={pack ? "Case sheet, collect step" : "New worksheet, collect step"}>
+                <div className="hero-folio" aria-label={pack ? "Review sheet, collect step" : "New worksheet, collect step"}>
                   <span className="hero-folio-index">{pack ? "01" : "—"}</span>
-                  <span className="eyebrow">{pack ? "Case sheet" : "New worksheet"}</span>
+                  <span className="eyebrow">{pack ? "Review sheet" : "New worksheet"}</span>
                 </div>
                 <h1 id="page-title">{pack ? "Support draft review" : "Start with a source line"}</h1>
                 <p className="hero-copy">
                   {pack ? "Four source lines. One decision to test next." : "A source-first working paper for moving from a product observation to a defensible test."}
                 </p>
               </div>
-              <div className="hero-status" role="status" aria-label="Case record" aria-live="polite" aria-atomic="true">
+              <div className="hero-status" role="status" aria-label="Sheet status" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
-                  <span className="section-eyebrow">Case record</span>
+                  <span className="section-eyebrow">Sheet status</span>
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
                 </div>
                 <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"}` : "No source line yet"}</strong>
@@ -788,7 +788,7 @@ function App() {
 
 function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onSelectStep: (step: WorkflowStep) => void }) {
   return (
-    <aside className="sidebar" aria-label="PM Signal Lab field folio navigation">
+    <aside className="sidebar" aria-label="PM Signal Lab workflow navigation">
       <div className="sidebar-brand">
         <span className="brand-mark" aria-hidden="true">01</span>
         <div>
@@ -891,10 +891,10 @@ function CollectView({
         <>
           <div className="pack-header">
             <div>
-            <p className="section-eyebrow">Source ledger</p>
+            <p className="section-eyebrow">Source lines</p>
               <h2 id="collect-title">{pack.title}</h2>
-              <div className="pack-subject" aria-label="Case subject: support draft, fictional worksheet">
-                <span className="pack-subject-label">Case subject</span>
+              <div className="pack-subject" aria-label="Review subject: support draft, fictional worksheet">
+                <span className="pack-subject-label">Review subject</span>
                 <span>support draft</span>
                 <span className="pack-subject-note">fictional worksheet</span>
               </div>
@@ -1207,7 +1207,7 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
           : "What should the team carry forward?";
   const contextRule = pack ? "No claim travels without its source." : "The source line stays attached to the claim.";
   return (
-    <aside className="decision-context" aria-label="Field folio context">
+    <aside className="decision-context" aria-label="Worksheet context">
       <div className="context-heading">
         <div><p className="section-eyebrow">Margin note</p><h2>{pack ? "Keep the source in frame" : "Start with a source"}</h2></div>
         <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "On this page" : "Blank sheet"}</span>

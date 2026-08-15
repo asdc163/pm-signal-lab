@@ -103,4 +103,4 @@ Do not move from `Iterate / recruit` to `Scale` until the repository has:
 - a fresh hosted verification of the fix;
 - no claim that stars, traffic, or a polished screenshot prove adoption.
 
-Current state: the formal hosted demo is live, public pilot issue #4 is open, and non-owner sessions/adoption remain unverified.
+Current state: a prior formal hosted preview is live, public pilot issue #4 is open, and the current PR #44 candidate still needs an explicit merge, Pages deploy, and fresh canonical browser audit. Non-owner sessions and adoption remain unverified.

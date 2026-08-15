@@ -40,11 +40,12 @@ try {
   const requiredStrings = [
     "Start with a source line",
     "Write down one line from the work",
-    "Field folio",
+    "Working sheet",
+    "Review sheet",
     "Support draft review",
     "Four source lines. One decision to test next.",
-    "Source ledger",
-    "Case record",
+    "Source lines",
+    "Sheet status",
     "No source line yet",
     "Keep the source in frame",
     "Sample note",
@@ -52,7 +53,7 @@ try {
     "support draft",
     "support-draft review flow",
     "support-draft worksheet",
-    "Case subject",
+    "Review subject",
     "support draft",
     "fictional worksheet",
     "Evaluation review",
@@ -113,6 +114,11 @@ try {
     "Bring in one source line",
     "Data boundary",
     "refresh resets it",
+    "Field folio",
+    "Case sheet",
+    "Source ledger",
+    "Case record",
+    "Case subject",
   ];
   for (const text of requiredStrings) {
     assert(javascript.includes(text), `Current hosted JavaScript is missing: ${text}`);

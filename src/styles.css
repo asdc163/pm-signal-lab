@@ -3931,6 +3931,7 @@ textarea {
 @media (max-width: 700px) {
   .hero-status,
   .workbench.is-loaded .hero-status {
+    flex-basis: auto;
     gap: 5px;
     padding-top: 12px;
   }
