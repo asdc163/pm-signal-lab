@@ -4,6 +4,7 @@ export const EVIDENCE_TYPES = [
   "analytics",
   "competitor",
   "market",
+  "evaluation",
   "expert",
 ] as const;
 

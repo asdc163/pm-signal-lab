@@ -6,7 +6,12 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
     .filter((item) => item.type === "interview" || item.type === "support")
     .map((item) => item.id);
   const observationIds = evidence
-    .filter((item) => item.type === "analytics" || item.type === "competitor")
+    .filter(
+      (item) =>
+        item.type === "analytics" ||
+        item.type === "competitor" ||
+        item.type === "evaluation",
+    )
     .map((item) => item.id);
   const hasDirectSignal = interviewIds.length >= 2;
   const hasObservedPattern = observationIds.length >= 1;
@@ -14,32 +19,32 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
   const claims: Claim[] = [
     {
       id: "claim-next-step-friction",
-      text: "When signals arrive from different places, the first bottleneck may be choosing a defensible next action rather than finding another source.",
+      text: "When a support copilot presents a polished answer before its source or freshness, the operator may spend the review time checking the draft instead of deciding what to do next.",
       status: hasDirectSignal ? "supported" : "review",
       evidenceIds: interviewIds,
       limitation: hasDirectSignal
-        ? "Supported by one interview and one support signal; not yet tested across different product types."
+        ? "Supported by two demo signals; not tested with a live model, support queue, or different product types."
         : "We need two direct signals from different sources before treating this as supported.",
       edited: false,
       reviewed: false,
     },
     {
       id: "claim-source-trust",
-      text: "Keeping the observed line beside the working claim may make review easier than presenting the conclusion first.",
+      text: "Keeping the source, freshness, and missing-evidence state beside an assistant draft may make human review easier than showing the conclusion first.",
       status: hasObservedPattern ? "review" : "missing",
       evidenceIds: observationIds,
       limitation: hasObservedPattern
-        ? "This is a design direction informed by a competitive observation, not a measured preference or outcome."
-        : "No competitive or product observation currently supports this design hypothesis.",
+        ? "This is a design hypothesis informed by one demo product observation and one demo evaluation review; no preference or completion measure is attached."
+        : "No product observation or evaluation review currently supports this design hypothesis.",
       edited: false,
       reviewed: false,
     },
     {
       id: "claim-decision-adoption",
-      text: "A copied result will lead to an adopted product decision.",
+      text: "A copied assistant response will resolve a support case.",
       status: "missing",
       evidenceIds: [],
-      limitation: "There is no issue, experiment, or decision-adoption trace; copying cannot stand in for the outcome.",
+      limitation: "There is no outcome trace for a resolved case; copying is not resolution, and no production result is represented.",
       edited: false,
       reviewed: false,
     },
@@ -61,14 +66,14 @@ export function draftExperiment(
     opportunity:
       opportunity?.text ?? "Choose a source-backed direction before drafting.",
     hypothesis: opportunity
-      ? `If "${opportunity.text.replace(/[.!?]$/, "")}" is kept in a review workflow, PMs will identify a testable next action faster.`
+      ? `If "${opportunity.text.replace(/[.!?]$/, "")}" is shown in a support-copilot review flow, reviewers will identify a source or uncertainty issue before accepting the draft.`
       : "There is not enough signal to form a hypothesis yet.",
     primaryMetric: needsValidation
-      ? "Needs validation: define an observable event for completing one decision brief."
-      : "Completion rate from loading a signal pack to confirming one next action.",
-    guardrail: "Do not make sources harder to review; every accepted claim must keep its source.",
+      ? "Needs validation: define an observable event for naming one source, one uncertainty, and one next action."
+      : "Completion rate from loading the AI support-copilot pack to confirming one source-linked next action.",
+    guardrail: "Do not make the assistant draft look complete before its source and freshness are reviewable.",
     smallestTest:
-      "Ask 5 PMs to run the same signal pack through Collect → Verify → Decide, and record whether anyone needs help.",
+      "Ask 5 PMs to review the same support-copilot pack through Collect → Verify → Decide; record whether each can name the source, uncertainty, and next test without help.",
     decisionRule: `Move to the next round only if at least 4 of 5 finish without treating missing evidence as a conclusion; current limit: ${limitation}`,
     owner: "Experiment owner · TBD",
     readiness: needsValidation ? "needs-validation" : "ready",

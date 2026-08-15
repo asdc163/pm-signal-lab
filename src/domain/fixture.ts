@@ -1,46 +1,46 @@
 import type { EvidencePack } from "./types";
 
 export const SAMPLE_PACK: EvidencePack = {
-  id: "signal-review-next-action-v1",
-  title: "Signal review: deciding what to test next",
+  id: "ai-support-copilot-eval-v1",
+  title: "AI support copilot: deciding what to test next",
   description:
-    "Four de-identified signals from discovery, support, product observation, and a competitor review. Keep the observed line separate from the decision it may support.",
+    "A fictional local fixture with four demo signals from an interview, support note, product observation, and evaluation review. Keep the user's line separate from the assistant behavior and the decision it may support.",
   evidence: [
     {
       id: "evidence-interview-01",
-      title: "Interview: why the first action stalls",
-      source: "Interview notes · PM-07",
+      title: "Interview: the draft looks finished before I can trust it",
+      source: "Demo interview · PM-07",
       type: "interview",
       observedAt: "2026-08-07T10:20:00+08:00",
       content:
-        "I can find the notes after a customer call, but when the team asks what to act on first, I do not have one place that shows the original line and the reason it matters.",
+        "The copilot gives me a polished reply, but I still have to check whether the cited policy is current. The sentence looks finished before I know what it is grounded in.",
     },
     {
       id: "evidence-support-01",
-      title: "Support: imported data, no next step",
-      source: "Support inbox · Ticket #1842",
+      title: "Support: a wrong answer has no repair path",
+      source: "Demo support note · Case 1842",
       type: "support",
       observedAt: "2026-08-06T16:45:00+08:00",
       content:
-        "I imported the workspace data, saw the empty state, and still did not know what to do first. I refreshed twice before leaving.",
+        "When the answer is wrong, I can regenerate it, but I cannot point it at the source that needs correcting. I end up starting the lookup again.",
     },
     {
       id: "evidence-analytics-01",
-      title: "Product observation: handoff stops at copy",
-      source: "Product observation · Week 32",
+      title: "Product observation: copy is not resolution",
+      source: "Demo observation · Five runs",
       type: "analytics",
       observedAt: "2026-08-05T09:00:00+08:00",
       content:
-        "During five observed trial sessions, people copied a result into their notes, but we did not observe a follow-up task or experiment. Copying is a handoff action, not evidence that the decision improved.",
+        "During five demo runs, people copied the assistant response, but we did not observe a sent reply or a resolved case. Copying is a handoff action, not evidence that the outcome improved.",
     },
     {
-      id: "evidence-competitor-01",
-      title: "Competitive scan: rationale is separated from source",
-      source: "Competitive teardown · 2026-08-04",
-      type: "competitor",
+      id: "evidence-evaluation-01",
+      title: "Evaluation review: coverage misses the stop condition",
+      source: "Demo evaluation review · 24 cases",
+      type: "evaluation",
       observedAt: "2026-08-04T14:10:00+08:00",
       content:
-        "Three research workbenches show a conclusion first and tuck the supporting line behind a secondary action. That may slow a reviewer who needs to challenge the conclusion; this is a design hypothesis, not market-size evidence.",
+        "The happy-path set checks whether the answer matches a reference, but it does not include missing-source cases or a review/refusal path. A higher score here would not show whether the copilot knows when to stop.",
     },
   ],
 };

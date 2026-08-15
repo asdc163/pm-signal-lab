@@ -3,12 +3,16 @@ import { cloneSamplePack, SAMPLE_PACK } from "./fixture";
 import { buildClaims, draftExperiment } from "./synthesis";
 
 describe("PM Signal Lab synthesis", () => {
-  it("keeps the public fixture grounded in a PM signal-review job", () => {
+  it("keeps the public fixture grounded in an AI product-review job", () => {
     const fixtureText = [SAMPLE_PACK.title, SAMPLE_PACK.description, ...SAMPLE_PACK.evidence.map((item) => `${item.title} ${item.content}`)].join(" ");
 
-    expect(SAMPLE_PACK.title).toBe("Signal review: deciding what to test next");
-    expect(fixtureText).not.toMatch(/chat tool|AI note tools|copying a summary/i);
-    expect(buildClaims(SAMPLE_PACK.evidence)[0].text).toContain("defensible next action");
+    expect(SAMPLE_PACK.title).toBe("AI support copilot: deciding what to test next");
+    expect(fixtureText).toContain("Evaluation review");
+    expect(SAMPLE_PACK.evidence.find((item) => item.type === "evaluation")?.source).toContain("24 cases");
+    const claims = buildClaims(SAMPLE_PACK.evidence);
+    expect(claims[0].text).toContain("support copilot");
+    expect(claims[0].text).toContain("source or freshness");
+    expect(claims[1].limitation).toContain("evaluation review");
   });
 
   it("builds a deterministic claim set from the sample pack", () => {
