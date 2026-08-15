@@ -5,15 +5,25 @@
 - Product type: local-first PM worksheet for moving from evidence to a decision.
 - Target user: PM, founder, product designer, or product engineer evaluating a practical AI-PM portfolio project.
 - Primary action: move from a source-backed evidence pack to a reviewable, exportable decision brief.
-- Brand mood: precise, calm, evidence-first, and closer to a working PM worksheet than an AI dashboard.
+- Brand mood: precise, calm, evidence-first, and closer to a field notebook / decision instrument than an AI dashboard.
 - Platforms: responsive web; desktop workbench, tablet reflow, and mobile single-column recovery.
-- Public locale: English-first `en-US` for the current preview.
+- Public locale: English-first `en-US` for the current hosted demo.
+
+## Project Style Direction
+
+- Selected DNA: Pillow Fit's tool/trust discipline + Altoslab's restrained professional language.
+- Original direction: cool mineral paper, graphite text, one rust signal line, teal provenance marks, and a ruled evidence spine.
+- Must feel like: a PM can bring this into a real product review and defend the next step.
+- Must not feel like: an AI landing-page template, a card-heavy dashboard, a model chat wrapper, or a decorative moodboard.
+- Density: medium on first run; medium-high once a source pack is loaded.
+- Signature detail: folio marks and a source spine that visibly connects the original line to the next decision.
+- Motion: low; transitions explain state changes and never simulate model thinking.
 
 ## Product truth and signature
 
 This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`.
 
-The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A paper index rail, ruled annotations, source folios, and a margin-note context rail establish the reading order. The context keeps actual source, claim, and review counts in a literal desk record beside the question currently in front of the PM; it does not promote them as generic dashboard proof or fill space with AI explanations.
+The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A cool paper index rail, ruled annotations, source folios, and a margin-note context rail establish the reading order. A rust line marks the next action and teal marks provenance; neither is used as wallpaper. The context keeps actual source, claim, and review counts in a literal desk record beside the question currently in front of the PM; it does not promote them as generic dashboard proof or fill space with AI explanations.
 
 ## Principles
 
@@ -26,7 +36,7 @@ The visual signature is an evidence spine: source rows and claim rows are visibl
 
 ## Composition brief
 
-- First read: “Put a product signal back next to its source”, the current worksheet status, and `Load sample data`.
+- First read: “From one product signal to one testable decision”, the current worksheet status, and `Load sample data`.
 - Second read: the worksheet context, evidence rows, source mapping, date, and limitation.
 - Primary action: one step-specific CTA.
 - Content relationship: `Source → Claim → Smallest test`; use a stepper, rows, split areas, and definition lists before adding cards.
@@ -40,21 +50,21 @@ The visual signature is an evidence spine: source rows and claim rows are visibl
 ## Visual tokens
 
 ```css
---shell: #e8dfd2;
---shell-surface: #f5eee3;
---workspace: #f1ebe1;
---surface: #fbf7ef;
---ink: #28251f;
---muted: #6d6a63;
---line: #ddd3c5;
---accent: #b8643d;
---accent-soft: #f6e5d8;
---trust: #2f6971;
---trust-soft: #e4f0ef;
---success: #2e7255;
---warning: #9a681f;
---danger: #ad4b3f;
---focus: #2f6971;
+--shell: #dfe6e0;
+--shell-surface: #f5f7f3;
+--workspace: #eef1ed;
+--surface: #fbfcf8;
+--ink: #1f2b2a;
+--muted: #596663;
+--line: #cbd5cf;
+--accent: #b85c35;
+--accent-soft: #f3e0d5;
+--trust: #1f6b67;
+--trust-soft: #e1efed;
+--success: #2f7255;
+--warning: #976c21;
+--danger: #a4473e;
+--focus: #1f6b67;
 ```
 
 The accent is a signal, not a background. Keep it to roughly 5–10% of a screen. Status must use text plus icon or shape, never color alone.
@@ -67,7 +77,7 @@ font-family-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Geo
 font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 ```
 
-- Hero and tool title: 28px / 1.3.
+- Hero and tool title: 28px / 1.3; the display serif is reserved for the product statement, source excerpt, and decision headings so it reads as a field-note signature rather than a generic marketing hero.
 - Section title: 24px / 1.3.
 - Card and row title: 18px / 1.3.
 - Body: 16px / 1.6.
@@ -79,7 +89,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Primitive: 4px. Layout rhythm: 8px.
 - Main gaps: 12 / 16 / 24 / 32 / 48px.
-- Control radius: 3px. Panel radius: 0.
+- Control radius: 3px. Input radius: 3px. Panel radius: 0.
 - Status uses text, underline, and dividers rather than default pill surfaces.
 - Use borders and surfaces by default; reserve shadows for menus, dialogs, and the sticky action.
 
@@ -109,7 +119,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Use 150–200ms for border/focus feedback and 200–300ms for drawers or dialogs.
 - Synthesis is shown as a set of claims and limitations, not fake typing, hidden chain-of-thought, or a model activity feed.
-- Avoid generic gradient hero art, abstract orbs, glass panels, bento feature walls, unsupported “production-ready” claims, and status chrome that does not represent product proof.
+- Avoid generic gradient hero art, abstract orbs, glass panels, bento feature walls, repeated rounded containers, unsupported “production-ready” claims, and status chrome that does not represent product proof.
 - Prefer actual source rows, folios, limitations, a deterministic sample output, and an annotated decision brief as the visual language.
 
 ## Evidence and release references
@@ -135,6 +145,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Formal hosted demo release contract: [`hosted-demo-release-contract-2026-08-15.md`](./docs/operations/hosted-demo-release-contract-2026-08-15.md).
 - Formal hosted demo release audit: [`51-formal-hosted-demo-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/51-formal-hosted-demo-release-audit-2026-08-15.md).
 - Hosted-demo copy alignment audit: [`52-hosted-demo-copy-alignment-audit-2026-08-15.md`](./docs/product/pm-signal-lab/52-hosted-demo-copy-alignment-audit-2026-08-15.md).
+- No-AI-feel field notebook contract: [`53-no-ai-feel-field-notebook-contract-2026-08-15.md`](./docs/product/pm-signal-lab/53-no-ai-feel-field-notebook-contract-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
