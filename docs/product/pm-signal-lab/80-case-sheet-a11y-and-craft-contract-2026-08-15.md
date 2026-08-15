@@ -20,6 +20,9 @@ surface:
    Chrome accessibility tree, hosted, native assistive technology, participant,
    or adoption.
 
+5. Decide is a human-review gate: the interface must not draft an experiment
+   from an unreviewed claim, even when the stepper is used directly.
+
 Second-polish direction: remove repeated interface labels before adding any
 new decoration. `Field folio` names the shell once, `Support draft review`
 names the loaded case, and `Source ledger` names the evidence surface. The
@@ -146,6 +149,8 @@ Acceptance criteria:
 - Chrome accessibility tree: 0 unnamed images.
 - Chrome accessibility tree: 0 unnamed buttons.
 - Chrome accessibility tree: 0 unnamed links.
+- Stepper and Verify action: an unreviewed claim cannot reach an experiment
+  brief; an accepted, hypothesized, missing, or edited claim can continue.
 - Keyboard skip link still focuses `main#main-content`.
 - Mobile action remains visible and fixed at `390×844`.
 - Visual appearance and click targets are unchanged by the semantics fix.

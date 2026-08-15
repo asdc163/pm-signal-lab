@@ -1,0 +1,128 @@
+{
+  "run_id": "pm-signal-lab-local-review-gate-2026-08-15",
+  "product": "PM Signal Lab",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; owner-run Codex Chrome Extension session",
+  "layers": [
+    {
+      "layer": "domain_tests",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "npm test — 4 files, 11 tests passed"
+    },
+    {
+      "layer": "typecheck_and_lint",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "npm run lint — tsc --noEmit passed"
+    },
+    {
+      "layer": "production_build",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-Dxdk9HcE.js and index-BAq-wObY.css emitted"
+    },
+    {
+      "layer": "local_static_verifier",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "scripts/verify-hosted-demo.mjs",
+      "command_or_click_path": "HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted — HTTP 200, assets 200, current copy present, stale copy absent"
+    },
+    {
+      "layer": "chrome_extension_behavior_trace",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "Fresh Chrome agent tab: blank → sample → source expansion → Verify → human review → Decide → Ship"
+    },
+    {
+      "layer": "human_review_gate",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "Attempt Decide with 0 reviewed claims; attempt draft with selected unreviewed claim; review one claim; draft again"
+    },
+    {
+      "layer": "keyboard_skip_link",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "First Tab → Skip to main content → Enter → main#main-content focus observed"
+    },
+    {
+      "layer": "responsive_mobile_emulation",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/assets/qa/visual-reframe-loaded-390.png",
+      "command_or_click_path": "Chrome viewport 390×844; scrollWidth=375; fixed action bar 375×66 at top 778; no horizontal overflow observed"
+    },
+    {
+      "layer": "chrome_accessibility_tree",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "Chrome AX tree inspection — 503 nodes; unnamed image, button, and link roles: none"
+    },
+    {
+      "layer": "visual_inspection",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/assets/qa/visual-reframe-loaded-1440.png",
+      "command_or_click_path": "Fresh blank/loaded desktop and loaded mobile screenshots inspected for hierarchy, density, paper surface, provenance marks, and absence of AI dashboard theatre"
+    },
+    {
+      "layer": "app_origin_console_and_network_boundary",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "Filter browser logs and requests to http://127.0.0.1:4179/; app-origin errors/warnings=0; privacy path outbound requests=0"
+    },
+    {
+      "layer": "canonical_hosted_release",
+      "status": "blocked",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/81-hosted-release-preflight-2026-08-15.md",
+      "command_or_click_path": "HOSTED_URL=https://asdc163.github.io/pm-signal-lab/ npm run verify:hosted",
+      "blocked_reason": "Canonical Pages still serves the prior bundle. Merge/deploy requires explicit user approval, then fresh HTTPS verifier and browser evidence."
+    },
+    {
+      "layer": "native_assistive_technology",
+      "status": "out_of_scope",
+      "required": false,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "VoiceOver, NVDA, TalkBack, physical device, zoom, and reduced-motion execution",
+      "out_of_scope_reason": "No native AT or physical-device harness was used in this local run; Chrome AX evidence is not a substitute."
+    },
+    {
+      "layer": "non_owner_pm_sessions",
+      "status": "blocked",
+      "required": true,
+      "artifact_path_or_url": "docs/operations/international-pilot-launch-kit-2026-08-15.md",
+      "command_or_click_path": "Five unguided international PM sessions with privacy-safe field notes",
+      "blocked_reason": "The session kit is prepared, but no participant evidence has been collected in this run."
+    },
+    {
+      "layer": "live_model_quality_and_ai_evaluation",
+      "status": "out_of_scope",
+      "required": false,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "command_or_click_path": "Provider quality, retrieval freshness, prompt-injection resistance, latency, cost, and safety evaluation",
+      "out_of_scope_reason": "This release slice remains deterministic and local-only; no provider or live model is connected."
+    },
+    {
+      "layer": "public_adoption_and_github_stars",
+      "status": "out_of_scope",
+      "required": false,
+      "artifact_path_or_url": "docs/operations/growth-operating-system.md",
+      "command_or_click_path": "Traffic, unique viewers, referrals, retention, adoption, and star movement",
+      "out_of_scope_reason": "No adoption or star movement is inferred from local QA, repository activity, or prepared outreach material."
+    }
+  ],
+  "notes": [
+    "Third-party MetaMask content-script warnings were observed in the browser session and excluded from the localhost app-origin pass; they are recorded in the QA report.",
+    "This manifest records evidence for the current local candidate only. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
+  ]
+}

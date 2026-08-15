@@ -66,6 +66,8 @@ try {
     "No usable claims yet",
     "Back to Collect",
     "Next mark",
+    "Review one claim before opening Decide",
+    "Review the selected claim before drafting the smallest experiment",
     "No claim travels without its source.",
     "Open pilot note",
     "This is a field note, not a validation result.",

@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { cloneSamplePack, SAMPLE_PACK } from "./fixture";
-import { buildClaims, draftExperiment } from "./synthesis";
+import { buildClaims, draftExperiment, getReviewedClaimForExperiment } from "./synthesis";
 
 describe("PM Signal Lab synthesis", () => {
   it("keeps the public fixture grounded in an AI product-review job", () => {
@@ -50,5 +50,27 @@ describe("PM Signal Lab synthesis", () => {
     expect(brief.guardrail).toContain("support draft");
     expect(brief.smallestTest).toContain("support-draft worksheet");
     expect(brief.hypothesis).not.toContain("support-copilot");
+  });
+
+  it("requires an explicit human review before an experiment can be drafted", () => {
+    const claims = buildClaims(cloneSamplePack().evidence);
+    const blocked = getReviewedClaimForExperiment(claims, claims[0].id);
+
+    expect(blocked.ok).toBe(false);
+    if (!blocked.ok) {
+      expect(blocked.message).toContain("Review the selected claim");
+    }
+
+    const reviewedClaims = claims.map((claim, index) =>
+      index === 1 ? { ...claim, reviewed: true, status: "review" as const } : claim,
+    );
+    expect(getReviewedClaimForExperiment(reviewedClaims, reviewedClaims[1].id)).toEqual({
+      ok: true,
+      claimId: reviewedClaims[1].id,
+    });
+    expect(getReviewedClaimForExperiment(reviewedClaims)).toEqual({
+      ok: true,
+      claimId: reviewedClaims[1].id,
+    });
   });
 });

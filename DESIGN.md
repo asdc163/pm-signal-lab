@@ -34,8 +34,9 @@ The visual signature is an editorial case sheet: the workflow is a thin paper in
 5. Dense where it helps: evidence rows can be compact; decision briefs and explanations need room to breathe.
 6. Human owns the decision: the system proposes a candidate; a person accepts, edits, keeps it as a hypothesis, or marks evidence missing.
 7. Boundary near trust: local-only behavior, manual GitHub handoff, and unverified outcomes stay visible at the point of action.
+8. Review before decision: the Decide step cannot draft an experiment until at least one claim has an explicit human review state.
 
-8. Editorial case-sheet shell: concrete case records, margins, and review marks carry the visual identity; AI terms stay inside the portfolio framing, product fixture, and source content.
+9. Editorial case-sheet shell: concrete case records, margins, and review marks carry the visual identity; AI terms stay inside the portfolio framing, product fixture, and source content.
 
 ## Composition brief
 
@@ -105,6 +106,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Stepper: current, completed, available, and blocked; semantic `aria-current`.
 - Evidence row: source folio, type, timestamp, source identity, original line, and expandable source detail.
 - Claim row: status text/icon, claim folio, evidence spine, source references, limitation, accept/edit/keep/missing actions.
+- Review gate: Decide is blocked until a claim is explicitly reviewed; the recovery message names the valid human outcomes rather than silently drafting a test.
 - Status marker: `Source-backed`, `Needs your review`, and `Missing evidence` with text and icon.
 - Notice: success, warning, error, and recovery action; use `role=status` or `role=alert` by severity.
 - Form: visible label, helper, `aria-describedby`, field-level error, preserved input, and focus recovery. Claim editing stays inline; do not use a native prompt.

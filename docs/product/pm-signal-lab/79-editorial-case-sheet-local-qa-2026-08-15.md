@@ -601,4 +601,145 @@ python3 /Users/tommy/.codex/skills/product-qa-specialist/scripts/score_qa_plan.p
   --min-score 85
 ```
 
-Expected: at least `85/100`; actual: `89.8/100`, verdict `strong`.
+Expected: at least `85/100`; actual: `92.6/100`, verdict `strong`.
+
+## Human-review gate addendum — 2026-08-15 22:26 +08:00
+
+The next highest-value defect was not another visual decoration. A user could
+previously use the workflow stepper to reach `Decide` before reviewing a claim,
+which made the tool look like it was turning a source pack into a test on the
+user's behalf. The narrow fix adds a domain-level review gate:
+
+- `Decide` keeps the user in `Verify` until at least one claim is explicitly
+  reviewed.
+- `Draft smallest experiment` names the selected unreviewed claim and explains
+  the recovery.
+- A claim can continue after the user accepts it, edits it, keeps it as a
+  hypothesis, or marks the evidence missing. The UI does not require a false
+  `supported` conclusion.
+
+### Fresh Chrome Extension evidence
+
+Route: `Codex Chrome Extension`; environment: existing Chrome tab/session,
+agent-created local tab at `http://127.0.0.1:4179/`, no foreground takeover.
+No alternate browser or prohibited browser bridge was used.
+
+| User archetype / job | Starting state | Success signal | Failure signal | Recovery | Result |
+|---|---|---|---|---|---|
+| Low-trust PM / protect human judgment | Loaded sample with 0 reviewed claims | Stepper `Decide` leaves the user in `Verify` with a concrete review instruction | Experiment brief opens from an unreviewed claim | Accept, edit, keep as hypothesis, or mark missing evidence | PASS |
+| PM / try the obvious action | Verify with selected claim still unreviewed | `Draft smallest experiment` shows a warning and stays in Verify | Silent draft or automatic claim acceptance | Review the selected claim, then retry | PASS |
+| PM / carry a reviewed decision forward | Verify after `Accept claim` | Experiment brief opens and retains `Not covered` / limitation language | Review gate remains stuck after a valid human decision | Return to Verify and choose another reviewed claim | PASS |
+
+Fresh observed gate result:
+
+```text
+{"loaded":true,"stepperBlocked":true,"currentStep":"Verify",
+ "draftBlocked":true,"draftAllowedAfterReview":true}
+```
+
+The complete current local flow also returned:
+
+```text
+{"blank":true,"loaded":true,"source":true,"verify":true,
+ "accept":true,"decide":true,"ship":true}
+```
+
+The first blank-state attempt to click `Decide` was also observed: the page
+stayed in `Collect` and explained that there were no claims to review. That is
+the expected empty-state recovery, not a bypass.
+
+### Fresh visual, keyboard, mobile, and semantic evidence
+
+- Blank and loaded desktop screenshots were inspected in the current Chrome
+  run. They preserve the warm paper surface, thin index, red action mark, blue
+  provenance mark, and one left-aligned case reading path.
+- The loaded mobile screenshot was inspected at `390×844`; the fixed action
+  remained visible at the bottom and the source ledger stayed readable.
+- First `Tab` exposed `Skip to main content`; pressing `Enter` on the visible
+  skip link focused `main-content` and produced `scrollY=78` for the fragment
+  target. A direct click attempt exceeded the Chrome tool deadline, so the
+  keyboard activation is the current direct evidence for that path.
+- Mobile geometry: `innerWidth=390`, `innerHeight=844`,
+  `scrollWidth=375`, `scrollY=0`, fixed action visible with a `375×66` rect at
+  top `778`.
+- Chrome AX tree: 503 nodes inspected; unnamed `image`, `button`, and `link`
+  roles: none.
+- App-origin console errors/warnings: 0. Twelve warnings were emitted by a
+  third-party `chrome-extension://nkbihfbeogaeaoehlefnkodbefgpgknn/`
+  MetaMask content script (`MaxListenersExceededWarning` and orphaned stream
+  messages), not by the localhost app. They remain external browser noise and
+  are not silently counted as an app pass.
+
+### Static evidence for this gate
+
+| Check | Result |
+|---|---|
+| `npm test` | PASS — 4 files, 11 tests |
+| `npm run lint` | PASS |
+| `npm run build` | PASS — JS `index-Dxdk9HcE.js`, CSS `index-BAq-wObY.css` |
+| Local static verifier | PASS — current copy and new review-gate strings present; stale copy absent |
+
+This gate fixes a human-ownership risk in the local product. It does not
+change the hosted release boundary: canonical Pages still serves the prior
+bundle until the candidate is explicitly merged and deployed.
+
+## QE evidence and feature-logic addendum — 2026-08-15 22:42 +08:00
+
+The machine-readable evidence boundary for this run is
+[`qa-evidence-manifest-2026-08-15.json`](./qa-evidence-manifest-2026-08-15.json).
+It passed the repository validator:
+
+```text
+python3 /Users/tommy/.codex/skills/product-qa-specialist/scripts/validate_qa_evidence_manifest.py \
+  docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-15.json
+QA evidence manifest: PASS
+```
+
+### Repo QA surface and toolchain matrix
+
+The repository surface was discovered before scoring this run. The package
+scripts are `npm run test`, `npm run lint`, `npm run build`, `npm run preview`,
+and `npm run verify:hosted`; CI includes `ci.yml`, `deploy-pages.yml`,
+`hosted-demo-smoke.yml`, and `weekly-growth-pulse.yml`. There is no native
+mobile target, API contract, browser-test directory, live provider adapter, AI
+eval suite, or production observability surface in this candidate.
+
+| Layer | Current evidence | Status / boundary |
+|---|---|---|
+| Code correctness | Vitest domain tests plus TypeScript no-emit | PASS |
+| Browser behavior | Codex Chrome Extension path and fallback trace recorded above | PASS — local only |
+| Accessibility | Keyboard skip link, semantic DOM, and Chrome AX tree | PASS — native AT `未驗證` |
+| Visual regression | Fresh desktop/mobile inspection plus repository QA captures | PASS — no screenshot-diff service configured |
+| Performance | No production performance budget or profiler run in this slice | OUT OF SCOPE |
+| Security / privacy | Local-only fixture, no upload, no outbound request in privacy path | PASS for boundary; deep security review `未執行` |
+| Supply chain | No new dependency/provider/API key in this change | PASS for change boundary |
+| AI evaluation | No live model or provider adapter is connected | OUT OF SCOPE; no eval dataset exists yet |
+| Observability | No analytics, session replay, alerting, or production model telemetry | OUT OF SCOPE; no telemetry is implied |
+
+### Test-data, privacy, flake, and risk-selection register
+
+| Register | Current entry | Decision |
+|---|---|---|
+| Test data / privacy matrix | `SAMPLE_PACK` is fictional and in-memory; add-source content stays local; pilot-note preparation requires an explicit synthetic-data checkbox; no raw signal or token is uploaded | PASS for current boundary |
+| Flake register | No product flake observed in the fresh local run. One direct Chrome click exceeded the tool deadline; keyboard `Enter` reproduced the same path. Third-party MetaMask warnings are external browser noise | Record and do not call the click path product-failed |
+| AI eval dataset register | No dataset is registered because there is no provider, retrieval, or model output in this release slice | BLOCKED until a provider contract exists |
+| Trace assertions | Visible state and hidden state are paired for sample load, review gate, privacy block, no outbound request, focus target, fixed mobile action, and AX unnamed-node counts | PASS for listed assertions |
+| Risk-based test selection | P0: source truth, human review, privacy boundary, stale hosted bundle. P1: sample-load focus, mobile action, editorial comprehension. P2: visual repetition and copy polish | Executed in that order; hosted and participant gates remain open |
+
+### Feature logic map
+
+| Contract element | Current product truth | Evidence / rollback |
+|---|---|---|
+| Promise | Turn a small source pack into a reviewable decision brief and smallest test; do not decide for the PM | PRD, DESIGN.md, human-review gate trace |
+| Roles | PM/reviewer owns the claim decision; the tool structures evidence and drafts a candidate brief | Review controls, `Not covered`, explicit owner `TBD` |
+| Entities | `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback` | `src/domain/types.ts`, domain tests, QA trace |
+| State transitions | Collect → Verify → Decide → Ship; empty claims stay in Collect; unreviewed claims cannot enter Decide; reviewed claims can draft; export remains local/manual | Stepper behavior, `getReviewedClaimForExperiment`, browser result |
+| Tool contract | Deterministic fixture and local in-memory state only; no live model, API, GitHub mutation, telemetry, or automatic external submission | Package surface, verifier, privacy request trace |
+| Source of truth | Source line and source mapping remain attached to claims; human review state is required before experiment drafting | Source expansion, claim rows, review gate |
+| Rollback | Revert the focused PR slice and redeploy Pages only after canonical smoke; do not rewrite history or delete the branch | Hosted preflight §Impact and rollback |
+| Evidence sources | Domain tests, static verifier, QA screenshots, Chrome behavior trace, AX tree, and this manifest; participant/adoption evidence is absent | `qa-evidence-manifest-2026-08-15.json` and explicit blocked layers |
+
+The addendum is a governance record, not a claim that every layer is green.
+In particular, the local pass cannot substitute for canonical hosted proof,
+native assistive technology, non-owner PM sessions, a live model evaluation,
+or public adoption data.

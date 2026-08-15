@@ -33,7 +33,7 @@ import {
 } from "./domain/feedback";
 import { buildDecisionMemo, toMarkdown } from "./domain/export";
 import { cloneSamplePack, SAMPLE_PACK } from "./domain/fixture";
-import { buildClaims, draftExperiment } from "./domain/synthesis";
+import { buildClaims, draftExperiment, getReviewedClaimForExperiment } from "./domain/synthesis";
 import { buildSessionReceipt } from "./domain/session";
 import type {
   Claim,
@@ -438,6 +438,12 @@ function App() {
       setCurrentStep("collect");
       return;
     }
+    if (nextStep === "decide" && !claims.some((claim) => claim.reviewed)) {
+      showNotice("info", "Review one claim before opening Decide. Keep it supported, a hypothesis, or missing evidence.");
+      setCurrentStep("verify");
+      setActiveClaimId(claims[0]?.id);
+      return;
+    }
     if (nextStep === "ship" && !experiment) {
       showNotice("info", "Export is not ready yet. Draft the smallest experiment in Decide first.");
       setCurrentStep(experiment ? "ship" : "decide");
@@ -456,12 +462,14 @@ function App() {
   };
 
   const startExperiment = (claimId?: string) => {
-    const selectedId = claimId ?? activeClaimId ?? claims.find((claim) => claim.reviewed)?.id ?? claims[0]?.id;
-    if (!selectedId) {
-      showNotice("warning", "Review at least one claim before drafting the smallest experiment.");
-      setCurrentStep("verify");
+    const gate = getReviewedClaimForExperiment(claims, claimId ?? activeClaimId);
+    if (!gate.ok) {
+      showNotice("warning", gate.message);
+      setCurrentStep(claims.length > 0 ? "verify" : "collect");
+      setActiveClaimId(claims[0]?.id);
       return;
     }
+    const selectedId = gate.claimId;
     const nextExperiment = draftExperiment(claims, selectedId);
     setActiveClaimId(selectedId);
     setExperiment(nextExperiment);
