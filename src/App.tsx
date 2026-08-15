@@ -1200,17 +1200,12 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
   return (
     <aside className="decision-context" aria-label="Worksheet context">
       <div className="context-heading">
-        <div><p className="section-eyebrow">On this worksheet</p><h2>{pack ? "What needs your attention" : "Start with a source"}</h2></div>
+        <div><p className="section-eyebrow">Margin note</p><h2>{pack ? "Keep the source in frame" : "Start with a source"}</h2></div>
         <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "Local worksheet" : "Empty worksheet"}</span>
       </div>
-      <div className="context-project"><span className="card-eyebrow">Worksheet {pack ? "active" : "empty"}</span><strong>{pack?.title ?? "No evidence on the desk"}</strong><span>{pack ? "Source lines stay in this session." : "Start with one traceable line."}</span></div>
-      <div className="context-stats" aria-label="Worksheet counts">
-        <div className="context-stat"><strong>{evidenceCount}</strong><span>Sources</span></div>
-        <div className="context-stat"><strong>{claimCount}</strong><span>Claims</span></div>
-        <div className="context-stat"><strong>{reviewedCount}</strong><span>Reviewed</span></div>
-      </div>
+      <div className="context-project"><span className="card-eyebrow">Working set {pack ? "active" : "empty"}</span><strong>{pack?.title ?? "No evidence on the desk"}</strong><span>{pack ? "Source lines stay on this page." : "Start with one traceable line."}</span></div>
+      <p className="context-record"><span className="card-eyebrow">Desk record</span>{contextRecord}</p>
       <div className="context-list"><ContextItem label="Open question" value={contextQuestion} /><ContextItem label="Evidence rule" value={contextRule} /><ContextItem label="Carry forward" value={contextCarry} /></div>
-      <p className="context-record"><span className="card-eyebrow">Worksheet record</span>{contextRecord}</p>
       <div className="context-next"><span className="card-eyebrow">Next move</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack && currentStep === "collect" ? <span className="context-next-static">Use the review docket in the workpaper.</span> : pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
       <div className="context-trace"><div className="trace-header"><span className="card-eyebrow">Session trail</span><span>{events.length ? "Activity recorded" : "No activity yet"}</span></div>{events.length === 0 ? <p>Activity stays in this session and does not include raw signal content.</p> : <><p>Last action: {EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>Copy session receipt</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Report this session in a new tab for manual review">Report this session<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div>
     </aside>
