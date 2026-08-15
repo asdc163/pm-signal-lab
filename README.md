@@ -1,6 +1,6 @@
 # PM Signal Lab
 
-> Put a sentence back next to its source.
+> Put a product signal back next to its source.
 
 PM Signal Lab is a local-first product evidence workbench for turning raw product signals into source-linked claims, human review decisions, and the smallest next test.
 
@@ -27,7 +27,7 @@ The product path is:
 
 The point is to make the source, claim, limitation, and next action visible in one path. It is not to make you trust an opaque answer.
 
-![PM Signal Lab first-run](./docs/product/pm-signal-lab/assets/qa/english-first-first-run-1440.png)
+![PM Signal Lab case-file first run](./docs/product/pm-signal-lab/assets/qa/case-file-first-run-1440.png)
 
 ## What is in the preview
 

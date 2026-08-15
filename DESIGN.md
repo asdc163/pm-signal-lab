@@ -5,7 +5,7 @@
 - Product type: local-first PM worksheet for moving from evidence to a decision.
 - Target user: PM, founder, product designer, or product engineer evaluating a practical AI-PM portfolio project.
 - Primary action: move from a source-backed evidence pack to a reviewable, exportable decision brief.
-- Brand mood: precise, calm, evidence-first, and closer to a research notebook than an AI dashboard.
+- Brand mood: precise, calm, evidence-first, and closer to a case file than an AI dashboard.
 - Platforms: responsive web; desktop workbench, tablet reflow, and mobile single-column recovery.
 - Public locale: English-first `en-US` for the current preview.
 
@@ -13,7 +13,7 @@
 
 This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`.
 
-The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A paper index rail, ruled annotations, source folios, and a margin-note context rail establish the reading order.
+The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A paper index rail, ruled annotations, source folios, and a review docket establish the reading order. The docket reports actual case counts and the question currently in front of the PM; it does not fill space with generic AI explanations.
 
 ## Principles
 
@@ -26,15 +26,15 @@ The visual signature is an evidence spine: source rows and claim rows are visibl
 
 ## Composition brief
 
-- First read: “Put a sentence back next to its source”, one realistic source line, and `Load sample data`.
-- Second read: evidence and claim rows, source mapping, date, and limitation.
+- First read: “Put a product signal back next to its source”, the current case status, and `Load sample data`.
+- Second read: the case docket, evidence rows, source mapping, date, and limitation.
 - Primary action: one step-specific CTA.
 - Content relationship: `Source → Claim → Smallest test`; use a stepper, rows, split areas, and definition lists before adding cards.
 - Desktop density: medium-high. Mobile density: stacked medium.
-- Alignment spine: masthead → page title → evidence spine. The right rail aligns to the same vertical rule.
-- Layout archetype: research folio + index strip + annotated workpaper + margin note.
+- Alignment spine: masthead → case title → evidence spine. The right rail aligns to the same vertical rule.
+- Layout archetype: case file + index strip + annotated workpaper + review docket.
 - Responsive reflow: rail becomes a top stepper; context moves below the workbench; the primary CTA becomes a sticky bottom action.
-- Loaded state: when the pack exists, the masthead becomes denser so evidence appears sooner. This is domain-state reflow, not fake AI activity.
+- Loaded state: when the pack exists, the masthead becomes denser so evidence appears sooner and the docket shows live source/claim/review counts. This is domain-state reflow, not fake AI activity.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
@@ -63,7 +63,7 @@ The accent is a signal, not a background. Keep it to roughly 5–10% of a screen
 
 ```css
 font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
-font-family-display: Georgia, "Times New Roman", serif;
+font-family-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
 font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 ```
 
@@ -114,9 +114,10 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 ## Evidence and release references
 
-- First-run design reference: [`english-first-first-run-1440.png`](./docs/product/pm-signal-lab/assets/qa/english-first-first-run-1440.png).
+- First-run design reference: [`case-file-first-run-1440.png`](./docs/product/pm-signal-lab/assets/qa/case-file-first-run-1440.png).
 - Source ledger contract: [`32-source-ledger-composition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md).
 - English-first messaging and localization contract: [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md).
+- No-AI-feel visual refresh QA audit: [`37-no-ai-feel-visual-refresh-qa-audit-2026-08-15.md`](./docs/product/pm-signal-lab/37-no-ai-feel-visual-refresh-qa-audit-2026-08-15.md).
 - Current English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.

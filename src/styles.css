@@ -4,6 +4,8 @@
   background: #f1ebe1;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
+  --display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, "Times New Roman", serif;
+  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
   --shell: #e8dfd2;
   --shell-surface: #f5eee3;
   --shell-muted: #756f67;
@@ -397,7 +399,7 @@ p {
   max-width: 760px;
   margin: 12px 0 13px;
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--display);
   font-size: clamp(2.3rem, 3.2vw, 3.45rem);
   font-weight: 650;
   letter-spacing: -0.012em;
@@ -467,7 +469,7 @@ p {
 
 .hero-status > strong {
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--display);
   font-size: 15px;
   font-weight: 650;
   line-height: 1.45;
@@ -714,7 +716,7 @@ p {
 .section-intro h2 {
   margin: 9px 0 9px;
   font-size: 24px;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--display);
   font-weight: 650;
   letter-spacing: -0.03em;
 }
@@ -2041,7 +2043,7 @@ textarea::placeholder {
 
 .context-heading h2 {
   margin: 8px 0 0;
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--display);
   font-size: 21px;
   font-weight: 650;
   letter-spacing: -0.03em;
@@ -2065,7 +2067,7 @@ textarea::placeholder {
 
 .context-project strong {
   color: var(--ink);
-  font-family: Georgia, "Times New Roman", serif;
+  font-family: var(--display);
   font-size: 14px;
   font-weight: 650;
   line-height: 1.4;
@@ -2074,6 +2076,40 @@ textarea::placeholder {
 .context-project > span:last-child {
   color: var(--muted);
   font-size: 11px;
+}
+
+.context-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid var(--line);
+}
+
+.context-stat {
+  display: grid;
+  gap: 4px;
+  padding: 14px 10px 14px 0;
+  border-right: 1px solid #e8ece8;
+}
+
+.context-stat:last-child {
+  padding-right: 0;
+  border-right: 0;
+}
+
+.context-stat strong {
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 24px;
+  font-weight: 650;
+  line-height: 1;
+}
+
+.context-stat span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .context-list {
@@ -2368,6 +2404,7 @@ textarea::placeholder {
 
   .decision-context .context-heading,
   .decision-context .context-project,
+  .decision-context .context-stats,
   .decision-context .context-list,
   .decision-context .context-record,
   .decision-context .context-trace {
@@ -2376,7 +2413,7 @@ textarea::placeholder {
 
   .decision-context .context-next {
     grid-column: 2;
-    grid-row: 1 / span 4;
+    grid-row: 1 / span 5;
     margin-top: 0;
   }
 
