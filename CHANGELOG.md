@@ -6,7 +6,7 @@
 - Replaced generic first-run and loaded-state language with a literal source-line → claim → smallest-test job, and flattened the empty state so the product reads as a working PM instrument rather than an AI dashboard.
 - Added the no-AI-feel field notebook contract with explicit composition, trust, responsive, accessibility, and verification boundaries.
 
-This is a visual and product-truth slice, not evidence of external comprehension, native screen-reader coverage, adoption, qualified stars, or a completed 10,000-star outcome. The canonical hosted release audit will be added only after the new bundle is deployed and reverified.
+This is a visual and product-truth slice, not evidence of external comprehension, native screen-reader coverage, adoption, qualified stars, or a completed 10,000-star outcome. See [`54-field-notebook-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/54-field-notebook-release-audit-2026-08-15.md) for the current hosted evidence boundary.
 
 ## 0.1.26 — 2026-08-15
 
