@@ -128,7 +128,7 @@ p {
 }
 
 .sidebar-brand strong,
-.topbar-mobile-brand span:last-child {
+.topbar-mobile-brand > span:last-child {
   display: block;
   font-size: 16px;
   letter-spacing: -0.01em;
@@ -139,12 +139,14 @@ p {
   gap: 3px;
 }
 
-.sidebar-brand span:last-child {
+.sidebar-brand > div > span:last-child {
   color: var(--shell-muted);
   font-size: 12px;
 }
 
 .brand-mark {
+  position: relative;
+  overflow: hidden;
   display: grid;
   width: 30px;
   height: 30px;
@@ -153,10 +155,54 @@ p {
   border: 1px solid var(--line-strong);
   border-radius: 2px;
   background: var(--shell-surface);
-  font-family: inherit;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.03em;
+}
+
+.brand-mark::before,
+.brand-mark::after {
+  position: absolute;
+  content: "";
+}
+
+.brand-mark::before {
+  top: 5px;
+  bottom: 5px;
+  left: 8px;
+  width: 1px;
+  background: var(--trust);
+}
+
+.brand-mark::after {
+  top: 14px;
+  left: 8px;
+  width: 15px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.brand-mark-node {
+  position: absolute;
+  z-index: 1;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--trust);
+  border-radius: 50%;
+  background: var(--shell-surface);
+}
+
+.brand-mark-node-top {
+  top: 4px;
+  left: 5px;
+}
+
+.brand-mark-node-middle {
+  top: 11px;
+  left: 18px;
+  border-color: var(--accent);
+}
+
+.brand-mark-node-bottom {
+  bottom: 4px;
+  left: 5px;
 }
 
 .sidebar-rule {

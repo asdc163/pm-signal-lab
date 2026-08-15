@@ -16,7 +16,7 @@
 - Must feel like: a PM can bring this into a real product review and defend the next step.
 - Must not feel like: an AI landing-page template, a card-heavy dashboard, a model chat wrapper, or a decorative moodboard.
 - Density: medium on first run; medium-high once a source pack is loaded.
-- Signature detail: folio marks and a source spine that visibly connects the original line to the next decision.
+- Signature detail: folio marks and a source spine that visibly connects the original line to the next decision. The small brand mark repeats that spine with two provenance nodes and one rust signal junction; it is decorative and never represents model activity or verified output.
 - Motion: low; transitions explain state changes and never simulate model thinking.
 
 ## Product truth and signature
@@ -147,6 +147,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Hosted-demo copy alignment audit: [`52-hosted-demo-copy-alignment-audit-2026-08-15.md`](./docs/product/pm-signal-lab/52-hosted-demo-copy-alignment-audit-2026-08-15.md).
 - No-AI-feel field notebook contract: [`53-no-ai-feel-field-notebook-contract-2026-08-15.md`](./docs/product/pm-signal-lab/53-no-ai-feel-field-notebook-contract-2026-08-15.md).
 - Keyboard and semantic oracle audit: [`55-keyboard-semantic-oracle-audit-2026-08-15.md`](./docs/product/pm-signal-lab/55-keyboard-semantic-oracle-audit-2026-08-15.md).
+- Evidence-spine brand polish contract: [`56-evidence-spine-brand-polish-contract-2026-08-15.md`](./docs/product/pm-signal-lab/56-evidence-spine-brand-polish-contract-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
