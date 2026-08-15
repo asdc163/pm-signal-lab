@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md) and [local QA report](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md). The hosted canonical verification for this pass remains pending until the branch is merged and Pages is deployed.
+Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), [local QA report](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md), and [hosted release audit](./docs/product/pm-signal-lab/71-less-ai-field-folio-hosted-release-audit-2026-08-15.md). The canonical URL and hosted behavior were rechecked after the Pages deploy.
 
 PM Signal Lab is a local-first product evidence field folio for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses an AI support-copilot review because the product is meant to show AI-PM judgment, not because the interface pretends to be an assistant.
 
@@ -42,9 +42,10 @@ The point is to make the source, claim, limitation, and next action visible in o
 Current field-folio first-run screenshot captured from the local build on
 2026-08-15 at 1280×900. The [local QA report](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md)
 also records the loaded desktop/mobile screenshots and the executed review,
-export, keyboard, validation, refresh, and privacy-gated feedback flows.
-Hosted canonical evidence for this visual pass remains pending until the
-branch is merged and Pages is deployed.
+export, keyboard, validation, refresh, and privacy-gated feedback flows. The
+[hosted release audit](./docs/product/pm-signal-lab/71-less-ai-field-folio-hosted-release-audit-2026-08-15.md)
+records the post-deploy canonical URL, bundle, browser, console, request, and
+mobile evidence.
 
 ## What is in the hosted demo
 
@@ -116,7 +117,7 @@ The current English-first product contract is [`34-english-first-product-messagi
 
 ## English-first hosted demo
 
-The latest English-first visual and behavior evidence is kept in the [field-folio local QA report](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md); the previous hosted audit remains a historical release record until the new visual pass is deployed.
+The latest English-first visual and behavior evidence is kept in the [field-folio local QA report](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md) and [hosted release audit](./docs/product/pm-signal-lab/71-less-ai-field-folio-hosted-release-audit-2026-08-15.md). Earlier audits remain a historical release trail.
 
 The hosted demo surface is `en-US`: UI copy, sample data, generated Markdown, accessible names, page metadata, README, trial kit, and public feedback handoff. Historical audits remain in the repository as an evidence trail; the current contract and release audit are written in English.
 
