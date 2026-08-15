@@ -21,9 +21,9 @@
 
 ## Product truth and signature
 
-This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional AI-assisted support-draft review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue. AI appears in the fixture because it is the product being reviewed, not because the shell pretends to be an assistant.
+This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional support-draft review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue. The AI-PM framing belongs in the portfolio and fixture boundary, not as a badge that takes over the work surface.
 
-The visual signature is a field folio: source rows and claim rows are visibly related so provenance is part of the workpaper rather than a footnote. A warm paper index rail, ruled annotations, source folios, evaluation-review limits, and a quiet margin note establish the reading order. A red line marks the next action and blue marks provenance; neither is used as wallpaper. The summary keeps actual source, claim, and review counts below the workpaper instead of turning secondary context into a persistent dashboard rail.
+The visual signature is an editorial case sheet: the workflow is a thin paper index, the case subject leads the page, source rows and claim rows are visibly related, and provenance stays in the workpaper rather than a dashboard rail. A warm paper surface, ruled annotations, source folios, evaluation-review limits, and a quiet margin note establish the reading order. A red line marks the next action and blue marks provenance; neither is used as wallpaper. Actual source, claim, and review counts remain metadata, not the main visual event.
 
 ## Principles
 
@@ -35,19 +35,19 @@ The visual signature is a field folio: source rows and claim rows are visibly re
 6. Human owns the decision: the system proposes a candidate; a person accepts, edits, keeps it as a hypothesis, or marks evidence missing.
 7. Boundary near trust: local-only behavior, manual GitHub handoff, and unverified outcomes stay visible at the point of action.
 
-8. Field-folio shell: concrete records, margins, and review marks carry the visual identity; AI terms stay inside the product fixture and source content.
+8. Editorial case-sheet shell: concrete case records, margins, and review marks carry the visual identity; AI terms stay inside the portfolio framing, product fixture, and source content.
 
 ## Composition brief
 
-- First read: “Write down the line you can defend”, the sheet state, and `Open the sample worksheet`.
-- Second read: the sample fixture boundary, source rows, source mapping, date, limitation, and review docket.
+- First read: `Support draft review` when loaded, or `Start with a source line` on first run; the workflow index remains quiet context.
+- Second read: the case subject, source rows, source mapping, date, limitation, and review mark.
 - Primary action: one step-specific CTA.
 - Content relationship: `Source → Claim → Smallest test`; use a stepper, rows, split areas, and definition lists before adding cards.
 - Desktop density: medium-high. Mobile density: stacked medium.
-- Alignment spine: masthead → folio title → ruled source record. The workflow rail remains navigation; the margin summary is a lower-priority horizontal band below the workpaper.
-- Layout archetype: single-sheet source ledger + index strip + annotated workpaper + desk summary.
-- Responsive reflow: the workflow rail becomes a top stepper; the desk summary moves below the workbench; the primary CTA becomes a sticky bottom action.
-- Loaded state: when the pack exists, the masthead switches to direct work language so evidence appears sooner. The working file uses `Support draft review` as the visible subject and keeps `AI-assisted support drafting` as a quiet subject-under-review line beside the `fictional worksheet` boundary. The source ledger ends in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
+- Alignment spine: masthead → paper index → case title → ruled source record. The workflow index is navigation, not a persistent dashboard rail; the margin summary stays below the workpaper.
+- Layout archetype: editorial case sheet + index strip + annotated source ledger + desk summary.
+- Responsive reflow: the desktop index becomes the existing top stepper below 1024px; the desk summary remains below the workbench; the primary CTA becomes a sticky bottom action on mobile.
+- Loaded state: when the pack exists, the masthead and hero use `Support draft review` so the case appears before the AI context. The working file uses `Case subject · support draft · fictional worksheet`; AI-PM framing remains in the repository and fixture boundary, not as a visual badge. The source ledger ends in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
@@ -115,7 +115,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Below 640px: one column, top stepper, stacked rows, full-width primary controls, sticky bottom action with safe-area padding.
 - 640–1024px: use two columns where space allows; move context below the main workbench.
-- Above 1024px: persistent workflow rail, central workbench, right context rail, max content width 1440px.
+- Above 1024px: full-width masthead, thin horizontal workflow index, central case sheet, and lower context band, max content width 1260px.
 - Touch targets are at least 44×44px. No action depends on hover.
 - Long source strings wrap. Focus remains visible. Text expansion is checked at 390px.
 - Reduced-motion preferences disable non-essential transitions.

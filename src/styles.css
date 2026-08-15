@@ -3790,3 +3790,156 @@ textarea {
     margin-right: 8px;
   }
 }
+
+/* Editorial case sheet reframe — make the workpaper, not the dashboard shell,
+   carry the first read. The AI-PM context stays in the portfolio framing and
+   fictional fixture; it does not need to be a visual badge in the task path. */
+@media (min-width: 1025px) {
+  .sidebar {
+    display: none;
+  }
+
+  .topbar {
+    height: 78px;
+    justify-content: space-between;
+    padding: 0 clamp(28px, 4vw, 58px);
+    border-bottom-color: var(--line-strong);
+  }
+
+  .topbar-mobile-brand {
+    display: flex;
+    gap: 11px;
+    color: var(--ink);
+  }
+
+  .topbar-mobile-brand > span:last-child {
+    font-family: var(--display);
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .topbar-context {
+    max-width: 54%;
+    margin-left: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .workspace {
+    max-width: 1260px;
+    padding-top: 35px;
+  }
+
+  .desktop-stepper-wrap {
+    display: block;
+    margin: 0 0 35px;
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .desktop-stepper-wrap .stepper {
+    display: flex;
+    gap: 0;
+    margin: 0;
+  }
+
+  .desktop-stepper-wrap .stepper-item {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex: 1;
+    align-items: center;
+  }
+
+  .desktop-stepper-wrap .stepper-item > button {
+    min-height: 50px;
+    gap: 9px;
+    padding: 8px 10px;
+  }
+
+  .desktop-stepper-wrap .step-number {
+    width: 23px;
+    height: 23px;
+    flex-basis: 23px;
+    font-size: 9px;
+  }
+
+  .desktop-stepper-wrap .step-copy {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .desktop-stepper-wrap .step-copy strong {
+    font-size: 12px;
+  }
+
+  .desktop-stepper-wrap .step-copy small {
+    overflow: hidden;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .desktop-stepper-wrap .step-connector {
+    position: static;
+    width: 1px;
+    height: 20px;
+    flex: 0 0 1px;
+    margin: 0 8px;
+  }
+
+  .hero-block {
+    gap: 46px;
+  }
+
+  .hero-status,
+  .workbench.is-loaded .hero-status {
+    padding: 2px 0 2px 22px;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .hero-status-heading {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .hero-status > strong {
+    font-size: 14px;
+  }
+
+  .hero-status > p {
+    max-width: 225px;
+  }
+
+  .workbench.is-loaded .hero-block h1 {
+    max-width: 690px;
+    font-size: clamp(2.1rem, 3vw, 3.1rem);
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktop-stepper-wrap {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-status,
+  .workbench.is-loaded .hero-status {
+    gap: 5px;
+    padding-top: 12px;
+  }
+
+  .hero-status-heading {
+    padding-bottom: 6px;
+  }
+
+  .hero-status > strong {
+    font-size: 15px;
+  }
+}

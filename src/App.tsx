@@ -209,7 +209,9 @@ function App() {
     const packBecameReady = Boolean(pack) && !previousPackRef.current;
     const stepChanged = previousStepRef.current !== currentStep;
 
-    if (packBecameReady || (stepChanged && currentStep !== "collect")) {
+    if (packBecameReady) {
+      requestAnimationFrame(() => document.getElementById("main-content")?.focus({ preventScroll: true }));
+    } else if (stepChanged && currentStep !== "collect") {
       requestAnimationFrame(() => {
         const isCompactViewport = window.matchMedia("(max-width: 700px)").matches;
         const preferredSelector = isCompactViewport
@@ -614,7 +616,7 @@ function App() {
             <span>PM Signal Lab</span>
           </div>
           <div className="topbar-context">
-            <span className="topbar-kicker">Field note</span>
+            <span className="topbar-kicker">Case sheet</span>
             <span className="topbar-divider" aria-hidden="true" />
             <span>{pack?.title ?? "Blank sheet"}</span>
           </div>
@@ -629,23 +631,27 @@ function App() {
 
         <main id="main-content" className="workspace" tabIndex={-1} aria-label="PM Signal Lab field folio" aria-busy={isLoading}>
           <section className={`workbench${pack ? " is-loaded" : ""}`} aria-labelledby="page-title">
+            <div className="desktop-stepper-wrap">
+              <WorkflowStepper currentStep={currentStep} onSelectStep={selectStep} />
+            </div>
+
             <div className="hero-block">
               <div>
-                <div className="hero-folio" aria-label={pack ? "Source review, collect step" : "New worksheet, collect step"}>
+                <div className="hero-folio" aria-label={pack ? "Case sheet, collect step" : "New worksheet, collect step"}>
                   <span className="hero-folio-index">{pack ? "01" : "—"}</span>
-                  <span className="eyebrow">{pack ? "Source review" : "New worksheet"}</span>
+                  <span className="eyebrow">{pack ? "Case sheet" : "New worksheet"}</span>
                 </div>
-                <h1 id="page-title">{pack ? "Check what this line supports" : "Write down the line you can defend"}</h1>
+                <h1 id="page-title">{pack ? "Support draft review" : "Start with a source line"}</h1>
                 <p className="hero-copy">
-                  {pack ? "Trace the source, mark the limit, and name the smallest test." : "A source-first working paper for moving from a product observation to a test."}
+                  {pack ? "A four-source case sheet for deciding what to test next." : "A source-first working paper for moving from a product observation to a defensible test."}
                 </p>
               </div>
-              <div className="hero-status" role="status" aria-label="Sheet status" aria-live="polite" aria-atomic="true">
+              <div className="hero-status" role="status" aria-label="Case record" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
-                  <span className="section-eyebrow">Sheet state</span>
+                  <span className="section-eyebrow">Case record</span>
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
                 </div>
-                <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} on this sheet` : "Blank sheet"}</strong>
+                <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"}` : "No source line yet"}</strong>
                 <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Start with the sample or write down one real line from the work."}</p>
                 <span className="hero-status-boundary"><ShieldCheck size={14} />{pack ? "On this page · refresh clears the sheet" : SESSION_BOUNDARY_SHORT}</span>
                 {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} />Open the sample worksheet<ArrowRight size={15} /></button></div>}
@@ -661,10 +667,6 @@ function App() {
                 </button>
               </div>
             )}
-
-            <div className="desktop-stepper-wrap">
-              <WorkflowStepper currentStep={currentStep} onSelectStep={selectStep} />
-            </div>
 
             {currentStep === "collect" && (
               <CollectView
@@ -783,7 +785,7 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
         <span className="brand-mark" aria-hidden="true">01</span>
         <div>
           <strong>PM Signal Lab</strong>
-          <span>Field folio / public preview</span>
+          <span>Evidence workpaper</span>
         </div>
       </div>
       <div className="sidebar-rule" />
@@ -881,11 +883,11 @@ function CollectView({
         <>
           <div className="pack-header">
             <div>
-            <p className="section-eyebrow">Working file</p>
+            <p className="section-eyebrow">Case sheet</p>
               <h2 id="collect-title">{pack.title}</h2>
-              <div className="pack-subject" aria-label="Subject under review: AI-assisted support drafting, fictional worksheet">
-                <span className="pack-subject-label">Subject under review</span>
-                <span>AI-assisted support drafting</span>
+              <div className="pack-subject" aria-label="Case subject: support draft, fictional worksheet">
+                <span className="pack-subject-label">Case subject</span>
+                <span>support draft</span>
                 <span className="pack-subject-note">fictional worksheet</span>
               </div>
               <p>{pack.description}</p>

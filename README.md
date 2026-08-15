@@ -2,9 +2,9 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), [subject-specificity contract](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md), [domain-language contract](./docs/product/pm-signal-lab/75-less-ai-domain-language-contract-2026-08-15.md), [current local QA report](./docs/product/pm-signal-lab/76-less-ai-domain-language-local-qa-2026-08-15.md), and [previous hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md). The canonical URL and hosted behavior still require a new Pages release audit for this slice.
+Latest visual pass: [editorial case-sheet visual reframe contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md), [editorial case-sheet local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md), and [previous hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md). The canonical URL and hosted behavior still require a new Pages release audit for this branch; the local report is not a hosted-release claim.
 
-PM Signal Lab is a local-first product evidence field folio for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses an AI-assisted support-draft review because the product is meant to show AI-PM judgment, not because the interface pretends to be an assistant.
+PM Signal Lab is a local-first product evidence field folio for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses a fictional support-draft review because the portfolio is meant to show AI-PM judgment; the working surface leads with the PM case and keeps AI context out of the visual chrome.
 
 **Hosted demo:** [asdc163.github.io/pm-signal-lab](https://asdc163.github.io/pm-signal-lab/)
 
@@ -14,7 +14,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
 
-**Design and QA evidence:** The current no-AI-feel design contract, field-notebook release audit, keyboard and semantic oracle, evidence-spine brand polish, local browser evidence, signal-review slice, review-docket workbench, margin-note context, formal hosted demo, canonical hosted release audit, the latest copy/semantic polish contract, and the current hosted release audit are in the [field notebook design contract](./docs/product/pm-signal-lab/53-no-ai-feel-field-notebook-contract-2026-08-15.md), [field notebook release audit](./docs/product/pm-signal-lab/54-field-notebook-release-audit-2026-08-15.md), [keyboard and semantic oracle audit](./docs/product/pm-signal-lab/55-keyboard-semantic-oracle-audit-2026-08-15.md), [evidence-spine brand polish contract](./docs/product/pm-signal-lab/56-evidence-spine-brand-polish-contract-2026-08-15.md), [direct workbench no-AI-feel contract](./docs/product/pm-signal-lab/60-direct-workbench-no-ai-feel-contract-2026-08-15.md), [latest local QA record](./docs/product/pm-signal-lab/61-direct-workbench-no-ai-feel-local-qa-2026-08-15.md), [latest hosted release audit](./docs/product/pm-signal-lab/62-direct-workbench-hosted-release-audit-2026-08-15.md), [latest copy and semantic polish contract](./docs/product/pm-signal-lab/63-direct-workbench-copy-and-semantic-polish-contract-2026-08-15.md), [current local QA record](./docs/product/pm-signal-lab/64-direct-workbench-copy-and-semantic-polish-local-qa-2026-08-15.md), [current hosted release audit](./docs/product/pm-signal-lab/65-direct-workbench-copy-and-semantic-polish-hosted-release-audit-2026-08-15.md), [AI product signal-pack contract](./docs/product/pm-signal-lab/66-ai-product-signal-pack-contract-2026-08-15.md), [AI product signal-pack local QA record](./docs/product/pm-signal-lab/67-ai-product-signal-pack-local-qa-2026-08-15.md), [AI product signal-pack hosted release audit](./docs/product/pm-signal-lab/68-ai-product-signal-pack-hosted-release-audit-2026-08-15.md), [design and accessibility contract](./docs/product/pm-signal-lab/44-design-a11y-completion-contract-2026-08-15.md), [signal-review local QA record](./docs/product/pm-signal-lab/47-signal-review-growth-pulse-local-qa-2026-08-15.md), [review-docket workbench audit](./docs/product/pm-signal-lab/49-review-docket-workbench-contract-and-hosted-audit-2026-08-15.md), [margin-note context audit](./docs/product/pm-signal-lab/50-margin-note-context-contract-and-hosted-audit-2026-08-15.md), and [formal hosted demo contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md).
+**Design and QA evidence:** The current visual direction and local evidence are in the [editorial case-sheet contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md) and [editorial case-sheet local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md). The earlier no-AI-feel, keyboard/semantic, copy, AI-PM, and hosted audits remain available as a historical release trail in the [field notebook design contract](./docs/product/pm-signal-lab/53-no-ai-feel-field-notebook-contract-2026-08-15.md), [keyboard and semantic oracle audit](./docs/product/pm-signal-lab/55-keyboard-semantic-oracle-audit-2026-08-15.md), [AI product signal-pack local QA record](./docs/product/pm-signal-lab/67-ai-product-signal-pack-local-qa-2026-08-15.md), and [formal hosted demo contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md).
 
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
@@ -37,15 +37,14 @@ The product path is:
 
 The point is to make the source, claim, limitation, and next action visible in one path. It is not to make you trust an opaque answer.
 
-![PM Signal Lab field folio first-run workbench](./docs/product/pm-signal-lab/assets/qa/field-folio-first-run-1280.png)
+![PM Signal Lab editorial case sheet first-run](./docs/product/pm-signal-lab/assets/qa/editorial-case-sheet-local-blank-1280-2026-08-15.png)
 
-Current field-folio first-run screenshot captured from the local build on
-2026-08-15 at 1280×900. The [local QA report](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md)
-also records the loaded desktop/mobile screenshots and the executed review,
-export, keyboard, validation, refresh, and privacy-gated feedback flows. The
-[hosted release audit](./docs/product/pm-signal-lab/71-less-ai-field-folio-hosted-release-audit-2026-08-15.md)
-records the post-deploy canonical URL, bundle, browser, console, request, and
-mobile evidence.
+Current editorial case-sheet first-run screenshot captured from the local
+branch on 2026-08-15 at 1280×900. The [local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md)
+records the loaded desktop/mobile screenshots and the executed review, export,
+keyboard, validation, refresh, and privacy-gated feedback flows. A new
+canonical hosted release audit is intentionally pending merge and Pages
+deployment.
 
 ## What is in the hosted demo
 
