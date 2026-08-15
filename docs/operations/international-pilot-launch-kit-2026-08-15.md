@@ -19,13 +19,13 @@ The near-term goal is learning, not a star target. A GitHub star is a voluntary 
 
 **Message job:** Give the right person a reason to try one real workflow and report one moment of friction.
 
-**Source truth:** PM Signal Lab is a deterministic, local-first public preview. It keeps source lines next to candidate claims, asks for human review, and exports a decision brief. It currently has no external model provider, telemetry, login, or automatic GitHub mutation.
+**Source truth:** PM Signal Lab is a deterministic, local-first formal hosted demo. It keeps source lines next to candidate claims, asks for human review, and exports a decision brief. It currently has no external model provider, telemetry, login, or automatic GitHub mutation. The canonical bundle is checked after Pages deploys and on a daily read-only smoke run.
 
 **Positioning:** A small evidence worksheet for moving from a product signal to a claim you can challenge and a smallest test you can name.
 
 **Proof to link:**
 
-- [Hosted preview](https://asdc163.github.io/pm-signal-lab/)
+- [Hosted demo](https://asdc163.github.io/pm-signal-lab/)
 - [Five-minute session kit](./pm-session-kit.md)
 - [Public pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4)
 - [Repository README](../../README.md)
@@ -40,7 +40,7 @@ These drafts are prepared for editing. They must be adapted to the community's r
 
 I built a small English-first PM worksheet for a problem I keep seeing: product signals arrive from different places, but the original line, the working claim, the limitation, and the next test rarely stay in the same line of sight.
 
-PM Signal Lab is a local-first public preview. It takes a deterministic signal-review pack through:
+PM Signal Lab is a local-first formal hosted demo. It takes a deterministic signal-review pack through:
 
 `Collect → Verify → Decide → Ship`
 
@@ -67,7 +67,7 @@ I am testing a small PM workflow, not announcing a finished platform.
 
 The job: keep a product signal beside its source, review what the line can actually support, then turn the remaining uncertainty into the smallest test.
 
-The public preview is English-first and local-first. It uses a deterministic sample pack, has no external AI provider, and does not upload or submit anything automatically. I am looking for five people who can complete one unguided trial and report where the workflow was unclear or untrustworthy.
+The hosted demo is English-first and local-first. It uses a deterministic sample pack, has no external AI provider, and does not upload or submit anything automatically. I am looking for five people who can complete one unguided trial and report where the workflow was unclear or untrustworthy.
 
 If you try it, please report the browser/device, task result, one hesitation, one trust or recovery observation, and one change you would make. Please do not share customer data or private material.
 
@@ -103,4 +103,4 @@ Do not move from `Iterate / recruit` to `Scale` until the repository has:
 - a fresh hosted verification of the fix;
 - no claim that stars, traffic, or a polished screenshot prove adoption.
 
-Current state: hosted preview is live, public pilot issue #4 is open, and non-owner sessions/adoption remain unverified.
+Current state: the formal hosted demo is live, public pilot issue #4 is open, and non-owner sessions/adoption remain unverified.

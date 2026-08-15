@@ -2,7 +2,7 @@
 
 PM Signal Lab is a local-first product evidence worksheet. It keeps interview, support, product-observation, and competitive-scan lines beside the claims they inform, asks a person to review each claim, and ends with a smallest-test brief.
 
-This is an `en-US` public preview. Content stays in the current browser session; there is no login, external model, API key, telemetry, GitHub automation, or automatic issue submission. The pilot is about workflow comprehension, source traceability, and trust boundaries. It is not a claim about AI quality or adoption.
+This is an `en-US` formal hosted demo with a local-first boundary. Content stays in the current browser session; there is no login, external model, API key, telemetry, GitHub automation, or automatic issue submission. The pilot is about workflow comprehension, source traceability, and trust boundaries. It is not a claim about AI quality or adoption. The canonical URL and bundle are checked after deploys and on a daily smoke run.
 
 ## Who we are looking for
 
@@ -10,7 +10,7 @@ Five people who work in product discovery, product management, product design, r
 
 ## Five-minute trial
 
-1. Open the [hosted preview](https://asdc163.github.io/pm-signal-lab/).
+1. Open the [hosted demo](https://asdc163.github.io/pm-signal-lab/).
 2. From the empty page, select `Load sample data`.
 3. Expand one row with `View source`, then select `Start review`.
 4. Accept one claim. You can keep another as a hypothesis.
