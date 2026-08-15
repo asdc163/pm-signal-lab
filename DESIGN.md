@@ -132,6 +132,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Signal-review and weekly-growth-pulse hosted release audit: [`48-signal-review-growth-pulse-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/48-signal-review-growth-pulse-hosted-release-audit-2026-08-15.md).
 - Review-docket workbench contract and hosted audit: [`49-review-docket-workbench-contract-and-hosted-audit-2026-08-15.md`](./docs/product/pm-signal-lab/49-review-docket-workbench-contract-and-hosted-audit-2026-08-15.md).
 - Margin-note context contract and hosted audit: [`50-margin-note-context-contract-and-hosted-audit-2026-08-15.md`](./docs/product/pm-signal-lab/50-margin-note-context-contract-and-hosted-audit-2026-08-15.md).
+- Formal hosted demo release contract: [`hosted-demo-release-contract-2026-08-15.md`](./docs/operations/hosted-demo-release-contract-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.

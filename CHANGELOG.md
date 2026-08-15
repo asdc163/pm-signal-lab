@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.24 — 2026-08-15
+
+- Promoted the canonical GitHub Pages surface from an informal preview link to a formal hosted demo contract with an English-first, local-first boundary.
+- Added a read-only hosted smoke check for HTTPS, `en-US` metadata, hashed assets, current product copy, and retired dashboard copy.
+- Added a deployment-triggered, daily, and manual GitHub Actions workflow so the public demo can be checked after release and between releases.
+
+This release still does not claim external usability, native screen-reader coverage, adoption, qualified stars, or a completed 10,000-star outcome. See [`hosted-demo-release-contract-2026-08-15.md`](./docs/operations/hosted-demo-release-contract-2026-08-15.md).
+
 ## 0.1.23 — 2026-08-15
 
 - Replaced the loaded context KPI strip with a quieter `Margin note / Keep the source in frame` treatment.
