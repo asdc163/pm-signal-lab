@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.25 — 2026-08-15
+
+- Recorded the formal hosted demo release audit after the current-main Pages deployment and post-deploy hosted smoke passed.
+- Replayed the complete English PM workflow and keyboard path, and kept native screen-reader coverage and non-owner sessions explicitly open.
+- Aligned the public pilot issue and international launch kit with the formal hosted demo wording.
+
+This release does not claim external usability, native screen-reader coverage, adoption, qualified stars, or a completed 10,000-star outcome. See [`51-formal-hosted-demo-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/51-formal-hosted-demo-release-audit-2026-08-15.md).
+
 ## 0.1.24 — 2026-08-15
 
 - Promoted the canonical GitHub Pages surface from an informal preview link to a formal hosted demo contract with an English-first, local-first boundary.
