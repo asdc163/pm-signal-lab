@@ -2,9 +2,9 @@ import type { EvidencePack } from "./types";
 
 export const SAMPLE_PACK: EvidencePack = {
   id: "ai-support-copilot-eval-v1",
-  title: "AI support copilot: deciding what to test next",
+  title: "Support draft review: deciding what to test next",
   description:
-    "A fictional local fixture with four demo signals from an interview, support note, product observation, and evaluation review. Keep the user's line separate from the assistant behavior and the decision it may support.",
+    "A fictional local worksheet with four demo signals from an interview, support note, product observation, and evaluation review. Keep the user's line separate from the draft behavior and the decision it may support.",
   evidence: [
     {
       id: "evidence-interview-01",
@@ -13,7 +13,7 @@ export const SAMPLE_PACK: EvidencePack = {
       type: "interview",
       observedAt: "2026-08-07T10:20:00+08:00",
       content:
-        "The copilot gives me a polished reply, but I still have to check whether the cited policy is current. The sentence looks finished before I know what it is grounded in.",
+        "The support draft gives me a polished reply, but I still have to check whether the cited policy is current. The sentence looks finished before I know what it is grounded in.",
     },
     {
       id: "evidence-support-01",
@@ -22,7 +22,7 @@ export const SAMPLE_PACK: EvidencePack = {
       type: "support",
       observedAt: "2026-08-06T16:45:00+08:00",
       content:
-        "When the answer is wrong, I can regenerate it, but I cannot point it at the source that needs correcting. I end up starting the lookup again.",
+        "When the draft is wrong, I can regenerate it, but I cannot point it at the source that needs correcting. I end up starting the lookup again.",
     },
     {
       id: "evidence-analytics-01",
@@ -31,7 +31,7 @@ export const SAMPLE_PACK: EvidencePack = {
       type: "analytics",
       observedAt: "2026-08-05T09:00:00+08:00",
       content:
-        "During five demo runs, people copied the assistant response, but we did not observe a sent reply or a resolved case. Copying is a handoff action, not evidence that the outcome improved.",
+        "During five demo runs, people copied the draft response, but we did not observe a sent reply or a resolved case. Copying is a handoff action, not evidence that the outcome improved.",
     },
     {
       id: "evidence-evaluation-01",
@@ -40,7 +40,7 @@ export const SAMPLE_PACK: EvidencePack = {
       type: "evaluation",
       observedAt: "2026-08-04T14:10:00+08:00",
       content:
-        "The happy-path set checks whether the answer matches a reference, but it does not include missing-source cases or a review/refusal path. A higher score here would not show whether the copilot knows when to stop.",
+        "The happy-path set checks whether the answer matches a reference, but it does not include missing-source cases or a review/refusal path. A higher score here would not show whether the draft knows when to stop.",
     },
   ],
 };
