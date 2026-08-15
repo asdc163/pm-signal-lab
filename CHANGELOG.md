@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.22 — 2026-08-15
+
+- Put the real `Start review` action in the central source-ledger review docket so the loaded PM workbench ends where the next action begins.
+- Switched the loaded masthead to direct source-to-test language and reduced generic monospace micro-label styling.
+- Kept desktop Collect's right rail explanatory rather than duplicating the central CTA; the mobile sticky action remains the responsive action surface.
+
+The hosted scope passed fresh local and Chrome Extension checks, CI, Pages, canonical HTTP, desktop, mobile, keyboard, source expansion, and invalid-input recovery checks. External PM sessions, adoption, native screen-reader coverage, traffic, star quality, and GitHub growth remain unverified. See [`49-review-docket-workbench-contract-and-hosted-audit-2026-08-15.md`](./docs/product/pm-signal-lab/49-review-docket-workbench-contract-and-hosted-audit-2026-08-15.md).
+
 ## 0.1.21 — 2026-08-15
 
 - Recorded the canonical hosted release audit after personally checking the English-first desktop, mobile, source-trace, review, decision-brief, and privacy-gated manual-feedback paths.
