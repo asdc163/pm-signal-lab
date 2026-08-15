@@ -14,7 +14,7 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
   const claims: Claim[] = [
     {
       id: "claim-next-step-friction",
-      text: "When PMs first sort product signals, the harder question is often what to look at next, not the data itself.",
+      text: "When signals arrive from different places, the first bottleneck may be choosing a defensible next action rather than finding another source.",
       status: hasDirectSignal ? "supported" : "review",
       evidenceIds: interviewIds,
       limitation: hasDirectSignal
@@ -25,7 +25,7 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
     },
     {
       id: "claim-source-trust",
-      text: "Putting the source beside the claim may make it easier for a PM to review than hiding citations behind a summary.",
+      text: "Keeping the observed line beside the working claim may make review easier than presenting the conclusion first.",
       status: hasObservedPattern ? "review" : "missing",
       evidenceIds: observationIds,
       limitation: hasObservedPattern
@@ -36,7 +36,7 @@ export function buildClaims(evidence: Evidence[]): Claim[] {
     },
     {
       id: "claim-decision-adoption",
-      text: "Copying a summary will make the resulting product decision more likely to be adopted.",
+      text: "A copied result will lead to an adopted product decision.",
       status: "missing",
       evidenceIds: [],
       limitation: "There is no issue, experiment, or decision-adoption trace; copying cannot stand in for the outcome.",
@@ -61,7 +61,7 @@ export function draftExperiment(
     opportunity:
       opportunity?.text ?? "Choose a source-backed direction before drafting.",
     hypothesis: opportunity
-      ? `If "${opportunity.text.replace(/[.!?]$/, "")}" is placed in a workflow where sources can be reviewed, PMs will find a testable next action faster.`
+      ? `If "${opportunity.text.replace(/[.!?]$/, "")}" is kept in a review workflow, PMs will identify a testable next action faster.`
       : "There is not enough signal to form a hypothesis yet.",
     primaryMetric: needsValidation
       ? "Needs validation: define an observable event for completing one decision brief."
@@ -70,7 +70,7 @@ export function draftExperiment(
     smallestTest:
       "Ask 5 PMs to run the same signal pack through Collect → Verify → Decide, and record whether anyone needs help.",
     decisionRule: `Move to the next round only if at least 4 of 5 finish without treating missing evidence as a conclusion; current limit: ${limitation}`,
-    owner: "Product owner · TBD",
+    owner: "Experiment owner · TBD",
     readiness: needsValidation ? "needs-validation" : "ready",
   };
 }

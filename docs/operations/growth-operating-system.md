@@ -38,6 +38,8 @@ Stars are a lagging signal. They must be read together with repository visits, c
 
 Safe automation may run tests, prepare release notes, open a draft issue, check repository health, and produce a review queue. It must not fake users, auto-star, auto-follow, auto-like, mass-reply, impersonate community members, publish unsupported claims, or mutate external product resources without an explicit review gate.
 
+The repository now has a [`weekly-growth-pulse.yml`](../../.github/workflows/weekly-growth-pulse.yml) workflow. It runs on a weekly schedule or by manual dispatch, reads public repository metadata, open feedback items, recent CI runs, the latest main commit, and release state, then uploads a 30-day JSON artifact and writes a workflow summary. GitHub traffic remains explicitly `not_collected` because it is maintainer-authenticated data. The pulse is an operating aid, not adoption instrumentation and not a star-growth guarantee.
+
 ## Promotion gate
 
 Do not promote a feature because it looks polished. Promote it only when the release evidence says what was tested, what users can do, what remains unverified, and how the change can be rolled back.

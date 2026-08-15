@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.19 — 2026-08-15
+
+- Reframed the deterministic sample pack as `Signal review: deciding what to test next`, using concrete discovery, support, observation, and competitive-review signals instead of an AI-summary-centered scenario.
+- Tightened the candidate claims and experiment wording around defensible next actions, source-adjacent review, and explicit uncertainty.
+- Added a scheduled, read-only weekly growth pulse that records repository signals, CI/release state, and the public feedback queue as an artifact; it does not automate stars, follows, replies, posts, or external mutations.
+
+This release does not claim real-user comprehension, native screen-reader sign-off, external adoption, qualified star growth, or a completed 10K-star outcome.
+
 ## 0.1.18 — 2026-08-15
 
 - Replaced repeated case-file interface chrome with literal PM worksheet language: `Worksheet`, `Source lines`, `Review claim`, `Test brief`, `Decision brief`, and `Worksheet context`.

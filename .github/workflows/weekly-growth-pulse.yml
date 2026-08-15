@@ -1,0 +1,145 @@
+name: Weekly growth pulse
+
+on:
+  schedule:
+    - cron: "17 1 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: read
+  actions: read
+
+jobs:
+  pulse:
+    name: Read public product signals
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      REPOSITORY: ${{ github.repository }}
+    steps:
+      - name: Collect repository signals
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          repo_json="$(gh api "repos/${REPOSITORY}")"
+          issues_json="$(gh api "repos/${REPOSITORY}/issues?state=open&per_page=100")"
+          runs_json="$(gh api "repos/${REPOSITORY}/actions/runs?branch=main&per_page=20")"
+          releases_json="$(gh api "repos/${REPOSITORY}/releases?per_page=5")"
+          commit_json="$(gh api "repos/${REPOSITORY}/commits/$(jq -r '.default_branch' <<<"${repo_json}")")"
+
+          jq -n \
+            --arg collected_at "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
+            --arg repository "${REPOSITORY}" \
+            --argjson repo "${repo_json}" \
+            --argjson issues "${issues_json}" \
+            --argjson runs "${runs_json}" \
+            --argjson releases "${releases_json}" \
+            --argjson commit "${commit_json}" \
+            '
+              def public_issues:
+                [$issues[] | select(.pull_request == null)];
+              def feedback_issues:
+                [public_issues[] | select([(.labels // [])[] | .name] | any(. == "user-session" or . == "needs-triage"))];
+              def recent_runs:
+                [$runs.workflow_runs[] | {
+                  name,
+                  status,
+                  conclusion,
+                  branch: .head_branch,
+                  sha: .head_sha,
+                  created_at,
+                  url: .html_url
+                }][0:5];
+              {
+                schema_version: 1,
+                collected_at_utc: $collected_at,
+                repository: {
+                  name: $repo.full_name,
+                  url: $repo.html_url,
+                  default_branch: $repo.default_branch,
+                  homepage: ($repo.homepage // ""),
+                  stars: $repo.stargazers_count,
+                  forks: $repo.forks_count,
+                  open_issues: $repo.open_issues_count,
+                  watchers: ($repo.subscribers_count // $repo.watchers_count),
+                  pushed_at: $repo.pushed_at
+                },
+                main_commit: {
+                  sha: $commit.sha,
+                  subject: ($commit.commit.message | split("\n")[0]),
+                  committed_at: $commit.commit.author.date,
+                  url: $commit.html_url
+                },
+                public_feedback_queue: {
+                  open_issue_count: (public_issues | length),
+                  labelled_feedback_count: (feedback_issues | length),
+                  items: [feedback_issues[0:10][] | {
+                    number,
+                    title,
+                    url: .html_url,
+                    labels: [(.labels // [])[] | .name],
+                    comments,
+                    updated_at
+                  }]
+                },
+                release_signal: {
+                  latest: (if ($releases | length) == 0 then null else ($releases[0] | {
+                    tag: .tag_name,
+                    name,
+                    published_at,
+                    url: .html_url
+                  }) end)
+                },
+                ci_signal: {
+                  recent_runs: recent_runs,
+                  latest_conclusion: (recent_runs | map(select(.conclusion != null)) | .[0].conclusion // "not_available")
+                },
+                traffic_signal: {
+                  status: "not_collected",
+                  reason: "GitHub traffic is maintainer-authenticated data and is intentionally outside this read-only pulse."
+                },
+                evidence_boundary: {
+                  external_sessions: "not_verified",
+                  adoption: "not_verified",
+                  star_quality: "not_inferred",
+                  next_gate: "Recruit and review five unguided non-owner sessions before scaling distribution."
+                },
+                operating_decision: {
+                  mode: "iterate_recruit",
+                  rule: "Do not scale from stars alone; pair public signals with specific external workflow evidence.",
+                  next_actions: [
+                    "Review the labelled feedback queue and choose one user-job friction.",
+                    "Run the affected local and hosted journey before publishing a change.",
+                    "Prepare one human-reviewed, source-backed distribution asset."
+                  ]
+                }
+              }
+            ' > growth-pulse.json
+
+          {
+            echo "## Weekly growth pulse"
+            echo
+            echo "Read-only public signals for `${REPOSITORY}`. This workflow does not create stars, follows, replies, posts, or external mutations."
+            echo
+            echo "| Signal | Value |"
+            echo "| --- | ---: |"
+            jq -r '"| Stars | \(.repository.stars) |\n| Forks | \(.repository.forks) |\n| Open issues | \(.public_feedback_queue.open_issue_count) |\n| Labelled feedback items | \(.public_feedback_queue.labelled_feedback_count) |\n| Latest CI conclusion | \(.ci_signal.latest_conclusion) |\n| Latest release | \(.release_signal.latest.tag // "Not available") |\n| Traffic | \(.traffic_signal.status) |"' growth-pulse.json
+            echo
+            echo "**Operating decision:** `$(jq -r '.operating_decision.mode' growth-pulse.json)`"
+            echo
+            jq -r '.operating_decision.rule' growth-pulse.json
+            echo
+            echo "### Evidence boundary"
+            jq -r '"- External sessions: \(.evidence_boundary.external_sessions)\n- Adoption: \(.evidence_boundary.adoption)\n- Star quality: \(.evidence_boundary.star_quality)\n- Next gate: \(.evidence_boundary.next_gate)"' growth-pulse.json
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload pulse artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: weekly-growth-pulse-${{ github.run_id }}
+          path: growth-pulse.json
+          if-no-files-found: error
+          retention-days: 30
