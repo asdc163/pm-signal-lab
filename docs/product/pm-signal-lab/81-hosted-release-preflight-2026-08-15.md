@@ -16,8 +16,8 @@ the point of action.
 |---|---|
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
-| Candidate code commit | `6f32bde` — `Simplify worksheet language and mobile status layout` |
-| PR head observed at last check | `6f32bde` — current pushed candidate |
+| Candidate code commit | `b556020` — `Refine quiet workpaper reading path` |
+| PR head observed at last check | `b556020` — current local candidate; push pending |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -53,8 +53,8 @@ All of the following must be true at the moment of release:
 
 - [x] Candidate is isolated on `codex/less-ai-editorial-sheet`.
 - [x] Local tests, typecheck, production build, diff check, and local static
-  verifier pass for `6f32bde` — 4 files / 11 tests; current assets
-  `index-DrnySMU3.js` and `index-CbwmMWdO.css`.
+  verifier pass for `b556020` — 4 files / 11 tests; current assets
+  `index-D4JhwZId.js` and `index-gWMif4jN.css`.
 - [x] The machine-readable QA evidence manifest validates, and it keeps local
   pass, hosted blocked, native AT out of scope, and participant/adoption gaps
   separate.
@@ -70,8 +70,8 @@ All of the following must be true at the moment of release:
   `未驗證`.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [x] PR #44 CI is green for the pushed head observed as `6f32bde`; CI run
-  `31892616158` completed Verify successfully.
+- [ ] PR #44 CI for `b556020` is pending the push and a fresh run; the previous
+  green run covered an older candidate and is not reused as current proof.
 - [ ] The user explicitly approves the public merge/deploy action.
 
 The last two items are intentionally unresolved. A local pass does not
@@ -105,7 +105,7 @@ No rollback action has been performed in this preflight.
 After explicit approval, execute these steps in order and retain raw output:
 
 1. Confirm PR #44 is open, clean, and CI-green, and that its current head
-   contains candidate code commit `6f32bde`.
+   contains candidate code commit `b556020`.
 2. Merge PR #44 into `main` using the repository's normal review path.
 3. Watch the merge CI and Pages deployment workflows to successful completion.
 4. Run:
