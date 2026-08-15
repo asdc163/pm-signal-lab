@@ -56,7 +56,7 @@ export function toMarkdown(memo: DecisionMemo): string {
 
   return `# Decision brief
 
-> Data boundary · This content stays on this page; refresh resets it. There is no login or external transfer. This brief keeps the source, claim, and limitation visible. You decide whether to use it.
+> Handling note · This content stays on this page; refresh clears the sheet. There is no login or external transfer. This brief keeps the source, claim, and limitation visible. You decide whether to use it.
 
 ## Decision
 

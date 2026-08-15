@@ -24,7 +24,7 @@ try {
 
   assert(page.response.url === hostedUrl.toString(), `Hosted demo redirected to ${page.response.url}`);
   assert(language === "en-US", `Expected lang=en-US, received ${language ?? "missing"}`);
-  assert(title === "PM Signal Lab — Product signals to decisions", `Unexpected title: ${title ?? "missing"}`);
+  assert(title === "PM Signal Lab — Field notes for product decisions", `Unexpected title: ${title ?? "missing"}`);
   assert(assets.some((asset) => asset.pathname.endsWith(".js")), "No hashed JavaScript asset was found");
   assert(assets.some((asset) => asset.pathname.endsWith(".css")), "No hashed CSS asset was found");
 
@@ -38,31 +38,30 @@ try {
 
   const javascript = assetBodies.find((asset) => asset.path.endsWith(".js"))?.body ?? "";
   const requiredStrings = [
-    "Put one signal on the desk",
-    "Bring in one source line",
+    "Write down the line you can defend",
+    "Write down one line from the work",
     "Check what this line supports",
-    "Current work",
-    "No source line yet",
+    "Sheet state",
+    "Blank sheet",
     "Keep the source in frame",
-    "Sample signal",
+    "Sample note",
     "AI support copilot",
     "Evaluation review",
     "source or freshness",
     "copy is not resolution",
     "Local fixture only",
     "Open the sample worksheet",
-    "Desk note",
     "Question on the desk",
-    "Session record",
+    "This session",
     "Last action below",
     "No usable claims yet",
     "Back to Collect",
-    "Review docket",
+    "Next mark",
     "No claim travels without its source.",
     "Open pilot note",
     "This is a field note, not a validation result.",
-    "Evidence desk / hosted demo",
-    "Hosted demo 0.1 · refresh resets it",
+    "Field folio / public preview",
+    "Public preview · refresh clears the sheet",
   ];
   const forbiddenStrings = [
     "From one product signal to one testable decision",
@@ -70,7 +69,6 @@ try {
     "Load sample data",
     "Signal review: deciding what to test next",
     "Product evidence worksheet",
-    "Margin note",
     "Put a product signal back next to its source",
     "Put one traceable line on the desk",
     "Start with the source. Decide what to test.",
@@ -83,6 +81,18 @@ try {
     "No activity yet",
     "Load data in Collect",
     "Back to Verify",
+    "Current work",
+    "No source line yet",
+    "Sample signal",
+    "Desk note",
+    "Session record",
+    "Review docket",
+    "Evidence desk / hosted demo",
+    "Hosted demo 0.1 · refresh resets it",
+    "Put one signal on the desk",
+    "Bring in one source line",
+    "Data boundary",
+    "refresh resets it",
   ];
   for (const text of requiredStrings) {
     assert(javascript.includes(text), `Current hosted JavaScript is missing: ${text}`);

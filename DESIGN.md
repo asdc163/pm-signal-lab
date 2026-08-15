@@ -2,7 +2,7 @@
 
 ## Product frame
 
-- Product type: local-first AI product evidence worksheet for moving from source signals to a decision.
+- Product type: local-first PM field folio for moving from source lines to a defensible decision.
 - Target user: PM, founder, product designer, or product engineer evaluating a practical AI-PM portfolio project.
 - Primary action: move from an AI support-copilot signal pack to a reviewable, exportable decision brief.
 - Brand mood: precise, calm, evidence-first, and closer to a field notebook / decision instrument than an AI dashboard.
@@ -12,18 +12,18 @@
 ## Project Style Direction
 
 - Selected DNA: Pillow Fit's tool/trust discipline + Altoslab's restrained professional language.
-- Original direction: cool mineral paper, graphite text, one rust signal line, teal provenance marks, and a ruled evidence spine.
+- Original direction: warm paper, ink hierarchy, one red correction line, blue provenance marks, and a ruled folio structure.
 - Must feel like: a PM can bring this into a real product review and defend the next step.
 - Must not feel like: an AI landing-page template, a card-heavy dashboard, a model chat wrapper, or a decorative moodboard.
 - Density: medium on first run; medium-high once a source pack is loaded.
-- Signature detail: folio marks and a source spine that visibly connects the original line to the next decision. The small brand mark repeats that spine with two provenance nodes and one rust signal junction; it is decorative and never represents model activity or verified output.
+- Signature detail: folio numbers, source lines, and editorial review marks that keep the original line beside the next decision. The brand mark is a simple sheet index; it does not represent model activity, confidence, or verified output.
 - Motion: low; transitions explain state changes and never simulate model thinking.
 
 ## Product truth and signature
 
-This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional AI support-copilot review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue.
+This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional AI support-copilot review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue. AI appears in the fixture because it is the product being reviewed, not because the shell pretends to be an assistant.
 
-The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A cool paper index rail, ruled annotations, source folios, evaluation-review limits, and a quiet desk summary establish the reading order. A rust line marks the next action and teal marks provenance; neither is used as wallpaper. The summary keeps actual source, claim, and review counts below the workpaper instead of turning secondary context into a persistent dashboard rail.
+The visual signature is a field folio: source rows and claim rows are visibly related so provenance is part of the workpaper rather than a footnote. A warm paper index rail, ruled annotations, source folios, evaluation-review limits, and a quiet margin note establish the reading order. A red line marks the next action and blue marks provenance; neither is used as wallpaper. The summary keeps actual source, claim, and review counts below the workpaper instead of turning secondary context into a persistent dashboard rail.
 
 ## Principles
 
@@ -35,37 +35,40 @@ The visual signature is an evidence spine: source rows and claim rows are visibl
 6. Human owns the decision: the system proposes a candidate; a person accepts, edits, keeps it as a hypothesis, or marks evidence missing.
 7. Boundary near trust: local-only behavior, manual GitHub handoff, and unverified outcomes stay visible at the point of action.
 
+8. Field-folio shell: concrete records, margins, and review marks carry the visual identity; AI terms stay inside the product fixture and source content.
+
 ## Composition brief
 
-- First read: “Put one signal on the desk”, the current worksheet status, and `Open the sample worksheet`.
+- First read: “Write down the line you can defend”, the sheet state, and `Open the sample worksheet`.
 - Second read: the sample fixture boundary, source rows, source mapping, date, limitation, and review docket.
 - Primary action: one step-specific CTA.
 - Content relationship: `Source → Claim → Smallest test`; use a stepper, rows, split areas, and definition lists before adding cards.
 - Desktop density: medium-high. Mobile density: stacked medium.
-- Alignment spine: masthead → worksheet title → evidence spine. The workflow rail remains navigation; the desk summary is a lower-priority horizontal band below the workpaper.
+- Alignment spine: masthead → folio title → ruled source record. The workflow rail remains navigation; the margin summary is a lower-priority horizontal band below the workpaper.
 - Layout archetype: single-sheet source ledger + index strip + annotated workpaper + desk summary.
 - Responsive reflow: the workflow rail becomes a top stepper; the desk summary moves below the workbench; the primary CTA becomes a sticky bottom action.
-- Loaded state: when the pack exists, the masthead switches to direct work language so evidence appears sooner. The source ledger ends in a review docket with the actual candidate-claim count and the primary `Start review` action; the desk summary records one question, one rule, actual counts, and the current next move. This is domain-state reflow, not fake AI activity.
+- Loaded state: when the pack exists, the masthead switches to direct work language so evidence appears sooner. The source ledger ends in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
 
 ```css
---shell: #dfe6e0;
---shell-surface: #f5f7f3;
---workspace: #eef1ed;
---surface: #fbfcf8;
---ink: #1f2b2a;
---muted: #596663;
---line: #cbd5cf;
---accent: #b85c35;
---accent-soft: #f3e0d5;
---trust: #1f6b67;
---trust-soft: #e1efed;
+--shell: #e8e3d8;
+--shell-surface: #fbfaf5;
+--workspace: #f3f0e8;
+--surface: #fffdf8;
+--ink: #202a2f;
+--muted: #626b6d;
+--line: #d5d0c5;
+--line-strong: #9aa09d;
+--accent: #d64b38;
+--accent-soft: #f7e3dd;
+--trust: #1d5fa8;
+--trust-soft: #e7f0f8;
 --success: #2f7255;
 --warning: #976c21;
 --danger: #a4473e;
---focus: #1f6b67;
+--focus: #1d5fa8;
 ```
 
 The accent is a signal, not a background. Keep it to roughly 5–10% of a screen. Status must use text plus icon or shape, never color alone.
@@ -92,6 +95,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Main gaps: 12 / 16 / 24 / 32 / 48px.
 - Control radius: 3px. Input radius: 3px. Panel radius: 0.
 - Status uses text, underline, and dividers rather than default pill surfaces.
+- The brand mark is a folio index, never a node graph or a signal of model activity.
 - Use borders and surfaces by default; reserve shadows for menus, dialogs, and the sticky action.
 
 ## Components and states
@@ -121,6 +125,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Use 150–200ms for border/focus feedback and 200–300ms for drawers or dialogs.
 - Synthesis is shown as a set of claims and limitations, not fake typing, hidden chain-of-thought, or a model activity feed.
 - Avoid generic gradient hero art, abstract orbs, glass panels, bento feature walls, repeated rounded containers, unsupported “production-ready” claims, and status chrome that does not represent product proof.
+- Avoid network-like brand marks, graph nodes, fake confidence meters, chat bubbles, typing indicators, and shell copy that makes the preview look like an AI agent.
 - Prefer actual source rows, folios, limitations, a deterministic sample output, and an annotated decision brief as the visual language.
 
 ## Evidence and release references
@@ -130,6 +135,10 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Current AI PM fixture first-run mobile screenshot: [`ai-pm-fixture-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-first-run-390.png).
 - Current AI PM fixture loaded workbench screenshot: [`ai-pm-fixture-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-loaded-1280.png).
 - Current AI PM fixture loaded mobile screenshot: [`ai-pm-fixture-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-loaded-390.png).
+- Current less-AI field folio first-run desktop screenshot: [`field-folio-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-first-run-1280.png).
+- Current less-AI field folio first-run mobile screenshot: [`field-folio-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-first-run-390.png).
+- Current less-AI field folio loaded desktop screenshot: [`field-folio-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-loaded-1280.png).
+- Current less-AI field folio loaded mobile screenshot: [`field-folio-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-loaded-390.png).
 - Current hosted AI PM fixture first-run desktop screenshot: [`ai-pm-fixture-hosted-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-first-run-1280.png).
 - Current hosted AI PM fixture loaded desktop screenshot: [`ai-pm-fixture-hosted-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-loaded-1280.png).
 - Current hosted AI PM fixture first-run mobile screenshot: [`ai-pm-fixture-hosted-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-first-run-390.png).
@@ -167,6 +176,8 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - AI product signal-pack contract: [`66-ai-product-signal-pack-contract-2026-08-15.md`](./docs/product/pm-signal-lab/66-ai-product-signal-pack-contract-2026-08-15.md).
 - AI product signal-pack local QA record: [`67-ai-product-signal-pack-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/67-ai-product-signal-pack-local-qa-2026-08-15.md).
 - AI product signal-pack hosted release audit: [`68-ai-product-signal-pack-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/68-ai-product-signal-pack-hosted-release-audit-2026-08-15.md).
+- Less-AI field folio visual direction contract: [`69-less-ai-field-folio-visual-direction-contract-2026-08-15.md`](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md).
+- Less-AI field folio local QA report: [`70-less-ai-field-folio-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.

@@ -55,8 +55,8 @@ const WORKFLOW: Array<{
   label: string;
   description: string;
 }> = [
-  { id: "collect", number: "01", label: "Collect", description: "Put source lines on the desk" },
-  { id: "verify", number: "02", label: "Verify", description: "Check the claim against the line" },
+  { id: "collect", number: "01", label: "Collect", description: "Write down the source line" },
+  { id: "verify", number: "02", label: "Verify", description: "Challenge what the line supports" },
   { id: "decide", number: "03", label: "Decide", description: "Name the smallest test" },
   { id: "ship", number: "04", label: "Ship", description: "Carry the brief forward" },
 ];
@@ -114,8 +114,8 @@ const EMPTY_FEEDBACK: SessionFeedbackDraft = {
 };
 
 const SESSION_FEEDBACK_URL = "https://github.com/asdc163/pm-signal-lab/issues/new?template=pm-session-feedback.md";
-const SESSION_BOUNDARY_SHORT = "Stays on this page; refresh resets it";
-const SESSION_BOUNDARY_LONG = "Content stays on this page; refresh resets it. There is no login or external transfer.";
+const SESSION_BOUNDARY_SHORT = "Stays in this tab; refresh clears the sheet";
+const SESSION_BOUNDARY_LONG = "Your notes stay on this page; refresh clears the sheet. There is no login or external transfer.";
 
 const EVENT_LABELS: Record<ProductEventName, string> = {
   sample_pack_loaded: "Opened sample worksheet",
@@ -610,17 +610,13 @@ function App() {
       <div className="app-body">
         <header className="topbar">
           <div className="topbar-mobile-brand">
-            <span className="brand-mark" aria-hidden="true">
-              <span className="brand-mark-node brand-mark-node-top" />
-              <span className="brand-mark-node brand-mark-node-middle" />
-              <span className="brand-mark-node brand-mark-node-bottom" />
-            </span>
+            <span className="brand-mark" aria-hidden="true">01</span>
             <span>PM Signal Lab</span>
           </div>
           <div className="topbar-context">
-            <span className="topbar-kicker">Worksheet</span>
+            <span className="topbar-kicker">Field note</span>
             <span className="topbar-divider" aria-hidden="true" />
-            <span>{pack?.title ?? "No source set"}</span>
+            <span>{pack?.title ?? "Blank sheet"}</span>
           </div>
           <button className="icon-button topbar-menu" type="button" aria-label="Jump to workflow" aria-controls="mobile-workflow" title="Jump to workflow" onClick={() => document.getElementById("mobile-workflow")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" })}>
             <Menu size={18} />
@@ -631,7 +627,7 @@ function App() {
           <WorkflowStepper currentStep={currentStep} onSelectStep={selectStep} mobile />
         </div>
 
-        <main id="main-content" className="workspace" tabIndex={-1} aria-label="PM Signal Lab workspace" aria-busy={isLoading}>
+        <main id="main-content" className="workspace" tabIndex={-1} aria-label="PM Signal Lab field folio" aria-busy={isLoading}>
           <section className={`workbench${pack ? " is-loaded" : ""}`} aria-labelledby="page-title">
             <div className="hero-block">
               <div>
@@ -639,19 +635,19 @@ function App() {
                   <span className="hero-folio-index">{pack ? "01" : "—"}</span>
                   <span className="eyebrow">{pack ? "Source review" : "New worksheet"}</span>
                 </div>
-                <h1 id="page-title">{pack ? "Check what this line supports" : "Put one signal on the desk"}</h1>
+                <h1 id="page-title">{pack ? "Check what this line supports" : "Write down the line you can defend"}</h1>
                 <p className="hero-copy">
-                  {pack ? "Trace the source, mark the limit, and name the smallest test." : "Keep the source attached before you decide what it can support."}
+                  {pack ? "Trace the source, mark the limit, and name the smallest test." : "A source-first working paper for moving from a product observation to a test."}
                 </p>
               </div>
-              <div className="hero-status" role="status" aria-label="Current work status" aria-live="polite" aria-atomic="true">
+              <div className="hero-status" role="status" aria-label="Sheet status" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
-                  <span className="section-eyebrow">Current work</span>
+                  <span className="section-eyebrow">Sheet state</span>
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
                 </div>
-                <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} in this working set` : "No source line yet"}</strong>
-                <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Open the sample worksheet or add one real signal to begin."}</p>
-                <span className="hero-status-boundary"><ShieldCheck size={14} />{pack ? "Local worksheet · refresh resets it" : SESSION_BOUNDARY_SHORT}</span>
+                <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} on this sheet` : "Blank sheet"}</strong>
+                <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Start with the sample or write down one real line from the work."}</p>
+                <span className="hero-status-boundary"><ShieldCheck size={14} />{pack ? "On this page · refresh clears the sheet" : SESSION_BOUNDARY_SHORT}</span>
                 {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} />Open the sample worksheet<ArrowRight size={15} /></button></div>}
               </div>
             </div>
@@ -749,7 +745,7 @@ function App() {
 
             <div className="boundary-note">
               <ShieldCheck size={16} />
-              <span><strong>Data boundary</strong> · {SESSION_BOUNDARY_LONG} This worksheet keeps the source, claim, and next action visible. You decide whether to accept it.</span>
+              <span><strong>Handling note</strong> · {SESSION_BOUNDARY_LONG} The source, claim, and next action stay visible. You decide whether to accept the claim.</span>
             </div>
           </section>
 
@@ -768,7 +764,7 @@ function App() {
         </main>
 
         {!isFeedbackOpen && (
-          <div className={`mobile-action-bar ${!pack ? "is-empty" : ""}`} role="region" aria-label="Current work action">
+          <div className={`mobile-action-bar ${!pack ? "is-empty" : ""}`} role="region" aria-label="Next action">
             <span>{WORKFLOW.find((item) => item.id === currentStep)?.description}</span>
             <button className="button button-primary" type="button" onClick={nextAction.action} disabled={isLoading} data-current-action>
               {nextAction.label}<ArrowRight size={16} />
@@ -782,16 +778,12 @@ function App() {
 
 function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onSelectStep: (step: WorkflowStep) => void }) {
   return (
-    <aside className="sidebar" aria-label="PM Signal Lab navigation">
+    <aside className="sidebar" aria-label="PM Signal Lab field folio navigation">
       <div className="sidebar-brand">
-        <span className="brand-mark" aria-hidden="true">
-          <span className="brand-mark-node brand-mark-node-top" />
-          <span className="brand-mark-node brand-mark-node-middle" />
-          <span className="brand-mark-node brand-mark-node-bottom" />
-        </span>
+        <span className="brand-mark" aria-hidden="true">01</span>
         <div>
           <strong>PM Signal Lab</strong>
-          <span>Evidence desk / hosted demo</span>
+          <span>Field folio / public preview</span>
         </div>
       </div>
       <div className="sidebar-rule" />
@@ -801,10 +793,10 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
       </nav>
       <div className="sidebar-footer">
         <div className="sidebar-rule" />
-        <span className="sidebar-section-label">Boundary</span>
+        <span className="sidebar-section-label">Handling</span>
         <p>{SESSION_BOUNDARY_LONG} No automatic changes are made.</p>
         <a className="sidebar-link" href={SESSION_FEEDBACK_URL} target="_blank" rel="noreferrer">Report a session</a>
-        <span className="version-label">Hosted demo 0.1 · refresh resets it</span>
+        <span className="version-label">Public preview · refresh clears the sheet</span>
       </div>
     </aside>
   );
@@ -864,16 +856,16 @@ function CollectView({
           <div className="empty-panel">
             <div className="empty-index" aria-hidden="true">01</div>
             <div className="empty-copy">
-              <p className="section-eyebrow">Start with evidence</p>
-              <h2 id="collect-title">Bring in one source line</h2>
-              <p>Paste the line someone actually said. Keep its source attached while you decide what it can support.</p>
+              <p className="section-eyebrow">Blank sheet</p>
+              <h2 id="collect-title">Write down one line from the work</h2>
+              <p>Keep the words someone actually used. The source stays attached while you decide what the line can support.</p>
               <blockquote className="sample-quote">
-                <span>Sample signal · {EVIDENCE_LABELS[SAMPLE_PREVIEW.type]} · {SAMPLE_PREVIEW.source}</span>
+                <span>Sample note · {EVIDENCE_LABELS[SAMPLE_PREVIEW.type]} · {SAMPLE_PREVIEW.source}</span>
                 <p>“{SAMPLE_PREVIEW.content}”</p>
                 <small>Local fixture only · no external research is attached.</small>
               </blockquote>
               <div className="first-run-note">
-                <span>Working rule</span>
+                <span>Margin rule</span>
                 <strong>Start with what you can defend.</strong>
                 <div className="first-run-sequence" aria-label="The path this worksheet keeps"><b>Source line</b><span>→</span><b>Claim</b><span>→</span><b>Smallest test</b></div>
                 <small>Every step stays editable, reviewable, and local.</small>
@@ -889,21 +881,21 @@ function CollectView({
         <>
           <div className="pack-header">
             <div>
-            <p className="section-eyebrow">Working set</p>
+            <p className="section-eyebrow">Working file</p>
               <h2 id="collect-title">{pack.title}</h2>
               <p>{pack.description}</p>
             </div>
             <div className="pack-actions">
-              <span className="count-badge"><strong>{evidence.length}</strong> signals</span>
+              <span className="count-badge"><strong>{evidence.length}</strong> source lines</span>
               <button className="button button-secondary" type="button" onClick={onOpenForm}><Plus size={16} />Add signal</button>
             </div>
           </div>
           <div className="section-heading-row source-ledger-heading">
             <div>
-              <h3>Read the source lines before the claim</h3>
-              <p>Each folio holds the original line, date, and limit that the next step needs.</p>
+              <h3>Read the record before you make the case</h3>
+              <p>Each folio keeps the original line, source, date, and limit together.</p>
             </div>
-            <span className="micro-status"><strong>01–{formatFolioNumber(evidence.length)}</strong> folios</span>
+            <span className="micro-status"><strong>01–{formatFolioNumber(evidence.length)}</strong> source folios</span>
           </div>
           <div className="evidence-list">
             {evidence.map((item) => (
@@ -912,7 +904,7 @@ function CollectView({
           </div>
           <div className="next-action-card">
             <div className="next-action-icon"><ArrowRight size={18} /></div>
-            <div className="next-action-copy"><span className="card-eyebrow">Review docket</span><h3>{claimCount === 1 ? "One candidate claim is waiting for a source check." : claimCount > 1 ? `${claimCount} candidate claims are waiting for a source check.` : "No claim is ready for review yet."}</h3><p>Accept, edit, or keep each claim open; missing evidence stays visible.</p>{claimCount > 0 ? <button className="button button-primary" type="button" onClick={onStartReview} data-current-action>Start review<ArrowRight size={16} /></button> : <button className="button button-secondary" type="button" onClick={onOpenForm}>Add a signal<Plus size={16} /></button>}</div>
+            <div className="next-action-copy"><span className="card-eyebrow">Next mark</span><h3>{claimCount === 1 ? "One claim is waiting for a human source check." : claimCount > 1 ? `${claimCount} claims are waiting for a human source check.` : "No claim is ready for review yet."}</h3><p>Accept, edit, or keep the claim open. Gaps stay visible.</p>{claimCount > 0 ? <button className="button button-primary" type="button" onClick={onStartReview} data-current-action>Start review<ArrowRight size={16} /></button> : <button className="button button-secondary" type="button" onClick={onOpenForm}>Add a signal<Plus size={16} /></button>}</div>
           </div>
           <button className="text-button reset-button" type="button" onClick={onReset}><RotateCcw size={14} />Reset this set</button>
         </>
@@ -937,14 +929,14 @@ function EvidenceForm({ form, errors, titleRef, sourceRef, contentRef, onChange,
 }) {
   return (
     <form className="evidence-form" onSubmit={onSubmit} noValidate>
-      <div className="form-header"><div><p className="section-eyebrow">Add a product signal</p><h3>Bring in one real observation</h3><p>This hosted demo handles content on this page only; it does not upload your text.</p></div><button className="icon-button" type="button" onClick={onClose} aria-label="Close add product signal form"><X size={18} /></button></div>
+      <div className="form-header"><div><p className="section-eyebrow">Add a source line</p><h3>Write down one real observation</h3><p>This public preview handles content on this page only; it does not upload your text.</p></div><button className="icon-button" type="button" onClick={onClose} aria-label="Close add source line form"><X size={18} /></button></div>
       <div className="form-grid">
         <Field label="Signal title" error={errors.title} htmlFor="evidence-title"><input ref={titleRef} id="evidence-title" value={form.title} onChange={(event) => onChange("title", event.target.value)} aria-invalid={Boolean(errors.title)} aria-describedby={errors.title ? "evidence-title-error" : undefined} placeholder="e.g. Interview: users cannot find the next step" /></Field>
         <Field label="Source" error={errors.source} htmlFor="evidence-source"><input ref={sourceRef} id="evidence-source" value={form.source} onChange={(event) => onChange("source", event.target.value)} aria-invalid={Boolean(errors.source)} aria-describedby={errors.source ? "evidence-source-error" : undefined} placeholder="e.g. Interview notes · PM-08" /></Field>
         <Field label="Type" htmlFor="evidence-type"><select id="evidence-type" value={form.type} onChange={(event) => onChange("type", event.target.value)}>{EVIDENCE_TYPES.map((type) => <option key={type} value={type}>{EVIDENCE_LABELS[type]}</option>)}</select></Field>
-        <Field label="Observation" error={errors.content} htmlFor="evidence-content" className="field-wide" helper={`${form.content.length} / 600 characters`}><textarea ref={contentRef} id="evidence-content" rows={4} value={form.content} onChange={(event) => onChange("content", event.target.value)} aria-invalid={Boolean(errors.content)} aria-describedby={errors.content ? "evidence-content-error" : "evidence-content-help"} placeholder="Keep the source line or observation someone else can trace; do not write only a conclusion." /></Field>
+        <Field label="Source line" error={errors.content} htmlFor="evidence-content" className="field-wide" helper={`${form.content.length} / 600 characters`}><textarea ref={contentRef} id="evidence-content" rows={4} value={form.content} onChange={(event) => onChange("content", event.target.value)} aria-invalid={Boolean(errors.content)} aria-describedby={errors.content ? "evidence-content-error" : "evidence-content-help"} placeholder="Keep the words someone else can trace; do not write only a conclusion." /></Field>
       </div>
-      <div className="form-footer"><span><Info size={14} />The source and its limits will stay with the claim review.</span><div><button className="button button-secondary" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit"><Plus size={16} />Save signal</button></div></div>
+      <div className="form-footer"><span><Info size={14} />The source, limit, and owner stay with the claim review.</span><div><button className="button button-secondary" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit"><Plus size={16} />Save line</button></div></div>
     </form>
   );
 }
@@ -996,7 +988,7 @@ function ClaimRow({ claim, claimIndex, evidence, expanded, isEditing, editText, 
         <button id={`claim-title-${claim.id}`} className="claim-title-button" type="button" onClick={onActivate} aria-expanded={expanded} aria-controls={`claim-${claim.id}-detail`}><span>{claim.text}</span><ChevronRight size={17} className={expanded ? "rotate-90" : ""} /></button>
         <div className="claim-meta"><span><Link2 size={13} />{sourceItems.length ? `${sourceItems.length} sources` : "No source"}</span><span><Info size={13} />{claim.limitation}</span></div>
         {expanded && <div id={`claim-${claim.id}-detail`} className="claim-detail" role="region" aria-labelledby={`claim-title-${claim.id}`}>
-          <div className="detail-block"><span className="detail-label">Source mapping</span>{sourceItems.length ? sourceItems.map((item) => { const sourceIndex = evidence.findIndex((candidate) => candidate.id === item.id) + 1; return <div className="mapped-source" key={item.id}><span className="mapped-source-index">Source {formatFolioNumber(sourceIndex)}</span><div><strong>{item.source}</strong><span>{EVIDENCE_LABELS[item.type]} · {formatDate(item.observedAt)}</span><p>{item.content}</p></div></div>; }) : <p className="missing-copy">This claim has no traceable source; keep it as a hypothesis until a signal is added.</p>}</div>
+          <div className="detail-block"><span className="detail-label">Source mapping</span>{sourceItems.length ? sourceItems.map((item) => { const sourceIndex = evidence.findIndex((candidate) => candidate.id === item.id) + 1; return <div className="mapped-source" key={item.id}><span className="mapped-source-index">Source {formatFolioNumber(sourceIndex)}</span><div><strong>{item.source}</strong><span>{EVIDENCE_LABELS[item.type]} · {formatDate(item.observedAt)}</span><p>{item.content}</p></div></div>; }) : <p className="missing-copy">This claim has no traceable source; keep it as a hypothesis until a line is added.</p>}</div>
           <div className="detail-block limitation-block"><span className="detail-label">Current limitation</span><p>{claim.limitation}</p></div>
           {isEditing ? (
             <form className="claim-edit-form" onSubmit={(event) => { event.preventDefault(); onSaveEdit(); }}>
@@ -1200,18 +1192,18 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
           : "What should the team carry forward?";
   const contextRule = pack ? "No claim travels without its source." : "The source line stays attached to the claim.";
   return (
-    <aside className="decision-context" aria-label="Worksheet context">
+    <aside className="decision-context" aria-label="Field folio context">
       <div className="context-heading">
-        <div><p className="section-eyebrow">Desk note</p><h2>{pack ? "Keep the source in frame" : "Start with a source"}</h2></div>
-        <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "Local worksheet" : "Empty worksheet"}</span>
+        <div><p className="section-eyebrow">Margin note</p><h2>{pack ? "Keep the source in frame" : "Start with a source"}</h2></div>
+        <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "On this page" : "Blank sheet"}</span>
       </div>
       <div className="context-middle">
-        <div className="context-project"><span className="card-eyebrow">Source set {pack ? "active" : "empty"}</span><strong>{pack?.title ?? "No source set"}</strong><span>{pack ? "Source lines stay on this page." : "Start with one source line."}</span></div>
-        <p className="context-record"><span className="card-eyebrow">Desk record</span>{contextRecord}</p>
+        <div className="context-project"><span className="card-eyebrow">Source file {pack ? "active" : "empty"}</span><strong>{pack?.title ?? "No source file"}</strong><span>{pack ? "Source lines stay on this page." : "Start with one source line."}</span></div>
+        <p className="context-record"><span className="card-eyebrow">Sheet record</span>{contextRecord}</p>
         <div className="context-list"><ContextItem label="Question on the desk" value={contextQuestion} /><ContextItem label="Rule" value={contextRule} /></div>
       </div>
-      <div className="context-next"><span className="card-eyebrow">Next move</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack && currentStep === "collect" ? <span className="context-next-static">Use the review docket in the workpaper.</span> : pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
-      <div className="context-trace"><div className="trace-header"><span className="card-eyebrow">Session record</span><span>{events.length ? "Last action below" : "No action yet"}</span></div>{events.length === 0 ? <p>Session actions stay on this page and do not include raw signal content.</p> : <><p>Last action: {EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>Copy session receipt</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Report this session in a new tab for manual review">Report this session<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div>
+      <div className="context-next"><span className="card-eyebrow">Next action</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack && currentStep === "collect" ? <span className="context-next-static">Use the review mark in the workpaper.</span> : pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
+      <div className="context-trace"><div className="trace-header"><span className="card-eyebrow">This session</span><span>{events.length ? "Last action below" : "No action yet"}</span></div>{events.length === 0 ? <p>Session actions stay on this page and do not include raw signal content.</p> : <><p>Last action: {EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>Copy session receipt</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Report this session in a new tab for manual review">Report this session<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div>
     </aside>
   );
 }
