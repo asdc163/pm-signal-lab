@@ -10,7 +10,7 @@ PM Signal Lab is a local-first product evidence workbench for turning raw produc
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
 
-**Design and QA evidence:** The current no-AI-feel design contract, local browser evidence, and canonical hosted release audit are in the [design and accessibility contract](./docs/product/pm-signal-lab/44-design-a11y-completion-contract-2026-08-15.md), [local QA record](./docs/product/pm-signal-lab/45-design-a11y-polish-local-qa-2026-08-15.md), and [hosted release audit](./docs/product/pm-signal-lab/46-design-a11y-polish-hosted-release-audit-2026-08-15.md).
+**Design and QA evidence:** The current no-AI-feel design contract, local browser evidence, signal-review slice, and canonical hosted release audit are in the [design and accessibility contract](./docs/product/pm-signal-lab/44-design-a11y-completion-contract-2026-08-15.md), [local QA record](./docs/product/pm-signal-lab/45-design-a11y-polish-local-qa-2026-08-15.md), [signal-review local QA record](./docs/product/pm-signal-lab/47-signal-review-growth-pulse-local-qa-2026-08-15.md), and [hosted release audit](./docs/product/pm-signal-lab/46-design-a11y-polish-hosted-release-audit-2026-08-15.md).
 
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
@@ -50,14 +50,14 @@ All session content stays on the current page and resets on refresh. The preview
 
 ## Why this product exists
 
-AI lowers the cost of producing a summary. The harder PM questions remain:
+AI can make a polished summary quickly. The harder PM questions remain:
 
 - Which line came from which source?
 - What is observation, what is a claim, and what is still a hypothesis?
 - Which limitation changes the decision?
 - What is the smallest test that could change what we do next?
 
-PM Signal Lab treats those questions as a product workflow. The interface keeps human review visible and keeps missing evidence from becoming a confident-looking conclusion.
+PM Signal Lab treats those questions as a product workflow. The interface keeps the observed line beside the working claim, keeps human review visible, and keeps missing evidence from becoming a confident-looking conclusion.
 
 The product direction was informed by a reference study of 1,042 public GitHub repositories, including metadata, README structure, and 20 near-neighbor case studies. Read the [English research summary](./docs/research/github-reference-research-2026-08-14.en.md) and the [original working note](./docs/research/github-reference-research-2026-08-14.md). This is a reference corpus, not adoption evidence or a success guarantee.
 
@@ -92,9 +92,10 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 - [`src/domain/synthesis.ts`](./src/domain/synthesis.ts) builds deterministic candidate claims and experiment drafts.
 - [`src/domain/export.ts`](./src/domain/export.ts) enforces the decision-brief readiness gate and Markdown export.
 - [`src/domain/feedback.ts`](./src/domain/feedback.ts) prepares a privacy-gated session field note.
-- [`src/domain/fixture.ts`](./src/domain/fixture.ts) holds the repeatable product-discovery sample pack.
+- [`src/domain/fixture.ts`](./src/domain/fixture.ts) holds the repeatable signal-review sample pack.
 - [`src/styles.css`](./src/styles.css) defines the warm-paper workbench, evidence spine, index rail, and responsive layout.
 - [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) builds and deploys the hosted preview from `main`.
+- [`.github/workflows/weekly-growth-pulse.yml`](./.github/workflows/weekly-growth-pulse.yml) records read-only public repository signals as a reviewable artifact; it does not automate social activity.
 - [`DESIGN.md`](./DESIGN.md) records the visual DNA, tokens, states, and layout rules.
 
 The current English-first product contract is [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md). The latest hosted evidence is recorded in [`43-pilot-note-feedback-loop-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/43-pilot-note-feedback-loop-hosted-release-audit-2026-08-15.md). Historical audits remain available as a release trail.

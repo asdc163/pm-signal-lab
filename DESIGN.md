@@ -128,6 +128,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Design and accessibility completion contract: [`44-design-a11y-completion-contract-2026-08-15.md`](./docs/product/pm-signal-lab/44-design-a11y-completion-contract-2026-08-15.md).
 - Design and accessibility polish local QA: [`45-design-a11y-polish-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/45-design-a11y-polish-local-qa-2026-08-15.md).
 - Design and accessibility polish hosted release audit: [`46-design-a11y-polish-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/46-design-a11y-polish-hosted-release-audit-2026-08-15.md).
+- Signal-review and weekly-growth-pulse local QA: [`47-signal-review-growth-pulse-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/47-signal-review-growth-pulse-local-qa-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.

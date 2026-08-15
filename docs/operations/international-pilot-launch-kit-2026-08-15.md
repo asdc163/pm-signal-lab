@@ -38,9 +38,9 @@ These drafts are prepared for editing. They must be adapted to the community's r
 
 ### LinkedIn draft
 
-I built a small English-first PM worksheet for a problem I keep seeing: a summary is easy to produce, but it is harder to keep the original source, the claim, the limitation, and the next test in the same line of sight.
+I built a small English-first PM worksheet for a problem I keep seeing: product signals arrive from different places, but the original line, the working claim, the limitation, and the next test rarely stay in the same line of sight.
 
-PM Signal Lab is a local-first public preview. It takes a deterministic sample pack through:
+PM Signal Lab is a local-first public preview. It takes a deterministic signal-review pack through:
 
 `Collect → Verify → Decide → Ship`
 

@@ -1,8 +1,16 @@
 import { describe, expect, it } from "vitest";
-import { cloneSamplePack } from "./fixture";
+import { cloneSamplePack, SAMPLE_PACK } from "./fixture";
 import { buildClaims, draftExperiment } from "./synthesis";
 
 describe("PM Signal Lab synthesis", () => {
+  it("keeps the public fixture grounded in a PM signal-review job", () => {
+    const fixtureText = [SAMPLE_PACK.title, SAMPLE_PACK.description, ...SAMPLE_PACK.evidence.map((item) => `${item.title} ${item.content}`)].join(" ");
+
+    expect(SAMPLE_PACK.title).toBe("Signal review: deciding what to test next");
+    expect(fixtureText).not.toMatch(/chat tool|AI note tools|copying a summary/i);
+    expect(buildClaims(SAMPLE_PACK.evidence)[0].text).toContain("defensible next action");
+  });
+
   it("builds a deterministic claim set from the sample pack", () => {
     const first = buildClaims(cloneSamplePack().evidence);
     const second = buildClaims(cloneSamplePack().evidence);
