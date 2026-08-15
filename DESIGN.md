@@ -186,6 +186,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Less-AI field folio hosted release audit: [`71-less-ai-field-folio-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/71-less-ai-field-folio-hosted-release-audit-2026-08-15.md).
 - Less-AI subject-specificity contract: [`72-less-ai-subject-specificity-contract-2026-08-15.md`](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md).
 - Less-AI subject-specificity local QA report: [`73-less-ai-subject-specificity-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/73-less-ai-subject-specificity-local-qa-2026-08-15.md).
+- Less-AI subject-specificity hosted release audit: [`74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.
