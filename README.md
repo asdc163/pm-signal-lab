@@ -10,6 +10,8 @@ PM Signal Lab is a local-first product evidence workbench for turning raw produc
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
 
+**Design and QA evidence:** The current no-AI-feel design contract and local browser evidence are in the [design and accessibility contract](./docs/product/pm-signal-lab/44-design-a11y-completion-contract-2026-08-15.md) and [local QA record](./docs/product/pm-signal-lab/45-design-a11y-polish-local-qa-2026-08-15.md).
+
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
 ## Five-minute trial
@@ -31,7 +33,7 @@ The product path is:
 
 The point is to make the source, claim, limitation, and next action visible in one path. It is not to make you trust an opaque answer.
 
-![PM Signal Lab case-file first run](./docs/product/pm-signal-lab/assets/qa/first-run-action-1280.png)
+![PM Signal Lab worksheet first run](./docs/product/pm-signal-lab/assets/qa/first-run-action-1280.png)
 
 ## What is in the preview
 

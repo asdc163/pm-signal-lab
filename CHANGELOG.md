@@ -1,5 +1,15 @@
 # Changelog
 
+## 0.1.18 — 2026-08-15
+
+- Replaced repeated case-file interface chrome with literal PM worksheet language: `Worksheet`, `Source lines`, `Review claim`, `Test brief`, `Decision brief`, and `Worksheet context`.
+- Restored keyboard focus to the visible next action after sample load and workflow transitions; compact viewports now prefer the sticky mobile action so loading does not scroll the user into the lower context rail.
+- Recorded fresh Chrome Extension local QA for empty, source, blank-edit recovery, human review, decision brief, copy/download, privacy-gated pilot note, keyboard, mobile, overflow, and console states.
+
+This release does not claim native screen-reader sign-off, hosted verification until Pages is rechecked, real-user adoption, or GitHub star growth.
+
+Local evidence is recorded in [`45-design-a11y-polish-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/45-design-a11y-polish-local-qa-2026-08-15.md).
+
 ## 0.1.17 — 2026-08-15
 
 - Reframed the post-brief session feedback invitation as an English-first `Pilot note / After the task` path.
