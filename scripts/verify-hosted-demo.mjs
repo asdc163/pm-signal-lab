@@ -40,7 +40,10 @@ try {
   const requiredStrings = [
     "Start with a source line",
     "Write down one line from the work",
+    "Field folio",
     "Support draft review",
+    "Four source lines. One decision to test next.",
+    "Source ledger",
     "Case record",
     "No source line yet",
     "Keep the source in frame",
@@ -86,6 +89,7 @@ try {
     "Put a product signal back next to its source",
     "Put one traceable line on the desk",
     "Start with the source. Decide what to test.",
+    "A four-source case sheet for deciding what to test next.",
     "What needs your attention",
     "context-stats",
     "Evidence desk / local preview",

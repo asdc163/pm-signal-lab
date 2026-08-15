@@ -48,6 +48,7 @@ The visual signature is an editorial case sheet: the workflow is a thin paper in
 - Layout archetype: editorial case sheet + index strip + annotated source ledger + desk summary.
 - Responsive reflow: the desktop index becomes the existing top stepper below 1024px; the desk summary remains below the workbench; the primary CTA becomes a sticky bottom action on mobile.
 - Loaded state: when the pack exists, the masthead and hero use `Support draft review` so the case appears before the AI context. The working file uses `Case subject · support draft · fictional worksheet`; AI-PM framing remains in the repository and fixture boundary, not as a visual badge. The source ledger ends in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
+- Second polish: the masthead uses `Field folio` once, the loaded hero says `Four source lines. One decision to test next.`, and the source surface uses `Source ledger`; these names reduce repeated `Case sheet` chrome while keeping the product object explicit.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens

@@ -121,6 +121,10 @@ composition has a quiet paper surface, strong serif case title, ruled index,
 red action marks, blue provenance marks, and no gradients, glow, chat bubbles,
 typing indicator, confidence meter, or AI-agent status theatre.
 
+The second polish also removes repeated `Case sheet` chrome: the topbar now
+uses `Field folio`, the loaded hero uses `Four source lines. One decision to
+test next.`, and the source surface is labelled `Source ledger`.
+
 | State | Evidence |
 |---|---|
 | Blank desktop | [editorial case sheet — blank `1280`](./assets/qa/editorial-case-sheet-local-blank-1280-2026-08-15.png) |
@@ -179,7 +183,7 @@ study, adoption signal, or star-growth result.
 |---|---|
 | `npm test` | PASS — 4 test files, 10 tests |
 | `npm run lint` | PASS — `tsc --noEmit` |
-| `npm run build` | PASS — Vite 7.3.6; hashed JS `index-Ci-HC9X1.js`, CSS `index-BAq-wObY.css` |
+| `npm run build` | PASS — Vite 7.3.6; the earlier reframe emitted `index-Ci-HC9X1.js`; the latest second-polish run emitted JS `index-BoztmcHn.js` and CSS `index-BAq-wObY.css` |
 | `git diff --check` | PASS |
 | `HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted` | PASS — HTTP 200, assets 200, current copy present, stale copy absent; `canonical_https=false` is expected for local HTTP |
 | Fallback browser console | PASS — 0 errors, 0 warnings |
@@ -190,6 +194,52 @@ study, adoption signal, or star-growth result.
 
 The local verifier is evidence for the local production preview only. It is
 not evidence that the canonical Pages URL now serves the new hashed bundle.
+
+## Second-polish addendum — 2026-08-15 21:59 +08:00
+
+This addendum records a fresh local run after the narrow editorial pass. It
+does not replace the earlier fallback-run evidence above. The product change
+was intentionally small: repeated `Case sheet` chrome was reduced to
+`Field folio` in the masthead and `Source ledger` on the evidence surface;
+the loaded hero now says `Four source lines. One decision to test next.`
+
+### Current local runtime evidence
+
+| Check | Current result | Boundary |
+|---|---|---|
+| Production preview | PASS — `http://127.0.0.1:4179/` served the current bundle | Local HTTP only |
+| Static verifier | PASS — HTTP 200, JS/CSS 200, current strings present, stale hero copy absent; `canonical_https=false` expected for local HTTP | Local preview only |
+| Fresh Chrome flow | PASS — blank → sample → source expansion → Verify → accept claim → Decide → Ship; all seven awaited assertions returned `true` after waiting for the async sample copy | Owner-run local Chrome tab |
+| Fresh Chrome copy | PASS — `Field folio`, `Support draft review`, `Four source lines. One decision to test next.`, and `Source ledger` were visible | English copy observation, not international comprehension |
+| Chrome accessibility tree | PASS — 401 nodes inspected; unnamed `image`, `button`, and `link` roles: none | Chrome AX tree only; not native AT output |
+| Keyboard | PASS — first `Tab` exposed `Skip to main content`; activating it focused `main-content` and produced `scrollY=78` for the fragment target | Keyboard path only; native screen reader `未驗證` |
+| Mobile layout | PASS — `390×844`, document `scrollWidth=375` (no horizontal overflow observed); `.mobile-action-bar` was visible, `position: fixed`, `375×66`, top `778` | Emulated viewport only; real device `未驗證` |
+| Fresh visual inspection | PASS — blank and loaded desktop screenshots at the reset Chrome viewport (`1914×788`) and loaded mobile screenshot at `390×844` were inspected in the current run | New screenshots were inspected in-memory; linked repository captures above remain prior layout evidence |
+
+The complete current flow used explicit waits for the sample transition so the
+test did not confuse asynchronous rendering with a product failure:
+
+```text
+{"blank":true,"loaded":true,"sourceExpansion":true,"verify":true,
+ "acceptance":true,"decide":true,"ship":true}
+```
+
+The first exploratory assertion returned `loaded=false` when it read the page
+immediately after clicking the sample button. A subsequent run that waited for
+`Four source lines. One decision to test next.` returned `loaded=true`; this is
+recorded as a test-timing correction, not a product defect. The same explicit
+wait was used for the complete PASS trace above.
+
+### Second-polish interpretation
+
+The fresh screenshots keep the intended paper index, serif work statement,
+ruled source surface, red correction mark, and blue provenance mark. The
+second polish makes the hierarchy less self-describing: the shell is named
+once, the loaded case is named once, and the source surface names its actual
+job. No new feature, model, provider, telemetry, account permission, or
+external write was introduced. The surface remains a deterministic fictional
+fixture and still does not prove AI quality, user preference, adoption, or
+GitHub-star growth.
 
 ## AI and trust quality gate
 

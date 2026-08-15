@@ -20,6 +20,12 @@ surface:
    Chrome accessibility tree, hosted, native assistive technology, participant,
    or adoption.
 
+Second-polish direction: remove repeated interface labels before adding any
+new decoration. `Field folio` names the shell once, `Support draft review`
+names the loaded case, and `Source ledger` names the evidence surface. The
+loaded sentence `Four source lines. One decision to test next.` uses a count
+and a human decision rather than a capability claim.
+
 ## Problem frame
 
 - Decision: should this slice spend its next change on semantic clarity and

@@ -616,7 +616,7 @@ function App() {
             <span>PM Signal Lab</span>
           </div>
           <div className="topbar-context">
-            <span className="topbar-kicker">Case sheet</span>
+            <span className="topbar-kicker">Field folio</span>
             <span className="topbar-divider" aria-hidden="true" />
             <span>{pack?.title ?? "Blank sheet"}</span>
           </div>
@@ -643,7 +643,7 @@ function App() {
                 </div>
                 <h1 id="page-title">{pack ? "Support draft review" : "Start with a source line"}</h1>
                 <p className="hero-copy">
-                  {pack ? "A four-source case sheet for deciding what to test next." : "A source-first working paper for moving from a product observation to a defensible test."}
+                  {pack ? "Four source lines. One decision to test next." : "A source-first working paper for moving from a product observation to a defensible test."}
                 </p>
               </div>
               <div className="hero-status" role="status" aria-label="Case record" aria-live="polite" aria-atomic="true">
@@ -883,7 +883,7 @@ function CollectView({
         <>
           <div className="pack-header">
             <div>
-            <p className="section-eyebrow">Case sheet</p>
+            <p className="section-eyebrow">Source ledger</p>
               <h2 id="collect-title">{pack.title}</h2>
               <div className="pack-subject" aria-label="Case subject: support draft, fictional worksheet">
                 <span className="pack-subject-label">Case subject</span>
