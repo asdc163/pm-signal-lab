@@ -123,6 +123,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - First-run action visibility contract: [`39-first-run-action-visibility-contract-2026-08-15.md`](./docs/product/pm-signal-lab/39-first-run-action-visibility-contract-2026-08-15.md).
 - First-run action visibility local QA: [`40-first-run-action-visibility-qa-audit-2026-08-15.md`](./docs/product/pm-signal-lab/40-first-run-action-visibility-qa-audit-2026-08-15.md).
 - First-run action visibility hosted audit: [`41-first-run-action-visibility-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/41-first-run-action-visibility-hosted-release-audit-2026-08-15.md).
+- Pilot-note feedback loop contract: [`42-pilot-note-feedback-loop-contract-2026-08-15.md`](./docs/product/pm-signal-lab/42-pilot-note-feedback-loop-contract-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.

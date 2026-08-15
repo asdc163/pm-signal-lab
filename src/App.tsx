@@ -1118,11 +1118,11 @@ function SessionFeedback({
     <section className={`feedback-field-note ${isOpen ? "is-open" : ""}`} aria-labelledby="feedback-title">
       <div className="feedback-heading">
         <div>
-          <span className="section-eyebrow">Session feedback / Optional</span>
-          <h3 id="feedback-title">Leave a note about this session</h3>
-          <p>Do not paste raw signals. Add a little context and where you hesitated, then inspect the field note before sharing it.</p>
+          <span className="section-eyebrow">Pilot note / After the task</span>
+          <h3 id="feedback-title">Help decide what to fix next</h3>
+          <p>Three concrete lines are enough: what you expected, where you hesitated, and one change you would make. Add trust or recovery detail if it matters.</p>
         </div>
-        {isOpen ? <button className="text-button" type="button" onClick={onClose}>Collapse</button> : <button className="button button-secondary" type="button" onClick={onOpen}>Record this session<ArrowRight size={15} /></button>}
+        {isOpen ? <button className="text-button" type="button" onClick={onClose}>Collapse</button> : <button className="button button-secondary" type="button" onClick={onOpen}>Open pilot note<ArrowRight size={15} /></button>}
       </div>
       {isOpen && (
         <form className="feedback-form" onSubmit={(event) => { event.preventDefault(); onPrepare(); }}>
@@ -1138,8 +1138,8 @@ function SessionFeedback({
             <label className="feedback-control feedback-control-wide"><span>One change that would make you try again</span><textarea value={draft.oneChange} onChange={(event) => onChange("oneChange", event.target.value)} rows={2} placeholder="Name the one change that matters most." /></label>
           </div>
           <label className="feedback-privacy"><input type="checkbox" aria-label="Confirm this session report contains no private data" checked={draft.privacyConfirmed} onChange={(event) => onChange("privacyConfirmed", event.target.checked)} /><span>I confirm that this report contains no customer names, private tickets, API keys, tokens, or confidential roadmap material.</span></label>
-          <div className="feedback-footer"><span><ShieldCheck size={14} />Blank fields will be marked Not provided.</span><div><button className="button button-secondary" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit"><ClipboardList size={16} />Prepare report</button></div></div>
-          {markdown && <div id="feedback-output" className="feedback-output" role="region" aria-labelledby="feedback-output-title" tabIndex={-1}><div className="feedback-output-heading"><div><span className="section-eyebrow">Report / inspect before sharing</span><strong id="feedback-output-title">This is a field note, not a validation result.</strong></div><span className="status-badge status-supported"><BadgeCheck size={14} />Ready to inspect</span></div><textarea value={markdown} readOnly rows={12} aria-label="Session feedback Markdown content" /><div className="feedback-output-actions"><button className="button button-primary" type="button" onClick={onCopy}><FileText size={16} />Copy report</button><a className="button button-secondary" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Open GitHub feedback page in a new tab for manual review">Open GitHub feedback page<Link2 size={15} aria-hidden="true" /></a></div><p>GitHub opens a new page only. Review the content yourself before deciding whether to submit.</p></div>}
+          <div className="feedback-footer"><span><ShieldCheck size={14} />A short note is enough; blank fields become Not provided.</span><div><button className="button button-secondary" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit"><ClipboardList size={16} />Prepare field note</button></div></div>
+          {markdown && <div id="feedback-output" className="feedback-output" role="region" aria-labelledby="feedback-output-title" tabIndex={-1}><div className="feedback-output-heading"><div><span className="section-eyebrow">Field note / Inspect before sharing</span><strong id="feedback-output-title">This is a field note, not a validation result.</strong></div><span className="status-badge status-supported"><BadgeCheck size={14} />Ready to inspect</span></div><textarea value={markdown} readOnly rows={12} aria-label="Session feedback Markdown content" /><div className="feedback-output-actions"><button className="button button-primary" type="button" onClick={onCopy}><FileText size={16} />Copy field note</button><a className="button button-secondary" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Open GitHub feedback page in a new tab for manual review">Open feedback page<Link2 size={15} aria-hidden="true" /></a></div><p>GitHub opens a new page only. Review the content yourself before deciding whether to submit.</p></div>}
         </form>
       )}
     </section>

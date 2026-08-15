@@ -17,10 +17,10 @@ This kit is for a real PM, founder, product designer, or product engineer trying
 4. Go to Verify and accept, edit, or keep one claim as a hypothesis.
 5. Draft the smallest experiment and read the `Known limits` / `Not covered` sections.
 6. Export the decision brief.
-7. On the `Ship` page, open `Record this session`, fill the field note from your own experience, confirm the privacy checkbox, generate the Markdown, and read it once.
+7. On the `Ship` page, open `Help decide what to fix next`, write the three useful lines — what you expected, where you hesitated, and one change you would make — then add trust or recovery detail if it matters. Confirm the privacy checkbox, prepare the Markdown field note, and read it once.
 8. If you want to share it, copy the field note, open the public feedback issue, and submit it manually after removing anything sensitive.
 
-Please do the task without a walkthrough from the maintainer. Note one concrete moment where you hesitate, what you expected to happen, and what you would change. A short report about what you actually did is more useful than a general opinion.
+Please do the task without a walkthrough from the maintainer. A short field note is enough: one concrete hesitation, what you expected to happen, and one change you would make. A record of what you actually did is more useful than a general opinion.
 
 ## Keyboard and assistive-technology observation
 

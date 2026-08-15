@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.17 — 2026-08-15
+
+- Reframed the post-brief session feedback invitation as an English-first `Pilot note / After the task` path.
+- Told testers that three concrete lines are enough: what they expected, where they hesitated, and one change they would make.
+- Renamed the local preparation and copy actions to `Prepare field note` and `Copy field note` while keeping the privacy gate and manual GitHub handoff.
+
+This release has local deterministic and browser evidence. Hosted verification is recorded separately; it does not claim real-user comprehension, adoption, or GitHub star growth.
+
 ## 0.1.16 — 2026-08-15
 
 - Recorded the hosted verification for the first-run action visibility release at the canonical Pages URL.
