@@ -492,6 +492,19 @@ p {
   line-height: 1.5;
 }
 
+.hero-status-actions {
+  display: flex;
+  margin-top: 5px;
+}
+
+.hero-status-actions .button {
+  width: 100%;
+  justify-content: space-between;
+  padding-right: 12px;
+  padding-left: 12px;
+  font-size: 12px;
+}
+
 /* A loaded workpaper is a tool surface, not a second landing page. */
 .workbench.is-loaded .hero-block {
   gap: 26px;
@@ -2424,6 +2437,10 @@ textarea::placeholder {
   .boundary-note {
     margin-bottom: 25px;
   }
+
+  .hero-status-actions {
+    display: none;
+  }
 }
 
 @media (max-width: 700px) {
@@ -2850,7 +2867,7 @@ textarea::placeholder {
   }
 
   .mobile-action-bar.is-empty {
-    display: none;
+    display: flex;
   }
 
   .mobile-action-bar > span {

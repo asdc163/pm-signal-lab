@@ -29,7 +29,7 @@ The product path is:
 
 The point is to make the source, claim, limitation, and next action visible in one path. It is not to make you trust an opaque answer.
 
-![PM Signal Lab case-file first run](./docs/product/pm-signal-lab/assets/qa/case-file-first-run-1440.png)
+![PM Signal Lab case-file first run](./docs/product/pm-signal-lab/assets/qa/first-run-action-1280.png)
 
 ## What is in the preview
 
