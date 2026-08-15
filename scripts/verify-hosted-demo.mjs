@@ -41,6 +41,7 @@ try {
     "Put one signal on the desk",
     "Bring in one source line",
     "Check what this line supports",
+    "Current work",
     "No source line yet",
     "Keep the source in frame",
     "Sample signal",
@@ -48,6 +49,10 @@ try {
     "Open the sample worksheet",
     "Desk note",
     "Question on the desk",
+    "Session record",
+    "Last action below",
+    "No usable claims yet",
+    "Back to Collect",
     "Review docket",
     "No claim travels without its source.",
     "Open pilot note",
@@ -68,6 +73,11 @@ try {
     "context-stats",
     "Evidence desk / local preview",
     "Public preview 0.1 · refresh resets it",
+    "Current worksheet",
+    "Activity recorded",
+    "No activity yet",
+    "Load data in Collect",
+    "Back to Verify",
   ];
   for (const text of requiredStrings) {
     assert(javascript.includes(text), `Current hosted JavaScript is missing: ${text}`);
