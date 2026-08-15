@@ -20,7 +20,7 @@ This is an AI product manager portfolio project by [John Wu](https://github.com/
 
 No login or API key is required.
 
-1. Open the [hosted preview](https://asdc163.github.io/pm-signal-lab/) and select `Load sample data`.
+1. Open the [hosted demo](https://asdc163.github.io/pm-signal-lab/) and select `Load sample data`.
 2. Expand one row with `View source`. Check the source folio, original text, date, and limitation.
 3. Select `Start review`. Accept one claim, edit one, or keep one as a hypothesis.
 4. Open `Decide`, choose a direction, and select `Draft smallest experiment`.
@@ -37,7 +37,7 @@ The point is to make the source, claim, limitation, and next action visible in o
 
 ![PM Signal Lab worksheet first run](./docs/product/pm-signal-lab/assets/qa/first-run-action-1280.png)
 
-## What is in the preview
+## What is in the hosted demo
 
 - A deterministic sample pack containing interview, support, product observation, and competitive-scan signals.
 - A source ledger with stable folios, source identity, dates, original text, and an expandable source view.
@@ -48,7 +48,7 @@ The point is to make the source, claim, limitation, and next action visible in o
 - A local session receipt and a privacy-gated session feedback field note that never includes raw evidence.
 - Responsive desktop, tablet, mobile, keyboard, loading, empty, error, and recovery states.
 
-All session content stays on the current page and resets on refresh. The preview has no login, database, external AI provider, API-key flow, GitHub mutation, MCP action, telemetry, or automatic issue submission. Copy or download anything you want to keep before leaving or refreshing.
+All session content stays on the current page and resets on refresh. The hosted demo has no login, database, external AI provider, API-key flow, GitHub mutation, MCP action, telemetry, or automatic issue submission. Copy or download anything you want to keep before leaving or refreshing.
 
 ## Why this product exists
 
@@ -97,7 +97,7 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 - [`src/domain/feedback.ts`](./src/domain/feedback.ts) prepares a privacy-gated session field note.
 - [`src/domain/fixture.ts`](./src/domain/fixture.ts) holds the repeatable signal-review sample pack.
 - [`src/styles.css`](./src/styles.css) defines the warm-paper workbench, evidence spine, index rail, and responsive layout.
-- [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) builds and deploys the hosted preview from `main`.
+- [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) builds and deploys the hosted demo from `main`.
 - [`.github/workflows/hosted-demo-smoke.yml`](./.github/workflows/hosted-demo-smoke.yml) checks the canonical hosted demo after deployment, daily, and on manual dispatch.
 - [`scripts/verify-hosted-demo.mjs`](./scripts/verify-hosted-demo.mjs) performs the read-only HTTPS, asset, and current-copy check used by the hosted smoke workflow.
 - [`.github/workflows/weekly-growth-pulse.yml`](./.github/workflows/weekly-growth-pulse.yml) records read-only public repository signals as a reviewable artifact; it does not automate social activity.
@@ -114,9 +114,9 @@ This release intentionally does not add a locale selector or runtime translation
 ## What this does not claim
 
 - This is not a production AI-quality benchmark.
-- The preview has no external model provider, so it does not prove model quality.
+- The hosted demo has no external model provider, so it does not prove model quality.
 - No real-user task sessions, retention, conversion, adoption, or GitHub growth outcome are claimed by this repository.
-- GitHub stars, forks, traffic, and issue activity are external results; a polished preview is not evidence of any target number.
+- GitHub stars, forks, traffic, and issue activity are external results; a polished hosted demo is not evidence of any target number.
 - The `4 of 5` threshold inside the experiment brief is a proposed decision rule, not completed research.
 
 ## Try it and report one observation
@@ -134,8 +134,8 @@ The next product decision is gated by evidence, not visual polish:
 1. Collect at least five target-user task sessions before evaluating an external model or provider adapter.
 2. Evaluate a portable JSON schema only if several external workflows ask to bring their own evidence pack.
 3. Consider read-only GitHub or MCP integration only after source provenance and approval behavior are stable.
-4. Keep login, telemetry, and external mutation out of the hosted preview until usability evidence and explicit authorization support that scope.
+4. Keep login, telemetry, and external mutation out of the hosted demo until usability evidence and explicit authorization support that scope.
 
 ## License
 
-No license has been declared yet. Unless written permission says otherwise, treat this repository as a readable public preview and do not republish it or include its code in a commercial product.
+No license has been declared yet. Unless written permission says otherwise, treat this repository as a readable public demo and do not republish it or include its code in a commercial product.

@@ -43,8 +43,15 @@ try {
     "No claim travels without its source.",
     "Open pilot note",
     "This is a field note, not a validation result.",
+    "Evidence desk / hosted demo",
+    "Hosted demo 0.1 · refresh resets it",
   ];
-  const forbiddenStrings = ["What needs your attention", "context-stats"];
+  const forbiddenStrings = [
+    "What needs your attention",
+    "context-stats",
+    "Evidence desk / local preview",
+    "Public preview 0.1 · refresh resets it",
+  ];
   for (const text of requiredStrings) {
     assert(javascript.includes(text), `Current hosted JavaScript is missing: ${text}`);
   }

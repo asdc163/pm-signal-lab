@@ -1,12 +1,12 @@
 # PM Signal Lab — Five-Minute Session Kit
 
-This kit is for a real PM, founder, product designer, or product engineer trying the public preview for the first time.
+This kit is for a real PM, founder, product designer, or product engineer trying the formal hosted demo for the first time.
 
 ## Before you start
 
-- Use the hosted preview or local URL provided by the maintainer.
+- Use the hosted demo or local URL provided by the maintainer.
 - Do not paste customer names, private tickets, API keys, tokens, or confidential roadmap material.
-- The sample pack is safe to use. Custom evidence stays on the current page, resets on refresh, and is not uploaded by this preview. Copy or download anything you want to keep before leaving or refreshing.
+- The sample pack is safe to use. Custom evidence stays on the current page, resets on refresh, and is not uploaded by this hosted demo. Copy or download anything you want to keep before leaving or refreshing.
 - This is a product usability session, not a claim that the product has been validated for your organisation.
 
 ## The task

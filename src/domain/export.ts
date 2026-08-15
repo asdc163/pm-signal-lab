@@ -41,7 +41,7 @@ export function buildDecisionMemo(
       notCovered: [
         "We have not tested whether real users complete this workflow, return over time, or improve conversion.",
         "GitHub, MCP, issue mutation, and external telemetry are not connected.",
-        "This memo was prepared in a local preview; it does not show external adoption.",
+        "This memo was prepared in a local-first hosted demo; it does not show external adoption.",
       ],
     },
   };

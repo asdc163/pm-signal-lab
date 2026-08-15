@@ -620,7 +620,7 @@ function App() {
           <button className="icon-button topbar-menu" type="button" aria-label="Jump to workflow" aria-controls="mobile-workflow" title="Jump to workflow" onClick={() => document.getElementById("mobile-workflow")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" })}>
             <Menu size={18} />
           </button>
-          <div className="topbar-status"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "Local worksheet / sources loaded" : "Local preview / no transfer"}</div>
+          <div className="topbar-status"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "Local worksheet / sources loaded" : "Hosted demo / no transfer"}</div>
         </header>
 
         <div id="mobile-workflow" className="mobile-stepper" role="navigation" aria-label="Workflow">
@@ -787,7 +787,7 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
         <span className="brand-mark" aria-hidden="true">PS</span>
         <div>
           <strong>PM Signal Lab</strong>
-          <span>Evidence desk / local preview</span>
+          <span>Evidence desk / hosted demo</span>
         </div>
       </div>
       <div className="sidebar-rule" />
@@ -800,7 +800,7 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
         <span className="sidebar-section-label">Boundary</span>
         <p>{SESSION_BOUNDARY_LONG} No automatic changes are made.</p>
         <a className="sidebar-link" href={SESSION_FEEDBACK_URL} target="_blank" rel="noreferrer">Report a session</a>
-        <span className="version-label">Public preview 0.1 · refresh resets it</span>
+        <span className="version-label">Hosted demo 0.1 · refresh resets it</span>
       </div>
     </aside>
   );
@@ -933,7 +933,7 @@ function EvidenceForm({ form, errors, titleRef, sourceRef, contentRef, onChange,
 }) {
   return (
     <form className="evidence-form" onSubmit={onSubmit} noValidate>
-      <div className="form-header"><div><p className="section-eyebrow">Add a product signal</p><h3>Bring in one real observation</h3><p>This preview handles content on this page only; it does not upload your text.</p></div><button className="icon-button" type="button" onClick={onClose} aria-label="Close add product signal form"><X size={18} /></button></div>
+      <div className="form-header"><div><p className="section-eyebrow">Add a product signal</p><h3>Bring in one real observation</h3><p>This hosted demo handles content on this page only; it does not upload your text.</p></div><button className="icon-button" type="button" onClick={onClose} aria-label="Close add product signal form"><X size={18} /></button></div>
       <div className="form-grid">
         <Field label="Signal title" error={errors.title} htmlFor="evidence-title"><input ref={titleRef} id="evidence-title" value={form.title} onChange={(event) => onChange("title", event.target.value)} aria-invalid={Boolean(errors.title)} aria-describedby={errors.title ? "evidence-title-error" : undefined} placeholder="e.g. Interview: users cannot find the next step" /></Field>
         <Field label="Source" error={errors.source} htmlFor="evidence-source"><input ref={sourceRef} id="evidence-source" value={form.source} onChange={(event) => onChange("source", event.target.value)} aria-invalid={Boolean(errors.source)} aria-describedby={errors.source ? "evidence-source-error" : undefined} placeholder="e.g. Interview notes · PM-08" /></Field>
