@@ -2119,40 +2119,6 @@ textarea::placeholder {
   font-size: 11px;
 }
 
-.context-stats {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  border-bottom: 1px solid var(--line);
-}
-
-.context-stat {
-  display: grid;
-  gap: 4px;
-  padding: 14px 10px 14px 0;
-  border-right: 1px solid #e8ece8;
-}
-
-.context-stat:last-child {
-  padding-right: 0;
-  border-right: 0;
-}
-
-.context-stat strong {
-  color: var(--ink);
-  font-family: var(--display);
-  font-size: 24px;
-  font-weight: 650;
-  line-height: 1;
-}
-
-.context-stat span {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
 .context-list {
   border-bottom: 1px solid var(--line);
 }
@@ -2445,7 +2411,6 @@ textarea::placeholder {
 
   .decision-context .context-heading,
   .decision-context .context-project,
-  .decision-context .context-stats,
   .decision-context .context-list,
   .decision-context .context-record,
   .decision-context .context-trace {
