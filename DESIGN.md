@@ -23,7 +23,7 @@
 
 This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`.
 
-The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A cool paper index rail, ruled annotations, source folios, and a margin-note context rail establish the reading order. A rust line marks the next action and teal marks provenance; neither is used as wallpaper. The context keeps actual source, claim, and review counts in a literal desk record beside the question currently in front of the PM; it does not promote them as generic dashboard proof or fill space with AI explanations.
+The visual signature is an evidence spine: source rows and claim rows are visibly connected so provenance is part of the layout rather than a footnote. A cool paper index rail, ruled annotations, source folios, and a quiet desk summary establish the reading order. A rust line marks the next action and teal marks provenance; neither is used as wallpaper. The summary keeps actual source, claim, and review counts below the workpaper instead of turning secondary context into a persistent dashboard rail.
 
 ## Principles
 
@@ -36,15 +36,15 @@ The visual signature is an evidence spine: source rows and claim rows are visibl
 
 ## Composition brief
 
-- First read: “From one product signal to one testable decision”, the current worksheet status, and `Load sample data`.
-- Second read: the worksheet context, evidence rows, source mapping, date, and limitation.
+- First read: “Put one signal on the desk”, the current worksheet status, and `Open the sample worksheet`.
+- Second read: the sample fixture boundary, source rows, source mapping, date, limitation, and review docket.
 - Primary action: one step-specific CTA.
 - Content relationship: `Source → Claim → Smallest test`; use a stepper, rows, split areas, and definition lists before adding cards.
 - Desktop density: medium-high. Mobile density: stacked medium.
-- Alignment spine: masthead → worksheet title → evidence spine. The right rail aligns to the same vertical rule.
-- Layout archetype: source ledger + index strip + annotated workpaper + worksheet context.
-- Responsive reflow: rail becomes a top stepper; context moves below the workbench; the primary CTA becomes a sticky bottom action.
-- Loaded state: when the pack exists, the masthead becomes denser and switches to direct work language so evidence appears sooner. The source ledger ends in a review docket with the actual candidate-claim count and the primary `Start review` action; the right rail becomes a margin note with a literal `Desk record` and explains that action without duplicating it on desktop Collect. This is domain-state reflow, not fake AI activity.
+- Alignment spine: masthead → worksheet title → evidence spine. The workflow rail remains navigation; the desk summary is a lower-priority horizontal band below the workpaper.
+- Layout archetype: single-sheet source ledger + index strip + annotated workpaper + desk summary.
+- Responsive reflow: the workflow rail becomes a top stepper; the desk summary moves below the workbench; the primary CTA becomes a sticky bottom action.
+- Loaded state: when the pack exists, the masthead switches to direct work language so evidence appears sooner. The source ledger ends in a review docket with the actual candidate-claim count and the primary `Start review` action; the desk summary records one question, one rule, actual counts, and the current next move. This is domain-state reflow, not fake AI activity.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
@@ -77,7 +77,7 @@ font-family-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Geo
 font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 ```
 
-- Hero and tool title: 28px / 1.3; the display serif is reserved for the product statement, source excerpt, and decision headings so it reads as a field-note signature rather than a generic marketing hero.
+- Hero and tool title: 28px / 1.3; the display serif is reserved for the direct work statement, source excerpt, and decision headings so it reads as a field-note signature rather than a generic marketing hero.
 - Section title: 24px / 1.3.
 - Card and row title: 18px / 1.3.
 - Body: 16px / 1.6.
@@ -148,6 +148,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - No-AI-feel field notebook contract: [`53-no-ai-feel-field-notebook-contract-2026-08-15.md`](./docs/product/pm-signal-lab/53-no-ai-feel-field-notebook-contract-2026-08-15.md).
 - Keyboard and semantic oracle audit: [`55-keyboard-semantic-oracle-audit-2026-08-15.md`](./docs/product/pm-signal-lab/55-keyboard-semantic-oracle-audit-2026-08-15.md).
 - Evidence-spine brand polish contract: [`56-evidence-spine-brand-polish-contract-2026-08-15.md`](./docs/product/pm-signal-lab/56-evidence-spine-brand-polish-contract-2026-08-15.md).
+- Single-sheet workbench second-polish contract: [`57-single-sheet-workbench-second-polish-contract-2026-08-15.md`](./docs/product/pm-signal-lab/57-single-sheet-workbench-second-polish-contract-2026-08-15.md).
 - Earlier English-first release audit: [`35-english-first-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/35-english-first-release-audit-2026-08-15.md).
 
 These references describe decisions and exact evidence boundaries. They do not claim universal usability, model quality, adoption, or GitHub growth.

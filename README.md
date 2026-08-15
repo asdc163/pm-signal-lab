@@ -20,7 +20,7 @@ This is an AI product manager portfolio project by [John Wu](https://github.com/
 
 No login or API key is required.
 
-1. Open the [hosted demo](https://asdc163.github.io/pm-signal-lab/) and select `Load sample data`.
+1. Open the [hosted demo](https://asdc163.github.io/pm-signal-lab/) and select `Open the sample worksheet`.
 2. Expand one row with `View source`. Check the source folio, original text, date, and limitation.
 3. Select `Start review`. Accept one claim, edit one, or keep one as a hypothesis.
 4. Open `Decide`, choose a direction, and select `Draft smallest experiment`.
