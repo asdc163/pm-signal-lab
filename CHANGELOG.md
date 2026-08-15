@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.20 — 2026-08-15
+
+- Fixed the first remote weekly-growth-pulse dispatch: large GitHub API responses no longer travel through `jq --argjson` command-line arguments, which had exceeded the runner's argument limit.
+- Stored read-only API responses in a temporary runner directory and switched the workflow summary to shell-safe Markdown output.
+
+The initial dispatch failure is retained as an engineering learning signal; the corrected workflow must still pass a fresh manual dispatch before it is treated as operational.
+
 ## 0.1.19 — 2026-08-15
 
 - Reframed the deterministic sample pack as `Signal review: deciding what to test next`, using concrete discovery, support, observation, and competitive-review signals instead of an AI-summary-centered scenario.
