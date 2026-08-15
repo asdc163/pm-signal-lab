@@ -621,7 +621,7 @@ function App() {
             <span>{pack?.title ?? "Blank sheet"}</span>
           </div>
           <button className="icon-button topbar-menu" type="button" aria-label="Jump to workflow" aria-controls="mobile-workflow" title="Jump to workflow" onClick={() => document.getElementById("mobile-workflow")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" })}>
-            <Menu size={18} />
+            <Menu size={18} aria-hidden="true" />
           </button>
         </header>
 
@@ -653,8 +653,8 @@ function App() {
                 </div>
                 <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"}` : "No source line yet"}</strong>
                 <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Start with the sample or write down one real line from the work."}</p>
-                <span className="hero-status-boundary"><ShieldCheck size={14} />{pack ? "On this page · refresh clears the sheet" : SESSION_BOUNDARY_SHORT}</span>
-                {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} />Open the sample worksheet<ArrowRight size={15} /></button></div>}
+                <span className="hero-status-boundary"><ShieldCheck size={14} aria-hidden="true" />{pack ? "On this page · refresh clears the sheet" : SESSION_BOUNDARY_SHORT}</span>
+                {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} aria-hidden="true" />Open the sample worksheet<ArrowRight size={15} aria-hidden="true" /></button></div>}
               </div>
             </div>
 
@@ -663,7 +663,7 @@ function App() {
                 <NoticeIcon tone={notice.tone} />
                 <span>{notice.message}</span>
                 <button className="notice-close" type="button" onClick={() => setNotice(undefined)} aria-label="Dismiss notice">
-                  <X size={15} />
+                  <X size={15} aria-hidden="true" />
                 </button>
               </div>
             )}
@@ -746,7 +746,7 @@ function App() {
             )}
 
             <div className="boundary-note">
-              <ShieldCheck size={16} />
+              <ShieldCheck size={16} aria-hidden="true" />
               <span><strong>Handling note</strong> · {SESSION_BOUNDARY_LONG} The source, claim, and next action stay visible. You decide whether to accept the claim.</span>
             </div>
           </section>
@@ -769,7 +769,7 @@ function App() {
           <div className={`mobile-action-bar ${!pack ? "is-empty" : ""}`} role="region" aria-label="Next action">
             <span>{WORKFLOW.find((item) => item.id === currentStep)?.description}</span>
             <button className="button button-primary" type="button" onClick={nextAction.action} disabled={isLoading} data-current-action>
-              {nextAction.label}<ArrowRight size={16} />
+              {nextAction.label}<ArrowRight size={16} aria-hidden="true" />
             </button>
           </div>
         )}
@@ -814,7 +814,7 @@ function WorkflowStepper({ currentStep, onSelectStep, mobile = false }: { curren
         return (
           <li key={item.id} className={`stepper-item ${isCurrent ? "is-current" : ""} ${isPast ? "is-past" : ""}`}>
             <button type="button" onClick={() => onSelectStep(item.id)} aria-current={isCurrent ? "step" : undefined}>
-              <span className="step-number">{isPast ? <Check size={14} /> : item.number}</span>
+              <span className="step-number">{isPast ? <Check size={14} aria-hidden="true" /> : item.number}</span>
               <span className="step-copy"><strong>{item.label}</strong><small>{item.description}</small></span>
             </button>
             {index < WORKFLOW.length - 1 && <span className="step-connector" aria-hidden="true" />}
@@ -849,7 +849,7 @@ function CollectView({
   onStartReview: () => void;
 }) {
   if (isLoading) {
-    return <section className="state-panel loading-state" aria-live="polite" aria-busy="true"><Activity size={22} className="spin" /><div><h2>Opening the sample worksheet</h2><p>The local boundary stays in place; you can trace each source after it opens.</p></div></section>;
+    return <section className="state-panel loading-state" aria-live="polite" aria-busy="true"><Activity size={22} className="spin" aria-hidden="true" /><div><h2>Opening the sample worksheet</h2><p>The local boundary stays in place; you can trace each source after it opens.</p></div></section>;
   }
 
   return (
@@ -873,7 +873,7 @@ function CollectView({
                 <small>Every step stays editable, reviewable, and local.</small>
               </div>
               <div className="empty-actions">
-                <button className="button button-secondary" type="button" onClick={onOpenForm}><Plus size={16} />Add your own signal</button>
+                <button className="button button-secondary" type="button" onClick={onOpenForm}><Plus size={16} aria-hidden="true" />Add your own signal</button>
               </div>
             </div>
           </div>
@@ -894,7 +894,7 @@ function CollectView({
             </div>
             <div className="pack-actions">
               <span className="count-badge"><strong>{evidence.length}</strong> source lines</span>
-              <button className="button button-secondary" type="button" onClick={onOpenForm}><Plus size={16} />Add signal</button>
+              <button className="button button-secondary" type="button" onClick={onOpenForm}><Plus size={16} aria-hidden="true" />Add signal</button>
             </div>
           </div>
           <div className="section-heading-row source-ledger-heading">
@@ -910,10 +910,10 @@ function CollectView({
             ))}
           </div>
           <div className="next-action-card">
-            <div className="next-action-icon"><ArrowRight size={18} /></div>
-            <div className="next-action-copy"><span className="card-eyebrow">Next mark</span><h3>{claimCount === 1 ? "One claim is waiting for a human source check." : claimCount > 1 ? `${claimCount} claims are waiting for a human source check.` : "No claim is ready for review yet."}</h3><p>Accept, edit, or keep the claim open. Gaps stay visible.</p>{claimCount > 0 ? <button className="button button-primary" type="button" onClick={onStartReview} data-current-action>Start review<ArrowRight size={16} /></button> : <button className="button button-secondary" type="button" onClick={onOpenForm}>Add a signal<Plus size={16} /></button>}</div>
+            <div className="next-action-icon"><ArrowRight size={18} aria-hidden="true" /></div>
+            <div className="next-action-copy"><span className="card-eyebrow">Next mark</span><h3>{claimCount === 1 ? "One claim is waiting for a human source check." : claimCount > 1 ? `${claimCount} claims are waiting for a human source check.` : "No claim is ready for review yet."}</h3><p>Accept, edit, or keep the claim open. Gaps stay visible.</p>{claimCount > 0 ? <button className="button button-primary" type="button" onClick={onStartReview} data-current-action>Start review<ArrowRight size={16} aria-hidden="true" /></button> : <button className="button button-secondary" type="button" onClick={onOpenForm}>Add a signal<Plus size={16} aria-hidden="true" /></button>}</div>
           </div>
-          <button className="text-button reset-button" type="button" onClick={onReset}><RotateCcw size={14} />Reset this set</button>
+          <button className="text-button reset-button" type="button" onClick={onReset}><RotateCcw size={14} aria-hidden="true" />Reset this set</button>
         </>
       )}
 
@@ -936,14 +936,14 @@ function EvidenceForm({ form, errors, titleRef, sourceRef, contentRef, onChange,
 }) {
   return (
     <form className="evidence-form" onSubmit={onSubmit} noValidate>
-      <div className="form-header"><div><p className="section-eyebrow">Add a source line</p><h3>Write down one real observation</h3><p>This public preview handles content on this page only; it does not upload your text.</p></div><button className="icon-button" type="button" onClick={onClose} aria-label="Close add source line form"><X size={18} /></button></div>
+      <div className="form-header"><div><p className="section-eyebrow">Add a source line</p><h3>Write down one real observation</h3><p>This public preview handles content on this page only; it does not upload your text.</p></div><button className="icon-button" type="button" onClick={onClose} aria-label="Close add source line form"><X size={18} aria-hidden="true" /></button></div>
       <div className="form-grid">
         <Field label="Signal title" error={errors.title} htmlFor="evidence-title"><input ref={titleRef} id="evidence-title" value={form.title} onChange={(event) => onChange("title", event.target.value)} aria-invalid={Boolean(errors.title)} aria-describedby={errors.title ? "evidence-title-error" : undefined} placeholder="e.g. Interview: users cannot find the next step" /></Field>
         <Field label="Source" error={errors.source} htmlFor="evidence-source"><input ref={sourceRef} id="evidence-source" value={form.source} onChange={(event) => onChange("source", event.target.value)} aria-invalid={Boolean(errors.source)} aria-describedby={errors.source ? "evidence-source-error" : undefined} placeholder="e.g. Interview notes · PM-08" /></Field>
         <Field label="Type" htmlFor="evidence-type"><select id="evidence-type" value={form.type} onChange={(event) => onChange("type", event.target.value)}>{EVIDENCE_TYPES.map((type) => <option key={type} value={type}>{EVIDENCE_LABELS[type]}</option>)}</select></Field>
         <Field label="Source line" error={errors.content} htmlFor="evidence-content" className="field-wide" helper={`${form.content.length} / 600 characters`}><textarea ref={contentRef} id="evidence-content" rows={4} value={form.content} onChange={(event) => onChange("content", event.target.value)} aria-invalid={Boolean(errors.content)} aria-describedby={errors.content ? "evidence-content-error" : "evidence-content-help"} placeholder="Keep the words someone else can trace; do not write only a conclusion." /></Field>
       </div>
-      <div className="form-footer"><span><Info size={14} />The source, limit, and owner stay with the claim review.</span><div><button className="button button-secondary" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit"><Plus size={16} />Save line</button></div></div>
+      <div className="form-footer"><span><Info size={14} aria-hidden="true" />The source, limit, and owner stay with the claim review.</span><div><button className="button button-secondary" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit"><Plus size={16} aria-hidden="true" />Save line</button></div></div>
     </form>
   );
 }
@@ -959,11 +959,11 @@ function EvidenceRow({ evidence, sourceIndex, expanded, onToggle }: { evidence: 
       <div className="evidence-main">
         <div className="evidence-row-top"><span className="evidence-type">{EVIDENCE_LABELS[evidence.type]}</span>{evidence.added && <span className="just-added">Just added</span>}<time dateTime={evidence.observedAt}>{formatDate(evidence.observedAt)}</time></div>
         <h4>{evidence.title}</h4>
-        <p className="evidence-source"><Link2 size={14} />{evidence.source}</p>
+        <p className="evidence-source"><Link2 size={14} aria-hidden="true" />{evidence.source}</p>
         <p className="evidence-preview"><span className="preview-label">Source line</span>{evidence.content}</p>
         {expanded && <div id={`source-${evidence.id}`} className="source-detail" role="region" aria-label={`Source excerpt: ${evidence.title}`}><span className="detail-label">Source excerpt</span><p>{evidence.content}</p><span className="detail-meta">Original content stays in this session · Source {formatFolioNumber(sourceIndex)}</span></div>}
       </div>
-      <button className="row-toggle" type="button" onClick={onToggle} aria-expanded={expanded} aria-controls={`source-${evidence.id}`}>{expanded ? "Hide source" : "View source"}<ChevronDown size={15} className={expanded ? "rotate-180" : ""} /></button>
+      <button className="row-toggle" type="button" onClick={onToggle} aria-expanded={expanded} aria-controls={`source-${evidence.id}`}>{expanded ? "Hide source" : "View source"}<ChevronDown size={15} aria-hidden="true" className={expanded ? "rotate-180" : ""} /></button>
     </article>
   );
 }
@@ -972,12 +972,12 @@ function VerifyView({ claims, evidence, activeClaimId, editingClaimId, editingCl
   return (
     <section className="content-section" aria-labelledby="verify-title">
       <div className="section-intro"><div><p className="section-eyebrow">Review claim</p><h2 id="verify-title">Check the claim against the line</h2><p>A draft claim is not a fact. Check the source, date, and limitation before you carry it into a decision.</p></div><span className="human-label">You make the call</span></div>
-      {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} /><div><h3>Nothing to review yet</h3><p>Return to Collect and add a signal before reviewing claims.</p></div></div> : <>
-        <div className="claim-summary"><span><strong>{claims.length}</strong> draft claims</span><span><BadgeCheck size={14} />{claims.filter((claim) => claim.status === "supported").length} source-backed</span><span><CircleAlert size={14} />{claims.filter((claim) => claim.status !== "supported").length} need your review</span></div>
+      {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} aria-hidden="true" /><div><h3>Nothing to review yet</h3><p>Return to Collect and add a signal before reviewing claims.</p></div></div> : <>
+        <div className="claim-summary"><span><strong>{claims.length}</strong> draft claims</span><span><BadgeCheck size={14} aria-hidden="true" />{claims.filter((claim) => claim.status === "supported").length} source-backed</span><span><CircleAlert size={14} aria-hidden="true" />{claims.filter((claim) => claim.status !== "supported").length} need your review</span></div>
         <div className="claim-list">
           {claims.map((claim, index) => <ClaimRow key={claim.id} claim={claim} claimIndex={index + 1} evidence={evidence} expanded={activeClaimId === claim.id} isEditing={editingClaimId === claim.id} editText={editingClaimText} editError={claimEditError} editRef={claimEditRef} onActivate={() => onActivate(claim.id)} onAccept={() => onAccept(claim)} onKeep={() => onKeep(claim)} onMissing={() => onMissing(claim)} onEdit={() => onEdit(claim)} onEditText={onEditText} onSaveEdit={() => onSaveEdit(claim)} onCancelEdit={onCancelEdit} />)}
         </div>
-        <div className="human-boundary"><ShieldCheck size={17} /><div><strong>This is a suggestion, not a decision.</strong><span>The next brief records a claim only after you accept it or keep it as a hypothesis.</span></div><button className="button button-secondary" type="button" onClick={onDraft}>Go to Decide<ArrowRight size={15} /></button></div>
+        <div className="human-boundary"><ShieldCheck size={17} aria-hidden="true" /><div><strong>This is a suggestion, not a decision.</strong><span>The next brief records a claim only after you accept it or keep it as a hypothesis.</span></div><button className="button button-secondary" type="button" onClick={onDraft}>Go to Decide<ArrowRight size={15} aria-hidden="true" /></button></div>
       </>}
     </section>
   );
@@ -991,9 +991,9 @@ function ClaimRow({ claim, claimIndex, evidence, expanded, isEditing, editText, 
     <article className={`claim-row ${expanded ? "is-expanded" : ""} ${claim.reviewed ? "is-reviewed" : ""}`}>
       <div className="claim-spine" aria-hidden="true"><span className={`claim-node ${meta.className}`} /></div>
       <div className="claim-body">
-        <div className="claim-topline"><span className={`status-badge ${meta.className}`}><StatusIcon size={14} />{meta.label}</span>{claim.reviewed && <span className="reviewed-label"><Check size={12} />Reviewed</span>}<span className="claim-id"><small>Claim</small> {formatFolioNumber(claimIndex)}</span></div>
-        <button id={`claim-title-${claim.id}`} className="claim-title-button" type="button" onClick={onActivate} aria-expanded={expanded} aria-controls={`claim-${claim.id}-detail`}><span>{claim.text}</span><ChevronRight size={17} className={expanded ? "rotate-90" : ""} /></button>
-        <div className="claim-meta"><span><Link2 size={13} />{sourceItems.length ? `${sourceItems.length} sources` : "No source"}</span><span><Info size={13} />{claim.limitation}</span></div>
+        <div className="claim-topline"><span className={`status-badge ${meta.className}`}><StatusIcon size={14} aria-hidden="true" />{meta.label}</span>{claim.reviewed && <span className="reviewed-label"><Check size={12} aria-hidden="true" />Reviewed</span>}<span className="claim-id"><small>Claim</small> {formatFolioNumber(claimIndex)}</span></div>
+        <button id={`claim-title-${claim.id}`} className="claim-title-button" type="button" onClick={onActivate} aria-expanded={expanded} aria-controls={`claim-${claim.id}-detail`}><span>{claim.text}</span><ChevronRight size={17} aria-hidden="true" className={expanded ? "rotate-90" : ""} /></button>
+        <div className="claim-meta"><span><Link2 size={13} aria-hidden="true" />{sourceItems.length ? `${sourceItems.length} sources` : "No source"}</span><span><Info size={13} aria-hidden="true" />{claim.limitation}</span></div>
         {expanded && <div id={`claim-${claim.id}-detail`} className="claim-detail" role="region" aria-labelledby={`claim-title-${claim.id}`}>
           <div className="detail-block"><span className="detail-label">Source mapping</span>{sourceItems.length ? sourceItems.map((item) => { const sourceIndex = evidence.findIndex((candidate) => candidate.id === item.id) + 1; return <div className="mapped-source" key={item.id}><span className="mapped-source-index">Source {formatFolioNumber(sourceIndex)}</span><div><strong>{item.source}</strong><span>{EVIDENCE_LABELS[item.type]} · {formatDate(item.observedAt)}</span><p>{item.content}</p></div></div>; }) : <p className="missing-copy">This claim has no traceable source; keep it as a hypothesis until a line is added.</p>}</div>
           <div className="detail-block limitation-block"><span className="detail-label">Current limitation</span><p>{claim.limitation}</p></div>
@@ -1005,10 +1005,10 @@ function ClaimRow({ claim, claimIndex, evidence, expanded, isEditing, editText, 
               </label>
               <p className="claim-edit-help" id={`claim-edit-${claim.id}-help`}>The source and limitation stay attached; review this claim again after saving.</p>
               {editError && <p className="claim-edit-error" id={`claim-edit-${claim.id}-error`} role="alert">{editError}</p>}
-              <div className="claim-edit-actions"><button className="button button-secondary" type="button" onClick={onCancelEdit}>Cancel</button><button className="button button-primary" type="submit"><Check size={15} />Save claim</button></div>
+              <div className="claim-edit-actions"><button className="button button-secondary" type="button" onClick={onCancelEdit}>Cancel</button><button className="button button-primary" type="submit"><Check size={15} aria-hidden="true" />Save claim</button></div>
             </form>
           ) : (
-            <div className="claim-actions"><button className="button button-primary" type="button" onClick={onAccept}><Check size={15} />Accept claim</button><button className="button button-secondary" type="button" onClick={onKeep}><Flag size={15} />Keep as hypothesis</button><button className="button button-quiet" type="button" onClick={onEdit}><Pencil size={14} />Edit claim</button>{claim.status !== "missing" && <button className="button button-quiet danger-text" type="button" onClick={onMissing}><CircleAlert size={14} />Mark missing evidence</button>}</div>
+            <div className="claim-actions"><button className="button button-primary" type="button" onClick={onAccept}><Check size={15} aria-hidden="true" />Accept claim</button><button className="button button-secondary" type="button" onClick={onKeep}><Flag size={15} aria-hidden="true" />Keep as hypothesis</button><button className="button button-quiet" type="button" onClick={onEdit}><Pencil size={14} aria-hidden="true" />Edit claim</button>{claim.status !== "missing" && <button className="button button-quiet danger-text" type="button" onClick={onMissing}><CircleAlert size={14} aria-hidden="true" />Mark missing evidence</button>}</div>
           )}
         </div>}
       </div>
@@ -1020,10 +1020,10 @@ function DecideView({ claims, activeClaimId, experiment, onSelectClaim, onDraft,
   const availableClaims = claims.filter((claim) => claim.reviewed);
   return (
     <section className="content-section" aria-labelledby="decide-title">
-      <div className="section-intro"><div><p className="section-eyebrow">Test brief</p><h2 id="decide-title">Name the smallest test</h2><p>Write the metric, guardrail, and stop rule before the team spends time.</p></div><span className="human-label"><Target size={14} />You still own the stop rule</span></div>
-      {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} /><div><h3>No usable claims yet</h3><p>Open the sample worksheet or add a signal in Collect, then review a claim before drafting a brief.</p></div><button className="button button-secondary" type="button" onClick={onBack}>Back to Collect</button></div> : <>
-        <div className="opportunity-picker"><div><span className="card-eyebrow">Choose a direction to test</span><p>{availableClaims.length ? "Choose a claim you reviewed; missing-evidence items can still become a needs-validation brief." : "No claims have been reviewed yet. Return to Verify to accept one or keep a hypothesis."}</p></div><div className="opportunity-options">{claims.map((claim) => <button key={claim.id} type="button" className={`opportunity-option ${activeClaimId === claim.id ? "is-selected" : ""}`} onClick={() => onSelectClaim(claim.id)}><span className={`mini-node ${STATUS_META[claim.status].className}`} /><span>{claim.text}</span><span className="option-status">{STATUS_META[claim.status].label}</span></button>)}</div><button className="button button-secondary" type="button" onClick={() => onDraft(activeClaimId)} disabled={!activeClaimId && !availableClaims.length}><Target size={15} />Draft smallest experiment</button></div>
-        {experiment ? <ExperimentEditor experiment={experiment} onUpdate={onUpdate} onExport={onExport} /> : <div className="state-panel state-panel-soft"><Lightbulb size={22} /><div><h3>Choose a direction to test</h3><p>This will become a hypothesis, primary metric, guardrail, and smallest test. You still decide whether it is worth doing.</p></div></div>}
+      <div className="section-intro"><div><p className="section-eyebrow">Test brief</p><h2 id="decide-title">Name the smallest test</h2><p>Write the metric, guardrail, and stop rule before the team spends time.</p></div><span className="human-label"><Target size={14} aria-hidden="true" />You still own the stop rule</span></div>
+      {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} aria-hidden="true" /><div><h3>No usable claims yet</h3><p>Open the sample worksheet or add a signal in Collect, then review a claim before drafting a brief.</p></div><button className="button button-secondary" type="button" onClick={onBack}>Back to Collect</button></div> : <>
+        <div className="opportunity-picker"><div><span className="card-eyebrow">Choose a direction to test</span><p>{availableClaims.length ? "Choose a claim you reviewed; missing-evidence items can still become a needs-validation brief." : "No claims have been reviewed yet. Return to Verify to accept one or keep a hypothesis."}</p></div><div className="opportunity-options">{claims.map((claim) => <button key={claim.id} type="button" className={`opportunity-option ${activeClaimId === claim.id ? "is-selected" : ""}`} onClick={() => onSelectClaim(claim.id)}><span className={`mini-node ${STATUS_META[claim.status].className}`} /><span>{claim.text}</span><span className="option-status">{STATUS_META[claim.status].label}</span></button>)}</div><button className="button button-secondary" type="button" onClick={() => onDraft(activeClaimId)} disabled={!activeClaimId && !availableClaims.length}><Target size={15} aria-hidden="true" />Draft smallest experiment</button></div>
+        {experiment ? <ExperimentEditor experiment={experiment} onUpdate={onUpdate} onExport={onExport} /> : <div className="state-panel state-panel-soft"><Lightbulb size={22} aria-hidden="true" /><div><h3>Choose a direction to test</h3><p>This will become a hypothesis, primary metric, guardrail, and smallest test. You still decide whether it is worth doing.</p></div></div>}
       </>}
     </section>
   );
@@ -1031,10 +1031,10 @@ function DecideView({ claims, activeClaimId, experiment, onSelectClaim, onDraft,
 
 function ExperimentEditor({ experiment, onUpdate, onExport }: { experiment: ExperimentBrief; onUpdate: (field: keyof ExperimentBrief, value: string) => void; onExport: () => void }) {
   return <div className="experiment-editor">
-    <div className={`readiness-banner ${experiment.readiness === "ready" ? "is-ready" : "is-needs-validation"}`}><span className="readiness-icon">{experiment.readiness === "ready" ? <BadgeCheck size={17} /> : <CircleAlert size={17} />}</span><div><strong>{experiment.readiness === "ready" ? "Ready for confirmation" : "Needs validation"}</strong><p>{experiment.readiness === "ready" ? "This direction has a source-backed claim you accepted; confirm the experiment details." : "This brief is not a conclusion yet. Fill the evidence gaps listed here."}</p></div></div>
+    <div className={`readiness-banner ${experiment.readiness === "ready" ? "is-ready" : "is-needs-validation"}`}><span className="readiness-icon">{experiment.readiness === "ready" ? <BadgeCheck size={17} aria-hidden="true" /> : <CircleAlert size={17} aria-hidden="true" />}</span><div><strong>{experiment.readiness === "ready" ? "Ready for confirmation" : "Needs validation"}</strong><p>{experiment.readiness === "ready" ? "This direction has a source-backed claim you accepted; confirm the experiment details." : "This brief is not a conclusion yet. Fill the evidence gaps listed here."}</p></div></div>
     <div className="brief-heading"><div><span className="section-eyebrow">Draft / edit as needed</span><h3>Smallest experiment brief</h3></div><span className="human-label">Start small, then decide whether to run it</span></div>
     <div className="brief-fields"><BriefField label="Direction to test" value={experiment.opportunity} onChange={(value) => onUpdate("opportunity", value)} wide /><BriefField label="Hypothesis" value={experiment.hypothesis} onChange={(value) => onUpdate("hypothesis", value)} wide /><BriefField label="Primary metric" value={experiment.primaryMetric} onChange={(value) => onUpdate("primaryMetric", value)} /><BriefField label="Guardrail" value={experiment.guardrail} onChange={(value) => onUpdate("guardrail", value)} /><BriefField label="Smallest test" value={experiment.smallestTest} onChange={(value) => onUpdate("smallestTest", value)} wide textarea /><BriefField label="Decision rule" value={experiment.decisionRule} onChange={(value) => onUpdate("decisionRule", value)} wide textarea /><BriefField label="Owner" value={experiment.owner} onChange={(value) => onUpdate("owner", value)} /></div>
-    <div className="brief-footer"><span><ShieldCheck size={14} />You can edit everything before export; this does not send an issue or notification.</span><button className="button button-primary" type="button" onClick={onExport}>Export decision brief<ArrowRight size={16} /></button></div>
+    <div className="brief-footer"><span><ShieldCheck size={14} aria-hidden="true" />You can edit everything before export; this does not send an issue or notification.</span><button className="button button-primary" type="button" onClick={onExport}>Export decision brief<ArrowRight size={16} aria-hidden="true" /></button></div>
   </div>;
 }
 
@@ -1083,11 +1083,11 @@ function ShipView({
           <h2 id="ship-title">Take a brief someone can challenge</h2>
           <p>Carry the source, limitation, next action, and not-covered list into the next product conversation.</p>
         </div>
-        <span className="human-label"><FileText size={14} />Portable Markdown</span>
+        <span className="human-label"><FileText size={14} aria-hidden="true" />Portable Markdown</span>
       </div>
       {!memo ? (
         <div className="state-panel">
-          <CircleAlert size={22} />
+          <CircleAlert size={22} aria-hidden="true" />
           <div><h3>Export is not ready</h3><p>Accept at least one source-backed claim in Verify, then draft the smallest experiment in Decide.</p></div>
           <button className="button button-secondary" type="button" onClick={onBack}>Back to Decide</button>
         </div>
@@ -1096,7 +1096,7 @@ function ShipView({
           <div className="memo-preview">
             <div className="memo-toolbar">
               <div><span className="section-eyebrow">Decision brief / Preview</span><h3>Shareable, but not a completion guarantee</h3></div>
-              <span className="status-badge status-supported"><BadgeCheck size={14} />Ready to inspect</span>
+              <span className="status-badge status-supported"><BadgeCheck size={14} aria-hidden="true" />Ready to inspect</span>
             </div>
             <div className="memo-content">
               <MemoSection title="Decision"><p>{memo.decision}</p></MemoSection>
@@ -1106,11 +1106,11 @@ function ShipView({
               <MemoSection title="Not covered"><ul className="not-covered-list">{memo.notCovered.map((item) => <li key={item}>{item}</li>)}</ul></MemoSection>
             </div>
             <div className="export-actions">
-              <button className="button button-secondary" type="button" onClick={onCopy}><FileText size={16} />Copy Markdown</button>
-              <button className="button button-primary" type="button" onClick={onDownload}><Download size={16} />Download .md</button>
+              <button className="button button-secondary" type="button" onClick={onCopy}><FileText size={16} aria-hidden="true" />Copy Markdown</button>
+              <button className="button button-primary" type="button" onClick={onDownload}><Download size={16} aria-hidden="true" />Download .md</button>
             </div>
             <label className="markdown-fallback"><span>Text fallback · select this if download is blocked</span><textarea value={markdown} readOnly rows={7} aria-label="Decision brief Markdown content" /></label>
-            <button className="text-button" type="button" onClick={onExport}><RotateCcw size={14} />Refresh brief</button>
+            <button className="text-button" type="button" onClick={onExport}><RotateCcw size={14} aria-hidden="true" />Refresh brief</button>
           </div>
           <SessionFeedback
             draft={feedbackDraft}
@@ -1158,11 +1158,11 @@ function SessionFeedback({
           <h3 id="feedback-title">Help decide what to fix next</h3>
           <p>Three concrete lines are enough: what you expected, where you hesitated, and one change you would make. Add trust or recovery detail if it matters.</p>
         </div>
-        {isOpen ? <button className="text-button" type="button" onClick={onClose}>Collapse</button> : <button className="button button-secondary" type="button" onClick={onOpen}>Open pilot note<ArrowRight size={15} /></button>}
+        {isOpen ? <button className="text-button" type="button" onClick={onClose}>Collapse</button> : <button className="button button-secondary" type="button" onClick={onOpen}>Open pilot note<ArrowRight size={15} aria-hidden="true" /></button>}
       </div>
       {isOpen && (
         <form className="feedback-form" onSubmit={(event) => { event.preventDefault(); onPrepare(); }}>
-          <div className="feedback-boundary"><ShieldCheck size={16} /><span>This creates local Markdown only. It does not read raw signals or submit a GitHub issue.</span></div>
+          <div className="feedback-boundary"><ShieldCheck size={16} aria-hidden="true" /><span>This creates local Markdown only. It does not read raw signals or submit a GitHub issue.</span></div>
           <div className="feedback-fields">
             <label className="feedback-control"><span>Your role</span><select value={draft.role} onChange={(event) => onChange("role", event.target.value)}>{FEEDBACK_ROLES.map((role) => <option key={role} value={role}>{FEEDBACK_ROLE_LABELS[role]}</option>)}</select></label>
             <label className="feedback-control"><span>Browser / device (optional)</span><input value={draft.environment} onChange={(event) => onChange("environment", event.target.value)} placeholder="e.g. Chrome · desktop" /></label>
@@ -1174,8 +1174,8 @@ function SessionFeedback({
             <label className="feedback-control feedback-control-wide"><span>One change that would make you try again</span><textarea value={draft.oneChange} onChange={(event) => onChange("oneChange", event.target.value)} rows={2} placeholder="Name the one change that matters most." /></label>
           </div>
           <label className="feedback-privacy"><input type="checkbox" aria-label="Confirm this session report contains no private data" checked={draft.privacyConfirmed} onChange={(event) => onChange("privacyConfirmed", event.target.checked)} /><span>I confirm that this report contains no customer names, private tickets, API keys, tokens, or confidential roadmap material.</span></label>
-          <div className="feedback-footer"><span><ShieldCheck size={14} />A short note is enough; blank fields become Not provided.</span><div><button className="button button-secondary" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit"><ClipboardList size={16} />Prepare field note</button></div></div>
-          {markdown && <div id="feedback-output" className="feedback-output" role="region" aria-labelledby="feedback-output-title" tabIndex={-1}><div className="feedback-output-heading"><div><span className="section-eyebrow">Field note / Inspect before sharing</span><strong id="feedback-output-title">This is a field note, not a validation result.</strong></div><span className="status-badge status-supported"><BadgeCheck size={14} />Ready to inspect</span></div><textarea value={markdown} readOnly rows={12} aria-label="Session feedback Markdown content" /><div className="feedback-output-actions"><button className="button button-primary" type="button" onClick={onCopy}><FileText size={16} />Copy field note</button><a className="button button-secondary" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Open GitHub feedback page in a new tab for manual review">Open feedback page<Link2 size={15} aria-hidden="true" /></a></div><p>GitHub opens a new page only. Review the content yourself before deciding whether to submit.</p></div>}
+          <div className="feedback-footer"><span><ShieldCheck size={14} aria-hidden="true" />A short note is enough; blank fields become Not provided.</span><div><button className="button button-secondary" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit"><ClipboardList size={16} aria-hidden="true" />Prepare field note</button></div></div>
+          {markdown && <div id="feedback-output" className="feedback-output" role="region" aria-labelledby="feedback-output-title" tabIndex={-1}><div className="feedback-output-heading"><div><span className="section-eyebrow">Field note / Inspect before sharing</span><strong id="feedback-output-title">This is a field note, not a validation result.</strong></div><span className="status-badge status-supported"><BadgeCheck size={14} aria-hidden="true" />Ready to inspect</span></div><textarea value={markdown} readOnly rows={12} aria-label="Session feedback Markdown content" /><div className="feedback-output-actions"><button className="button button-primary" type="button" onClick={onCopy}><FileText size={16} aria-hidden="true" />Copy field note</button><a className="button button-secondary" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Open GitHub feedback page in a new tab for manual review">Open feedback page<Link2 size={15} aria-hidden="true" /></a></div><p>GitHub opens a new page only. Review the content yourself before deciding whether to submit.</p></div>}
         </form>
       )}
     </section>
@@ -1209,7 +1209,7 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
         <p className="context-record"><span className="card-eyebrow">Sheet record</span>{contextRecord}</p>
         <div className="context-list"><ContextItem label="Question on the desk" value={contextQuestion} /><ContextItem label="Rule" value={contextRule} /></div>
       </div>
-      <div className="context-next"><span className="card-eyebrow">Next action</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack && currentStep === "collect" ? <span className="context-next-static">Use the review mark in the workpaper.</span> : pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
+      <div className="context-next"><span className="card-eyebrow">Next action</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack && currentStep === "collect" ? <span className="context-next-static">Use the review mark in the workpaper.</span> : pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} aria-hidden="true" /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
       <div className="context-trace"><div className="trace-header"><span className="card-eyebrow">This session</span><span>{events.length ? "Last action below" : "No action yet"}</span></div>{events.length === 0 ? <p>Session actions stay on this page and do not include raw signal content.</p> : <><p>Last action: {EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>Copy session receipt</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Report this session in a new tab for manual review">Report this session<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div>
     </aside>
   );
@@ -1217,7 +1217,7 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
 
 function ContextItem({ label, value }: { label: string; value: string }) { return <div className="context-item"><span className="context-item-rule" aria-hidden="true" /><div><span>{label}</span><strong>{value}</strong></div></div>; }
 
-function NoticeIcon({ tone }: { tone: NoticeTone }) { if (tone === "success") return <CheckCircle2 size={16} />; if (tone === "warning") return <CircleAlert size={16} />; if (tone === "error") return <CircleAlert size={16} />; return <Info size={16} />; }
+function NoticeIcon({ tone }: { tone: NoticeTone }) { if (tone === "success") return <CheckCircle2 size={16} aria-hidden="true" />; if (tone === "warning") return <CircleAlert size={16} aria-hidden="true" />; if (tone === "error") return <CircleAlert size={16} aria-hidden="true" />; return <Info size={16} aria-hidden="true" />; }
 
 function formatDate(value: string) { return new Intl.DateTimeFormat("en-US", { month: "short", day: "numeric" }).format(new Date(value)); }
 function formatFolioNumber(value: number) { return String(value).padStart(2, "0"); }

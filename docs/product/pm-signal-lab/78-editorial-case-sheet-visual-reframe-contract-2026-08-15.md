@@ -4,6 +4,12 @@ Status: implementation in progress. This contract addresses the remaining
 AI-dashboard feel; it does not claim that the market, real PM users, or GitHub
 stars have validated the direction.
 
+Evidence update: the Codex Chrome Extension path has since been executed
+against the local production preview and the follow-up accessibility fix is
+recorded in [the local QA report](./79-editorial-case-sheet-local-qa-2026-08-15.md).
+Native VoiceOver/NVDA/TalkBack output, hosted release, participant learning,
+and adoption remain unverified.
+
 ## KB Application Contract
 
 ### Relevant KB and why it applies
@@ -190,6 +196,8 @@ external mutation is introduced. This change can prove a different visual
 hierarchy and preserve the existing local workflow. It cannot prove that the
 market likes the design, that the skill is adopted, or that stars will grow.
 
-The Chrome Extension route, native VoiceOver/NVDA/TalkBack output, real-device
-touch, non-owner comprehension, real PM sessions, and adoption remain
-`未驗證` until directly exercised.
+Native VoiceOver/NVDA/TalkBack output, real-device touch, non-owner
+comprehension, real PM sessions, hosted release, and adoption remain
+`未驗證` until directly exercised. Chrome Extension local evidence is recorded
+in the follow-up QA report; it is not evidence for the hosted URL or native
+assistive technology.

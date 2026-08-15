@@ -24,6 +24,15 @@ mobile reflow, and tablet overflow checks passed in the fallback browser
 runner. The local production preview also passed the stale-copy/static asset
 verifier.
 
+The same local production preview was then exercised through the Codex Chrome
+Extension in an existing Chrome agent tab. The core path, privacy gate, skip
+link, mobile fixed action, and Chrome accessibility tree were directly
+observed. Before the icon-semantics fix, the tree exposed 18 unnamed image
+nodes from decorative Lucide SVGs. After adding `aria-hidden="true"` to those
+decorative icons, a fresh tree reported 0 unnamed images, 0 unnamed buttons,
+and 0 unnamed links. This is an accessibility-tree result, not native
+VoiceOver, NVDA, TalkBack, or a real-device result.
+
 One real interaction defect was found and fixed during this QA pass: loading
 the sample previously focused the desktop `Start review` action in the lower
 context band and scrolled the page to approximately `scrollY=1203`, hiding the
@@ -41,17 +50,18 @@ canonical hosted release audit because the change is not merged or deployed.
 
 - Intended product-QA route: Codex Chrome Extension controlling the existing
   Chrome session.
-- Current tool surface: that Chrome Extension route was unavailable in this
-  task. It remains `未驗證`; it was not silently replaced with a claim of
-  native Chrome QA.
+- Chrome Extension route: executed against `http://127.0.0.1:4179/` in the
+  existing Chrome agent tab. It supplied direct visible interaction, focus,
+  mobile viewport, and Chrome accessibility-tree evidence without a claim of
+  native assistive-technology output.
 - Fallback route: headed Playwright CLI plus a fresh headless Playwright
-  browser runner against the local production preview. The headed session was
-  used for visual inspection; the headless runner supplied repeatable DOM,
+  browser runner against the same local production preview. The headed session
+  was used for visual inspection; the headless runner supplied repeatable DOM,
   focus, viewport, request, console, form, download, and state assertions.
-- Fallback evidence proves the page served, rendered, accepted direct browser
-  interaction, and exposed the checked semantics. It does not prove
-  foreground focus in Tommy's existing Chrome profile, VoiceOver/NVDA/TalkBack
-  output, browser zoom, physical-device behavior, or non-owner comprehension.
+- Together these routes prove the local page served, rendered, accepted the
+  checked interactions, and exposed the checked semantics. They do not prove
+  VoiceOver/NVDA/TalkBack output, browser zoom, physical-device behavior, or
+  non-owner comprehension.
 - Fixture mode: deterministic fictional source data. No live model, model
   provider, login, telemetry, GitHub mutation, or raw-signal upload is
   connected.
@@ -73,6 +83,7 @@ canonical hosted release audit because the change is not merged or deployed.
 - Add-source validation, valid save, and refresh reset.
 - Keyboard skip link, accessible names, landmarks, heading count, and
   `aria-current` workflow state.
+- Chrome accessibility tree for unnamed decorative controls and images.
 - Console, failed-request, stale-copy, asset, typecheck, test, and build
   checks.
 
@@ -80,7 +91,6 @@ canonical hosted release audit because the change is not merged or deployed.
 
 - Canonical GitHub Pages behavior for this branch; merge and deploy are still
   pending.
-- Codex Chrome Extension foreground control and existing Chrome-profile state.
 - Native screen-reader output, VoiceOver rotor, NVDA, TalkBack, zoom, and
   reduced-motion execution.
 - Physical iOS/Android touch, share sheet, or file-save behavior.
@@ -152,6 +162,13 @@ clipboard permission only for the local copy assertion. It ran these steps:
 10. Resize to `390×844`; assert mobile stepper, fixed action, no horizontal
     overflow, and successful mobile sample loading. Resize to `768×1024` and
     assert no horizontal overflow.
+11. Repeat the core path in the Codex Chrome Extension tab: open the sample,
+    start review, accept one claim, draft the smallest experiment, export the
+    brief, exercise the blocked and confirmed pilot-note paths, and inspect
+    the final focus/viewport state.
+12. Enable the Chrome accessibility domain and inspect a fresh full tree.
+    Before the icon fix there were 18 unnamed image nodes; after the fix the
+    tree reported 0 unnamed images, 0 unnamed buttons, and 0 unnamed links.
 
 This is an engineering acceptance trace, not a usability score, participant
 study, adoption signal, or star-growth result.
@@ -162,13 +179,14 @@ study, adoption signal, or star-growth result.
 |---|---|
 | `npm test` | PASS — 4 test files, 10 tests |
 | `npm run lint` | PASS — `tsc --noEmit` |
-| `npm run build` | PASS — Vite 7.3.6; hashed JS `index-Dbn2FkHU.js`, CSS `index-BAq-wObY.css` |
+| `npm run build` | PASS — Vite 7.3.6; hashed JS `index-Ci-HC9X1.js`, CSS `index-BAq-wObY.css` |
 | `git diff --check` | PASS |
 | `HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted` | PASS — HTTP 200, assets 200, current copy present, stale copy absent; `canonical_https=false` is expected for local HTTP |
 | Fallback browser console | PASS — 0 errors, 0 warnings |
 | Fallback browser requests | PASS — 0 failed requests in the main trace; privacy trace made 3 localhost requests and 0 outbound requests |
 | Viewport layout | PASS — desktop, tablet, and mobile width predicates; mobile action is `fixed` |
 | Semantic DOM | PASS — landmarks present, one `h1`, no unnamed buttons, current workflow step exposed |
+| Chrome accessibility tree | PASS after icon fix — 0 unnamed images, 0 unnamed buttons, 0 unnamed links; `main#main-content` focus observed |
 
 The local verifier is evidence for the local production preview only. It is
 not evidence that the canonical Pages URL now serves the new hashed bundle.
@@ -196,13 +214,12 @@ The following are intentionally held rather than inferred from local evidence:
 2. Run a fresh canonical HTTPS verifier and browser trace against
    `https://asdc163.github.io/pm-signal-lab/`; compare the served asset hash and
    visible copy with this report.
-3. Run the Codex Chrome Extension path when the tool surface is available.
-4. Execute native accessibility and real-device checks where the platform
+3. Execute native accessibility and real-device checks where the platform
    permits.
-5. Run at least five unguided international PM sessions and record concrete
+4. Run at least five unguided international PM sessions and record concrete
    expectation, hesitation, trust, recovery, and one-change feedback. Do not
    convert owner-run screenshots into user research.
-6. Observe GitHub traffic and star movement as separate adoption signals. The
+5. Observe GitHub traffic and star movement as separate adoption signals. The
    current account/repository state is not changed or reinterpreted by this
    local QA.
 
@@ -259,8 +276,8 @@ read and operated without an AI persona.
 | Code and unit | Vitest, TypeScript compiler | 4 files / 10 tests; `npm run lint` pass | No mutation testing or coverage threshold configured |
 | Build | Vite production build | `npm run build` pass; hashed JS/CSS captured | CDN/Pages cache behavior pending merge |
 | API / network | Browser request listener and static verifier | No failed requests; local-only static assets; no API/provider call | No API exists in this v0; future API contract tests are out of scope |
-| Browser behavior | Headed Playwright CLI plus fresh headless context | Direct click/fill/keyboard/resize/download/state trace PASS | Codex Chrome Extension foreground route unavailable |
-| Accessibility DOM | Semantic DOM oracle, accessible names, focus assertions | Landmarks, one `h1`, named buttons, skip link, `aria-current` PASS | Native screen reader and accessibility-tree inspection unavailable |
+| Browser behavior | Codex Chrome Extension plus headed/fresh headless Playwright contexts | Direct click/fill/keyboard/resize/download/state trace PASS in both local routes | Canonical hosted browser behavior remains pending |
+| Accessibility DOM | Semantic DOM oracle, Chrome accessibility tree, accessible names, focus assertions | Landmarks, one `h1`, named buttons, skip link, `aria-current`, and post-fix AX tree PASS | Native screen reader and dedicated contrast tooling remain unverified |
 | Visual | Fresh `1280×900`, `390×844` screenshots plus visual inspection | Editorial case-sheet hierarchy, mobile sticky action, no AI theatre | Automated pixel-diff baseline not configured |
 | Responsive | Viewport oracle at desktop/tablet/mobile | No horizontal overflow; mobile stepper/action predicates PASS | Physical device, browser zoom, orientation changes not run |
 | Performance | Local build and first render smoke | Preview returns HTML/assets 200; no performance claim made | No Lighthouse/Web Vitals budget, slow-network, CPU-throttle, or memory trace |
@@ -279,7 +296,7 @@ production API, model-evaluation, telemetry, or security program.
 |---|---|---|---|
 | E-079-01 | `npm test` output: 4 files / 10 tests | Domain regression suite passes | Local code |
 | E-079-02 | `npm run lint` | TypeScript has no type errors | Local code |
-| E-079-03 | `npm run build` | Production bundle compiles; `index-Dbn2FkHU.js` and `index-BAq-wObY.css` emitted | Local build |
+| E-079-03 | `npm run build` | Production bundle compiles; `index-Ci-HC9X1.js` and `index-BAq-wObY.css` emitted | Local build |
 | E-079-04 | `HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted` | Local HTTP 200, assets 200, current copy present, stale copy absent | Local HTTP/static |
 | E-079-05 | `editorial-case-sheet-local-blank-1280-2026-08-15.png` | First-run desktop hierarchy | Visual |
 | E-079-06 | `editorial-case-sheet-local-loaded-1280-2026-08-15.png` | Loaded case hierarchy after focus/scroll fix | Visual |
@@ -289,6 +306,8 @@ production API, model-evaluation, telemetry, or security program.
 | E-079-10 | Focus regression probe | Sample load yields `scrollY=0`, `activeId=main-content` on desktop and mobile | Browser focus |
 | E-079-11 | Privacy trace | Unchecked block, checked field note, 0 outbound requests | Privacy/browser |
 | E-079-12 | Download trace | `pm-signal-decision-brief.md` emitted by browser download | Browser output |
+| E-079-13 | Chrome Extension local trace | Sample → source → claim → smallest test → export, privacy block/allow, and mobile fixed action observed in the agent-controlled Chrome tab | Chrome behavior |
+| E-079-14 | Chrome `Accessibility.getFullAXTree` after `aria-hidden` fix | 0 unnamed images, 0 unnamed buttons, 0 unnamed links; skip-link focus and mobile viewport checks also passed | Chrome accessibility |
 
 ### Repository QA surface discovery
 
@@ -353,7 +372,7 @@ the deterministic fixture from being mistaken for a model evaluation:
 | F-079-01 | Sample loading is intentionally asynchronous (`260ms`) and a browser runner may read before the ready state | Wait on visible state text (`4 source lines`) instead of arbitrary sleep; focus/scroll assertion runs after ready | Mitigated in current runner |
 | F-079-02 | Clipboard permission differs between headed and headless contexts | Use explicit local clipboard permission for success path; keep textarea fallback; test warning recovery separately before release | Success path PASS; forced denial `未驗證` |
 | F-079-03 | Full-page screenshots can capture the viewport after focus-induced scroll | Capture viewport after explicit `scrollY`/focus assertion and inspect fresh images | Mitigated by sample-load focus fix |
-| F-079-04 | Chrome Extension route is unavailable | Keep fallback evidence separate from native Chrome evidence; do not promote PASS across layers | Open QA debt |
+| F-079-04 | Decorative Lucide SVGs were exposed as unnamed image nodes in the Chrome accessibility tree | Add `aria-hidden="true"` to decorative icons; rerun the AX-tree audit and keep native AT separate | Mitigated: fresh Chrome tree reports 0 unnamed images; native AT remains `未驗證` |
 | F-079-05 | Existing Playwright/browser processes can outlive a CLI call | Close the owned browser context in `finally`; inspect process/session state before handoff | Controlled for current runner |
 
 No flaky result was promoted as PASS. A future CI browser suite should retry
@@ -379,15 +398,17 @@ with a larger timeout.
 | Profile | Relevant check | Result |
 |---|---|---|
 | Keyboard-only PM | Skip link, visible focus, named buttons, focus target after async sample load | PASS via fallback keyboard/DOM checks |
-| Screen-reader PM | Landmarks, heading structure, status labels, source/claim regions, `aria-current` | DOM semantics PASS; actual VoiceOver/NVDA output `未驗證` |
+| Screen-reader PM | Landmarks, heading structure, status labels, source/claim regions, `aria-current`, and Chrome AX tree | DOM semantics and Chrome AX tree PASS; actual VoiceOver/NVDA/TalkBack output `未驗證` |
 | Low-vision / zoom user | Text wrap and no horizontal overflow at tested widths | 390/768/1280 width checks PASS; zoom `未驗證` |
 | Motor-impaired / touch user | Primary actions do not depend on hover; sticky action present on mobile | CSS/DOM PASS; physical touch target measurement/device `未驗證` |
 | Reduced-motion user | No required action depends on animation; sample state waits for deterministic content | Not explicitly run with `prefers-reduced-motion`; mark `未驗證` |
 
 Focused WCAG 2.2 checks covered keyboard access, focus target, labels, heading
 hierarchy, status announcements, and reflow. Contrast and full assistive-tech
-conformance were not claimed because no dedicated contrast or native AT tool
-was available in this task.
+conformance were not claimed because native AT and dedicated contrast tooling
+were not executed in this task. The Chrome accessibility tree is supporting
+evidence for exposed semantics, not a substitute for native screen-reader
+output.
 
 ## Feature logic and state map
 
@@ -431,6 +452,7 @@ paired evaluation set.
 | QA-079-009 / P1 | `390×844` and `768×1024` | Resize and inspect | Sticky action / no overflow | `scrollWidth <= innerWidth`; mobile stepper visible | E-079-07, E-079-08, E-079-09 |
 | QA-079-010 / P1 | Local bundle built | Run static verifier | HTTP/assets/current/stale checks pass | Served hashed asset is the current build | E-079-03, E-079-04 |
 | QA-079-011 / P2 | Branch not merged | Open canonical URL | Must not be called current release | Hosted commit/hash comparison is pending | Release hold |
+| QA-079-012 / P1 | Local preview in Chrome Extension tab | Run core flow, privacy branches, keyboard/mobile checks, then inspect AX tree | Functional path remains usable and decorative icons are absent from the semantic tree | 0 unnamed images, 0 unnamed buttons, 0 unnamed links | E-079-13, E-079-14 |
 
 The case IDs above are the traceability handles used by the contract and this
 report. The visible result is what a user sees; the hidden-state assertion is
@@ -492,6 +514,23 @@ channel, or production model. These are planned gates, not hidden telemetry.
   this local branch.
 - Do not change: source-to-claim semantics, privacy gate, Markdown boundary,
   or real GitHub submission behavior.
+
+### Decorative icon semantics defect
+
+- User impact: a screen-reader user could encounter unnamed image nodes for
+  icons that carry no information, adding noise to the case sheet and making
+  the product feel less considered.
+- Root cause: decorative Lucide SVGs were rendered without an explicit hidden
+  semantic boundary.
+- Minimal fix: add `aria-hidden="true"` to decorative icon instances in
+  `src/App.tsx`; preserve the visible icon treatment and the accessible names
+  on their containing buttons and links.
+- Acceptance criteria: a fresh Chrome accessibility tree reports zero unnamed
+  images, zero unnamed buttons, and zero unnamed links; visible labels and
+  keyboard focus remain intact.
+- Verification: Chrome Extension rerun after the patch satisfied the counts;
+  native VoiceOver/NVDA/TalkBack output remains `未驗證`.
+- Regression cases: `QA-079-008`, `QA-079-012`.
 
 ### Reframe rollback boundary
 
