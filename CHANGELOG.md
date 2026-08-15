@@ -6,7 +6,7 @@
 - Restored keyboard focus to the visible next action after sample load and workflow transitions; compact viewports now prefer the sticky mobile action so loading does not scroll the user into the lower context rail.
 - Recorded fresh Chrome Extension local QA for empty, source, blank-edit recovery, human review, decision brief, copy/download, privacy-gated pilot note, keyboard, mobile, overflow, and console states.
 
-This release does not claim native screen-reader sign-off, hosted verification until Pages is rechecked, real-user adoption, or GitHub star growth.
+This release does not claim native screen-reader sign-off, real-user adoption, or GitHub star growth. The canonical hosted check is recorded in [`46-design-a11y-polish-hosted-release-audit-2026-08-15.md`](./docs/product/pm-signal-lab/46-design-a11y-polish-hosted-release-audit-2026-08-15.md).
 
 Local evidence is recorded in [`45-design-a11y-polish-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/45-design-a11y-polish-local-qa-2026-08-15.md).
 
