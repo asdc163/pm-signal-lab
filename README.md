@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships two small, tool-free Agent Skills for evidence-first PM
+This repository ships three small, tool-free Agent Skills for evidence-first PM
 work:
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -21,13 +21,17 @@ work:
 - [`pm-trend-to-decision`](./skills/pm-trend-to-decision/SKILL.md) turns an AI,
   platform, developer-tool, or market change note into an impact map, bounded
   implications, and one smallest validation. Start with its [fictional platform-change first run](./skills/pm-trend-to-decision/examples/first-run.md) or read the [worked platform-change review](./skills/pm-trend-to-decision/references/platform-change-review.md).
+- [`pm-experiment-to-readout`](./skills/pm-experiment-to-readout/SKILL.md)
+  turns a bounded test result into a metric and guardrail readout, a
+  continue/change/stop/hold decision, and one smallest next action. Start with
+  its [fictional experiment first run](./skills/pm-experiment-to-readout/examples/first-run.md) or read the [worked experiment readout](./skills/pm-experiment-to-readout/references/experiment-readout.md).
 
-Neither skill needs a model, tool permission, network access, login, or
+None of the skills needs a model, tool permission, network access, login, or
 external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try either first run with a real, sanitized note, then
+**Public skill pilot:** Try one of the three first runs with a real, sanitized note, then
 leave the client/version, source IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
