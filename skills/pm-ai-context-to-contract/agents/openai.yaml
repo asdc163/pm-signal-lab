@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Context to Contract"
+  short_description: "Turn AI context changes into a reviewable PM contract"
+  default_prompt: "Use $pm-ai-context-to-contract to turn this AI or agent context change into a source-bounded contract for instructions, knowledge, tools, memory, state, and query. Define authority, freshness, privacy, selection, budget, compaction, failure recovery, evaluation slices, and a Ship/Hold/Rollback decision. Keep raw content, provider limits, adoption, and unverified quality separate."
