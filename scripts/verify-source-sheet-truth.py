@@ -38,6 +38,41 @@ def body_text(page: Page) -> str:
     return page.locator("body").inner_text()
 
 
+def inspect_session_note(page: Page) -> dict[str, object]:
+    details = page.locator(".context-trace")
+    summary = details.locator("summary")
+    body = page.locator(".context-trace-body")
+    receipt = page.get_by_role("button", name="Copy session receipt")
+    report_link = page.locator(".context-trace-actions a")
+
+    initial_closed = details.get_attribute("open") is None
+    initial_body_hidden = not body.is_visible()
+    summary.focus()
+    summary_focused = page.evaluate(
+        "document.activeElement?.classList.contains('trace-summary') === true"
+    )
+    page.keyboard.press("Enter")
+    opened_by_keyboard = details.get_attribute("open") is not None
+    receipt_visible_when_open = receipt.is_visible()
+    report_visible_when_open = report_link.is_visible()
+    page.keyboard.press("Enter")
+    closed_after_keyboard = details.get_attribute("open") is None
+    body_hidden_after_close = not body.is_visible()
+    page.evaluate("document.activeElement?.blur()")
+
+    return {
+        "summary_text": " ".join(summary.inner_text().split()),
+        "initial_closed": initial_closed,
+        "initial_body_hidden": initial_body_hidden,
+        "summary_focused": summary_focused,
+        "opened_by_keyboard": opened_by_keyboard,
+        "receipt_visible_when_open": receipt_visible_when_open,
+        "report_visible_when_open": report_visible_when_open,
+        "closed_after_keyboard": closed_after_keyboard,
+        "body_hidden_after_close": body_hidden_after_close,
+    }
+
+
 def run_custom_source_flow(page: Page, screenshot_name: str) -> dict[str, object]:
     page.goto(BASE_URL, wait_until="networkidle")
     page.get_by_role("heading", name="Start with a source line").wait_for(state="visible")
@@ -55,6 +90,7 @@ def run_custom_source_flow(page: Page, screenshot_name: str) -> dict[str, object
 
     text = body_text(page)
     aria_label = page.locator(".pack-subject").get_attribute("aria-label")
+    session_note = inspect_session_note(page)
     page.evaluate("window.scrollTo(0, 0)")
     page.screenshot(path=SCREENSHOT_DIR / screenshot_name, full_page=True)
 
@@ -67,6 +103,7 @@ def run_custom_source_flow(page: Page, screenshot_name: str) -> dict[str, object
         "subject_aria_label": aria_label,
         "visible_current_actions": page.locator("[data-current-action]:visible").count(),
         "source_row_action_hidden": not page.locator(".next-action-card .button").is_visible(),
+        "session_note": session_note,
     }
 
 
@@ -78,6 +115,7 @@ def run_sample_source_flow(page: Page, screenshot_name: str) -> dict[str, object
 
     text = body_text(page)
     aria_label = page.locator(".pack-subject").get_attribute("aria-label")
+    session_note = inspect_session_note(page)
     page.evaluate("window.scrollTo(0, 0)")
     page.screenshot(path=SCREENSHOT_DIR / screenshot_name, full_page=True)
 
@@ -101,6 +139,7 @@ def run_sample_source_flow(page: Page, screenshot_name: str) -> dict[str, object
         "owner_value": owner_value,
         "visible_current_actions": page.locator("[data-current-action]:visible").count(),
         "hero_action_absent": page.locator(".hero-status .button").count() == 0,
+        "session_note": session_note,
     }
 
 
@@ -153,6 +192,15 @@ with sync_playwright() as playwright:
     assert custom_result["subject_aria_label"] == "Sheet: your source notes, local sheet"
     assert custom_result["visible_current_actions"] == 1
     assert custom_result["source_row_action_hidden"] is True
+    assert custom_result["session_note"]["summary_text"] == "Session note Optional local receipt"
+    assert custom_result["session_note"]["initial_closed"] is True
+    assert custom_result["session_note"]["initial_body_hidden"] is True
+    assert custom_result["session_note"]["summary_focused"] is True
+    assert custom_result["session_note"]["opened_by_keyboard"] is True
+    assert custom_result["session_note"]["receipt_visible_when_open"] is True
+    assert custom_result["session_note"]["report_visible_when_open"] is True
+    assert custom_result["session_note"]["closed_after_keyboard"] is True
+    assert custom_result["session_note"]["body_hidden_after_close"] is True
     assert sample_result["heading_present"] is True
     assert sample_result["sample_subject_present"] is True
     assert sample_result["sample_boundary_present"] is True
@@ -162,6 +210,15 @@ with sync_playwright() as playwright:
     assert sample_result["owner_value"] == "Owner to confirm before the test"
     assert sample_result["visible_current_actions"] == 1
     assert sample_result["hero_action_absent"] is True
+    assert sample_result["session_note"]["summary_text"] == "Session note Optional local receipt"
+    assert sample_result["session_note"]["initial_closed"] is True
+    assert sample_result["session_note"]["initial_body_hidden"] is True
+    assert sample_result["session_note"]["summary_focused"] is True
+    assert sample_result["session_note"]["opened_by_keyboard"] is True
+    assert sample_result["session_note"]["receipt_visible_when_open"] is True
+    assert sample_result["session_note"]["report_visible_when_open"] is True
+    assert sample_result["session_note"]["closed_after_keyboard"] is True
+    assert sample_result["session_note"]["body_hidden_after_close"] is True
     assert browser_errors == []
     assert request_failures == []
 

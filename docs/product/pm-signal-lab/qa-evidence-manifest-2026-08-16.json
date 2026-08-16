@@ -1,8 +1,8 @@
 {
-  "run_id": "pm-signal-lab-single-primary-action-ownership-2026-08-16",
+  "run_id": "pm-signal-lab-session-note-progressive-disclosure-2026-08-16",
   "product": "PM Signal Lab",
-  "candidate_ref": "codex/less-ai-editorial-sheet — single-primary-action ownership slice (local candidate)",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome 151.0.7922.138 fallback at 390x844, 1024x900, and 1440x900; focused source-truth and action-ownership oracle at 390x844 and 1440x1000; preferred Chrome Extension route unavailable in this runtime",
+  "candidate_ref": "codex/less-ai-editorial-sheet — Session note progressive-disclosure slice (local candidate)",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; focused source-truth, action-ownership, and Session note keyboard oracle at 390x844 and 1440x1000; preferred Chrome Extension route unavailable in this runtime",
   "layers": [
     {
       "layer": "domain_tests",
@@ -22,8 +22,8 @@
       "layer": "production_build",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-5r46Fikq.js and index-ByNjNY-f.css emitted"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-C4geDNrd.js and index-CcoUeL_C.css emitted"
     },
     {
       "layer": "local_static_verifier",
@@ -66,9 +66,9 @@
       "layer": "custom_source_sheet_truth",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run verify:source-truth — fresh manual 390px and sample 1440px paths, then sample Verify → Decide owner check",
-      "result": "custom/sample source boundary passed; visible_current_actions=1 at 390px and 1440px; source_row_action_hidden=true at 390px; hero_action_absent=true at 1440px; owner_value=Owner to confirm before the test; browser_errors=[]; request_failures=[]"
+      "result": "custom/sample source boundary passed; visible_current_actions=1 at 390px and 1440px; source_row_action_hidden=true at 390px; hero_action_absent=true at 1440px; owner_value=Owner to confirm before the test; Session note closed and keyboard-opened/closed in both states; browser_errors=[]; request_failures=[]"
     },
     {
       "layer": "single_primary_action_ownership",
@@ -77,6 +77,14 @@
       "artifact_path_or_url": "docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md",
       "command_or_click_path": "Fresh local browser traces at 390x844 and 1440x1000",
       "result": "One visible [data-current-action] per loaded viewport; desktop action remains after source rows; mobile fixed bar owns the action; no horizontal overflow"
+    },
+    {
+      "layer": "session_note_progressive_disclosure",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run verify:source-truth — native Session note at 390x844 and 1440x1000; focus + Enter open/close trace",
+      "result": "summary_text=Session note Optional local receipt; initial_closed=true; initial_body_hidden=true; summary_focused=true; opened_by_keyboard=true; receipt_visible_when_open=true; report_visible_when_open=true; closed_after_keyboard=true; body_hidden_after_close=true; browser_errors=[]; request_failures=[]"
     },
     {
       "layer": "responsive_mobile_emulation",
@@ -96,8 +104,8 @@
       "layer": "visual_inspection",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md",
-      "command_or_click_path": "Blank, loaded, Decide, Ship, tablet, and desktop screenshots inspected; source rows remain the visual anchor"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh manual 390px and fictional sample 1440px screenshots inspected; Session note collapsed; source rows and next step remain the visual anchor"
     },
     {
       "layer": "browser_console_and_network_boundary",
@@ -184,7 +192,17 @@
       "heading": "Your source sheet",
       "subject": "your source notes · local sheet",
       "sample_only_copy_absent": true,
-      "subject_aria_label": "Sheet: your source notes, local sheet"
+      "subject_aria_label": "Sheet: your source notes, local sheet",
+      "session_note": {
+        "summary_text": "Session note Optional local receipt",
+        "initial_closed": true,
+        "initial_body_hidden": true,
+        "opened_by_keyboard": true,
+        "receipt_visible_when_open": true,
+        "report_visible_when_open": true,
+        "closed_after_keyboard": true,
+        "body_hidden_after_close": true
+      }
     },
     "sample_source_1440": {
       "heading": "Support draft review",
@@ -193,7 +211,17 @@
       "subject_aria_label": "Subject: support draft, fictional worksheet",
       "owner_value": "Owner to confirm before the test",
       "visibleCurrentActions": 1,
-      "heroActionAbsent": true
+      "heroActionAbsent": true,
+      "session_note": {
+        "summary_text": "Session note Optional local receipt",
+        "initial_closed": true,
+        "initial_body_hidden": true,
+        "opened_by_keyboard": true,
+        "receipt_visible_when_open": true,
+        "report_visible_when_open": true,
+        "closed_after_keyboard": true,
+        "body_hidden_after_close": true
+      }
     },
       "session_boundary_390": {
         "sample_button_disabled_during_loading": true,
@@ -230,7 +258,7 @@
     "request_failures": []
   },
   "notes": [
-    "This manifest records the focused local single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
+    "This manifest records the focused local Session note progressive-disclosure, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
     "The preferred Chrome Extension route, native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates.",
     "The canonical hosted verifier currently fails because the Pages URL still serves the prior bundle missing the current first-run copy."
   ]

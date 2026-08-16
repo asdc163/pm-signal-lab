@@ -69,6 +69,8 @@ try {
     "copy is not resolution",
     "Local fixture only",
     "Open the sample worksheet",
+    "Session note",
+    "Optional local receipt",
     "Recent action",
     "Last action below",
     "Sheet note",

@@ -4633,3 +4633,62 @@ main.workspace:focus {
     padding-left: 12px;
   }
 }
+
+/* Optional local receipt — keep operations available without making the
+   worksheet read like an activity feed. Native details supplies the state. */
+.context-trace > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 30px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.context-trace > summary::-webkit-details-marker {
+  display: none;
+}
+
+.trace-summary-copy {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 7px 10px;
+}
+
+.trace-summary-copy .card-eyebrow {
+  margin: 0;
+}
+
+.trace-summary-label {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.trace-summary-icon {
+  flex: 0 0 auto;
+  color: var(--muted);
+}
+
+.context-trace[open] > summary .trace-summary-icon {
+  transform: rotate(180deg);
+}
+
+.context-trace > summary:hover .trace-summary-label,
+.context-trace > summary:hover .trace-summary-icon {
+  color: var(--accent-dark);
+}
+
+.context-trace > summary:focus-visible {
+  outline: 2px solid var(--trust);
+  outline-offset: 4px;
+}
+
+.context-trace-body {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
