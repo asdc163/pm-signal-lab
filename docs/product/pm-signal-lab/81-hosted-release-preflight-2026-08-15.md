@@ -17,7 +17,7 @@ requires an explicit approval at the point of action.
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
 | Candidate code commit | `18b50f6` — `Fix mobile source-first reading path` |
-| PR head observed before this push | `a017549` — previous pushed candidate; CI run `31895984321` was green |
+| PR head currently observed | `96ceee3` — pushed candidate; CI run `31919343683` is green |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -74,8 +74,8 @@ All of the following must be true at the moment of release:
   this route remains `未驗證`.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [ ] PR #44 CI must be green for pushed head `18b50f6` before merge; the
-  previous green run was for `a017549` (`31895984321`).
+- [x] PR #44 CI is green for pushed head `96ceee3`; run `31919343683`
+  completed Test, Typecheck, and Build successfully.
 - [ ] The user explicitly approves the public merge/deploy action.
 
 The unresolved items are intentionally kept separate. A local fallback pass
