@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships fifteen small, tool-free Agent Skills for evidence-first PM
+This repository ships sixteen small, tool-free Agent Skills for evidence-first PM
 work:
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -87,13 +87,19 @@ work:
   durable receipts, recovery, and an evaluation or release gate. Start with
   its [fictional approval first run](./skills/pm-ai-approval-to-flow/examples/first-run.md)
   or read the [worked support approval flow](./skills/pm-ai-approval-to-flow/references/support-approval-flow.md).
+- [`pm-ai-cost-to-guardrail`](./skills/pm-ai-cost-to-guardrail/SKILL.md) turns an
+  AI or agent cost or latency signal into a source-bounded cost ledger,
+  successful-outcome denominator, p50/p95 latency budget, quality guardrails,
+  routing or scope options, and a ship/hold/rollback decision. Start with its
+  [fictional cost guardrail first run](./skills/pm-ai-cost-to-guardrail/examples/first-run.md)
+  or read the [worked support cost guardrail](./skills/pm-ai-cost-to-guardrail/references/support-cost-guardrail.md).
 
 None of the skills needs a model, tool permission, network access, login, or
 external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the fifteen first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the sixteen first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.

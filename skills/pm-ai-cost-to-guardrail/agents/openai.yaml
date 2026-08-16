@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Cost to Guardrail"
+  short_description: "Turn AI cost and latency into release guardrails"
+  default_prompt: "Use $pm-ai-cost-to-guardrail to turn this AI or agent cost signal into a source-bounded cost ledger, successful-outcome denominator, latency budget, quality guardrails, routing or scope options, and a ship/hold decision. Keep pricing snapshots, estimates, observed usage, and unverified economics separate."
