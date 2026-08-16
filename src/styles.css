@@ -4385,3 +4385,54 @@ main.workspace:focus {
     padding-bottom: 16px;
   }
 }
+
+/* Quiet utility / source-first pass — 2026-08-16.
+   The loaded worksheet already has a workflow index; remove the duplicate
+   folio cue and let the source record carry the visual signature. */
+.workbench.is-loaded .hero-folio-index {
+  display: none;
+}
+
+@media (min-width: 701px) {
+  .workbench.is-loaded .hero-block h1 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  .workbench.is-loaded .source-ledger-heading h3 {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 700px) {
+  .workbench.is-loaded .hero-block h1 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  .workbench.is-loaded .source-ledger-heading h3 {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+  }
+}

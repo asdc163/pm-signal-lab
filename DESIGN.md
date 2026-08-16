@@ -42,13 +42,14 @@ The visual signature is a quiet workpaper: the workflow is a thin paper index, t
 
 - First read: `Support draft review` under the `Current work` label when loaded, or `Start with a source line` on first run; the workflow index remains quiet context.
 - Second read: the case subject, source rows, source mapping, date, limitation, and review mark.
-- Primary action: one step-specific CTA.
+- Primary action: one step-specific CTA; loaded desktop exposes `Start review`
+  in the status block, while mobile keeps the fixed action bar.
 - Content relationship: `Source → Claim → Smallest test`; use a stepper, rows, split areas, and definition lists before adding cards.
 - Desktop density: medium-high. Mobile density: stacked medium.
-- Alignment spine: current-work label → case title → ruled source record. The workflow index is navigation, not a persistent dashboard rail; the work note stays below the workpaper.
+- Alignment spine: current-work label → case title → `Source lines to check` → ruled source record. The workflow index is navigation, not a persistent dashboard rail; the work note stays below the workpaper.
 - Layout archetype: quiet workpaper + index strip + annotated source rows + desk summary.
 - Responsive reflow: the desktop index becomes the existing top stepper below 1024px; the desk summary remains below the workbench; the primary CTA becomes a sticky bottom action on mobile.
-- Loaded state: when the pack exists, the masthead and hero use `Support draft review` so the case appears before the AI context. The working file uses `Review subject · support draft · fictional worksheet`; AI-PM framing remains in the repository and fixture boundary, not as a visual badge. The source lines end in a `Next step` with the actual claim count and the primary `Start review` action; the work note records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
+- Loaded state: when the pack exists, the masthead uses `Support draft review` once, the pack header uses `Source lines to check`, and the subject line identifies `support draft · fictional worksheet`. AI-PM framing remains in the repository and fixture boundary, not as a visual badge. The source lines end in a `Next step` with the actual claim count and the primary `Start review` action; the work note records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
 - Operational worksheet reframe: the loaded hero uses `Current work` and `Review state`, the context uses `Work note`, `Working set`, and `Record`, and the first source row enters earlier with a quieter sans-led masthead. These direct labels reduce presentation chrome while keeping the product object explicit.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
