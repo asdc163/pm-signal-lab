@@ -1,11 +1,11 @@
 # PM Signal Lab — Current-head release preflight
 
 Date: 2026-08-16 17:39 +08:00
-Candidate: `18fcac8a3779d3ff206a4c366b39d4894a4692e8`
+Code candidate under test: `18fcac8a3779d3ff206a4c366b39d4894a4692e8`
 Branch: `codex/less-ai-editorial-sheet`
 PR: [#44](https://github.com/asdc163/pm-signal-lab/pull/44)
 Base `main`: `040c7a4415faf27a881469100c6bb4bcc5076402`
-Status: current-head local preflight passed; merge, Pages deployment, and pilot distribution remain approval-gated
+Status: code-candidate local preflight passed; merge, Pages deployment, and pilot distribution remain approval-gated
 
 ## Why this receipt exists
 
@@ -13,24 +13,27 @@ The earlier hosted preflight documents [120](./120-hosted-release-and-evidence-g
 and [121](./121-hosted-release-preflight-local-qa-2026-08-16.md) were recorded
 against an earlier PR #44 head, `959a161`. They remain historical evidence for
 that point in the branch history. This receipt is the current source of truth
-for the pushed head `18fcac8`, which includes the first-run choice-clarity
-implementation plus its bound QA metadata.
+for the tested code candidate `18fcac8`, which includes the first-run
+choice-clarity implementation plus its bound QA metadata. The live PR link is
+the authority for any later documentation-only head or CI run.
 
 ## Current external state
 
 | Surface | Current evidence | Result |
 | --- | --- | --- |
-| PR #44 | Open, Draft, `mergeStateStatus=CLEAN`, head `18fcac8` | PASS |
-| PR CI | [Run 31938819160](https://github.com/asdc163/pm-signal-lab/actions/runs/31938819160), head SHA matches candidate | PASS |
+| PR #44 | Open, Draft, `mergeStateStatus=CLEAN` at the readback; the live PR link remains authoritative for the moving branch head | PASS |
+| Code-candidate CI | [Run 31938819160](https://github.com/asdc163/pm-signal-lab/actions/runs/31938819160), head SHA matches `18fcac8` | PASS |
+| Evidence-only follow-up CI | [Run 31939698038](https://github.com/asdc163/pm-signal-lab/actions/runs/31939698038), head `bcfa725` | PASS |
 | `main` | `040c7a4415faf27a881469100c6bb4bcc5076402` | Prior release |
 | Canonical Pages | `https://asdc163.github.io/pm-signal-lab/` serves the prior bundle | STALE / BLOCKED |
 | Private growth plan | `docs/github-star-growth-plan.md` remains untracked | PROTECTED |
 
 ## Fresh local evidence
 
-The commands below were run from the candidate worktree on 2026-08-16. They
-prove the local candidate and the project-site artifact, not the public Pages
-runtime.
+The commands below were run from the code-candidate worktree on 2026-08-16.
+The subsequent branch update only changed README/evidence documentation; it
+did not change the tested product artifact. These commands prove the local
+candidate and the project-site artifact, not the public Pages runtime.
 
 | Layer | Command or observation | Result |
 | --- | --- | --- |
