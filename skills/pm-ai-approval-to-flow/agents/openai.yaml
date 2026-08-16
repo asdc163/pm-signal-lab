@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Approval to Flow"
+  short_description: "Design safe approval flows for AI actions"
+  default_prompt: "Use $pm-ai-approval-to-flow to turn this AI or agent action into a bounded approval flow with risk, preview, permissions, approve/reject/edit/defer states, durable receipts, recovery, and a release gate. Keep proposed, observed, and unexecuted evidence separate."
