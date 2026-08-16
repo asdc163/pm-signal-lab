@@ -26,7 +26,8 @@ A useful first run should return these sections in order:
 5. `Not covered`
 6. `Review ask`
 
-The fictional qualifier should stay visible. The observation that a draft was
-copied must not become a claim that the case was resolved.
+The result must include a visible `## Not covered` section. The fictional
+qualifier should stay visible. The observation that a draft was copied must
+not become a claim that the case was resolved.
 
 For the full worked shape, read the [fictional support-draft review](../references/support-draft-review.md).

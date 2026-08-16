@@ -10,9 +10,27 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 **Hosted demo boundary:** This is a formal static demo surface for an English-first, local-first product. The canonical URL, hashed assets, current product copy, and deployment state are checked by the [hosted demo smoke contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md). It has no backend persistence, external model provider, telemetry, or automatic GitHub submission.
 
-## Portable PM skill
+## Portable PM skills
 
-This repository also ships [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md), a small Agent Skill for turning raw product notes into a source ledger, candidate claims, limitations, and one smallest test. It needs no model, tool permission, network access, or login. Copy the [`skills/pm-source-to-test`](./skills/pm-source-to-test/) directory into an Agent Skills-compatible client, then start with the worked [fictional support-draft example](./skills/pm-source-to-test/references/support-draft-review.md).
+This repository ships two small, tool-free Agent Skills for evidence-first PM
+work:
+
+- [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
+  notes into a source ledger, candidate claims, limitations, and one smallest
+  test. Start with its [fictional support-draft first run](./skills/pm-source-to-test/examples/first-run.md).
+- [`pm-trend-to-decision`](./skills/pm-trend-to-decision/SKILL.md) turns an AI,
+  platform, developer-tool, or market change note into an impact map, bounded
+  implications, and one smallest validation. Start with its [fictional platform-change first run](./skills/pm-trend-to-decision/examples/first-run.md).
+
+Neither skill needs a model, tool permission, network access, login, or
+external write. Copy the skill directory you need into an Agent
+Skills-compatible client and keep a human owner on the source mapping and
+final decision.
+
+**Public skill pilot:** Try either first run with a real, sanitized note, then
+leave the client/version, source IDs, one limitation, and one improvement in
+[pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
+comment is a feedback lead, not adoption evidence.
 
 **Public pilot:** The current hosted demo is looking for five international PMs, founders, designers, or product engineers to complete one unguided five-minute trial. Use the [session kit](./docs/operations/pm-session-kit.md), then leave one concrete observation in [pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4).
 
