@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Incident to Runbook"
+  short_description: "Turn AI incident signals into safe recovery decisions"
+  default_prompt: "Use $pm-ai-incident-to-runbook to map this AI or agent incident signal to a critical journey, evidence-bounded severity, containment, recovery runbook, verification/reopen gate, and learning writeback. Keep proposed, observed, and unexecuted evidence separate."
