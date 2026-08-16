@@ -1,7 +1,7 @@
 {
   "run_id": "pm-signal-lab-first-run-choice-clarity-2026-08-16",
   "product": "PM Signal Lab",
-  "candidate_ref": "codex/less-ai-editorial-sheet — first-run choice clarity + context-note source-record + first-run source-truth + keyboard-only workflow slice (local candidate)",
+  "candidate_ref": "d82618bd074ff62feace41fa386bcbcf2720283d on codex/less-ai-editorial-sheet — first-run choice clarity + context-note source-record + first-run source-truth + keyboard-only workflow slice (local candidate)",
   "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; blank and loaded context-note assertions at 390x844 and 1440x1000; first-run source proof, first-screen own-signal geometry, tablet primary visibility, and pointer-free primary workflow at 390x844 and 1440x1000; focused source-truth, action-ownership, Session note, recovery, responsive, semantic, and visual oracles; preferred Chrome Extension route unavailable in this runtime",
   "layers": [
     {

@@ -1,9 +1,8 @@
 # First-run choice clarity local QA
 
 Date: 2026-08-16
-Candidate: `codex/less-ai-editorial-sheet` after the `e52f53a` hosted-release
-preflight baseline; focused first-run choice-clarity changes are included in
-the current working tree
+Candidate: `d82618bd074ff62feace41fa386bcbcf2720283d` on
+`codex/less-ai-editorial-sheet`
 PR: [#44](https://github.com/asdc163/pm-signal-lab/pull/44)
 Status: local evidence passed; merge and public deployment not approved
 
