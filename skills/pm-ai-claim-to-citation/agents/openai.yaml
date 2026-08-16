@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Claim to Citation"
+  short_description: "Turn AI claims into reviewable source support"
+  default_prompt: "Use $pm-ai-claim-to-citation to turn this AI-generated answer, research brief, or agent output into a source-bounded claim-to-citation contract. Split atomic claims, map each to safe source IDs and locators, distinguish entailment from relevance and citation coverage, check authority, freshness, scope, conflict, privacy, prompt injection, reader verification, abstention, evaluation, fallback, and a Ship/Iterate/Hold/Rollback/Need evidence decision. Never invent sources, URLs, quotes, dates, confidence, or hidden reasoning; keep observed, proposed, and unverified claims separate."
