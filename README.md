@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships eighteen small, tool-free Agent Skills for evidence-first PM
+This repository ships nineteen small, tool-free Agent Skills for evidence-first PM
 work:
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -107,13 +107,20 @@ work:
   negative routing, evaluation, and a ship/hold/rollback decision. Start with
   its [fictional tool contract first run](./skills/pm-ai-tool-to-contract/examples/first-run.md)
   or read the [worked support tool contract](./skills/pm-ai-tool-to-contract/references/tool-contract.md).
+- [`pm-ai-memory-to-policy`](./skills/pm-ai-memory-to-policy/SKILL.md) turns an
+  AI or agent memory idea into a source-bounded policy for user value, memory
+  versus state, write and read eligibility, provenance, scope, freshness,
+  privacy, retention, correction, deletion, export, reset, poisoning defense,
+  evaluation, fallback, and a ship/hold/rollback decision. Start with its
+  [fictional memory first run](./skills/pm-ai-memory-to-policy/examples/first-run.md)
+  or read the [worked support memory policy](./skills/pm-ai-memory-to-policy/references/memory-policy.md).
 
 None of the skills needs a model, tool permission, network access, login, or
 external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the eighteen first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the nineteen first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Memory to Policy"
+  short_description: "Turn agent memory ideas into reviewable product policies"
+  default_prompt: "Use $pm-ai-memory-to-policy to turn this AI or agent memory idea into a source-bounded policy. Separate memory from state and knowledge; define candidate purpose, write and read gates, provenance, scope, freshness, privacy, retention, correction, deletion, export, reset, poisoning defenses, evaluation, fallback, and a Ship/Iterate/Hold/Rollback/Need evidence decision. Keep real data, provider claims, and unverified adoption or quality separate."
