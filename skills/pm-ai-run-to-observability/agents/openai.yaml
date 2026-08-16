@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Run to Observability"
+  short_description: "Turn agent runs into reviewable observability contracts"
+  default_prompt: "Use $pm-ai-run-to-observability to turn this AI or agent workflow into a source-bounded observability contract. Define the run/session/task/trace hierarchy, event inventory, correlation, provenance, identity and scope links, model/tool/approval/MCP/network evidence, outcome and guardrail links, latency/cost, privacy/redaction, sampling/retention, missing telemetry, diagnosis, alerts, fallback, evaluation, and a Ship/Iterate/Hold/Rollback/Need evidence decision. Never log raw prompts, credentials, customer content, or hidden reasoning; keep proposed, observed, and unverified claims separate."
