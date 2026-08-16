@@ -1,8 +1,8 @@
 {
-  "run_id": "pm-signal-lab-keyboard-flow-2026-08-16",
+  "run_id": "pm-signal-lab-first-run-source-truth-2026-08-16",
   "product": "PM Signal Lab",
-  "candidate_ref": "codex/less-ai-editorial-sheet — keyboard-only workflow + Session note/literal receipt slice (local candidate)",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; pointer-free primary workflow and focused source-truth, action-ownership, and Session note keyboard oracles at 390x844 and 1440x1000; preferred Chrome Extension route unavailable in this runtime",
+  "candidate_ref": "codex/less-ai-editorial-sheet — first-run source-truth composition + keyboard-only workflow slice (local candidate)",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; first-run source proof and pointer-free primary workflow at 390x844 and 1440x1000; focused source-truth, action-ownership, and Session note keyboard oracles; preferred Chrome Extension route unavailable in this runtime",
   "layers": [
     {
       "layer": "domain_tests",
@@ -23,37 +23,37 @@
       "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-o7prm33y.js and index-CcoUeL_C.css emitted"
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-CsCFHRX0.js and index-Rf7n4kzS.css emitted"
     },
     {
       "layer": "kb_application_plan",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/114-keyboard-only-workflow-contract-2026-08-16.md",
-      "command_or_click_path": "python3 /Users/tommy/.codex/skills/kb-task-compiler/scripts/score_kb_plan.py .../114-keyboard-only-workflow-contract-2026-08-16.md --min-score 85",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/116-first-run-source-truth-composition-contract-2026-08-16.md",
+      "command_or_click_path": "python3 /Users/tommy/.codex/skills/kb-task-compiler/scripts/score_kb_plan.py .../116-first-run-source-truth-composition-contract-2026-08-16.md --min-score 85",
       "result": "KB plan score: 100/100"
     },
     {
       "layer": "local_static_verifier",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "scripts/verify-hosted-demo.mjs",
-      "command_or_click_path": "HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted — HTTP 200, en-US, current copy present, stale copy absent, canonical_https=false"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md",
+      "command_or_click_path": "HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted — HTTP 200, en-US, first-run source copy present, stale copy absent, canonical_https=false"
     },
     {
       "layer": "browser_behavior_trace",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md",
-      "command_or_click_path": "Fresh Chrome fallback: blank → sample → source disclosure → Verify → accept → Decide → draft → Ship"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh Chrome fallback: first-run source proof → blank → sample → source disclosure → Verify → accept → Decide → draft → Ship"
     },
     {
       "layer": "keyboard_only_workflow",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/115-keyboard-only-workflow-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run verify:keyboard — first Tab/skip link, blank-form validation and cancel, then pointer-free Collect → Verify → Decide → Ship at 390x844 and 1440x1000",
-      "result": "skip_enter_focus_target=main-content; title_invalid_focused=true; form_closed_after_cancel=true; loaded_focus_target=main-content; verify_action_focus=true; claim_expanded=true; claim_reviewed=true; decide_action_focus=true; experiment_ready=true; ship_action_focus=true; markdown_notice_visible=true; browser_errors=[]; request_failures=[]"
+      "result": "first_run_source_proof=pass at 390x844 and 1440x1000; lower_sample_quote_count=0; first_run_no_horizontal_overflow=true; skip_enter_focus_target=main-content; title_invalid_focused=true; form_closed_after_cancel=true; loaded_focus_target=main-content; verify_action_focus=true; claim_expanded=true; claim_reviewed=true; decide_action_focus=true; experiment_ready=true; ship_action_focus=true; markdown_notice_visible=true; browser_errors=[]; request_failures=[]"
     },
     {
       "layer": "edge_state_recovery_trace",
@@ -85,6 +85,14 @@
       "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run verify:source-truth — fresh manual 390px and sample 1440px paths, then sample Verify → Decide owner check",
       "result": "custom/sample source boundary passed; visible_current_actions=1 at 390px and 1440px; source_row_action_hidden=true at 390px; hero_action_absent=true at 1440px; owner_value=Owner to confirm before the test; Session note closed and keyboard-opened/closed in both states; browser_errors=[]; request_failures=[]"
+    },
+    {
+      "layer": "first_run_source_truth_composition",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run verify:keyboard — blank first-run source proof at 390x844 and 1440x1000 before sample activation",
+      "result": "Sample note, source title, source excerpt, Local fixture only boundary, and Add your own signal visible at both widths; lower_sample_quote_count=0; first_run_no_horizontal_overflow=true; browser_errors=[]; request_failures=[]"
     },
     {
       "layer": "single_primary_action_ownership",
@@ -120,8 +128,8 @@
       "layer": "visual_inspection",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
-      "command_or_click_path": "Fresh manual 390px and fictional sample 1440px screenshots inspected; Session note collapsed; source rows and next step remain the visual anchor"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh first-run source-proof screenshots at 390px and 1440px inspected; sample source object is secondary to the entry job and no duplicate quote remains"
     },
     {
       "layer": "browser_console_and_network_boundary",
@@ -180,6 +188,8 @@
     }
   ],
   "visual_artifacts": [
+    "docs/product/pm-signal-lab/assets/qa/first-run-source-truth-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/first-run-source-truth-1440-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loading-390-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loaded-390-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-reset-390-2026-08-16.png",
@@ -226,8 +236,32 @@
         "experiment_ready": true,
         "ship_action_focus": true,
         "markdown_notice_visible": true
+    },
+    "browser": "Chrome via Playwright fallback; native screen-reader and Chrome Extension coverage is separate"
+  },
+    "first_run_source_truth": {
+      "mobile_390": {
+        "sample_note_visible": true,
+        "source_title": "Interview: the draft looks finished before I can trust it",
+        "source_excerpt_contains": "The support draft gives me a polished reply",
+        "local_fixture_boundary_visible": true,
+        "own_signal_visible": true,
+        "lower_sample_quote_count": 0,
+        "overflow": false
       },
-      "browser": "Chrome via Playwright fallback; native screen-reader and Chrome Extension coverage is separate"
+      "desktop_1440": {
+        "sample_note_visible": true,
+        "source_title": "Interview: the draft looks finished before I can trust it",
+        "source_excerpt_contains": "The support draft gives me a polished reply",
+        "local_fixture_boundary_visible": true,
+        "own_signal_visible": true,
+        "lower_sample_quote_count": 0,
+        "overflow": false
+      },
+      "screenshots": [
+        "docs/product/pm-signal-lab/assets/qa/first-run-source-truth-390-2026-08-16.png",
+        "docs/product/pm-signal-lab/assets/qa/first-run-source-truth-1440-2026-08-16.png"
+      ]
     },
     "loaded_390": {
       "scrollWidth": 390,
@@ -313,7 +347,7 @@
     "request_failures": []
   },
   "notes": [
-    "This manifest records the focused local keyboard-only workflow, Session note progressive-disclosure and literal receipt-language, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
+    "This manifest records the focused local first-run source-truth composition, keyboard-only workflow, Session note progressive-disclosure and literal receipt-language, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
     "The preferred Chrome Extension route, native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates.",
     "The canonical hosted verifier currently fails because the Pages URL still serves the prior bundle missing the current first-run copy."
   ]

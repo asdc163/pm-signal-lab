@@ -663,13 +663,26 @@ function App() {
                   {pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} to check before you choose a test.` : "Write one observed line, then decide what it can support."}
                 </p>
               </div>
-              <div className="hero-status" role="status" aria-label="Sheet tally" aria-live="polite" aria-atomic="true">
-                <div className="hero-status-heading">
-                  <span className="section-eyebrow">Sheet tally</span>
-                </div>
-                <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"}` : "No source line yet"}</strong>
-                <p>{pack ? `${reviewedCount} / ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Start with the sample or write down one real line from the work."}</p>
-                <span className="hero-status-boundary"><ShieldCheck size={14} aria-hidden="true" />{pack ? "Local sheet · refresh clears it" : SESSION_BOUNDARY_SHORT}</span>
+              <div className="hero-status" role="status" aria-label={pack ? "Sheet tally" : "Sample line"} aria-live="polite" aria-atomic="true">
+                {pack ? (
+                  <>
+                    <div className="hero-status-heading">
+                      <span className="section-eyebrow">Sheet tally</span>
+                    </div>
+                    <strong>{`${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"}`}</strong>
+                    <p>{`${reviewedCount} / ${claims.length} claims reviewed · ${supportedCount} accepted.`}</p>
+                    <span className="hero-status-boundary"><ShieldCheck size={14} aria-hidden="true" />Local sheet · refresh clears it</span>
+                  </>
+                ) : (
+                  <>
+                    <div className="hero-status-heading">
+                      <span className="section-eyebrow">Sample note</span>
+                    </div>
+                    <strong className="hero-status-source-title">{SAMPLE_PREVIEW.title}</strong>
+                    <p className="hero-status-quote">“{SAMPLE_PREVIEW.content}”</p>
+                    <span className="hero-status-boundary"><ShieldCheck size={14} aria-hidden="true" />Local fixture only · {SAMPLE_PREVIEW.source}</span>
+                  </>
+                )}
                 {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample} disabled={isLoading}><ClipboardList size={16} aria-hidden="true" />Open the sample worksheet<ArrowRight size={15} aria-hidden="true" /></button></div>}
               </div>
             </div>
@@ -879,11 +892,6 @@ function CollectView({
               <p className="section-eyebrow">Blank sheet</p>
               <h2 id="collect-title">Write down one line from the work</h2>
               <p>Keep the words someone actually used. The source stays attached while you decide what the line can support.</p>
-              <blockquote className="sample-quote">
-                <span>Sample note · {EVIDENCE_LABELS[SAMPLE_PREVIEW.type]} · {SAMPLE_PREVIEW.source}</span>
-                <p>“{SAMPLE_PREVIEW.content}”</p>
-                <small>Local fixture only · no external research is attached.</small>
-              </blockquote>
               <div className="first-run-note">
                 <span>Start with one line</span>
                 <strong>Write down one line you can defend.</strong>

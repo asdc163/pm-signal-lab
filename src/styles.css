@@ -4692,3 +4692,40 @@ main.workspace:focus {
   padding-top: 12px;
   border-top: 1px solid var(--line);
 }
+
+/* First-run source proof — 2026-08-16.
+   Put one bounded, labelled fixture line in the hero so the blank sheet opens
+   on product truth rather than an abstract empty-state tally. */
+.hero-status > .hero-status-source-title {
+  display: block;
+  max-width: 34ch;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.hero-status > .hero-status-quote {
+  display: -webkit-box;
+  max-width: 34ch;
+  overflow: hidden;
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+@media (max-width: 700px) {
+  .hero-status > .hero-status-source-title,
+  .hero-status > .hero-status-quote {
+    max-width: 100%;
+  }
+
+  .hero-status > .hero-status-quote {
+    margin-bottom: 2px;
+  }
+}

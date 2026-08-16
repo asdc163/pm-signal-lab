@@ -122,10 +122,39 @@ def verify_skip_link_and_blank_recovery(page: Page) -> dict[str, object]:
     }
 
 
-def verify_primary_flow(page: Page, viewport_width: int, screenshot_name: str) -> dict[str, object]:
+def verify_primary_flow(
+    page: Page,
+    viewport_width: int,
+    screenshot_name: str,
+    first_run_screenshot_name: str,
+) -> dict[str, object]:
     page.goto(BASE_URL, wait_until="networkidle")
     page.get_by_role("heading", name="Start with a source line").wait_for(
         state="visible"
+    )
+
+    sample_note = page.get_by_text("Sample note", exact=True)
+    sample_note.wait_for(state="visible")
+    source_title = page.locator(".hero-status-source-title")
+    source_title.wait_for(state="visible")
+    source_excerpt = page.locator(".hero-status-quote")
+    source_excerpt.wait_for(state="visible")
+    local_fixture_boundary = page.get_by_text("Local fixture only", exact=False).first
+    local_fixture_boundary.wait_for(state="visible")
+    own_signal = page.get_by_role("button", name="Add your own signal")
+    own_signal.wait_for(state="visible")
+    first_run_sample_note_visible = sample_note.is_visible()
+    first_run_source_title = source_title.inner_text()
+    first_run_source_excerpt = source_excerpt.inner_text()
+    first_run_local_fixture_boundary_visible = local_fixture_boundary.is_visible()
+    first_run_own_signal_visible = own_signal.is_visible()
+    lower_sample_quote_count = page.locator(".empty-panel .sample-quote").count()
+    no_horizontal_overflow = page.evaluate(
+        "document.documentElement.scrollWidth <= document.documentElement.clientWidth"
+    )
+    page.screenshot(
+        path=SCREENSHOT_DIR / first_run_screenshot_name,
+        full_page=False,
     )
 
     open_sample = page.get_by_role("button", name="Open the sample worksheet")
@@ -199,6 +228,13 @@ def verify_primary_flow(page: Page, viewport_width: int, screenshot_name: str) -
 
     return {
         "viewport_width": viewport_width,
+        "first_run_sample_note_visible": first_run_sample_note_visible,
+        "first_run_source_title": first_run_source_title,
+        "first_run_source_excerpt": first_run_source_excerpt,
+        "first_run_local_fixture_boundary_visible": first_run_local_fixture_boundary_visible,
+        "first_run_own_signal_visible": first_run_own_signal_visible,
+        "first_run_lower_sample_quote_count": lower_sample_quote_count,
+        "first_run_no_horizontal_overflow": bool(no_horizontal_overflow),
         "open_sample_keyboard_focused": open_sample_keyboard_focused,
         "loaded_focus_target": loaded_focus_target,
         "start_review_keyboard_focused": start_review_keyboard_focused,
@@ -231,9 +267,21 @@ with sync_playwright() as playwright:
     request_failures: list[str] = []
     results: dict[str, object] = {}
 
-    for viewport_width, viewport_height, result_key, screenshot_name in [
-        (390, 844, "mobile_390", "keyboard-flow-390-2026-08-16.png"),
-        (1440, 1000, "desktop_1440", "keyboard-flow-1440-2026-08-16.png"),
+    for viewport_width, viewport_height, result_key, screenshot_name, first_run_screenshot_name in [
+        (
+            390,
+            844,
+            "mobile_390",
+            "keyboard-flow-390-2026-08-16.png",
+            "first-run-source-truth-390-2026-08-16.png",
+        ),
+        (
+            1440,
+            1000,
+            "desktop_1440",
+            "keyboard-flow-1440-2026-08-16.png",
+            "first-run-source-truth-1440-2026-08-16.png",
+        ),
     ]:
         context = browser.new_context(
             viewport={"width": viewport_width, "height": viewport_height},
@@ -245,7 +293,7 @@ with sync_playwright() as playwright:
         if result_key == "mobile_390":
             results["blank_recovery"] = verify_skip_link_and_blank_recovery(page)
         results[result_key] = verify_primary_flow(
-            page, viewport_width, screenshot_name
+            page, viewport_width, screenshot_name, first_run_screenshot_name
         )
         context.close()
 
@@ -256,6 +304,8 @@ with sync_playwright() as playwright:
         "browser_errors": browser_errors,
         "request_failures": request_failures,
         "screenshots": [
+            str(SCREENSHOT_DIR / "first-run-source-truth-390-2026-08-16.png"),
+            str(SCREENSHOT_DIR / "first-run-source-truth-1440-2026-08-16.png"),
             str(SCREENSHOT_DIR / "keyboard-flow-390-2026-08-16.png"),
             str(SCREENSHOT_DIR / "keyboard-flow-1440-2026-08-16.png"),
         ],
@@ -276,6 +326,13 @@ with sync_playwright() as playwright:
     for key in ("mobile_390", "desktop_1440"):
         flow = results[key]
         assert isinstance(flow, dict)
+        assert flow["first_run_sample_note_visible"] is True
+        assert flow["first_run_source_title"] == "Interview: the draft looks finished before I can trust it"
+        assert "support draft gives me a polished reply" in flow["first_run_source_excerpt"]
+        assert flow["first_run_local_fixture_boundary_visible"] is True
+        assert flow["first_run_own_signal_visible"] is True
+        assert flow["first_run_lower_sample_quote_count"] == 0
+        assert flow["first_run_no_horizontal_overflow"] is True
         assert flow["open_sample_keyboard_focused"] is True
         assert flow["loaded_focus_target"] == "main-content"
         assert flow["start_review_keyboard_focused"] is True
