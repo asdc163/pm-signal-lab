@@ -17,7 +17,7 @@ requires an explicit approval at the point of action.
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
 | Candidate code commit | `0d18eb8` — `Simplify source-first worksheet chrome` |
-| PR head currently observed | `d26abf0` — evidence/CI gate refresh on top of the `0d18eb8` product candidate; CI run `31927936899` is green |
+| PR head currently observed | `bc27428` — current release-evidence refresh on top of the `0d18eb8` product candidate; CI run `31928028107` is green |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -75,7 +75,7 @@ All of the following must be true at the moment of release:
   this route remains `未驗證`.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [x] PR #44 CI is green for pushed head `d26abf0`; run `31927936899`
+- [x] PR #44 CI is green for pushed head `bc27428`; run `31928028107`
   completed Test, Typecheck, Build, and the built hosted-surface verifier
   successfully.
 - [ ] The user explicitly approves the public merge/deploy action.
@@ -112,7 +112,7 @@ After explicit approval, execute these steps in order and retain raw output:
 
 1. Confirm PR #44 is open, clean, and CI-green, and that its current head
    contains the reviewed product candidate `0d18eb8` plus the current evidence
-   gate (currently head `d26abf0`, or the exact newer reviewed head).
+   gate (currently head `bc27428`, or the exact newer reviewed head).
 2. Merge PR #44 into `main` using the repository's normal review path.
 3. Watch the merge CI and Pages deployment workflows to successful completion.
 4. Run:
