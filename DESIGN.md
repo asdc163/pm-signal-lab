@@ -17,6 +17,7 @@
 - Must not feel like: an AI landing-page template, a card-heavy dashboard, a model chat wrapper, or a decorative moodboard.
 - Density: medium on first run; medium-high once a source pack is loaded.
 - Signature detail: source numbers, source lines, and restrained review marks that keep the original line beside the next decision. The brand mark is a simple sheet index; it does not represent model activity, confidence, or verified output.
+- Colour roles: neutral ink/muted text carries shell and navigation; trust blue carries source/provenance; the red accent is reserved for the next human action and its small marker. This keeps colour attached to evidence meaning instead of decorative AI theatre.
 - Motion: low; transitions explain state changes and never simulate model thinking.
 
 ## Product truth and signature
@@ -51,6 +52,7 @@ The visual signature is a quiet workpaper: the workflow is a thin paper index, t
 - Responsive reflow: the desktop index becomes the existing top stepper below 1024px; the desk summary remains below the workbench; the primary CTA becomes a sticky bottom action on mobile.
 - Loaded state: when the pack exists, the masthead uses `Support draft review` once, the pack header uses `Source lines to check`, and the subject line identifies `support draft · fictional worksheet`. AI-PM framing remains in the repository and fixture boundary, not as a visual badge. The source lines end in a `Next step` with the actual claim count and the primary `Start review` action; the work note records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
 - Operational worksheet reframe: the loaded hero uses `Current work` and `Review state`, the context uses `Work note`, `Working set`, and `Record`, and the first source row enters earlier with a quieter sans-led masthead. These direct labels reduce presentation chrome while keeping the product object explicit.
+- Evidence-ledger colour pass: in the loaded state, repeated red shell labels and navigation cues are quieted; source numbers, source type, subject, and provenance use trust blue; only the review CTA and next-action marker stay red. The words still name each trust state, so colour never becomes the sole status signal.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
@@ -137,6 +139,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Quiet workpaper second-polish contract: [`82-quiet-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md).
 - Mobile source-first reading contract: [`83-mobile-source-first-reading-contract-2026-08-16.md`](./docs/product/pm-signal-lab/83-mobile-source-first-reading-contract-2026-08-16.md).
+- Evidence-ledger quiet-colour contract: [`90-evidence-ledger-quiet-colour-contract-2026-08-16.md`](./docs/product/pm-signal-lab/90-evidence-ledger-quiet-colour-contract-2026-08-16.md).
 
 - First-run design reference: [`case-file-first-run-1440.png`](./docs/product/pm-signal-lab/assets/qa/case-file-first-run-1440.png).
 - Current AI PM fixture first-run screenshot: [`ai-pm-fixture-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-first-run-1280.png).

@@ -4436,3 +4436,61 @@ main.workspace:focus {
     line-height: 1.3;
   }
 }
+
+/* Evidence-ledger quiet colour pass — 2026-08-16.
+   Colour carries product meaning: neutral shell, blue provenance, red only
+   for the next human action. This deliberately reuses existing markup and
+   tokens so the source-review workflow stays unchanged. */
+.app-body:has(.workbench.is-loaded) .topbar-kicker,
+.workbench.is-loaded .hero-folio .eyebrow,
+.workbench.is-loaded .hero-status .section-eyebrow,
+.workbench.is-loaded .pack-header > div:first-child > .section-eyebrow,
+.workbench.is-loaded .context-heading .section-eyebrow,
+.workbench.is-loaded .context-project .card-eyebrow,
+.workbench.is-loaded .context-record .card-eyebrow,
+.workbench.is-loaded .context-next .card-eyebrow,
+.workbench.is-loaded .context-trace .card-eyebrow {
+  color: var(--muted);
+}
+
+.workbench.is-loaded .hero-status-step,
+.workbench.is-loaded .pack-subject-label,
+.workbench.is-loaded .count-badge strong,
+.workbench.is-loaded .source-ledger-heading .micro-status strong,
+.workbench.is-loaded .evidence-index strong,
+.workbench.is-loaded .evidence-type,
+.workbench.is-loaded .evidence-source,
+.workbench.is-loaded .preview-label {
+  color: var(--trust);
+}
+
+.workbench.is-loaded .pack-subject-label {
+  font-weight: 750;
+}
+
+.workbench.is-loaded .evidence-index {
+  border-top-color: var(--trust);
+  border-bottom-color: var(--line-strong);
+}
+
+.workbench.is-loaded .evidence-spine .evidence-node {
+  background: var(--trust);
+}
+
+.workbench.is-loaded .stepper-item.is-current > button {
+  box-shadow: inset 2px 0 0 var(--trust);
+}
+
+.workbench.is-loaded .is-current .step-number {
+  color: var(--trust);
+  border-color: var(--trust);
+}
+
+.mobile-stepper .stepper-item.is-current > button {
+  box-shadow: inset 2px 0 0 var(--trust);
+}
+
+.mobile-stepper .is-current .step-number {
+  color: var(--trust);
+  border-color: var(--trust);
+}
