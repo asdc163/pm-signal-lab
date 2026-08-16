@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships seven small, tool-free Agent Skills for evidence-first PM
+This repository ships eight small, tool-free Agent Skills for evidence-first PM
 work:
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -43,13 +43,18 @@ work:
   with a clear first-use path, proof ledger, boundaries, feedback ask, and
   learning writeback. Start with its [fictional proof first run](./skills/pm-proof-to-share/examples/first-run.md)
   or read the [worked release proof share pack](./skills/pm-proof-to-share/references/release-proof-share-pack.md).
+- [`pm-interview-to-insight`](./skills/pm-interview-to-insight/SKILL.md) turns
+  de-identified interview notes, usability sessions, or workflow observations
+  into an evidence-bounded insight map, contradiction log, and one next
+  learning action. Start with its [fictional interview first run](./skills/pm-interview-to-insight/examples/first-run.md)
+  or read the [worked support-interview insight map](./skills/pm-interview-to-insight/references/support-interview-insight-map.md).
 
 None of the skills needs a model, tool permission, network access, login, or
 external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the seven first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the eight first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
