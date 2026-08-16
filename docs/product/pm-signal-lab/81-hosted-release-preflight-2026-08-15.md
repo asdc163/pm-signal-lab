@@ -5,7 +5,7 @@
 **HOLD — ready for explicit approval, not merged or deployed.**
 
 This preflight separates the reviewable English-first quiet-workpaper and
-mobile source-first correction from the currently deployed GitHub Pages
+less-AI workpaper second polish from the currently deployed GitHub Pages
 bundle. It is intentionally a release gate, not a deployment claim. The
 public action changes `main` and publishes a new GitHub Pages artifact, so it
 requires an explicit approval at the point of action.
@@ -16,8 +16,8 @@ requires an explicit approval at the point of action.
 |---|---|
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
-| Candidate code commit | `0d18eb8` — `Simplify source-first worksheet chrome` |
-| CI-verified product/evidence head | `f21f99e` — the reviewed `0d18eb8` product surface plus the built-hosted-surface gate; CI run `31928203727` is green |
+| Candidate code commit | `2400b59` — `Make workpaper language less AI-like` |
+| CI-verified product/evidence head | `2400b59` — the reviewed less-AI workpaper surface plus the built-hosted-surface gate; CI run `31929243806` is green |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -31,7 +31,7 @@ not part of this candidate and remains untracked/private.
 ## Current hosted baseline — observed before release
 
 The canonical URL currently returns HTTP 200, but it does not serve candidate
-commit `0d18eb8`:
+commit `2400b59`:
 
 | Check | Observed result |
 |---|---|
@@ -53,8 +53,8 @@ All of the following must be true at the moment of release:
 
 - [x] Candidate is isolated on `codex/less-ai-editorial-sheet`.
 - [x] Local tests, typecheck, production build, diff check, and local static
-  verifier pass for `0d18eb8` — 4 files / 11 tests; current assets
-  `index-DWAXt1Nj.js` and `index-CrJVefut.css`.
+  verifier pass for `2400b59` — 4 files / 11 tests; current assets
+  `index-DcUWGGbX.js` and `index-C9d8-jtd.css`.
 - [x] The machine-readable QA evidence manifest validates, and it keeps local
   pass, hosted blocked, native AT out of scope, and participant/adoption gaps
   separate.
@@ -65,17 +65,17 @@ All of the following must be true at the moment of release:
   claim → test → Ship path, keyboard skip link, mobile fixed action, and
   Chrome AX tree.
 - [x] Fresh headless Chrome CDP fallback evidence confirms the current
-  source-first hierarchy and mobile action ownership at `390×844`, the
-  tablet `1024×900` state, and the desktop `1440×900` composition; the local
-  fallback flow, source disclosure, keyboard first Tab, screenshot, semantic,
-  and same-origin resource checks are recorded in
-  `99-source-first-chrome-simplification-local-qa-2026-08-16.md`.
+  less-AI workpaper copy/type surface at `390×844`, the tablet `1024×900`
+  state, and the desktop `1440×900` composition; the local fallback flow,
+  source disclosure, keyboard first Tab, screenshot, semantic, and
+  same-origin resource checks are recorded in
+  `101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md`.
 - [ ] Fresh preferred Chrome Extension evidence must still confirm the same
   current candidate in the existing Chrome session; the Mac was locked, so
   this route remains `未驗證`.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [x] PR #44 CI is green for the reviewed product/evidence head `f21f99e`; run `31928203727`
+- [x] PR #44 CI is green for the reviewed product/evidence head `2400b59`; run `31929243806`
   completed Test, Typecheck, Build, and the built hosted-surface verifier
   successfully.
 - [ ] The user explicitly approves the public merge/deploy action.
@@ -111,7 +111,7 @@ No rollback action has been performed in this preflight.
 After explicit approval, execute these steps in order and retain raw output:
 
 1. Confirm PR #44 is open, clean, and CI-green at action time, and that its
-   current head contains the reviewed product candidate `0d18eb8` plus the
+   current head contains the reviewed product candidate `2400b59` plus the
    built-hosted-surface gate. Treat the CI run recorded above as evidence for
    this reviewed product surface, not as a substitute for the action-time
    release check.
