@@ -4749,3 +4749,38 @@ main.workspace:focus {
     max-width: 100%;
   }
 }
+
+/* First-run choice clarity — keep the sample primary while making the human
+   source path available in the same reading path. */
+.hero-status-actions.first-run-actions {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.hero-status-actions.first-run-actions .hero-status-own-signal {
+  min-height: 44px;
+  padding: 9px 0;
+  color: var(--trust);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-status-actions.first-run-actions .hero-status-own-signal:hover {
+  color: var(--accent-dark);
+}
+
+@media (max-width: 1024px) {
+  .hero-status-actions.first-run-actions {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-status-actions.first-run-actions > .button-primary {
+    display: none;
+  }
+}

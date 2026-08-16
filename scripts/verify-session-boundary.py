@@ -43,7 +43,7 @@ with sync_playwright() as playwright:
     page.get_by_role("heading", name="Start with a source line").wait_for(state="visible")
 
     # A manual draft must not survive a deliberate switch to the fixture.
-    page.get_by_role("button", name="Add your own signal").click()
+    page.locator(".hero-status-own-signal").click()
     page.get_by_role("heading", name="Write down one real observation").wait_for(state="visible")
     sample_button = page.get_by_role("button", name="Open the sample worksheet")
     page.evaluate(

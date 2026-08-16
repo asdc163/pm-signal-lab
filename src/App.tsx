@@ -683,7 +683,10 @@ function App() {
                     <span className="hero-status-boundary"><ShieldCheck size={14} aria-hidden="true" />Local fixture only · {SAMPLE_PREVIEW.source}</span>
                   </>
                 )}
-                {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample} disabled={isLoading}><ClipboardList size={16} aria-hidden="true" />Open the sample worksheet<ArrowRight size={15} aria-hidden="true" /></button></div>}
+                {!pack && <div className="hero-status-actions first-run-actions">
+                  <button className="button button-primary" type="button" onClick={loadSample} disabled={isLoading}><ClipboardList size={16} aria-hidden="true" />Open the sample worksheet<ArrowRight size={15} aria-hidden="true" /></button>
+                  <button className="text-button hero-status-own-signal" type="button" onClick={() => setIsFormOpen(true)}><Plus size={15} aria-hidden="true" />Add your own signal</button>
+                </div>}
               </div>
             </div>
 

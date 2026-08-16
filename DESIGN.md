@@ -42,6 +42,7 @@ The visual signature is a quiet workpaper: the workflow is a thin paper index, t
 ## Composition brief
 
 - First read: `Support draft review` under the `Source review` label when loaded, or `Start with a source line` on first run; the workflow index remains quiet context.
+- First-run choice: the concrete `Sample note` and `Local fixture only` boundary establish the source proof; `Open the sample worksheet` stays primary while `Add your own signal` is a quiet secondary action in the same hero. The mobile fixed bar owns the sample action, while tablet keeps the hero primary because no fixed bar is present.
 - Manual-source first read: after a visitor saves their own line, use `Your source sheet` and `your source notes · local sheet`; never reuse the fictional sample's subject labels for a custom pack.
 - Second read: the case subject, source rows, source mapping, date, limitation, and review mark.
 - Primary action: one step-specific CTA; loaded desktop places `Start review`

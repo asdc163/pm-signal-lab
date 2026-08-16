@@ -107,7 +107,7 @@ def run_custom_source_flow(page: Page, screenshot_name: str) -> dict[str, object
     page.goto(BASE_URL, wait_until="networkidle")
     page.get_by_role("heading", name="Start with a source line").wait_for(state="visible")
     blank_context = inspect_context_note(page)
-    page.get_by_role("button", name="Add your own signal").click()
+    page.locator(".hero-status-own-signal").click()
     page.get_by_role("heading", name="Write down one real observation").wait_for(
         state="visible"
     )

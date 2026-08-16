@@ -73,6 +73,7 @@ try {
     "copy is not resolution",
     "Local fixture only",
     "Open the sample worksheet",
+    "Add your own signal",
     "Session note",
     "Optional local receipt",
     "Actions on this page",

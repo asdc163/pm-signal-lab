@@ -88,7 +88,7 @@ def verify_skip_link_and_blank_recovery(page: Page) -> dict[str, object]:
     )
     skip_focus_target = active_element(page)
 
-    add_signal = page.get_by_role("button", name="Add your own signal")
+    add_signal = page.locator(".hero-status-own-signal")
     add_signal_keyboard_focused = focus_and_press_enter(page, add_signal)
     page.get_by_role("heading", name="Write down one real observation").wait_for(
         state="visible"
@@ -141,13 +141,32 @@ def verify_primary_flow(
     source_excerpt.wait_for(state="visible")
     local_fixture_boundary = page.get_by_text("Local fixture only", exact=False).first
     local_fixture_boundary.wait_for(state="visible")
-    own_signal = page.get_by_role("button", name="Add your own signal")
+    own_signal = page.locator(".hero-status-own-signal")
     own_signal.wait_for(state="visible")
+    own_signal_box = own_signal.bounding_box()
+    hero_box = page.locator(".hero-block").bounding_box()
+    mobile_action_box = page.locator(".mobile-action-bar.is-empty").bounding_box()
+    viewport_height = page.evaluate("window.innerHeight")
+    first_run_own_signal_in_hero = bool(
+        own_signal_box
+        and hero_box
+        and hero_box["y"] <= own_signal_box["y"]
+        and own_signal_box["y"] + own_signal_box["height"] <= hero_box["y"] + hero_box["height"]
+    )
+    first_run_own_signal_not_covered = bool(
+        own_signal_box
+        and own_signal_box["y"] + own_signal_box["height"]
+        <= (mobile_action_box["y"] if mobile_action_box else viewport_height)
+    )
+    first_run_hero_primary_visible = page.locator(
+        ".hero-status .button-primary:visible"
+    ).count() > 0
     first_run_sample_note_visible = sample_note.is_visible()
     first_run_source_title = source_title.inner_text()
     first_run_source_excerpt = source_excerpt.inner_text()
     first_run_local_fixture_boundary_visible = local_fixture_boundary.is_visible()
     first_run_own_signal_visible = own_signal.is_visible()
+    first_run_visible_current_actions = page.locator("[data-current-action]:visible").count()
     lower_sample_quote_count = page.locator(".empty-panel .sample-quote").count()
     no_horizontal_overflow = page.evaluate(
         "document.documentElement.scrollWidth <= document.documentElement.clientWidth"
@@ -233,6 +252,10 @@ def verify_primary_flow(
         "first_run_source_excerpt": first_run_source_excerpt,
         "first_run_local_fixture_boundary_visible": first_run_local_fixture_boundary_visible,
         "first_run_own_signal_visible": first_run_own_signal_visible,
+        "first_run_own_signal_in_hero": first_run_own_signal_in_hero,
+        "first_run_own_signal_not_covered": first_run_own_signal_not_covered,
+        "first_run_hero_primary_visible": first_run_hero_primary_visible,
+        "first_run_visible_current_actions": first_run_visible_current_actions,
         "first_run_lower_sample_quote_count": lower_sample_quote_count,
         "first_run_no_horizontal_overflow": bool(no_horizontal_overflow),
         "open_sample_keyboard_focused": open_sample_keyboard_focused,
@@ -331,6 +354,10 @@ with sync_playwright() as playwright:
         assert "support draft gives me a polished reply" in flow["first_run_source_excerpt"]
         assert flow["first_run_local_fixture_boundary_visible"] is True
         assert flow["first_run_own_signal_visible"] is True
+        assert flow["first_run_own_signal_in_hero"] is True
+        assert flow["first_run_own_signal_not_covered"] is True
+        assert flow["first_run_hero_primary_visible"] is (key == "desktop_1440")
+        assert flow["first_run_visible_current_actions"] == (1 if key == "mobile_390" else 0)
         assert flow["first_run_lower_sample_quote_count"] == 0
         assert flow["first_run_no_horizontal_overflow"] is True
         assert flow["open_sample_keyboard_focused"] is True

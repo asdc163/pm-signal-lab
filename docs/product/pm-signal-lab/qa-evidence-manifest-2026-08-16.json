@@ -1,29 +1,29 @@
 {
-  "run_id": "pm-signal-lab-context-note-source-record-2026-08-16",
+  "run_id": "pm-signal-lab-first-run-choice-clarity-2026-08-16",
   "product": "PM Signal Lab",
-  "candidate_ref": "codex/less-ai-editorial-sheet — context-note source-record + first-run source-truth + keyboard-only workflow slice (local candidate)",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; blank and loaded context-note assertions at 390x844 and 1440x1000; first-run source proof and pointer-free primary workflow at 390x844 and 1440x1000; focused source-truth, action-ownership, Session note, recovery, responsive, and semantic oracles; preferred Chrome Extension route unavailable in this runtime",
+  "candidate_ref": "codex/less-ai-editorial-sheet — first-run choice clarity + context-note source-record + first-run source-truth + keyboard-only workflow slice (local candidate)",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; blank and loaded context-note assertions at 390x844 and 1440x1000; first-run source proof, first-screen own-signal geometry, tablet primary visibility, and pointer-free primary workflow at 390x844 and 1440x1000; focused source-truth, action-ownership, Session note, recovery, responsive, semantic, and visual oracles; preferred Chrome Extension route unavailable in this runtime",
   "layers": [
     {
       "layer": "domain_tests",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "npm test -- --run — 4 files, 11 tests passed"
     },
     {
       "layer": "typecheck_and_lint",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run lint — tsc --noEmit passed"
     },
     {
       "layer": "production_build",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-BDhoeK6X.js and index-DAgo-i-P.css emitted"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-BE5ncM4S.js and index-BQbprnIL.css emitted"
     },
     {
       "layer": "pages_artifact_preflight",
@@ -37,37 +37,37 @@
       "layer": "kb_application_plan",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/118-context-note-source-record-contract-2026-08-16.md",
-      "command_or_click_path": "python3 /Users/tommy/.codex/skills/kb-task-compiler/scripts/score_kb_plan.py .../118-context-note-source-record-contract-2026-08-16.md --min-score 85",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/122-first-run-choice-clarity-contract-2026-08-16.md",
+      "command_or_click_path": "python3 /Users/tommy/.codex/skills/kb-task-compiler/scripts/score_kb_plan.py .../122-first-run-choice-clarity-contract-2026-08-16.md --min-score 100",
       "result": "KB plan score: 100/100"
     },
     {
       "layer": "local_static_verifier",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
-      "command_or_click_path": "HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted — HTTP 200, en-US, source-record copy present, old context copy absent, assets 200, canonical_https=false"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted — HTTP 200, en-US, first-run choice copy including Add your own signal present, old context copy absent, assets 200, canonical_https=false"
     },
     {
       "layer": "browser_behavior_trace",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "Fresh Chrome fallback: first-run source proof → blank → sample → source disclosure → Verify → accept → Decide → draft → Ship"
     },
     {
       "layer": "keyboard_only_workflow",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run verify:keyboard — first Tab/skip link, blank-form validation and cancel, then pointer-free Collect → Verify → Decide → Ship at 390x844 and 1440x1000",
-      "result": "first_run_source_proof=pass at 390x844 and 1440x1000; lower_sample_quote_count=0; first_run_no_horizontal_overflow=true; skip_enter_focus_target=main-content; title_invalid_focused=true; form_closed_after_cancel=true; loaded_focus_target=main-content; verify_action_focus=true; claim_expanded=true; claim_reviewed=true; decide_action_focus=true; experiment_ready=true; ship_action_focus=true; markdown_notice_visible=true; browser_errors=[]; request_failures=[]"
+      "result": "first_run_source_proof=pass at 390x844 and 1440x1000; own_signal_in_hero=true; own_signal_not_covered=true; mobile hero_primary_visible=false with visible_current_actions=1; desktop hero_primary_visible=true with visible_current_actions=0; lower_sample_quote_count=0; first_run_no_horizontal_overflow=true; skip_enter_focus_target=main-content; title_invalid_focused=true; form_closed_after_cancel=true; loaded_focus_target=main-content; verify_action_focus=true; claim_expanded=true; claim_reviewed=true; decide_action_focus=true; experiment_ready=true; ship_action_focus=true; markdown_notice_visible=true; browser_errors=[]; request_failures=[]"
     },
     {
       "layer": "edge_state_recovery_trace",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "Empty form validation → Cancel; manual source entry → Reset; sample refresh clears local sheet; missing evidence → needs-validation brief"
     },
     {
@@ -82,7 +82,7 @@
       "layer": "static_loading_marker",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "Exact selector search for className=\"spin\", @keyframes spin, and .spin { across source and current built assets",
       "result": "No loading animation selector remains; browser computed animationName=none"
     },
@@ -90,7 +90,7 @@
       "layer": "custom_source_sheet_truth",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run verify:source-truth — fresh manual 390px and sample 1440px paths, then sample Verify → Decide owner check",
       "result": "custom/sample source boundary passed; blank and loaded context note passed at 390px and 1440px; Source record present; old active/empty labels absent; context status_dot_count=0; visible_current_actions=1 at 390px and 1440px; source_row_action_hidden=true at 390px; hero_action_absent=true at 1440px; owner_value=Owner to confirm before the test; Session note closed and keyboard-opened/closed in both states; browser_errors=[]; request_failures=[]"
     },
@@ -98,7 +98,7 @@
       "layer": "context_note_source_record",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run verify:source-truth — blank state plus manual loaded state at 390px; blank state plus sample loaded state at 1440px",
       "result": "aria_label=Worksheet note; Source record present in blank and loaded states; Blank sheet/No source line yet present in blank state; Local sheet and concrete source-line/draft-claim counts present in loaded states; Source set · active/empty and Current source set absent; status_dot_count=0; current action/session note behavior unchanged"
     },
@@ -106,9 +106,17 @@
       "layer": "first_run_source_truth_composition",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run verify:keyboard — blank first-run source proof at 390x844 and 1440x1000 before sample activation",
       "result": "Sample note, source title, source excerpt, Local fixture only boundary, and Add your own signal visible at both widths; lower_sample_quote_count=0; first_run_no_horizontal_overflow=true; browser_errors=[]; request_failures=[]"
+    },
+    {
+      "layer": "first_run_choice_clarity",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh default-state and keyboard browser traces at 390x844 and 1440x1000; responsive loaded trace at 1024x900",
+      "result": "hero own-signal is inside the first-run hero at 390px and 1440px; own-signal bottom is above the mobile fixed bar; sample hero primary is hidden only when the mobile fixed bar owns it and remains visible at 1024px; one visible current action after load; no horizontal overflow; no browser errors or request failures"
     },
     {
       "layer": "single_primary_action_ownership",
@@ -130,37 +138,37 @@
       "layer": "responsive_mobile_emulation",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md",
-      "command_or_click_path": "390x844, 1024x900, and 1440x900; no horizontal overflow; mobile action ownership checked"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "390x844, 1024x900, and 1440x900/1000; no horizontal overflow; mobile action ownership and tablet hero primary checked"
     },
     {
       "layer": "chrome_accessibility_semantics",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "First Tab reaches Skip to main content; unnamed controls=[], duplicate IDs=[], dangling aria-controls=[]; source disclosure relationship checked"
     },
     {
       "layer": "visual_inspection",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
-      "command_or_click_path": "Fresh manual/source-sheet full-page screenshots at 390px and 1440px inspected; source record is quiet margin context, no status rail or competing surface introduced"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh first-run screenshots at 390px and 1440px plus loaded tablet screenshot at 1024px inspected; sample remains primary, own-signal remains quiet secondary, no new status rail or competing surface introduced"
     },
     {
       "layer": "browser_console_and_network_boundary",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "browser_errors=[]; request_failures=[]; external resources=[]"
     },
     {
       "layer": "chrome_extension_behavior_trace",
       "status": "blocked",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
       "command_or_click_path": "Preferred Codex Chrome Extension trace of the same flow",
-      "blocked_reason": "The Mac was locked, so the preferred current-candidate route could not start. Headless Chrome fallback is recorded separately and is not promoted to Extension evidence."
+      "blocked_reason": "No callable Codex Chrome Extension control surface is exposed in this runtime. Headless Chrome fallback is recorded separately and is not promoted to Extension evidence."
     },
     {
       "layer": "canonical_hosted_release",
@@ -317,6 +325,28 @@
         "docs/product/pm-signal-lab/assets/qa/first-run-source-truth-1440-2026-08-16.png"
       ]
     },
+    "first_run_choice_clarity": {
+      "mobile_390": {
+        "own_signal_in_hero": true,
+        "own_signal_not_covered": true,
+        "hero_primary_visible": false,
+        "visible_current_actions": 1,
+        "overflow": false
+      },
+      "tablet_1024": {
+        "hero_primary_visible": true,
+        "mobile_bar": "none",
+        "overflow": false
+      },
+      "desktop_1440": {
+        "own_signal_in_hero": true,
+        "own_signal_not_covered": true,
+        "hero_primary_visible": true,
+        "visible_current_actions": 0,
+        "overflow": false
+      },
+      "artifact": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md"
+    },
     "loaded_390": {
       "scrollWidth": 390,
       "clientWidth": 390,
@@ -401,8 +431,8 @@
     "request_failures": []
   },
   "notes": [
-    "This manifest records the focused local context-note source-record reframe alongside the first-run source-truth composition, keyboard-only workflow, Session note progressive-disclosure and literal receipt-language, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
+    "This manifest records the focused first-run choice-clarity slice alongside the context-note source-record reframe, first-run source-truth composition, keyboard-only workflow, Session note progressive-disclosure and literal receipt-language, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
     "The preferred Chrome Extension route, native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates.",
-    "The Pages-base-path artifact preflight passes locally, but the canonical hosted verifier still fails because the Pages URL serves the prior bundle missing the current first-run copy; this local slice has not been merged or deployed."
+    "The Pages-base-path artifact preflight and local production preview pass, but the canonical hosted verifier still fails because the Pages URL serves the prior bundle missing the current first-run copy; this local slice has not been merged or deployed."
   ]
 }
