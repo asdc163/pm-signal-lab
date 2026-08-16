@@ -154,4 +154,4 @@ The next product decision is gated by evidence, not visual polish:
 
 ## License
 
-No license has been declared yet. Unless written permission says otherwise, treat this repository as a readable public demo and do not republish it or include its code in a commercial product.
+This repository is released under the [MIT License](./LICENSE). Copyright (c) 2026 asdc163.
