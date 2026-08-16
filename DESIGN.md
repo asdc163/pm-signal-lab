@@ -135,6 +135,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 ## Evidence and release references
 
 - Quiet workpaper second-polish contract: [`82-quiet-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md).
+- Mobile source-first reading contract: [`83-mobile-source-first-reading-contract-2026-08-16.md`](./docs/product/pm-signal-lab/83-mobile-source-first-reading-contract-2026-08-16.md).
 
 - First-run design reference: [`case-file-first-run-1440.png`](./docs/product/pm-signal-lab/assets/qa/case-file-first-run-1440.png).
 - Current AI PM fixture first-run screenshot: [`ai-pm-fixture-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-first-run-1280.png).

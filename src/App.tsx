@@ -898,11 +898,11 @@ function CollectView({
                 <span>support draft</span>
                 <span className="pack-subject-note">fictional worksheet</span>
               </div>
-              <p>{pack.description}</p>
+              <p className="pack-description">{pack.description}</p>
             </div>
             <div className="pack-actions">
               <span className="count-badge"><strong>{evidence.length}</strong> source lines</span>
-              <button className="button button-secondary" type="button" onClick={onOpenForm}><Plus size={16} aria-hidden="true" />Add signal</button>
+              <button className="button button-secondary" type="button" onClick={onOpenForm} aria-label="Add a source signal" title="Add a source signal"><Plus size={16} aria-hidden="true" /><span className="button-label">Add signal</span></button>
             </div>
           </div>
           <div className="section-heading-row source-ledger-heading">

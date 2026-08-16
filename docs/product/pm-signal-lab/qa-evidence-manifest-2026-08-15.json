@@ -1,7 +1,7 @@
 {
-  "run_id": "pm-signal-lab-quiet-workpaper-polish-2026-08-16",
+  "run_id": "pm-signal-lab-mobile-source-first-2026-08-16",
   "product": "PM Signal Lab",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; current static candidate; Chrome Extension rerun blocked because the Mac was locked",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; current static candidate; headless Chrome 151 CDP fallback at 390x844 and 1280x900; Chrome Extension unavailable because the Mac was locked",
   "layers": [
     {
       "layer": "domain_tests",
@@ -22,7 +22,7 @@
       "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-D4JhwZId.js and index-gWMif4jN.css emitted"
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-DCv340NQ.js and index-BTUYiTwc.css emitted"
     },
     {
       "layer": "local_static_verifier",
@@ -41,50 +41,50 @@
     },
     {
       "layer": "human_review_gate",
-      "status": "blocked",
+      "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Attempt Decide with 0 reviewed claims; attempt draft with selected unreviewed claim; review one claim; draft again",
-      "blocked_reason": "No current-candidate browser interaction was possible after the quiet-workpaper polish because the Mac was locked. Domain tests still cover the gate logic; browser behavior remains unverified for this candidate."
+      "command_or_click_path": "Headless Chrome CDP fallback at 390x844: attempt Draft before review; expand and accept one claim; draft again; export; run blocked and confirmed privacy paths; refresh reset",
+      "evidence_boundary": "Current local browser fallback PASS only. The preferred Chrome Extension route remains blocked because the Mac was locked; this does not prove non-owner comprehension, native AT, hosted behavior, or adoption."
     },
     {
       "layer": "keyboard_skip_link",
       "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "First Tab → Skip to main content → Enter → main#main-content focus observed"
+      "command_or_click_path": "Headless Chrome CDP exact 390×844: document focus reset → Input.dispatchKeyEvent Tab → active element is the named Skip to main content link"
     },
     {
       "layer": "responsive_mobile_emulation",
-      "status": "blocked",
+      "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Post-fix Chrome viewport 390×844 rerun after flex-basis correction",
-      "blocked_reason": "A fallback 390×844 render exposed min-content overflow in the long empty-state heading and fixed action. A narrow min-width/shrink correction is now in the candidate, but the post-change capture did not finish; the current-candidate Chrome Extension rerun also could not start because the Mac was locked. No mobile pass is claimed."
+      "command_or_click_path": "Headless Chrome CDP fallback exact 390×844: loaded pack, source heading, first row title, fixed action, and document/body scrollWidth geometry; screenshot inspected",
+      "evidence_boundary": "Emulated viewport only. Current evidence: source heading y=686.21875, first row title y=753.8125..797.8125, fixed action y=798..844, document/body scrollWidth=375. Real-device touch and native AT remain unverified."
     },
     {
       "layer": "chrome_accessibility_tree",
-      "status": "blocked",
+      "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Chrome AX tree inspection — 503 nodes; unnamed image, button, and link roles: none",
-      "blocked_reason": "The current candidate was not reopened through Chrome after the copy and metadata polish because the Mac was locked. Prior AX counts are not reused as current proof."
+      "command_or_click_path": "Headless Chrome CDP Accessibility.getFullAXTree depth=5 — 152 nodes; eight named interactive controls; zero unnamed buttons, links, or textboxes",
+      "evidence_boundary": "Chrome AX fallback only; not the Codex Chrome Extension route and not native VoiceOver, NVDA, or TalkBack output."
     },
     {
       "layer": "visual_inspection",
-      "status": "blocked",
+      "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Post-fix desktop and 390×844 mobile screenshot inspection",
-      "blocked_reason": "A fallback 1280×900 screenshot was captured for the blank state, and a 390×844 fallback screenshot exposed a mobile overflow issue. The narrow correction is static-only so far; the post-change 390×844 capture did not finish, and the preferred Chrome route was unavailable because the Mac was locked. Current loaded-state visual inspection remains unverified."
+      "command_or_click_path": "Headless Chrome CDP Page.captureScreenshot at exact 390×844 and 1280×900; loaded screenshots inspected",
+      "evidence_boundary": "Local fallback visual inspection only. The artifacts are /tmp/pm-signal-lab-loaded-390-final.png and /tmp/pm-signal-lab-loaded-1280-final.png; they are not canonical hosted or real-device evidence."
     },
     {
       "layer": "app_origin_console_and_network_boundary",
-      "status": "blocked",
+      "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Filter browser logs and requests to http://127.0.0.1:4179/; app-origin errors/warnings=0; privacy path outbound requests=0",
-      "blocked_reason": "No current-candidate browser session was available after the polish; the previous request-boundary result is historical for this manifest run."
+      "command_or_click_path": "Headless Chrome CDP injected error/warn/unhandled-rejection harness plus performance resource filter on http://127.0.0.1:4179/; qaErrors=[] and externalResources=[] after sample load and privacy flow",
+      "evidence_boundary": "Current local fallback runtime/resource boundary only; no provider, telemetry, GitHub mutation, or raw-signal upload was exercised."
     },
     {
       "layer": "canonical_hosted_release",
@@ -129,6 +129,6 @@
   ],
   "notes": [
     "Third-party MetaMask content-script warnings were observed in the browser session and excluded from the localhost app-origin pass; they are recorded in the QA report.",
-    "This manifest records static evidence for the current local candidate only. A headless fallback exposed a mobile min-content overflow and the candidate includes a narrow correction, but the post-change 390×844 capture did not finish. Current-candidate browser interaction, keyboard, accessibility tree, mobile layout, visual inspection, and app-origin request checks remain blocked because the Mac was locked and the preferred Chrome route could not start. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
+    "This manifest records current local evidence from a headless Chrome CDP fallback. The mobile source-first correction was visually and behaviorally checked at 390×844, the desktop composition was checked at 1280×900, the privacy boundary produced no external resources, and the current AX snapshot had no unnamed interactive controls. The preferred Chrome Extension route remains blocked because the Mac was locked; native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
   ]
 }

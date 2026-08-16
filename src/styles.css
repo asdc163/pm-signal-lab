@@ -4093,3 +4093,121 @@ textarea {
     white-space: normal;
   }
 }
+
+/* Mobile source-first correction — keep the evidence object ahead of the
+   fixed action bar without removing the subject or local trust boundary. */
+@media (max-width: 700px) {
+  .workbench.is-loaded .pack-header {
+    position: relative;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .workbench.is-loaded .pack-header > div:first-child {
+    padding-right: 0;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 4px;
+    margin-bottom: 5px;
+    padding-right: 40px;
+    font-size: 23px;
+    line-height: 1.1;
+  }
+
+  .workbench.is-loaded .pack-description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .workbench.is-loaded .pack-actions {
+    position: absolute;
+    top: 9px;
+    right: 0;
+    width: auto;
+  }
+
+  .workbench.is-loaded .pack-actions .count-badge {
+    display: none;
+  }
+
+  .workbench.is-loaded .pack-actions .button {
+    width: 36px;
+    min-height: 36px;
+    flex: 0 0 36px;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .workbench.is-loaded .pack-actions .button-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  .workbench.is-loaded .section-heading-row.source-ledger-heading {
+    align-items: baseline;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .workbench.is-loaded .source-ledger-heading > div {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .workbench.is-loaded .source-ledger-heading h3 {
+    font-size: 18px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .workbench.is-loaded .source-ledger-heading p {
+    display: none;
+  }
+
+  .workbench.is-loaded .source-ledger-heading .micro-status {
+    flex: 0 0 auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .workbench.is-loaded .evidence-row {
+    padding-top: 12px;
+    padding-bottom: 14px;
+  }
+
+  .workbench.is-loaded .evidence-main h4 {
+    margin-top: 4px;
+  }
+
+  .mobile-action-bar {
+    padding-top: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media (max-width: 360px) {
+  .workbench.is-loaded .section-heading-row.source-ledger-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .workbench.is-loaded .source-ledger-heading h3 {
+    white-space: normal;
+  }
+
+  .workbench.is-loaded .source-ledger-heading .micro-status {
+    padding-left: 0;
+    border-left: 0;
+  }
+}

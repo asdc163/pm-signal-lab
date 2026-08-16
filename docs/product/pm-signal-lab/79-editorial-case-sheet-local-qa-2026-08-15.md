@@ -8,6 +8,14 @@ Base under test: `origin/main` at `040c7a4`
 Change under test: [editorial case-sheet visual reframe contract](./78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md)
 Release target: `https://asdc163.github.io/pm-signal-lab/`
 
+> Current-candidate truth boundary — 2026-08-16: the historical sections
+> below contain earlier reframe and polish observations. The current local
+> candidate is covered by the `Current-candidate mobile source-first addendum`
+> at the end of this report. That addendum uses a headless Chrome CDP
+> fallback because the preferred Chrome Extension route was unavailable; it
+> must not be read as Chrome Extension, hosted, native AT, real-device, or
+> participant evidence.
+
 ## QA result
 
 PASS for the executed local scope. The public preview now reads as an
@@ -925,3 +933,90 @@ Extension route remained unavailable because the Mac was locked. Therefore the
 mobile correction, exact no-overflow geometry, fixed-action reachability,
 loaded source-row view, keyboard focus, AX tree, native AT, canonical hosted
 behavior, and participant/adoption layers remain `未驗證`.
+
+## Current-candidate mobile source-first addendum — 2026-08-16
+
+This addendum supersedes the earlier `未驗證` statements above for the local
+current candidate only. It records the small mobile composition correction in
+contract [83](./83-mobile-source-first-reading-contract-2026-08-16.md): the
+loaded pack description is bounded, the secondary `Add signal` action keeps an
+explicit accessible name in a compact icon slot, the source heading stays on
+one row, and the fixed action bar retains a 44px button without extra vertical
+padding. Desktop rules and the source/claim/human-review boundaries were
+preserved.
+
+### Evidence route and exact environment
+
+- Route: headless Google Chrome 151.0.7922.138 via CDP at
+  `http://127.0.0.1:4179/`; this is a browser fallback, not the Codex Chrome
+  Extension route. Computer Use also reported the Mac locked; no bypass was
+  attempted.
+- Locale: `en-US`.
+- Mobile viewport: exact `390×844`, device scale factor `1`, mobile emulation
+  enabled; the browser layout width is `375px` because of the scrollbar.
+- Desktop viewport: exact `1280×900`, device scale factor `1`, desktop
+  emulation.
+- Current local assets: JS `index-DCv340NQ.js`, CSS `index-BTUYiTwc.css`.
+- Visual artifacts inspected in this run: `/tmp/pm-signal-lab-loaded-390-final.png`
+  and `/tmp/pm-signal-lab-loaded-1280-final.png`.
+
+### Current geometry evidence
+
+| Surface | Fresh result | Interpretation |
+|---|---|---|
+| Loaded mobile pack | `y=487.875..674.21875` | Pack context remains visible but no longer fills the reading path. |
+| Mobile source heading | `y=686.21875..712.8125` | `The source comes first` arrives directly after the pack. |
+| First source row title | `y=753.8125..797.8125` | Full title ends before the fixed action bar. |
+| Fixed mobile action | `y=798..844`; button `44px` high | Primary action remains reachable without covering the source title. |
+| Mobile overflow | document/body `scrollWidth=375` at layout width `375` | No horizontal overflow in the current loaded state. |
+| Desktop source path | pack `y=419.21875..600.46875`; heading `y=626.46875..682.90625`; first row `y=698.90625` | Desktop workpaper remains aligned and the mobile bar is absent. |
+| External resources | `[]` | Current preview requested only same-origin assets during the checked page state. |
+
+### Current fallback behavior trace
+
+The fresh current-candidate trace waited for each React state transition before
+reading the next result:
+
+1. Blank state showed `Start with a source line`, `Open the sample worksheet`,
+   a `390×844` viewport, and no horizontal overflow.
+2. Sample load produced `Support draft review: deciding what to test next`,
+   four source rows, `The source comes first`, and a source title that ended at
+   `y=797.8125`, before the fixed action at `y=798`.
+3. `View source` changed `aria-expanded` to `true`, showed `Source excerpt`,
+   and preserved the original source content in the session.
+4. `Start review` opened `Check the claim against the line` with three claim
+   rows and an `Accept claim` control.
+5. Drafting before review stayed in Verify and showed
+   `Review the selected claim before drafting the smallest experiment.`
+6. Expanding the first claim showed `Source mapping`; accepting it produced
+   `Claim accepted...` and a reviewed/source-backed claim state.
+7. Decide opened `Name the smallest test`, `Ready for confirmation`, and seven
+   editable brief fields. Ship opened `Take a brief someone can challenge` with
+   a memo preview.
+8. The pilot note opened. Preparing without the privacy checkbox blocked with
+   `Please confirm that this report contains no customer data...`; after the
+   checkbox was confirmed, the local field note appeared with
+   `This is a field note, not a validation result.`
+9. Refresh returned to the blank sheet. The first Tab reached the named
+   `Skip to main content` link.
+10. A current Chrome AX snapshot contained 152 nodes, eight named interactive
+    controls, and zero unnamed buttons, links, or textboxes in the inspected
+    tree. This remains Chrome AX evidence, not native screen-reader evidence.
+11. Runtime boundary check returned `qaErrors=[]` from the page harness and an
+    empty external-resource list. No GitHub, provider, telemetry, or raw-signal
+    upload was introduced.
+
+One exploratory flow initially read the loaded geometry before resetting a
+scroll position restored by the browser reload. The exact geometry table above
+comes from a fresh current-asset capture after explicitly returning to the top;
+the async state waits and scroll-top precondition are now part of the fallback
+procedure. This is a harness correction, not evidence to hide.
+
+### Current release boundary
+
+This is a scoped local browser fallback PASS for the listed states. The
+preferred Chrome Extension behavior trace remains `未驗證`; native VoiceOver,
+NVDA, TalkBack, physical-device touch, hosted Pages behavior, non-owner
+international PM sessions, adoption, traffic, and GitHub stars remain separate
+gates. The current local evidence does not authorize merge, deploy, or a claim
+of virality or 10,000 stars.

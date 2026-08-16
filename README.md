@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest visual pass: [quiet workpaper second-polish contract](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md), [editorial case-sheet visual reframe contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md), and [editorial case-sheet local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md). The canonical URL and hosted behavior still require a new Pages release audit for this branch; the local report is not a hosted-release claim.
+Latest visual pass: [mobile source-first reading contract](./docs/product/pm-signal-lab/83-mobile-source-first-reading-contract-2026-08-16.md), [quiet workpaper second-polish contract](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md), [editorial case-sheet visual reframe contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md), and [editorial case-sheet local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md). The current local candidate passed a headless Chrome CDP fallback at `390×844` and `1280×900`; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
 
 PM Signal Lab is a local-first product evidence worksheet for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses a fictional support-draft review because the portfolio is meant to show AI-PM judgment; the working surface leads with the PM case and keeps AI context out of the visual chrome.
 
@@ -40,13 +40,12 @@ The point is to make the source, claim, limitation, and next action visible in o
 ![PM Signal Lab editorial case sheet first-run](./docs/product/pm-signal-lab/assets/qa/editorial-case-sheet-local-blank-1280-2026-08-15.png)
 
 This is a prior editorial case-sheet calibration snapshot captured from the
-local branch on 2026-08-15 at 1280×900; it is not current proof for the quiet
-workpaper candidate. The [local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md)
-records the preceding loaded desktop/mobile screenshots and executed review,
-export, keyboard, validation, refresh, and privacy-gated feedback flows. The
-current candidate's browser rerun and a new canonical hosted release audit are
-still intentionally pending because the Mac was locked and PR #44 has not
-been explicitly approved for merge and Pages deployment.
+local branch on 2026-08-15 at 1280×900; it is not current proof for the mobile
+source-first candidate. The [local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md)
+records the current headless Chrome fallback geometry, screenshots, executed
+review/export/privacy/reset flow, and the remaining Chrome Extension and
+hosted-release boundaries. PR #44 has not been approved for merge and Pages
+deployment.
 
 ## What is in the hosted demo
 
@@ -114,7 +113,7 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 - [`.github/workflows/weekly-growth-pulse.yml`](./.github/workflows/weekly-growth-pulse.yml) records read-only public repository signals as a reviewable artifact; it does not automate social activity.
 - [`DESIGN.md`](./DESIGN.md) records the visual DNA, tokens, states, and layout rules.
 
-The current English-first product contract is [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md). The latest quiet workpaper second-polish contract is [`82-quiet-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md). The editorial case-sheet contract and local evidence remain available in [`78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md) and [`79-editorial-case-sheet-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md). Historical audits remain available as a release trail.
+The current English-first product contract is [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md). The latest mobile composition contract is [`83-mobile-source-first-reading-contract-2026-08-16.md`](./docs/product/pm-signal-lab/83-mobile-source-first-reading-contract-2026-08-16.md), followed by the [`82-quiet-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md). The editorial case-sheet contract and local evidence remain available in [`78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md) and [`79-editorial-case-sheet-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md). Historical audits remain available as a release trail.
 
 ## English-first hosted demo
 
