@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Handoff to Recovery"
+  short_description: "Design safe AI handoffs and recovery paths"
+  default_prompt: "Use $pm-ai-handoff-to-recovery to turn this AI escalation into a privacy-safe handoff packet, owner, visible state, recovery rule, and release decision without confusing transfer with approval or resolution."
