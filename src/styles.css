@@ -4401,6 +4401,12 @@ main.workspace:focus {
   display: none;
 }
 
+/* Source labels are working metadata, not decorative folio furniture. */
+.evidence-index small {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
 @media (min-width: 701px) {
   .workbench.is-loaded .hero-block h1 {
     font-weight: 700;

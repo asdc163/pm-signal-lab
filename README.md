@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest candidate evidence: [mobile primary-action contract](./docs/product/pm-signal-lab/96-mobile-primary-action-de-duplication-contract-2026-08-16.md) and [focused local QA report](./docs/product/pm-signal-lab/97-mobile-primary-action-de-duplication-local-qa-2026-08-16.md). The current local candidate passed the isolated Chrome CDP fallback at `390×844`, `1024×900`, and `1440×900`, including state-specific action copy, source disclosure, review gate, one mobile context action, keyboard skip link, semantic checks, and the mobile action bar; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
+Latest candidate evidence: [source-first chrome simplification contract](./docs/product/pm-signal-lab/98-source-first-chrome-simplification-contract-2026-08-16.md) and [focused local QA report](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md). The current local candidate passed the isolated Chrome CDP fallback at `390×844`, `1024×900`, and `1440×900`, including the source-first hierarchy, state-specific action copy, source disclosure, review gate, one mobile context action, keyboard skip link, semantic checks, and the local production-preview copy oracle; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
 
 PM Signal Lab is a local-first product evidence worksheet for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses a fictional support-draft review because the portfolio is meant to show AI-PM judgment; the working surface leads with the PM case and keeps AI context out of the visual chrome.
 
@@ -16,7 +16,7 @@ PM Signal Lab is a local-first product evidence worksheet for turning raw signal
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
 
-**Design and QA evidence:** The current visual direction and current-turn evidence are in the [mobile primary-action contract](./docs/product/pm-signal-lab/96-mobile-primary-action-de-duplication-contract-2026-08-16.md) and [focused local QA report](./docs/product/pm-signal-lab/97-mobile-primary-action-de-duplication-local-qa-2026-08-16.md). The preceding [mobile action context contract](./docs/product/pm-signal-lab/94-mobile-action-context-and-craft-pass-contract-2026-08-16.md) and [local QA report](./docs/product/pm-signal-lab/95-mobile-action-context-local-qa-2026-08-16.md) record the state-specific action pass; earlier operational worksheet, source-first, no-AI-feel, keyboard/semantic, copy, AI-PM, and hosted audits remain available as the historical release trail.
+**Design and QA evidence:** The current visual direction and current-turn evidence are in the [source-first chrome simplification contract](./docs/product/pm-signal-lab/98-source-first-chrome-simplification-contract-2026-08-16.md) and [focused local QA report](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md). The preceding [mobile primary-action contract](./docs/product/pm-signal-lab/96-mobile-primary-action-de-duplication-contract-2026-08-16.md) and [local QA report](./docs/product/pm-signal-lab/97-mobile-primary-action-de-duplication-local-qa-2026-08-16.md) record the single mobile action pass; earlier operational worksheet, source-first, no-AI-feel, keyboard/semantic, copy, AI-PM, and hosted audits remain available as the historical release trail.
 
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
@@ -39,15 +39,15 @@ The product path is:
 
 The point is to make the source, claim, limitation, and next action visible in one path. It is not to make you trust an opaque answer.
 
-![PM Signal Lab current source-first first-run](./docs/product/pm-signal-lab/assets/qa/mobile-primary-action-dedup-blank-390-2026-08-16.png)
+![PM Signal Lab current source-first first-run](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-blank-390-2026-08-16.png)
 
 This is the current candidate's clean first-run snapshot captured locally on
-2026-08-16 at 390×844. The [focused local QA report](./docs/product/pm-signal-lab/97-mobile-primary-action-de-duplication-local-qa-2026-08-16.md)
-records the mobile de-duplication behavior, desktop/tablet preservation, source
-disclosure, human review gate, semantic scan, and the remaining Chrome
-Extension, hosted-release, and non-owner-session boundaries. [Loaded desktop](./docs/product/pm-signal-lab/assets/qa/mobile-primary-action-dedup-loaded-1440-2026-08-16.png),
-[loaded tablet](./docs/product/pm-signal-lab/assets/qa/mobile-primary-action-dedup-loaded-1024-2026-08-16.png),
-and [loaded mobile](./docs/product/pm-signal-lab/assets/qa/mobile-primary-action-dedup-loaded-390-2026-08-16.png)
+2026-08-16 at 390×844. The [focused local QA report](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md)
+records the source-first hierarchy, mobile action ownership, source disclosure,
+human review gate, semantic scan, and the remaining Chrome Extension,
+hosted-release, and non-owner-session boundaries. [Loaded desktop](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-loaded-1440-2026-08-16.png),
+[loaded tablet](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-loaded-1024-2026-08-16.png),
+and [loaded mobile](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-loaded-390-2026-08-16.png)
 screenshots are also available.
 
 ## What is in the current candidate

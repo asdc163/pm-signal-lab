@@ -629,8 +629,6 @@ function App() {
           </div>
           <div className="topbar-context">
             <span className="topbar-kicker">Local worksheet</span>
-            <span className="topbar-divider" aria-hidden="true" />
-            <span>{pack?.title ?? "Blank sheet"}</span>
           </div>
           <button className="icon-button topbar-menu" type="button" aria-label="Jump to workflow" aria-controls="mobile-workflow" title="Jump to workflow" onClick={() => document.getElementById("mobile-workflow")?.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" })}>
             <Menu size={18} aria-hidden="true" />
@@ -896,7 +894,7 @@ function CollectView({
         <>
           <div className="pack-header">
             <div>
-            <p className="section-eyebrow">Source lines</p>
+            <p className="section-eyebrow">Evidence</p>
               <h2 id="collect-title">Source lines to check</h2>
               <div className="pack-subject" aria-label="Subject: support draft, fictional worksheet">
                 <span className="pack-subject-label">Subject</span>
