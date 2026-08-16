@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Tool to Contract"
+  short_description: "Turn agent tools into reviewable product contracts"
+  default_prompt: "Use $pm-ai-tool-to-contract to turn this AI or MCP tool into a source-bounded agent-facing contract. Define purpose, namespace, scope, read/propose/write boundary, input schema, examples, high-signal output and provenance, permissions, side effects, idempotency, errors, retries, injection handling, positive and negative routing, evaluation, rollout, and a Ship/Hold/Rollback decision. Keep raw content, provider claims, adoption, and unverified quality separate."
