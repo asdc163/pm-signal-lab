@@ -38,6 +38,23 @@ def body_text(page: Page) -> str:
     return page.locator("body").inner_text()
 
 
+def inspect_context_note(page: Page) -> dict[str, object]:
+    context = page.locator(".decision-context")
+    text = context.inner_text()
+    return {
+        "aria_label": context.get_attribute("aria-label"),
+        "source_record_present": "Source record" in text,
+        "local_sheet_present": "Local sheet" in text,
+        "blank_sheet_present": "Blank sheet" in text,
+        "no_source_line_present": "No source line yet" in text,
+        "old_source_set_label_absent": "Source set · active" not in text
+        and "Source set · empty" not in text,
+        "old_current_source_absent": "Current source set" not in text,
+        "status_dot_count": context.locator(".status-dot").count(),
+        "text": " ".join(text.split()),
+    }
+
+
 def inspect_session_note(page: Page) -> dict[str, object]:
     details = page.locator(".context-trace")
     summary = details.locator("summary")
@@ -89,6 +106,7 @@ def inspect_session_note(page: Page) -> dict[str, object]:
 def run_custom_source_flow(page: Page, screenshot_name: str) -> dict[str, object]:
     page.goto(BASE_URL, wait_until="networkidle")
     page.get_by_role("heading", name="Start with a source line").wait_for(state="visible")
+    blank_context = inspect_context_note(page)
     page.get_by_role("button", name="Add your own signal").click()
     page.get_by_role("heading", name="Write down one real observation").wait_for(
         state="visible"
@@ -103,6 +121,7 @@ def run_custom_source_flow(page: Page, screenshot_name: str) -> dict[str, object
 
     text = body_text(page)
     aria_label = page.locator(".pack-subject").get_attribute("aria-label")
+    loaded_context = inspect_context_note(page)
     session_note = inspect_session_note(page)
     page.evaluate("window.scrollTo(0, 0)")
     page.screenshot(path=SCREENSHOT_DIR / screenshot_name, full_page=True)
@@ -116,6 +135,8 @@ def run_custom_source_flow(page: Page, screenshot_name: str) -> dict[str, object
         "subject_aria_label": aria_label,
         "visible_current_actions": page.locator("[data-current-action]:visible").count(),
         "source_row_action_hidden": not page.locator(".next-action-card .button").is_visible(),
+        "blank_context": blank_context,
+        "loaded_context": loaded_context,
         "session_note": session_note,
     }
 
@@ -123,11 +144,13 @@ def run_custom_source_flow(page: Page, screenshot_name: str) -> dict[str, object
 def run_sample_source_flow(page: Page, screenshot_name: str) -> dict[str, object]:
     page.goto(BASE_URL, wait_until="networkidle")
     page.get_by_role("heading", name="Start with a source line").wait_for(state="visible")
+    blank_context = inspect_context_note(page)
     page.get_by_role("button", name="Open the sample worksheet").click()
     page.get_by_role("heading", name="Support draft review").wait_for(state="visible")
 
     text = body_text(page)
     aria_label = page.locator(".pack-subject").get_attribute("aria-label")
+    loaded_context = inspect_context_note(page)
     session_note = inspect_session_note(page)
     page.evaluate("window.scrollTo(0, 0)")
     page.screenshot(path=SCREENSHOT_DIR / screenshot_name, full_page=True)
@@ -152,6 +175,8 @@ def run_sample_source_flow(page: Page, screenshot_name: str) -> dict[str, object
         "owner_value": owner_value,
         "visible_current_actions": page.locator("[data-current-action]:visible").count(),
         "hero_action_absent": page.locator(".hero-status .button").count() == 0,
+        "blank_context": blank_context,
+        "loaded_context": loaded_context,
         "session_note": session_note,
     }
 
@@ -209,6 +234,18 @@ with sync_playwright() as playwright:
     assert custom_result["subject_aria_label"] == "Sheet: your source notes, local sheet"
     assert custom_result["visible_current_actions"] == 1
     assert custom_result["source_row_action_hidden"] is True
+    assert custom_result["blank_context"]["aria_label"] == "Worksheet note"
+    assert custom_result["blank_context"]["blank_sheet_present"] is True
+    assert custom_result["blank_context"]["no_source_line_present"] is True
+    assert custom_result["blank_context"]["old_source_set_label_absent"] is True
+    assert custom_result["blank_context"]["old_current_source_absent"] is True
+    assert custom_result["blank_context"]["status_dot_count"] == 0
+    assert custom_result["loaded_context"]["aria_label"] == "Worksheet note"
+    assert custom_result["loaded_context"]["source_record_present"] is True
+    assert custom_result["loaded_context"]["local_sheet_present"] is True
+    assert custom_result["loaded_context"]["old_source_set_label_absent"] is True
+    assert custom_result["loaded_context"]["old_current_source_absent"] is True
+    assert custom_result["loaded_context"]["status_dot_count"] == 0
     assert custom_result["session_note"]["summary_text"] == "Session note Optional local receipt"
     assert custom_result["session_note"]["initial_closed"] is True
     assert custom_result["session_note"]["initial_body_hidden"] is True
@@ -229,6 +266,18 @@ with sync_playwright() as playwright:
     assert sample_result["owner_value"] == "Owner to confirm before the test"
     assert sample_result["visible_current_actions"] == 1
     assert sample_result["hero_action_absent"] is True
+    assert sample_result["blank_context"]["aria_label"] == "Worksheet note"
+    assert sample_result["blank_context"]["blank_sheet_present"] is True
+    assert sample_result["blank_context"]["no_source_line_present"] is True
+    assert sample_result["blank_context"]["old_source_set_label_absent"] is True
+    assert sample_result["blank_context"]["old_current_source_absent"] is True
+    assert sample_result["blank_context"]["status_dot_count"] == 0
+    assert sample_result["loaded_context"]["aria_label"] == "Worksheet note"
+    assert sample_result["loaded_context"]["source_record_present"] is True
+    assert sample_result["loaded_context"]["local_sheet_present"] is True
+    assert sample_result["loaded_context"]["old_source_set_label_absent"] is True
+    assert sample_result["loaded_context"]["old_current_source_absent"] is True
+    assert sample_result["loaded_context"]["status_dot_count"] == 0
     assert sample_result["session_note"]["summary_text"] == "Session note Optional local receipt"
     assert sample_result["session_note"]["initial_closed"] is True
     assert sample_result["session_note"]["initial_body_hidden"] is True

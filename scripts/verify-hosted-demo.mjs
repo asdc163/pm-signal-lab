@@ -63,8 +63,11 @@ try {
     "Start with one line",
     "Write down one line you can defend.",
     "source rows",
-    "Source set",
-    "These source lines stay on this page.",
+    "Local sheet",
+    "Blank sheet",
+    "Original words stay beside the decision.",
+    "No source line yet",
+    "Add one line you can defend.",
     "Evaluation review",
     "source or freshness",
     "copy is not resolution",
@@ -146,6 +149,11 @@ try {
     "Review state",
     "Working set",
     "Session trace",
+    "Source set · active",
+    "Source set · empty",
+    "Current source set",
+    "These source lines stay on this page.",
+    "No source set",
   ];
   for (const text of requiredStrings) {
     assert(javascript.includes(text), `Current hosted JavaScript is missing: ${text}`);

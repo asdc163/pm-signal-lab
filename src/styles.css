@@ -4719,6 +4719,22 @@ main.workspace:focus {
   -webkit-line-clamp: 3;
 }
 
+/* Source-record margin note — 2026-08-16.
+   Keep the local boundary literal and quiet; the source count carries the
+   useful state instead of a status indicator. */
+.context-boundary {
+  align-self: flex-start;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.context-project strong {
+  max-width: 34ch;
+}
+
 @media (max-width: 700px) {
   .hero-status > .hero-status-source-title,
   .hero-status > .hero-status-quote {
@@ -4727,5 +4743,9 @@ main.workspace:focus {
 
   .hero-status > .hero-status-quote {
     margin-bottom: 2px;
+  }
+
+  .context-project strong {
+    max-width: 100%;
   }
 }

@@ -1212,6 +1212,10 @@ function SessionFeedback({
 function MemoSection({ title, children }: { title: string; children: React.ReactNode }) { return <section className="memo-section"><h4>{title}</h4>{children}</section>; }
 
 function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, supportedCount, currentStep, nextAction, events, onCopyReceipt, feedbackUrl }: { pack: EvidencePack | null; evidenceCount: number; claimCount: number; reviewedCount: number; supportedCount: number; currentStep: WorkflowStep; nextAction: { label: string; action: () => void }; events: ProductEvent[]; onCopyReceipt: () => void; feedbackUrl: string }) {
+  const contextSourceRecord = pack
+    ? `${evidenceCount} ${evidenceCount === 1 ? "source line" : "source lines"} · ${claimCount} ${claimCount === 1 ? "candidate claim" : "candidate claims"}`
+    : "No source line yet";
+  const contextSourceNote = pack ? "Original words stay beside the decision." : "Add one line you can defend.";
   const contextRecord = pack
     ? `${evidenceCount} ${evidenceCount === 1 ? "source line" : "source lines"} · ${claimCount} candidate claims · ${reviewedCount} reviewed · ${supportedCount} accepted.`
     : "No source lines yet. Start with one line you can trace.";
@@ -1226,13 +1230,13 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
           : "What can the team defend next?";
   const contextRule = pack ? "No claim travels without its source." : "The source line stays attached to the claim.";
   return (
-    <aside className="decision-context" aria-label="Worksheet context">
+    <aside className="decision-context" aria-label="Worksheet note">
       <div className="context-heading">
         <div><p className="section-eyebrow">Sheet note</p><h2>{pack ? "Check the source" : "Start with a source"}</h2></div>
-        <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "On this page" : "Blank sheet"}</span>
+        <span className="context-boundary">{pack ? "Local sheet" : "Blank sheet"}</span>
       </div>
       <div className="context-middle">
-        <div className="context-project"><span className="card-eyebrow">Source set · {pack ? "active" : "empty"}</span><strong>{pack ? "Current source set" : "No source set"}</strong><span>{pack ? "These source lines stay on this page." : "Start with one source line."}</span></div>
+        <div className="context-project"><span className="card-eyebrow">Source record</span><strong>{contextSourceRecord}</strong><span>{contextSourceNote}</span></div>
         <p className="context-record"><span className="card-eyebrow">In this sheet</span>{contextRecord}</p>
         <div className="context-list"><ContextItem label="Question" value={contextQuestion} /><ContextItem label="Rule" value={contextRule} /></div>
       </div>
