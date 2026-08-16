@@ -671,7 +671,6 @@ function App() {
                 <p>{pack ? `${reviewedCount} / ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Start with the sample or write down one real line from the work."}</p>
                 <span className="hero-status-boundary"><ShieldCheck size={14} aria-hidden="true" />{pack ? "Local sheet · refresh clears it" : SESSION_BOUNDARY_SHORT}</span>
                 {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample} disabled={isLoading}><ClipboardList size={16} aria-hidden="true" />Open the sample worksheet<ArrowRight size={15} aria-hidden="true" /></button></div>}
-                {pack && currentStep === "collect" && claims.length > 0 && <div className="hero-status-actions hero-status-start-review"><button className="button button-primary" type="button" onClick={startReview} data-current-action>Start review<ArrowRight size={15} aria-hidden="true" /></button></div>}
               </div>
             </div>
 

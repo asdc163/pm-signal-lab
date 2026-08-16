@@ -65,6 +65,8 @@ def run_custom_source_flow(page: Page, screenshot_name: str) -> dict[str, object
         "sample_heading_absent": "Support draft review" not in text,
         "sample_boundary_absent": "fictional worksheet" not in text,
         "subject_aria_label": aria_label,
+        "visible_current_actions": page.locator("[data-current-action]:visible").count(),
+        "source_row_action_hidden": not page.locator(".next-action-card .button").is_visible(),
     }
 
 
@@ -97,6 +99,8 @@ def run_sample_source_flow(page: Page, screenshot_name: str) -> dict[str, object
         "custom_boundary_absent": "local sheet" not in text,
         "subject_aria_label": aria_label,
         "owner_value": owner_value,
+        "visible_current_actions": page.locator("[data-current-action]:visible").count(),
+        "hero_action_absent": page.locator(".hero-status .button").count() == 0,
     }
 
 
@@ -147,6 +151,8 @@ with sync_playwright() as playwright:
     assert custom_result["sample_heading_absent"] is True
     assert custom_result["sample_boundary_absent"] is True
     assert custom_result["subject_aria_label"] == "Sheet: your source notes, local sheet"
+    assert custom_result["visible_current_actions"] == 1
+    assert custom_result["source_row_action_hidden"] is True
     assert sample_result["heading_present"] is True
     assert sample_result["sample_subject_present"] is True
     assert sample_result["sample_boundary_present"] is True
@@ -154,6 +160,8 @@ with sync_playwright() as playwright:
     assert sample_result["custom_boundary_absent"] is True
     assert sample_result["subject_aria_label"] == "Subject: support draft, fictional worksheet"
     assert sample_result["owner_value"] == "Owner to confirm before the test"
+    assert sample_result["visible_current_actions"] == 1
+    assert sample_result["hero_action_absent"] is True
     assert browser_errors == []
     assert request_failures == []
 

@@ -4213,6 +4213,12 @@ textarea {
   .context-next .context-next-action {
     display: none;
   }
+
+  /* The fixed bar owns the mobile next action. Keep the source-row note
+     useful, but do not ask the user to choose between two identical buttons. */
+  .workbench.is-loaded .next-action-card .button {
+    display: none;
+  }
 }
 
 /* The main landmark receives focus after a state change so screen-reader and

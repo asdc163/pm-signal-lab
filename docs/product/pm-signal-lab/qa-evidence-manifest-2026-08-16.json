@@ -1,8 +1,8 @@
 {
-  "run_id": "pm-signal-lab-custom-source-sheet-truth-2026-08-16",
+  "run_id": "pm-signal-lab-single-primary-action-ownership-2026-08-16",
   "product": "PM Signal Lab",
-  "candidate_ref": "codex/less-ai-editorial-sheet — custom source-sheet truth slice (local candidate)",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome 151.0.7922.138 fallback at 390x844, 1024x900, and 1440x900; focused source-truth oracle at 390x844 and 1440x1000; preferred Chrome Extension route unavailable in this runtime",
+  "candidate_ref": "codex/less-ai-editorial-sheet — single-primary-action ownership slice (local candidate)",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome 151.0.7922.138 fallback at 390x844, 1024x900, and 1440x900; focused source-truth and action-ownership oracle at 390x844 and 1440x1000; preferred Chrome Extension route unavailable in this runtime",
   "layers": [
     {
       "layer": "domain_tests",
@@ -22,8 +22,8 @@
       "layer": "production_build",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-DKwoxpjM.js and index-DUghuE2I.css emitted"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-5r46Fikq.js and index-ByNjNY-f.css emitted"
     },
     {
       "layer": "local_static_verifier",
@@ -66,9 +66,17 @@
       "layer": "custom_source_sheet_truth",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run verify:source-truth — fresh manual 390px and sample 1440px paths, then sample Verify → Decide owner check",
-      "result": "custom heading and subject boundary passed; sample-only copy absent from manual state; sample copy preserved; owner_value=Owner to confirm before the test; browser_errors=[]; request_failures=[]"
+      "result": "custom/sample source boundary passed; visible_current_actions=1 at 390px and 1440px; source_row_action_hidden=true at 390px; hero_action_absent=true at 1440px; owner_value=Owner to confirm before the test; browser_errors=[]; request_failures=[]"
+    },
+    {
+      "layer": "single_primary_action_ownership",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh local browser traces at 390x844 and 1440x1000",
+      "result": "One visible [data-current-action] per loaded viewport; desktop action remains after source rows; mobile fixed bar owns the action; no horizontal overflow"
     },
     {
       "layer": "responsive_mobile_emulation",
@@ -156,7 +164,9 @@
     "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-decide-390-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-ship-390-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1024-2026-08-16.png",
-    "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1440-2026-08-16.png"
+    "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1440-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/custom-source-sheet-truth-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/custom-source-sheet-truth-sample-1440-2026-08-16.png"
   ],
   "browser_summary": {
     "workflow": "blank → sample → source disclosure → Verify → accept → Decide → draft → Ship",
@@ -166,7 +176,9 @@
       "overflow": false,
       "heroStatusLabel": "Sheet tally",
       "currentStepVisible": false,
-      "mobileBar": "flex"
+      "mobileBar": "flex",
+      "visibleCurrentActions": 1,
+      "sourceRowActionHidden": true
     },
     "custom_source_390": {
       "heading": "Your source sheet",
@@ -179,7 +191,9 @@
       "subject": "support draft · fictional worksheet",
       "custom_only_copy_absent": true,
       "subject_aria_label": "Subject: support draft, fictional worksheet",
-      "owner_value": "Owner to confirm before the test"
+      "owner_value": "Owner to confirm before the test",
+      "visibleCurrentActions": 1,
+      "heroActionAbsent": true
     },
       "session_boundary_390": {
         "sample_button_disabled_during_loading": true,
@@ -216,7 +230,7 @@
     "request_failures": []
   },
   "notes": [
-    "This manifest records the focused local custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
+    "This manifest records the focused local single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
     "The preferred Chrome Extension route, native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates.",
     "The canonical hosted verifier currently fails because the Pages URL still serves the prior bundle missing the current first-run copy."
   ]
