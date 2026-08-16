@@ -4211,3 +4211,10 @@ textarea {
     border-left: 0;
   }
 }
+
+/* The main landmark receives focus after a state change so screen-reader and
+   keyboard users regain context. It is not an interactive control, so the
+   browser's full-surface default outline should not compete with the sheet. */
+main.workspace:focus {
+  outline: none;
+}

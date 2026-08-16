@@ -4,7 +4,7 @@ export const SAMPLE_PACK: EvidencePack = {
   id: "ai-support-copilot-eval-v1",
   title: "Support draft review: deciding what to test next",
   description:
-    "Four fictional signals from a support-draft review. Keep the user's line separate from the decision it may support.",
+    "A fictional support-draft review. Keep the original line beside the decision it may support.",
   evidence: [
     {
       id: "evidence-interview-01",

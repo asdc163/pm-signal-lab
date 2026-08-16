@@ -971,7 +971,7 @@ function EvidenceRow({ evidence, sourceIndex, expanded, onToggle }: { evidence: 
         <p className="evidence-preview"><span className="preview-label">Source line</span>{evidence.content}</p>
         {expanded && <div id={`source-${evidence.id}`} className="source-detail" role="region" aria-label={`Source excerpt: ${evidence.title}`}><span className="detail-label">Source excerpt</span><p>{evidence.content}</p><span className="detail-meta">Original content stays in this session · Source {formatFolioNumber(sourceIndex)}</span></div>}
       </div>
-      <button className="row-toggle" type="button" onClick={onToggle} aria-expanded={expanded} aria-controls={`source-${evidence.id}`}>{expanded ? "Hide source" : "View source"}<ChevronDown size={15} aria-hidden="true" className={expanded ? "rotate-180" : ""} /></button>
+      <button className="row-toggle" type="button" onClick={onToggle} aria-expanded={expanded} aria-controls={expanded ? `source-${evidence.id}` : undefined}>{expanded ? "Hide source" : "View source"}<ChevronDown size={15} aria-hidden="true" className={expanded ? "rotate-180" : ""} /></button>
     </article>
   );
 }
