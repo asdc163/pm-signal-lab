@@ -4212,6 +4212,14 @@ textarea {
   }
 }
 
+/* On phones the fixed action bar is the single primary control. The context
+   note keeps its question and rule, but does not repeat the same button. */
+@media (max-width: 700px) {
+  .context-next .context-next-action {
+    display: none;
+  }
+}
+
 /* The main landmark receives focus after a state change so screen-reader and
    keyboard users regain context. It is not an interactive control, so the
    browser's full-surface default outline should not compete with the sheet. */
