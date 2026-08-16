@@ -1,14 +1,14 @@
-# PM Signal Lab — Hosted Release Preflight — 2026-08-15
+# PM Signal Lab — Hosted Release Preflight — 2026-08-16
 
 ## Release decision
 
 **HOLD — ready for explicit approval, not merged or deployed.**
 
-This preflight separates the reviewable English-first editorial case-sheet
-change from the currently deployed GitHub Pages bundle. It is intentionally a
-release gate, not a deployment claim. The public action changes `main` and
-publishes a new GitHub Pages artifact, so it requires an explicit approval at
-the point of action.
+This preflight separates the reviewable English-first quiet-workpaper and
+mobile source-first correction from the currently deployed GitHub Pages
+bundle. It is intentionally a release gate, not a deployment claim. The
+public action changes `main` and publishes a new GitHub Pages artifact, so it
+requires an explicit approval at the point of action.
 
 ## Candidate release identity
 
@@ -16,8 +16,8 @@ the point of action.
 |---|---|
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
-| Candidate code commit | `b556020` — `Refine quiet workpaper reading path` |
-| PR head observed at last check | `c6eb44b` — current pushed candidate; CI run `31895940063` is green |
+| Candidate code commit | `18b50f6` — `Fix mobile source-first reading path` |
+| PR head observed before this push | `a017549` — previous pushed candidate; CI run `31895984321` was green |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -53,8 +53,8 @@ All of the following must be true at the moment of release:
 
 - [x] Candidate is isolated on `codex/less-ai-editorial-sheet`.
 - [x] Local tests, typecheck, production build, diff check, and local static
-  verifier pass for `b556020` — 4 files / 11 tests; current assets
-  `index-D4JhwZId.js` and `index-gWMif4jN.css`.
+  verifier pass for `18b50f6` — 4 files / 11 tests; current assets
+  `index-DCv340NQ.js` and `index-BTUYiTwc.css`.
 - [x] The machine-readable QA evidence manifest validates, and it keeps local
   pass, hosted blocked, native AT out of scope, and participant/adoption gaps
   separate.
@@ -64,18 +64,22 @@ All of the following must be true at the moment of release:
 - [x] Owner-run Chrome evidence covers the pre-fix blank → sample → source →
   claim → test → Ship path, keyboard skip link, mobile fixed action, and
   Chrome AX tree.
-- [ ] Fresh post-fix Chrome evidence confirms the mobile status-height
-  correction; the Chrome Extension timed out while controlling the existing
-  and a fresh local tab, so this candidate's post-fix mobile behavior is
-  `未驗證`.
+- [x] Fresh headless Chrome CDP fallback evidence confirms the mobile
+  source-first correction at `390×844`, the ultra-narrow `320px` heading
+  reflow, and the desktop `1280×900` composition; the local fallback flow,
+  privacy gate, keyboard first Tab, screenshot, AX, and same-origin resource
+  checks are recorded in the QA report.
+- [ ] Fresh preferred Chrome Extension evidence must still confirm the same
+  current candidate in the existing Chrome session; the Mac was locked, so
+  this route remains `未驗證`.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [x] PR #44 CI is green for pushed head `c6eb44b` and the candidate code
-  commit `b556020`; CI run `31895940063` completed Verify successfully.
+- [ ] PR #44 CI must be green for pushed head `18b50f6` before merge; the
+  previous green run was for `a017549` (`31895984321`).
 - [ ] The user explicitly approves the public merge/deploy action.
 
-The last two items are intentionally unresolved. A local pass does not
-authorize a public release or prove hosted behavior.
+The unresolved items are intentionally kept separate. A local fallback pass
+does not authorize a public release or prove hosted behavior.
 
 ## Impact and rollback
 
@@ -105,7 +109,7 @@ No rollback action has been performed in this preflight.
 After explicit approval, execute these steps in order and retain raw output:
 
 1. Confirm PR #44 is open, clean, and CI-green, and that its current head
-   contains candidate code commit `b556020`.
+   contains candidate code commit `18b50f6` (or the exact newer reviewed head).
 2. Merge PR #44 into `main` using the repository's normal review path.
 3. Watch the merge CI and Pages deployment workflows to successful completion.
 4. Run:
