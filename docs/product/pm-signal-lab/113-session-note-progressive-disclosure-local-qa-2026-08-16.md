@@ -24,6 +24,8 @@ The focused fix uses native `<details>` / `<summary>` markup:
 - `Session note` and `Optional local receipt` are visible by default.
 - The existing `Recent action`, last-action text, receipt copy button, and
   manual report link stay inside the same local-only body.
+- The copied receipt uses the literal `Actions on this page` heading instead
+  of the technical `Event trace` label.
 - Keyboard `Enter` opens and closes the disclosure; focus remains visible
   while the summary is focused.
 - No model, provider, analytics, persistence, permission, network request, or
@@ -37,13 +39,14 @@ The focused fix uses native `<details>` / `<summary>` markup:
 | QA-NOTE-002 | Fictional sample opened at `1440×1000` | Summary is closed; source record remains the visual anchor | PASS | `npm run verify:source-truth`; fresh desktop screenshot |
 | QA-NOTE-003 | Focus summary and press `Enter` | Native disclosure opens; receipt and report controls are visible | PASS | Focused browser oracle: `opened_by_keyboard=true`, both controls visible |
 | QA-NOTE-004 | Press `Enter` again | Disclosure closes and body is hidden again | PASS | Focused browser oracle: `closed_after_keyboard=true`, `body_hidden_after_close=true` |
-| QA-NOTE-005 | Loaded normal flow at `390`, `1024`, `1440` | No horizontal overflow; mobile action ownership remains unchanged | PASS | `/tmp/pm-signal-lab-margin-qa.py` |
-| QA-NOTE-006 | Loading, reset, and recovery cases | Existing boundaries remain usable | PASS | `verify-session-boundary.py` and `/tmp/pm-signal-lab-edge-qa.py` |
-| QA-NOTE-007 | Build and static copy gate | Tests, lint, build, local copy, and diff checks pass | PASS | Commands below |
-| QA-NOTE-008 | Preferred Chrome Extension route | Same flow through the Extension harness | BLOCKED | Extension control is unavailable in this runtime; Chrome fallback is recorded separately |
-| QA-NOTE-009 | Native assistive technology / physical device | VoiceOver/NVDA/TalkBack and touch behavior | NOT EXECUTED | No native AT or physical-device harness was used |
-| QA-NOTE-010 | Canonical Pages readback | Current Session note bundle is public | BLOCKED | Pages still serves the prior bundle; merge/deploy is not authorized in this slice |
-| QA-NOTE-011 | Non-owner PM comprehension | Participants discover the optional note without instruction | NOT EXECUTED | No participant sessions were collected |
+| QA-NOTE-005 | Copy the optional receipt | Receipt uses `Actions on this page` and omits `Event trace` | PASS | `npm run verify:source-truth`; `npm test -- --run` |
+| QA-NOTE-006 | Loaded normal flow at `390`, `1024`, `1440` | No horizontal overflow; mobile action ownership remains unchanged | PASS | `/tmp/pm-signal-lab-margin-qa.py` |
+| QA-NOTE-007 | Loading, reset, and recovery cases | Existing boundaries remain usable | PASS | `verify-session-boundary.py` and `/tmp/pm-signal-lab-edge-qa.py` |
+| QA-NOTE-008 | Build and static copy gate | Tests, lint, build, local copy, and diff checks pass | PASS | Commands below |
+| QA-NOTE-009 | Preferred Chrome Extension route | Same flow through the Extension harness | BLOCKED | Extension control is unavailable in this runtime; Chrome fallback is recorded separately |
+| QA-NOTE-010 | Native assistive technology / physical device | VoiceOver/NVDA/TalkBack and touch behavior | NOT EXECUTED | No native AT or physical-device harness was used |
+| QA-NOTE-011 | Canonical Pages readback | Current Session note bundle is public | BLOCKED | Pages still serves the prior bundle; merge/deploy is not authorized in this slice |
+| QA-NOTE-012 | Non-owner PM comprehension | Participants discover the optional note without instruction | NOT EXECUTED | No participant sessions were collected |
 
 ## Browser and visual evidence
 
@@ -59,6 +62,8 @@ custom_source_390.session_note:
   opened_by_keyboard=true
   receipt_visible_when_open=true
   report_visible_when_open=true
+  receipt_heading_present=true
+  receipt_technical_heading_absent=true
   closed_after_keyboard=true
   body_hidden_after_close=true
 
@@ -70,6 +75,8 @@ sample_source_1440.session_note:
   opened_by_keyboard=true
   receipt_visible_when_open=true
   report_visible_when_open=true
+  receipt_heading_present=true
+  receipt_technical_heading_absent=true
   closed_after_keyboard=true
   body_hidden_after_close=true
 
@@ -111,7 +118,7 @@ npm run lint
   tsc --noEmit passed
 
 npm run build
-  Vite 7.3.6 · index-C4geDNrd.js · index-CcoUeL_C.css
+  Vite 7.3.6 · index-o7prm33y.js · index-CcoUeL_C.css
 
 HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted
   HTTP 200 · en-US · current copy present · stale copy absent
@@ -122,6 +129,10 @@ npm run verify:source-truth
   session note closed → keyboard open → keyboard closed passed in both states
   visible_current_actions=1; owner_value=Owner to confirm before the test
   browser_errors=[] · request_failures=[]
+
+npm test -- --run
+  session receipt regression passed: `Actions on this page` is present and
+  `Event trace` is absent; browser clipboard readback matched the same result
 
 python3 scripts/verify-session-boundary.py
   loading/reset boundary passed; browser_errors=[] · request_failures=[]

@@ -1,7 +1,7 @@
 {
-  "run_id": "pm-signal-lab-session-note-progressive-disclosure-2026-08-16",
+  "run_id": "pm-signal-lab-session-note-literal-receipt-2026-08-16",
   "product": "PM Signal Lab",
-  "candidate_ref": "codex/less-ai-editorial-sheet — Session note progressive-disclosure slice (local candidate)",
+  "candidate_ref": "codex/less-ai-editorial-sheet — Session note progressive-disclosure + literal receipt slice (local candidate)",
   "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; focused source-truth, action-ownership, and Session note keyboard oracle at 390x844 and 1440x1000; preferred Chrome Extension route unavailable in this runtime",
   "layers": [
     {
@@ -23,7 +23,7 @@
       "status": "pass",
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-C4geDNrd.js and index-CcoUeL_C.css emitted"
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-o7prm33y.js and index-CcoUeL_C.css emitted"
     },
     {
       "layer": "local_static_verifier",
@@ -84,7 +84,7 @@
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run verify:source-truth — native Session note at 390x844 and 1440x1000; focus + Enter open/close trace",
-      "result": "summary_text=Session note Optional local receipt; initial_closed=true; initial_body_hidden=true; summary_focused=true; opened_by_keyboard=true; receipt_visible_when_open=true; report_visible_when_open=true; closed_after_keyboard=true; body_hidden_after_close=true; browser_errors=[]; request_failures=[]"
+      "result": "summary_text=Session note Optional local receipt; initial_closed=true; initial_body_hidden=true; summary_focused=true; opened_by_keyboard=true; receipt_visible_when_open=true; report_visible_when_open=true; receipt_heading_present=true; receipt_technical_heading_absent=true; closed_after_keyboard=true; body_hidden_after_close=true; browser_errors=[]; request_failures=[]"
     },
     {
       "layer": "responsive_mobile_emulation",
@@ -200,6 +200,8 @@
         "opened_by_keyboard": true,
         "receipt_visible_when_open": true,
         "report_visible_when_open": true,
+        "receipt_heading_present": true,
+        "receipt_technical_heading_absent": true,
         "closed_after_keyboard": true,
         "body_hidden_after_close": true
       }
@@ -219,6 +221,8 @@
         "opened_by_keyboard": true,
         "receipt_visible_when_open": true,
         "report_visible_when_open": true,
+        "receipt_heading_present": true,
+        "receipt_technical_heading_absent": true,
         "closed_after_keyboard": true,
         "body_hidden_after_close": true
       }
@@ -258,7 +262,7 @@
     "request_failures": []
   },
   "notes": [
-    "This manifest records the focused local Session note progressive-disclosure, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
+    "This manifest records the focused local Session note progressive-disclosure and literal receipt-language, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
     "The preferred Chrome Extension route, native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates.",
     "The canonical hosted verifier currently fails because the Pages URL still serves the prior bundle missing the current first-run copy."
   ]

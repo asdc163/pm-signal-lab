@@ -71,6 +71,7 @@ try {
     "Open the sample worksheet",
     "Session note",
     "Optional local receipt",
+    "Actions on this page",
     "Recent action",
     "Last action below",
     "Sheet note",

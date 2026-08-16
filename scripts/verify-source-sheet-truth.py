@@ -55,9 +55,20 @@ def inspect_session_note(page: Page) -> dict[str, object]:
     opened_by_keyboard = details.get_attribute("open") is not None
     receipt_visible_when_open = receipt.is_visible()
     report_visible_when_open = report_link.is_visible()
+    receipt.click()
+    page.get_by_text(
+        "Session receipt copied. Remove private detail before sharing.", exact=True
+    ).wait_for(state="visible")
+    copied_receipt = page.evaluate("navigator.clipboard.readText()")
+    receipt_heading_present = "## Actions on this page" in copied_receipt
+    receipt_technical_heading_absent = "## Event trace" not in copied_receipt
+    summary.focus()
     page.keyboard.press("Enter")
     closed_after_keyboard = details.get_attribute("open") is None
     body_hidden_after_close = not body.is_visible()
+    notice_close = page.get_by_role("button", name="Dismiss notice")
+    if notice_close.is_visible():
+        notice_close.click()
     page.evaluate("document.activeElement?.blur()")
 
     return {
@@ -68,6 +79,8 @@ def inspect_session_note(page: Page) -> dict[str, object]:
         "opened_by_keyboard": opened_by_keyboard,
         "receipt_visible_when_open": receipt_visible_when_open,
         "report_visible_when_open": report_visible_when_open,
+        "receipt_heading_present": receipt_heading_present,
+        "receipt_technical_heading_absent": receipt_technical_heading_absent,
         "closed_after_keyboard": closed_after_keyboard,
         "body_hidden_after_close": body_hidden_after_close,
     }
@@ -154,7 +167,9 @@ with sync_playwright() as playwright:
     SCREENSHOT_DIR.mkdir(parents=True, exist_ok=True)
 
     mobile_context = browser.new_context(
-        viewport={"width": 390, "height": 844}, locale="en-US"
+        viewport={"width": 390, "height": 844},
+        locale="en-US",
+        permissions=["clipboard-read", "clipboard-write"],
     )
     mobile_page = mobile_context.new_page()
     attach_browser_logs(mobile_page, browser_errors, request_failures)
@@ -163,7 +178,9 @@ with sync_playwright() as playwright:
     )
 
     desktop_context = browser.new_context(
-        viewport={"width": 1440, "height": 1000}, locale="en-US"
+        viewport={"width": 1440, "height": 1000},
+        locale="en-US",
+        permissions=["clipboard-read", "clipboard-write"],
     )
     desktop_page = desktop_context.new_page()
     attach_browser_logs(desktop_page, browser_errors, request_failures)
@@ -199,6 +216,8 @@ with sync_playwright() as playwright:
     assert custom_result["session_note"]["opened_by_keyboard"] is True
     assert custom_result["session_note"]["receipt_visible_when_open"] is True
     assert custom_result["session_note"]["report_visible_when_open"] is True
+    assert custom_result["session_note"]["receipt_heading_present"] is True
+    assert custom_result["session_note"]["receipt_technical_heading_absent"] is True
     assert custom_result["session_note"]["closed_after_keyboard"] is True
     assert custom_result["session_note"]["body_hidden_after_close"] is True
     assert sample_result["heading_present"] is True
@@ -217,6 +236,8 @@ with sync_playwright() as playwright:
     assert sample_result["session_note"]["opened_by_keyboard"] is True
     assert sample_result["session_note"]["receipt_visible_when_open"] is True
     assert sample_result["session_note"]["report_visible_when_open"] is True
+    assert sample_result["session_note"]["receipt_heading_present"] is True
+    assert sample_result["session_note"]["receipt_technical_heading_absent"] is True
     assert sample_result["session_note"]["closed_after_keyboard"] is True
     assert sample_result["session_note"]["body_hidden_after_close"] is True
     assert browser_errors == []

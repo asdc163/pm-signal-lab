@@ -22,7 +22,7 @@ export function buildSessionReceipt(input: SessionReceiptInput): string {
     `Reviewed claims: ${input.reviewedCount}`,
     `Accepted claims: ${input.supportedCount}`,
     "",
-    "## Event trace",
+    "## Actions on this page",
     ...events,
     "",
     "## Boundary",
