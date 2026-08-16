@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships twelve small, tool-free Agent Skills for evidence-first PM
+This repository ships thirteen small, tool-free Agent Skills for evidence-first PM
 work:
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -69,13 +69,19 @@ work:
   fallback, evaluation slices, and a smallest safe pilot. Start with its
   [fictional task-boundary first run](./skills/pm-ai-task-boundary/examples/first-run.md)
   or read the [worked support AI task boundary](./skills/pm-ai-task-boundary/references/support-ai-task-boundary.md).
+- [`pm-ai-trace-to-regression`](./skills/pm-ai-trace-to-regression/SKILL.md)
+  turns an AI or agent failure trace, tool error, user correction, or guardrail
+  event into a bounded failure classification, containment step, minimal
+  reproduction, regression case, and release decision. Start with its
+  [fictional trace first run](./skills/pm-ai-trace-to-regression/examples/first-run.md)
+  or read the [worked support trace-to-regression packet](./skills/pm-ai-trace-to-regression/references/support-trace-to-regression.md).
 
 None of the skills needs a model, tool permission, network access, login, or
 external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the twelve first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the thirteen first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.

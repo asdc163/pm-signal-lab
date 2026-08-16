@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Trace to Regression"
+  short_description: "Turn an AI failure trace into a bounded regression case"
+  default_prompt: "Use $pm-ai-trace-to-regression to classify this AI failure, contain the risk, and write the smallest regression case."
