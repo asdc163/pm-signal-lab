@@ -4,7 +4,7 @@ description: Turn a dated AI, platform, developer-tool, or market change note in
 compatibility: No tools, network access, or external model provider required.
 metadata:
   author: asdc163
-  version: "0.1.0"
+  version: "0.1.1"
 ---
 
 # PM Trend to Decision
@@ -186,4 +186,5 @@ Before returning the brief, confirm:
 - no number, quote, user, outcome, market size, or adoption claim was added
   from guesswork.
 
-For a ready-to-paste fictional first run, read `examples/first-run.md`.
+For a ready-to-paste fictional first run, read `examples/first-run.md`. For a
+full fictional output shape, read `references/platform-change-review.md`.

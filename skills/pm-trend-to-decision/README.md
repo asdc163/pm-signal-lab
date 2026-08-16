@@ -19,6 +19,8 @@ Skills-compatible client. The required entry point is `SKILL.md`.
 
 If you want a ready-to-paste input first, use the [fictional first-run fixture](./examples/first-run.md).
 
+If you want to inspect a complete output shape first, read the [fictional platform-change review](./references/platform-change-review.md).
+
 ## Give it
 
 Provide the decision, affected user or product surface, and the source notes.
@@ -52,4 +54,5 @@ npm run verify:skills
 ```
 
 The repository verifier checks every skill package for frontmatter, required
-sections, a bounded fictional example, the line budget, and placeholder text.
+sections, a bounded first-run fixture, a fictional worked example, the line
+budget, and placeholder text.

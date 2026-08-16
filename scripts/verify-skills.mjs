@@ -36,6 +36,12 @@ for (const skillName of skillNames) {
     path.join(skillRoot, "references", "support-draft-review.md"),
   ];
   const example = await readFirstExisting(examplePaths);
+  const referenceEntries = await readdir(path.join(skillRoot, "references"), { withFileTypes: true }).catch(() => []);
+  const referencePaths = referenceEntries
+    .filter((entry) => entry.isFile() && entry.name.endsWith(".md"))
+    .map((entry) => path.join(skillRoot, "references", entry.name))
+    .sort();
+  const workedExample = await readFirstExisting(referencePaths);
   const frontmatterMatch = skill.match(/^---\n([\s\S]*?)\n---\n/);
 
   if (!frontmatterMatch) {
@@ -73,6 +79,9 @@ for (const skillName of skillNames) {
   if (!example.includes("fictional fixture") || !example.includes("## Not covered")) {
     fail(`${skillName}: worked example must mark its evidence boundary`);
   }
+  if (!workedExample || !workedExample.includes("fictional fixture") || !workedExample.includes("## Not covered")) {
+    fail(`${skillName}: references/ must contain a fictional worked example with ## Not covered`);
+  }
 }
 
 if (failures.length) {
@@ -83,4 +92,4 @@ if (failures.length) {
 
 console.log(`Skill verification passed: ${skillNames.join(", ")}`);
 console.log(`- Checked ${skillNames.length} skill package(s)`);
-console.log("- Frontmatter, required sections, example boundary, line budget, and placeholder scan: pass");
+console.log("- Frontmatter, first-run boundary, worked example, line budget, and placeholder scan: pass");
