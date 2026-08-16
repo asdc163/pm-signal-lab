@@ -1,5 +1,42 @@
 import type { Claim, Evidence, ExperimentBrief } from "./types";
 
+export type ExperimentReviewGate =
+  | { ok: true; claimId: string }
+  | { ok: false; message: string };
+
+export function getReviewedClaimForExperiment(
+  claims: Claim[],
+  selectedId?: string,
+): ExperimentReviewGate {
+  const selected = selectedId
+    ? claims.find((claim) => claim.id === selectedId)
+    : undefined;
+
+  if (selectedId && !selected) {
+    return {
+      ok: false,
+      message: "Choose a claim from Verify before drafting the smallest experiment.",
+    };
+  }
+
+  if (selected && !selected.reviewed) {
+    return {
+      ok: false,
+      message: "Review the selected claim before drafting the smallest experiment.",
+    };
+  }
+
+  const reviewed = claims.find((claim) => claim.reviewed);
+  if (!reviewed) {
+    return {
+      ok: false,
+      message: "Review one claim before drafting the smallest experiment. Accept it, keep it as a hypothesis, or mark the evidence missing.",
+    };
+  }
+
+  return { ok: true, claimId: selected?.id ?? reviewed.id };
+}
+
 export function buildClaims(evidence: Evidence[]): Claim[] {
   const ids = evidence.map((item) => item.id);
   const interviewIds = evidence
@@ -75,7 +112,7 @@ export function draftExperiment(
     smallestTest:
       "Ask 5 PMs to review the same support-draft worksheet through Collect → Verify → Decide; record whether each can name the source, uncertainty, and next test without help.",
     decisionRule: `Move to the next round only if at least 4 of 5 finish without treating missing evidence as a conclusion; current limit: ${limitation}`,
-    owner: "Experiment owner · TBD",
+    owner: "Owner to confirm before the test",
     readiness: needsValidation ? "needs-validation" : "ready",
   };
 }

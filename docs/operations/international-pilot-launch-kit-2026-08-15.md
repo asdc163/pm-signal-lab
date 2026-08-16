@@ -1,6 +1,30 @@
-# International pilot launch kit — 2026-08-15
+# International pilot launch kit — 2026-08-16
 
-Status: draft for human review. This is an operating aid, not an automatic posting plan.
+Status: HOLD — draft for human review. Do not distribute these invitations
+until the current PR #44 candidate has been merged, deployed, and rechecked at
+the canonical HTTPS URL. This is an operating aid, not an automatic posting
+plan.
+
+Channel-specific readiness and current platform sources are tracked in the
+[international pilot channel research](./international-pilot-channel-research-2026-08-16.md).
+
+## Release precondition
+
+The canonical Pages URL currently serves the prior bundle, while PR #44 holds
+the current source-first candidate. Sending this kit before the release gate
+passes would mix old-product sessions with current-product evidence.
+
+Before using any channel draft:
+
+1. Obtain explicit approval for the merge and Pages deployment action.
+2. Run the canonical HTTPS verifier and a fresh Chrome Extension desktop/mobile
+   behavior trace against the deployed candidate.
+3. Record the served asset hashes, verifier result, and current URL in the
+   hosted release audit.
+4. Change this status to `READY FOR HUMAN REVIEW` only after those checks pass.
+
+Until then, the public pilot issue remains a prepared queue, not proof of
+recruitment, usage, or adoption.
 
 ## Goal
 
@@ -29,6 +53,10 @@ The near-term goal is learning, not a star target. A GitHub star is a voluntary 
 - [Five-minute session kit](./pm-session-kit.md)
 - [Public pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4)
 - [Repository README](../../README.md)
+
+Release note: these links currently describe or serve the prior public
+preview. Do not present them as proof that PR #44 is live until the release
+precondition above is complete.
 
 **No-AI copy guard:** Do not say `AI-powered`, `autonomous PM`, `production-ready`, `validated`, `viral`, `used by`, `thousands`, or `10,000 stars`. Do not imply that the deterministic fixture proves model quality. Say exactly what a visitor can try and what remains unverified.
 
@@ -103,4 +131,4 @@ Do not move from `Iterate / recruit` to `Scale` until the repository has:
 - a fresh hosted verification of the fix;
 - no claim that stars, traffic, or a polished screenshot prove adoption.
 
-Current state: the formal hosted demo is live, public pilot issue #4 is open, and non-owner sessions/adoption remain unverified.
+Current state: a prior formal hosted preview is live, public pilot issue #4 is open, and the current PR #44 candidate still needs an explicit merge, Pages deploy, and fresh canonical browser audit. Non-owner sessions and adoption remain unverified.

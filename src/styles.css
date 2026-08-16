@@ -2338,11 +2338,6 @@ textarea::placeholder {
 
 .rotate-180 { transform: rotate(180deg); }
 .rotate-90 { transform: rotate(90deg); }
-.spin { animation: spin 0.9s linear infinite; }
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,
@@ -3788,5 +3783,1004 @@ textarea {
 
   .pack-subject > span + span::before {
     margin-right: 8px;
+  }
+}
+
+/* Editorial case sheet reframe — make the workpaper, not the dashboard shell,
+   carry the first read. The AI-PM context stays in the portfolio framing and
+   fictional fixture; it does not need to be a visual badge in the task path. */
+@media (min-width: 1025px) {
+  .sidebar {
+    display: none;
+  }
+
+  .topbar {
+    height: 78px;
+    justify-content: space-between;
+    padding: 0 clamp(28px, 4vw, 58px);
+    border-bottom-color: var(--line-strong);
+  }
+
+  .topbar-mobile-brand {
+    display: flex;
+    gap: 11px;
+    color: var(--ink);
+  }
+
+  .topbar-mobile-brand > span:last-child {
+    font-family: var(--display);
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .topbar-context {
+    max-width: 54%;
+    margin-left: auto;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .workspace {
+    max-width: 1260px;
+    padding-top: 35px;
+  }
+
+  .desktop-stepper-wrap {
+    display: block;
+    margin: 0 0 35px;
+    border-top: 1px solid var(--line-strong);
+    border-bottom: 1px solid var(--line-strong);
+  }
+
+  .desktop-stepper-wrap .stepper {
+    display: flex;
+    gap: 0;
+    margin: 0;
+  }
+
+  .desktop-stepper-wrap .stepper-item {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+    flex: 1;
+    align-items: center;
+  }
+
+  .desktop-stepper-wrap .stepper-item > button {
+    min-height: 50px;
+    gap: 9px;
+    padding: 8px 10px;
+  }
+
+  .desktop-stepper-wrap .step-number {
+    width: 23px;
+    height: 23px;
+    flex-basis: 23px;
+    font-size: 9px;
+  }
+
+  .desktop-stepper-wrap .step-copy {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    min-width: 0;
+  }
+
+  .desktop-stepper-wrap .step-copy strong {
+    font-size: 12px;
+  }
+
+  .desktop-stepper-wrap .step-copy small {
+    overflow: hidden;
+    font-size: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .desktop-stepper-wrap .step-connector {
+    position: static;
+    width: 1px;
+    height: 20px;
+    flex: 0 0 1px;
+    margin: 0 8px;
+  }
+
+  .hero-block {
+    gap: 46px;
+  }
+
+  .hero-status,
+  .workbench.is-loaded .hero-status {
+    padding: 2px 0 2px 22px;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .hero-status-heading {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .hero-status > strong {
+    font-size: 14px;
+  }
+
+  .hero-status > p {
+    max-width: 225px;
+  }
+
+  .workbench.is-loaded .hero-block h1 {
+    max-width: 690px;
+    font-size: clamp(2.1rem, 3vw, 3.1rem);
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktop-stepper-wrap {
+    display: none;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-status,
+  .workbench.is-loaded .hero-status {
+    flex-basis: auto;
+    gap: 5px;
+    padding-top: 12px;
+  }
+
+  .hero-status-heading {
+    padding-bottom: 6px;
+  }
+
+  .hero-status > strong {
+    font-size: 15px;
+  }
+}
+
+/* Quiet workpaper polish — direct labels carry the product voice. */
+.eyebrow,
+.section-eyebrow,
+.card-eyebrow,
+.detail-label,
+.topbar-kicker,
+.sidebar-section-label,
+.sample-quote span,
+.evidence-type,
+.status-badge,
+.source-ledger-heading .micro-status,
+.count-badge,
+.pack-subject {
+  text-transform: none;
+  letter-spacing: 0.035em;
+}
+
+.sidebar-section-label {
+  letter-spacing: 0.06em;
+}
+
+.pack-subject {
+  letter-spacing: 0.02em;
+}
+
+.first-run-note span {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+.status-badge,
+.evidence-type {
+  font-weight: 650;
+}
+
+.source-ledger-heading .micro-status {
+  font-size: 10px;
+}
+
+/* Loaded state is an operating surface: bring the first source row forward. */
+@media (min-width: 1025px) {
+  .workbench.is-loaded .hero-block {
+    gap: 38px;
+    padding-bottom: 18px;
+  }
+
+  .workbench.is-loaded .hero-block h1 {
+    margin-top: 8px;
+    margin-bottom: 6px;
+  }
+
+  .workbench.is-loaded .hero-copy {
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .notice {
+    min-height: 44px;
+    margin-top: 12px;
+  }
+
+  .workbench.is-loaded .content-section {
+    padding-top: 24px;
+  }
+
+  .workbench.is-loaded .pack-header {
+    padding-top: 16px;
+    padding-bottom: 18px;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+    font-size: 26px;
+  }
+
+  .workbench.is-loaded .pack-subject {
+    margin-top: 8px;
+    padding-top: 5px;
+  }
+
+  .workbench.is-loaded .section-heading-row {
+    margin-top: 26px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-block > div,
+  .empty-copy,
+  .pack-header > div,
+  .section-intro > div {
+    min-width: 0;
+  }
+
+  .hero-block h1,
+  .empty-copy h2,
+  .pack-header h2,
+  .section-intro h2 {
+    overflow-wrap: anywhere;
+  }
+
+  .workbench.is-loaded .hero-block {
+    gap: 13px;
+    padding-bottom: 14px;
+  }
+
+  .workbench.is-loaded .hero-status {
+    padding-top: 9px;
+  }
+
+  .workbench.is-loaded .notice {
+    min-height: 44px;
+    margin-top: 12px;
+  }
+
+  .workbench.is-loaded .content-section {
+    padding-top: 18px;
+  }
+
+  .workbench.is-loaded .pack-header {
+    padding-top: 14px;
+    padding-bottom: 16px;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 6px;
+    margin-bottom: 6px;
+  }
+
+  .workbench.is-loaded .pack-subject {
+    margin-top: 8px;
+  }
+
+  .workbench.is-loaded .section-heading-row {
+    margin-top: 22px;
+  }
+
+  .mobile-action-bar > span {
+    min-width: 0;
+  }
+
+  .mobile-action-bar .button {
+    flex: 0 1 auto;
+    max-width: 62%;
+    padding-right: 10px;
+    padding-left: 10px;
+    white-space: normal;
+  }
+}
+
+/* Mobile source-first correction — keep the evidence object ahead of the
+   fixed action bar without removing the subject or local trust boundary. */
+@media (max-width: 700px) {
+  .workbench.is-loaded .pack-header {
+    position: relative;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .workbench.is-loaded .pack-header > div:first-child {
+    padding-right: 0;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 4px;
+    margin-bottom: 5px;
+    padding-right: 40px;
+    font-size: 23px;
+    line-height: 1.1;
+  }
+
+  .workbench.is-loaded .pack-description {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  .workbench.is-loaded .pack-actions {
+    position: absolute;
+    top: 9px;
+    right: 0;
+    width: auto;
+  }
+
+  .workbench.is-loaded .pack-actions .count-badge {
+    display: none;
+  }
+
+  .workbench.is-loaded .pack-actions .button {
+    width: 36px;
+    min-height: 36px;
+    flex: 0 0 36px;
+    justify-content: center;
+    padding: 8px;
+  }
+
+  .workbench.is-loaded .pack-actions .button-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  .workbench.is-loaded .section-heading-row.source-ledger-heading {
+    align-items: baseline;
+    flex-direction: row;
+    gap: 10px;
+    margin-top: 12px;
+    margin-bottom: 8px;
+  }
+
+  .workbench.is-loaded .source-ledger-heading > div {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .workbench.is-loaded .source-ledger-heading h3 {
+    font-size: 18px;
+    line-height: 1.2;
+    white-space: nowrap;
+  }
+
+  .workbench.is-loaded .source-ledger-heading p {
+    display: none;
+  }
+
+  .workbench.is-loaded .source-ledger-heading .micro-status {
+    flex: 0 0 auto;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .workbench.is-loaded .evidence-row {
+    padding-top: 12px;
+    padding-bottom: 14px;
+  }
+
+  .workbench.is-loaded .evidence-main h4 {
+    margin-top: 4px;
+  }
+
+  .mobile-action-bar {
+    padding-top: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+@media (max-width: 360px) {
+  .workbench.is-loaded .section-heading-row.source-ledger-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .workbench.is-loaded .source-ledger-heading h3 {
+    white-space: normal;
+  }
+
+  .workbench.is-loaded .source-ledger-heading .micro-status {
+    padding-left: 0;
+    border-left: 0;
+  }
+}
+
+/* On phones the fixed action bar is the single primary control. The context
+   note keeps its question and rule, but does not repeat the same button. */
+@media (max-width: 700px) {
+  .context-next .context-next-action {
+    display: none;
+  }
+
+  /* The fixed bar owns the mobile next action. Keep the source-row note
+     useful, but do not ask the user to choose between two identical buttons. */
+  .workbench.is-loaded .next-action-card .button {
+    display: none;
+  }
+}
+
+/* The main landmark receives focus after a state change so screen-reader and
+   keyboard users regain context. It is not an interactive control, so the
+   browser's full-surface default outline should not compete with the sheet. */
+main.workspace:focus {
+  outline: none;
+}
+
+/* Operational worksheet reframe — 2026-08-16.
+   The loaded case is a working surface: make the source and next review
+   visible sooner, and keep the visual language quiet enough that it does not
+   read as an AI showcase. */
+@media (min-width: 1025px) {
+  .workbench.is-loaded .hero-block {
+    gap: 30px;
+    padding-bottom: 15px;
+  }
+
+  .workbench.is-loaded .hero-block h1 {
+    max-width: 620px;
+    margin-top: 6px;
+    margin-bottom: 5px;
+    color: var(--ink);
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: clamp(1.75rem, 2.25vw, 2.35rem);
+    font-weight: 760;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+  }
+
+  .workbench.is-loaded .hero-copy {
+    max-width: 510px;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .hero-status {
+    width: min(100%, 240px);
+    flex-basis: 240px;
+    gap: 5px;
+    padding: 2px 0 2px 16px;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .workbench.is-loaded .hero-status-heading {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .workbench.is-loaded .hero-status > strong {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 750;
+  }
+
+  .workbench.is-loaded .hero-status > p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .content-section {
+    padding-top: 19px;
+  }
+
+  .workbench.is-loaded .pack-header {
+    padding-top: 13px;
+    padding-bottom: 17px;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 24px;
+    font-weight: 760;
+    letter-spacing: -0.035em;
+  }
+
+  .workbench.is-loaded .section-heading-row {
+    margin-top: 22px;
+  }
+
+  .workbench.is-loaded .decision-context {
+    margin-top: 42px;
+    padding-top: 21px;
+  }
+
+  .workbench.is-loaded .context-heading h2 {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -0.025em;
+  }
+}
+
+@media (max-width: 700px) {
+  .workbench.is-loaded .hero-block {
+    gap: 13px;
+    padding-bottom: 14px;
+  }
+
+  .workbench.is-loaded .hero-block h1 {
+    margin-top: 7px;
+    margin-bottom: 5px;
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: clamp(1.7rem, 8.2vw, 2.15rem);
+    font-weight: 760;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+  }
+
+  .workbench.is-loaded .hero-copy {
+    max-width: 420px;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .hero-status {
+    gap: 5px;
+    padding: 10px 0 0;
+    border-top: 1px solid var(--line);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+  }
+
+  .workbench.is-loaded .hero-status-heading {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .workbench.is-loaded .hero-status > strong {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 750;
+  }
+
+  .workbench.is-loaded .hero-status > p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .content-section {
+    padding-top: 16px;
+  }
+
+  .workbench.is-loaded .pack-header {
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 4px;
+    margin-bottom: 5px;
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 22px;
+    font-weight: 760;
+    letter-spacing: -0.03em;
+  }
+
+  .workbench.is-loaded .section-heading-row {
+    margin-top: 14px;
+  }
+
+  .workbench.is-loaded .next-action-card {
+    margin-top: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
+
+/* Quiet utility / source-first pass — 2026-08-16.
+   The loaded worksheet already has a workflow index; remove the duplicate
+   folio cue and let the source record carry the visual signature. */
+.workbench.is-loaded .hero-folio-index {
+  display: none;
+}
+
+/* Source labels are working metadata, not decorative folio furniture. */
+.evidence-index small {
+  text-transform: none;
+  letter-spacing: 0.04em;
+}
+
+@media (min-width: 701px) {
+  .workbench.is-loaded .hero-block h1 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  .workbench.is-loaded .source-ledger-heading h3 {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 700px) {
+  .workbench.is-loaded .hero-block h1 {
+    font-weight: 700;
+    letter-spacing: -0.025em;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+
+  .workbench.is-loaded .source-ledger-heading h3 {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.3;
+  }
+}
+
+/* Evidence-ledger quiet colour pass — 2026-08-16.
+   Colour carries product meaning: neutral shell, blue provenance, red only
+   for the next human action. This deliberately reuses existing markup and
+   tokens so the source-review workflow stays unchanged. */
+.app-body:has(.workbench.is-loaded) .topbar-kicker,
+.workbench.is-loaded .hero-folio .eyebrow,
+.workbench.is-loaded .hero-status .section-eyebrow,
+.workbench.is-loaded .pack-header > div:first-child > .section-eyebrow,
+.workbench.is-loaded .context-heading .section-eyebrow,
+.workbench.is-loaded .context-project .card-eyebrow,
+.workbench.is-loaded .context-record .card-eyebrow,
+.workbench.is-loaded .context-next .card-eyebrow,
+.workbench.is-loaded .context-trace .card-eyebrow {
+  color: var(--muted);
+}
+
+.workbench.is-loaded .hero-status-step,
+.workbench.is-loaded .pack-subject-label,
+.workbench.is-loaded .count-badge strong,
+.workbench.is-loaded .source-ledger-heading .micro-status strong,
+.workbench.is-loaded .evidence-index strong,
+.workbench.is-loaded .evidence-type,
+.workbench.is-loaded .evidence-source,
+.workbench.is-loaded .preview-label {
+  color: var(--trust);
+}
+
+.workbench.is-loaded .pack-subject-label {
+  font-weight: 750;
+}
+
+.workbench.is-loaded .evidence-index {
+  border-top-color: var(--trust);
+  border-bottom-color: var(--line-strong);
+}
+
+.workbench.is-loaded .evidence-spine .evidence-node {
+  background: var(--trust);
+}
+
+.workbench.is-loaded .stepper-item.is-current > button {
+  box-shadow: inset 2px 0 0 var(--trust);
+}
+
+.workbench.is-loaded .is-current .step-number {
+  color: var(--trust);
+  border-color: var(--trust);
+}
+
+.mobile-stepper .stepper-item.is-current > button {
+  box-shadow: inset 2px 0 0 var(--trust);
+}
+
+.mobile-stepper .is-current .step-number {
+  color: var(--trust);
+  border-color: var(--trust);
+}
+
+/* Less-AI workpaper second polish — 2026-08-16.
+   The source rows already carry the product signature. This pass removes
+   reassurance-like chrome and gives the loaded work statement the same human
+   editorial voice as the empty sheet. */
+.workbench.is-loaded .hero-block h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.026em;
+  line-height: 1.08;
+}
+
+.workbench.is-loaded .human-label {
+  color: var(--muted);
+  border-left: 1px solid var(--line-strong);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  line-height: 1.45;
+}
+
+.workbench.is-loaded .human-label svg {
+  color: var(--trust);
+}
+
+.hero-status-step,
+.count-badge strong,
+.source-ledger-heading .micro-status strong,
+.evidence-index strong,
+.claim-id {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 700px) {
+  .workbench.is-loaded .hero-block h1 {
+    font-size: clamp(1.85rem, 8.8vw, 2.25rem);
+    line-height: 1.08;
+  }
+
+  .workbench.is-loaded .human-label {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
+
+/* Less-AI margin note and evidence state — 2026-08-16.
+   The workflow index already names the current step. Keep the hero note for
+   the workpaper tally and the experiment state for the evidence condition. */
+.hero-status-heading {
+  justify-content: flex-start;
+}
+
+.hero-status-step {
+  display: none;
+}
+
+.workbench.is-loaded .hero-status > strong,
+.hero-status > strong {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.hero-status-boundary {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.015em;
+}
+
+.hero-status-boundary svg {
+  color: var(--trust);
+  flex: 0 0 auto;
+}
+
+.readiness-banner {
+  align-items: flex-start;
+  padding: 12px 0 12px 14px;
+  border-top: 1px solid currentColor;
+  border-right: 0;
+  border-bottom: 1px solid currentColor;
+  border-left: 2px solid currentColor;
+  border-radius: 0;
+  background: transparent;
+}
+
+.readiness-banner.is-ready,
+.readiness-banner.is-needs-validation {
+  background: transparent;
+}
+
+.readiness-banner .card-eyebrow {
+  margin-bottom: 4px;
+  color: currentColor;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.readiness-banner strong {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.readiness-banner p {
+  max-width: 58ch;
+  line-height: 1.55;
+}
+
+@media (max-width: 700px) {
+  .hero-status-boundary {
+    max-width: 100%;
+    flex-wrap: wrap;
+    line-height: 1.45;
+  }
+
+  .readiness-banner {
+    padding-left: 12px;
+  }
+}
+
+/* Optional local receipt — keep operations available without making the
+   worksheet read like an activity feed. Native details supplies the state. */
+.context-trace > summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-height: 30px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.context-trace > summary::-webkit-details-marker {
+  display: none;
+}
+
+.trace-summary-copy {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 7px 10px;
+}
+
+.trace-summary-copy .card-eyebrow {
+  margin: 0;
+}
+
+.trace-summary-label {
+  color: var(--muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.trace-summary-icon {
+  flex: 0 0 auto;
+  color: var(--muted);
+}
+
+.context-trace[open] > summary .trace-summary-icon {
+  transform: rotate(180deg);
+}
+
+.context-trace > summary:hover .trace-summary-label,
+.context-trace > summary:hover .trace-summary-icon {
+  color: var(--accent-dark);
+}
+
+.context-trace > summary:focus-visible {
+  outline: 2px solid var(--trust);
+  outline-offset: 4px;
+}
+
+.context-trace-body {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+/* First-run source proof — 2026-08-16.
+   Put one bounded, labelled fixture line in the hero so the blank sheet opens
+   on product truth rather than an abstract empty-state tally. */
+.hero-status > .hero-status-source-title {
+  display: block;
+  max-width: 34ch;
+  color: var(--ink);
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+
+.hero-status > .hero-status-quote {
+  display: -webkit-box;
+  max-width: 34ch;
+  overflow: hidden;
+  margin: 0 0 4px;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.5;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+/* Source-record margin note — 2026-08-16.
+   Keep the local boundary literal and quiet; the source count carries the
+   useful state instead of a status indicator. */
+.context-boundary {
+  align-self: flex-start;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.04em;
+  line-height: 1.4;
+}
+
+.context-project strong {
+  max-width: 34ch;
+}
+
+@media (max-width: 700px) {
+  .hero-status > .hero-status-source-title,
+  .hero-status > .hero-status-quote {
+    max-width: 100%;
+  }
+
+  .hero-status > .hero-status-quote {
+    margin-bottom: 2px;
+  }
+
+  .context-project strong {
+    max-width: 100%;
+  }
+}
+
+/* First-run choice clarity — keep the sample primary while making the human
+   source path available in the same reading path. */
+.hero-status-actions.first-run-actions {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+}
+
+.hero-status-actions.first-run-actions .hero-status-own-signal {
+  min-height: 44px;
+  padding: 9px 0;
+  color: var(--trust);
+  font-weight: 650;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-status-actions.first-run-actions .hero-status-own-signal:hover {
+  color: var(--accent-dark);
+}
+
+@media (max-width: 1024px) {
+  .hero-status-actions.first-run-actions {
+    display: flex;
+    align-items: flex-start;
+    margin-top: 6px;
+  }
+}
+
+@media (max-width: 700px) {
+  .hero-status-actions.first-run-actions > .button-primary {
+    display: none;
   }
 }

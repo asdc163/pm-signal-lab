@@ -1,0 +1,438 @@
+{
+  "run_id": "pm-signal-lab-first-run-choice-clarity-2026-08-16",
+  "product": "PM Signal Lab",
+  "candidate_ref": "d82618bd074ff62feace41fa386bcbcf2720283d on codex/less-ai-editorial-sheet — first-run choice clarity + context-note source-record + first-run source-truth + keyboard-only workflow slice (local candidate)",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; blank and loaded context-note assertions at 390x844 and 1440x1000; first-run source proof, first-screen own-signal geometry, tablet primary visibility, and pointer-free primary workflow at 390x844 and 1440x1000; focused source-truth, action-ownership, Session note, recovery, responsive, semantic, and visual oracles; preferred Chrome Extension route unavailable in this runtime",
+  "layers": [
+    {
+      "layer": "domain_tests",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm test -- --run — 4 files, 11 tests passed"
+    },
+    {
+      "layer": "typecheck_and_lint",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run lint — tsc --noEmit passed"
+    },
+    {
+      "layer": "production_build",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-BE5ncM4S.js and index-BQbprnIL.css emitted"
+    },
+    {
+      "layer": "pages_artifact_preflight",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/121-hosted-release-preflight-local-qa-2026-08-16.md",
+      "command_or_click_path": "VITE_BASE_PATH=/pm-signal-lab/ npm run build; temporary static root mapping /pm-signal-lab → dist; HOSTED_URL=http://127.0.0.1:4181/pm-signal-lab/ npm run verify:hosted",
+      "result": "Project-site HTML HTTP 200; current JS/CSS assets HTTP 200; current English-first copy present; stale copy absent; canonical_https=false only because the artifact server is local"
+    },
+    {
+      "layer": "kb_application_plan",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/122-first-run-choice-clarity-contract-2026-08-16.md",
+      "command_or_click_path": "python3 /Users/tommy/.codex/skills/kb-task-compiler/scripts/score_kb_plan.py .../122-first-run-choice-clarity-contract-2026-08-16.md --min-score 100",
+      "result": "KB plan score: 100/100"
+    },
+    {
+      "layer": "local_static_verifier",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted — HTTP 200, en-US, first-run choice copy including Add your own signal present, old context copy absent, assets 200, canonical_https=false"
+    },
+    {
+      "layer": "browser_behavior_trace",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh Chrome fallback: first-run source proof → blank → sample → source disclosure → Verify → accept → Decide → draft → Ship"
+    },
+    {
+      "layer": "keyboard_only_workflow",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run verify:keyboard — first Tab/skip link, blank-form validation and cancel, then pointer-free Collect → Verify → Decide → Ship at 390x844 and 1440x1000",
+      "result": "first_run_source_proof=pass at 390x844 and 1440x1000; own_signal_in_hero=true; own_signal_not_covered=true; mobile hero_primary_visible=false with visible_current_actions=1; desktop hero_primary_visible=true with visible_current_actions=0; lower_sample_quote_count=0; first_run_no_horizontal_overflow=true; skip_enter_focus_target=main-content; title_invalid_focused=true; form_closed_after_cancel=true; loaded_focus_target=main-content; verify_action_focus=true; claim_expanded=true; claim_reviewed=true; decide_action_focus=true; experiment_ready=true; ship_action_focus=true; markdown_notice_visible=true; browser_errors=[]; request_failures=[]"
+    },
+    {
+      "layer": "edge_state_recovery_trace",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "Empty form validation → Cancel; manual source entry → Reset; sample refresh clears local sheet; missing evidence → needs-validation brief"
+    },
+    {
+      "layer": "session_boundary_reset_loading_oracle",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "scripts/verify-session-boundary.py",
+      "command_or_click_path": "python3 scripts/verify-session-boundary.py — disabled loading action, static marker, form cleared, and source disclosure reset verified",
+      "result": "sample_button_disabled_during_loading=true; form_hidden_during_loading=true; loading_marker_visible=true; loading_marker_class=lucide lucide-clipboard-list; loading_marker_animation=none; form_still_visible_after_load=false; expanded_source_after_reset=false; browser_errors=[]; request_failures=[]"
+    },
+    {
+      "layer": "static_loading_marker",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "Exact selector search for className=\"spin\", @keyframes spin, and .spin { across source and current built assets",
+      "result": "No loading animation selector remains; browser computed animationName=none"
+    },
+    {
+      "layer": "custom_source_sheet_truth",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run verify:source-truth — fresh manual 390px and sample 1440px paths, then sample Verify → Decide owner check",
+      "result": "custom/sample source boundary passed; blank and loaded context note passed at 390px and 1440px; Source record present; old active/empty labels absent; context status_dot_count=0; visible_current_actions=1 at 390px and 1440px; source_row_action_hidden=true at 390px; hero_action_absent=true at 1440px; owner_value=Owner to confirm before the test; Session note closed and keyboard-opened/closed in both states; browser_errors=[]; request_failures=[]"
+    },
+    {
+      "layer": "context_note_source_record",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run verify:source-truth — blank state plus manual loaded state at 390px; blank state plus sample loaded state at 1440px",
+      "result": "aria_label=Worksheet note; Source record present in blank and loaded states; Blank sheet/No source line yet present in blank state; Local sheet and concrete source-line/draft-claim counts present in loaded states; Source set · active/empty and Current source set absent; status_dot_count=0; current action/session note behavior unchanged"
+    },
+    {
+      "layer": "first_run_source_truth_composition",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run verify:keyboard — blank first-run source proof at 390x844 and 1440x1000 before sample activation",
+      "result": "Sample note, source title, source excerpt, Local fixture only boundary, and Add your own signal visible at both widths; lower_sample_quote_count=0; first_run_no_horizontal_overflow=true; browser_errors=[]; request_failures=[]"
+    },
+    {
+      "layer": "first_run_choice_clarity",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh default-state and keyboard browser traces at 390x844 and 1440x1000; responsive loaded trace at 1024x900",
+      "result": "hero own-signal is inside the first-run hero at 390px and 1440px; own-signal bottom is above the mobile fixed bar; sample hero primary is hidden only when the mobile fixed bar owns it and remains visible at 1024px; one visible current action after load; no horizontal overflow; no browser errors or request failures"
+    },
+    {
+      "layer": "single_primary_action_ownership",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh local browser traces at 390x844 and 1440x1000",
+      "result": "One visible [data-current-action] per loaded viewport; desktop action remains after source rows; mobile fixed bar owns the action; no horizontal overflow"
+    },
+    {
+      "layer": "session_note_progressive_disclosure",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run verify:source-truth — native Session note at 390x844 and 1440x1000; focus + Enter open/close trace",
+      "result": "summary_text=Session note Optional local receipt; initial_closed=true; initial_body_hidden=true; summary_focused=true; opened_by_keyboard=true; receipt_visible_when_open=true; report_visible_when_open=true; receipt_heading_present=true; receipt_technical_heading_absent=true; closed_after_keyboard=true; body_hidden_after_close=true; browser_errors=[]; request_failures=[]"
+    },
+    {
+      "layer": "responsive_mobile_emulation",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "390x844, 1024x900, and 1440x900/1000; no horizontal overflow; mobile action ownership and tablet hero primary checked"
+    },
+    {
+      "layer": "chrome_accessibility_semantics",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "First Tab reaches Skip to main content; unnamed controls=[], duplicate IDs=[], dangling aria-controls=[]; source disclosure relationship checked"
+    },
+    {
+      "layer": "visual_inspection",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh first-run screenshots at 390px and 1440px plus loaded tablet screenshot at 1024px inspected; sample remains primary, own-signal remains quiet secondary, no new status rail or competing surface introduced"
+    },
+    {
+      "layer": "browser_console_and_network_boundary",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "browser_errors=[]; request_failures=[]; external resources=[]"
+    },
+    {
+      "layer": "chrome_extension_behavior_trace",
+      "status": "blocked",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md",
+      "command_or_click_path": "Preferred Codex Chrome Extension trace of the same flow",
+      "blocked_reason": "No callable Codex Chrome Extension control surface is exposed in this runtime. Headless Chrome fallback is recorded separately and is not promoted to Extension evidence."
+    },
+    {
+      "layer": "canonical_hosted_release",
+      "status": "blocked",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/121-hosted-release-preflight-local-qa-2026-08-16.md",
+      "command_or_click_path": "HOSTED_URL=https://asdc163.github.io/pm-signal-lab/ npm run verify:hosted",
+      "blocked_reason": "Current hosted readback failed: Current hosted JavaScript is missing: Start with a source line. Merge/deploy remains outside this slice and requires explicit approval."
+    },
+    {
+      "layer": "native_assistive_technology",
+      "status": "out_of_scope",
+      "required": false,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md",
+      "command_or_click_path": "VoiceOver, NVDA, TalkBack, physical device, zoom, and reduced-motion execution",
+      "out_of_scope_reason": "No native AT or physical-device harness was used; Chrome fallback semantics are not a substitute."
+    },
+    {
+      "layer": "non_owner_pm_sessions",
+      "status": "blocked",
+      "required": true,
+      "artifact_path_or_url": "docs/operations/international-pilot-launch-kit-2026-08-15.md",
+      "command_or_click_path": "Five unguided international PM sessions with privacy-safe field notes",
+      "blocked_reason": "The session kit is prepared, but no participant evidence was collected in this run."
+    },
+    {
+      "layer": "live_model_quality_and_ai_evaluation",
+      "status": "out_of_scope",
+      "required": false,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md",
+      "command_or_click_path": "Provider quality, retrieval freshness, prompt-injection resistance, latency, cost, and safety evaluation",
+      "out_of_scope_reason": "This candidate remains deterministic and local-only; no provider or live model is connected."
+    },
+    {
+      "layer": "public_adoption_and_github_stars",
+      "status": "out_of_scope",
+      "required": false,
+      "artifact_path_or_url": "docs/operations/growth-operating-system.md",
+      "command_or_click_path": "Traffic, unique viewers, referrals, retention, adoption, and star movement",
+      "out_of_scope_reason": "No adoption or star movement is inferred from local QA, repository activity, or prepared outreach material."
+    }
+  ],
+  "visual_artifacts": [
+    "docs/product/pm-signal-lab/assets/qa/first-run-source-truth-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/first-run-source-truth-1440-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loading-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loaded-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-reset-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-blank-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-decide-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-ship-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1024-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1440-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/custom-source-sheet-truth-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/custom-source-sheet-truth-sample-1440-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/keyboard-flow-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/keyboard-flow-1440-2026-08-16.png"
+  ],
+  "browser_summary": {
+    "workflow": "blank → sample → source disclosure → Verify → accept → Decide → draft → Ship",
+    "context_note": {
+      "blank_390": {
+        "aria_label": "Worksheet note",
+        "source_record_present": true,
+        "blank_sheet_present": true,
+        "no_source_line_present": true,
+        "old_source_set_label_absent": true,
+        "old_current_source_absent": true,
+        "status_dot_count": 0
+      },
+      "manual_loaded_390": {
+        "aria_label": "Worksheet note",
+        "source_record": "1 source line · 3 candidate claims",
+        "local_sheet_present": true,
+        "old_source_set_label_absent": true,
+        "old_current_source_absent": true,
+        "status_dot_count": 0,
+        "visibleCurrentActions": 1
+      },
+      "blank_1440": {
+        "aria_label": "Worksheet note",
+        "source_record_present": true,
+        "blank_sheet_present": true,
+        "no_source_line_present": true,
+        "old_source_set_label_absent": true,
+        "old_current_source_absent": true,
+        "status_dot_count": 0
+      },
+      "sample_loaded_1440": {
+        "aria_label": "Worksheet note",
+        "source_record": "4 source lines · 3 candidate claims",
+        "local_sheet_present": true,
+        "old_source_set_label_absent": true,
+        "old_current_source_absent": true,
+        "status_dot_count": 0,
+        "visibleCurrentActions": 1
+      }
+    },
+    "keyboard_only": {
+      "blank_recovery": {
+        "skip_focused_after_first_tab": true,
+        "skip_enter_focus_target": "main-content",
+        "add_signal_keyboard_focused": true,
+        "save_line_keyboard_focused": true,
+        "title_invalid_focused": true,
+        "warning_visible": true,
+        "cancel_keyboard_focused": true,
+        "form_closed_after_cancel": true
+      },
+      "mobile_390": {
+        "loaded_focus_target": "main-content",
+        "verify_action_focus": true,
+        "claim_expanded": true,
+        "claim_reviewed": true,
+        "decide_action_focus": true,
+        "experiment_ready": true,
+        "ship_action_focus": true,
+        "markdown_notice_visible": true
+      },
+      "desktop_1440": {
+        "loaded_focus_target": "main-content",
+        "verify_action_focus": true,
+        "claim_expanded": true,
+        "claim_reviewed": true,
+        "decide_action_focus": true,
+        "experiment_ready": true,
+        "ship_action_focus": true,
+        "markdown_notice_visible": true
+    },
+    "browser": "Chrome via Playwright fallback; native screen-reader and Chrome Extension coverage is separate"
+  },
+    "first_run_source_truth": {
+      "mobile_390": {
+        "sample_note_visible": true,
+        "source_title": "Interview: the draft looks finished before I can trust it",
+        "source_excerpt_contains": "The support draft gives me a polished reply",
+        "local_fixture_boundary_visible": true,
+        "own_signal_visible": true,
+        "lower_sample_quote_count": 0,
+        "overflow": false
+      },
+      "desktop_1440": {
+        "sample_note_visible": true,
+        "source_title": "Interview: the draft looks finished before I can trust it",
+        "source_excerpt_contains": "The support draft gives me a polished reply",
+        "local_fixture_boundary_visible": true,
+        "own_signal_visible": true,
+        "lower_sample_quote_count": 0,
+        "overflow": false
+      },
+      "screenshots": [
+        "docs/product/pm-signal-lab/assets/qa/first-run-source-truth-390-2026-08-16.png",
+        "docs/product/pm-signal-lab/assets/qa/first-run-source-truth-1440-2026-08-16.png"
+      ]
+    },
+    "first_run_choice_clarity": {
+      "mobile_390": {
+        "own_signal_in_hero": true,
+        "own_signal_not_covered": true,
+        "hero_primary_visible": false,
+        "visible_current_actions": 1,
+        "overflow": false
+      },
+      "tablet_1024": {
+        "hero_primary_visible": true,
+        "mobile_bar": "none",
+        "overflow": false
+      },
+      "desktop_1440": {
+        "own_signal_in_hero": true,
+        "own_signal_not_covered": true,
+        "hero_primary_visible": true,
+        "visible_current_actions": 0,
+        "overflow": false
+      },
+      "artifact": "docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md"
+    },
+    "loaded_390": {
+      "scrollWidth": 390,
+      "clientWidth": 390,
+      "overflow": false,
+      "heroStatusLabel": "Sheet tally",
+      "currentStepVisible": false,
+      "mobileBar": "flex",
+      "visibleCurrentActions": 1,
+      "sourceRowActionHidden": true
+    },
+    "custom_source_390": {
+      "heading": "Your source sheet",
+      "subject": "your source notes · local sheet",
+      "sample_only_copy_absent": true,
+      "subject_aria_label": "Sheet: your source notes, local sheet",
+      "session_note": {
+        "summary_text": "Session note Optional local receipt",
+        "initial_closed": true,
+        "initial_body_hidden": true,
+        "opened_by_keyboard": true,
+        "receipt_visible_when_open": true,
+        "report_visible_when_open": true,
+        "receipt_heading_present": true,
+        "receipt_technical_heading_absent": true,
+        "closed_after_keyboard": true,
+        "body_hidden_after_close": true
+      }
+    },
+    "sample_source_1440": {
+      "heading": "Support draft review",
+      "subject": "support draft · fictional worksheet",
+      "custom_only_copy_absent": true,
+      "subject_aria_label": "Subject: support draft, fictional worksheet",
+      "owner_value": "Owner to confirm before the test",
+      "visibleCurrentActions": 1,
+      "heroActionAbsent": true,
+      "session_note": {
+        "summary_text": "Session note Optional local receipt",
+        "initial_closed": true,
+        "initial_body_hidden": true,
+        "opened_by_keyboard": true,
+        "receipt_visible_when_open": true,
+        "report_visible_when_open": true,
+        "receipt_heading_present": true,
+        "receipt_technical_heading_absent": true,
+        "closed_after_keyboard": true,
+        "body_hidden_after_close": true
+      }
+    },
+      "session_boundary_390": {
+        "sample_button_disabled_during_loading": true,
+        "form_hidden_during_loading": true,
+        "loading_marker_visible": true,
+        "loading_marker_class": "lucide lucide-clipboard-list",
+        "loading_marker_animation": "none",
+        "form_still_visible_after_load": false,
+        "expanded_source_after_reset": false
+    },
+    "loaded_1024": {
+      "scrollWidth": 1024,
+      "clientWidth": 1024,
+      "overflow": false,
+      "heroStatusLabel": "Sheet tally",
+      "currentStepVisible": false,
+      "mobileBar": "none"
+    },
+    "loaded_1440": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "overflow": false,
+      "heroStatusLabel": "Sheet tally",
+      "currentStepVisible": false,
+      "mobileBar": "none"
+    },
+    "semantic": {
+      "unnamed": [],
+      "duplicateIds": [],
+      "dangling": [],
+      "external": []
+    },
+    "browser_errors": [],
+    "request_failures": []
+  },
+  "notes": [
+    "This manifest records the focused first-run choice-clarity slice alongside the context-note source-record reframe, first-run source-truth composition, keyboard-only workflow, Session note progressive-disclosure and literal receipt-language, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
+    "The preferred Chrome Extension route, native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates.",
+    "The Pages-base-path artifact preflight and local production preview pass, but the canonical hosted verifier still fails because the Pages URL serves the prior bundle missing the current first-run copy; this local slice has not been merged or deployed."
+  ]
+}

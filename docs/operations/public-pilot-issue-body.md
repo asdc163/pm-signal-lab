@@ -1,3 +1,8 @@
+> **Pilot status: HOLD.** The current PR #44 candidate is not deployed to the
+> canonical Pages URL yet. Do not distribute this invitation or count any
+> reply as current-candidate evidence until the hosted release preflight passes
+> and the deployed URL is rechecked.
+
 ## What this pilot is testing
 
 PM Signal Lab is a local-first product evidence worksheet. It keeps interview, support, product-observation, and competitive-scan lines beside the claims they inform, asks a person to review each claim, and ends with a smallest-test brief.

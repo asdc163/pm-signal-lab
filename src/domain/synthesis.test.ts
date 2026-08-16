@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { cloneSamplePack, SAMPLE_PACK } from "./fixture";
-import { buildClaims, draftExperiment } from "./synthesis";
+import { buildClaims, draftExperiment, getReviewedClaimForExperiment } from "./synthesis";
 
 describe("PM Signal Lab synthesis", () => {
   it("keeps the public fixture grounded in an AI product-review job", () => {
     const fixtureText = [SAMPLE_PACK.title, SAMPLE_PACK.description, ...SAMPLE_PACK.evidence.map((item) => `${item.title} ${item.content}`)].join(" ");
 
+    expect(SAMPLE_PACK.id).toBe("support-draft-review-v1");
     expect(SAMPLE_PACK.title).toBe("Support draft review: deciding what to test next");
     expect(fixtureText).toContain("support draft");
     expect(fixtureText).toContain("Evaluation review");
@@ -49,6 +50,30 @@ describe("PM Signal Lab synthesis", () => {
     expect(brief.primaryMetric).toContain("Needs validation");
     expect(brief.guardrail).toContain("support draft");
     expect(brief.smallestTest).toContain("support-draft worksheet");
+    expect(brief.owner).toBe("Owner to confirm before the test");
+    expect(brief.owner).not.toContain("TBD");
     expect(brief.hypothesis).not.toContain("support-copilot");
+  });
+
+  it("requires an explicit human review before an experiment can be drafted", () => {
+    const claims = buildClaims(cloneSamplePack().evidence);
+    const blocked = getReviewedClaimForExperiment(claims, claims[0].id);
+
+    expect(blocked.ok).toBe(false);
+    if (!blocked.ok) {
+      expect(blocked.message).toContain("Review the selected claim");
+    }
+
+    const reviewedClaims = claims.map((claim, index) =>
+      index === 1 ? { ...claim, reviewed: true, status: "review" as const } : claim,
+    );
+    expect(getReviewedClaimForExperiment(reviewedClaims, reviewedClaims[1].id)).toEqual({
+      ok: true,
+      claimId: reviewedClaims[1].id,
+    });
+    expect(getReviewedClaimForExperiment(reviewedClaims)).toEqual({
+      ok: true,
+      claimId: reviewedClaims[1].id,
+    });
   });
 });

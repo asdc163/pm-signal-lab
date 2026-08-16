@@ -20,6 +20,8 @@ describe("session receipt", () => {
     expect(receipt).toContain("Evidence rows: 4");
     expect(receipt).toContain("Accepted claims: 1");
     expect(receipt).toContain("sample pack loaded");
+    expect(receipt).toContain("## Actions on this page");
+    expect(receipt).not.toContain("## Event trace");
     expect(receipt).toContain("Original evidence text is intentionally excluded");
     expect(receipt).toContain("does not show external adoption");
     expect(receipt).not.toContain("model-quality");

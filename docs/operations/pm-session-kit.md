@@ -1,5 +1,11 @@
 # PM Signal Lab — Five-Minute Session Kit
 
+> **Distribution status: HOLD.** Use this kit only after PR #44 has been
+> merged, the current candidate has deployed to the canonical HTTPS URL, and
+> the hosted release audit records a fresh verifier plus browser trace. A
+> session run against the older preview must not be counted as current-product
+> evidence.
+
 This kit is for a real PM, founder, product designer, or product engineer trying the formal hosted demo for the first time.
 
 ## Before you start

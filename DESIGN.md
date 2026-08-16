@@ -2,7 +2,7 @@
 
 ## Product frame
 
-- Product type: local-first PM field folio for moving from source lines to a defensible decision.
+- Product type: local-first PM workpaper for moving from source lines to a defensible decision.
 - Target user: PM, founder, product designer, or product engineer evaluating a practical AI-PM portfolio project.
 - Primary action: move from a support-draft signal pack to a reviewable, exportable decision brief.
 - Brand mood: precise, calm, evidence-first, and closer to a field notebook / decision instrument than an AI dashboard.
@@ -12,18 +12,19 @@
 ## Project Style Direction
 
 - Selected DNA: Pillow Fit's tool/trust discipline + Altoslab's restrained professional language.
-- Original direction: warm paper, ink hierarchy, one red correction line, blue provenance marks, and a ruled folio structure.
+- Original direction: warm paper, ink hierarchy, one red correction line, blue provenance marks, and ruled source rows.
 - Must feel like: a PM can bring this into a real product review and defend the next step.
 - Must not feel like: an AI landing-page template, a card-heavy dashboard, a model chat wrapper, or a decorative moodboard.
 - Density: medium on first run; medium-high once a source pack is loaded.
-- Signature detail: folio numbers, source lines, and editorial review marks that keep the original line beside the next decision. The brand mark is a simple sheet index; it does not represent model activity, confidence, or verified output.
+- Signature detail: source numbers, source lines, and restrained review marks that keep the original line beside the next decision. The brand mark is a simple sheet index; it does not represent model activity, confidence, or verified output.
+- Colour roles: neutral ink/muted text carries shell and navigation; trust blue carries source/provenance; the red accent is reserved for the next human action and its small marker. This keeps colour attached to evidence meaning instead of decorative AI theatre.
 - Motion: low; transitions explain state changes and never simulate model thinking.
 
 ## Product truth and signature
 
-This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional AI-assisted support-draft review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue. AI appears in the fixture because it is the product being reviewed, not because the shell pretends to be an assistant.
+This is not a generic chat wrapper. Its domain objects are `Evidence`, `Claim`, `ExperimentBrief`, `DecisionMemo`, `SessionFeedback`, and `Not covered`. The default fixture is a fictional support-draft review with interview, support, product-observation, and evaluation-review rows; it does not represent a live model or support queue. The AI-PM framing belongs in the portfolio and fixture boundary, not as a badge that takes over the work surface.
 
-The visual signature is a field folio: source rows and claim rows are visibly related so provenance is part of the workpaper rather than a footnote. A warm paper index rail, ruled annotations, source folios, evaluation-review limits, and a quiet margin note establish the reading order. A red line marks the next action and blue marks provenance; neither is used as wallpaper. The summary keeps actual source, claim, and review counts below the workpaper instead of turning secondary context into a persistent dashboard rail.
+The visual signature is a quiet workpaper: the workflow is a thin paper index, the case subject leads the page, source rows and claim rows are visibly related, and provenance stays in the workpaper rather than a dashboard rail. A warm paper surface, ruled annotations, source numbers, evaluation-review limits, and a quiet margin note establish the reading order. A red line marks the next action and blue marks provenance; neither is used as wallpaper. Actual source, claim, and review counts remain metadata, not the main visual event.
 
 ## Principles
 
@@ -34,20 +35,32 @@ The visual signature is a field folio: source rows and claim rows are visibly re
 5. Dense where it helps: evidence rows can be compact; decision briefs and explanations need room to breathe.
 6. Human owns the decision: the system proposes a candidate; a person accepts, edits, keeps it as a hypothesis, or marks evidence missing.
 7. Boundary near trust: local-only behavior, manual GitHub handoff, and unverified outcomes stay visible at the point of action.
+8. Review before decision: the Decide step cannot draft an experiment until at least one claim has an explicit human review state.
 
-8. Field-folio shell: concrete records, margins, and review marks carry the visual identity; AI terms stay inside the product fixture and source content.
+9. Quiet workpaper shell: concrete source rows, margins, and review marks carry the visual identity; AI terms stay inside the portfolio framing, product fixture, and source content.
 
 ## Composition brief
 
-- First read: “Write down the line you can defend”, the sheet state, and `Open the sample worksheet`.
-- Second read: the sample fixture boundary, source rows, source mapping, date, limitation, and review docket.
-- Primary action: one step-specific CTA.
+- First read: `Support draft review` under the `Source review` label when loaded, or `Start with a source line` on first run; the workflow index remains quiet context.
+- First-run choice: the concrete `Sample note` and `Local fixture only` boundary establish the source proof; `Open the sample worksheet` stays primary while `Add your own signal` is a quiet secondary action in the same hero. The mobile fixed bar owns the sample action, while tablet keeps the hero primary because no fixed bar is present.
+- Manual-source first read: after a visitor saves their own line, use `Your source sheet` and `your source notes · local sheet`; never reuse the fictional sample's subject labels for a custom pack.
+- Second read: the case subject, source rows, source mapping, date, limitation, and review mark.
+- Primary action: one step-specific CTA; loaded desktop places `Start review`
+  after the source record, while mobile keeps the fixed action bar. The
+  `Sheet tally` is status only and never competes with the source action.
 - Content relationship: `Source → Claim → Smallest test`; use a stepper, rows, split areas, and definition lists before adding cards.
 - Desktop density: medium-high. Mobile density: stacked medium.
-- Alignment spine: masthead → folio title → ruled source record. The workflow rail remains navigation; the margin summary is a lower-priority horizontal band below the workpaper.
-- Layout archetype: single-sheet source ledger + index strip + annotated workpaper + desk summary.
-- Responsive reflow: the workflow rail becomes a top stepper; the desk summary moves below the workbench; the primary CTA becomes a sticky bottom action.
-- Loaded state: when the pack exists, the masthead switches to direct work language so evidence appears sooner. The working file uses `Support draft review` as the visible subject and keeps `AI-assisted support drafting` as a quiet subject-under-review line beside the `fictional worksheet` boundary. The source ledger ends in a next mark with the actual claim count and the primary `Start review` action; the margin summary records one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
+- Alignment spine: `Source review` label → case title → `Source lines to check` → ruled source record. The workflow index is navigation, not a persistent dashboard rail; the `Sheet note` stays below the workpaper and names the visible source record.
+- Layout archetype: quiet workpaper + index strip + annotated source rows + desk summary.
+- Responsive reflow: the desktop index becomes the existing top stepper below 1024px; the desk summary remains below the workbench; the primary CTA becomes the single sticky bottom action on mobile while the context note keeps only the question and rule.
+- Loaded state: when the pack exists, the masthead uses `Support draft review` once, the pack header uses the `Evidence` eyebrow plus `Source lines to check`, and the subject line identifies `support draft · fictional worksheet`. The desktop topbar keeps only the local worksheet boundary instead of repeating the case title. AI-PM framing remains in the repository and fixture boundary, not as a visual badge. The `Sheet tally` reports the current state without an action; the source lines end in a `Next step` with the actual claim count and the only desktop `Start review` action; the `Sheet note` records a literal `Source record`, one question, one rule, actual counts, and the current next action. This is domain-state reflow, not fake AI activity.
+- Manual source state: when the pack was created from visitor-entered evidence, the masthead uses `Your source sheet`, the subject line uses `your source notes · local sheet`, and the sample-only `fictional worksheet` boundary is absent. The evidence row remains literal and the local refresh-clears boundary stays adjacent to the source.
+- Operational worksheet reframe: the loaded hero uses `Source review` and a literal `Sheet tally`, the context uses `Sheet note`, `Source record`, and `In this sheet`, and the first source row enters earlier with a quieter sans-led masthead. The local/blank sheet boundary stays literal, while source-line counts carry the visible state instead of a status dot or active/empty rail.
+- Evidence-ledger colour pass: in the loaded state, repeated red shell labels and navigation cues are quieted; source numbers, source type, subject, and provenance use trust blue; only the review CTA and next-action marker stay red. The words still name each trust state, so colour never becomes the sole status signal.
+- Literal worksheet language pass: `Local worksheet`, `Source review`, `Sheet tally`, `Source record`, and `Recent action` replace abstract shell language. `Sheet note` and `In this sheet` keep the lower context useful without sounding like agent telemetry; `Local sheet` and `Blank sheet` state the boundary without implying invisible work.
+- Optional receipt disclosure: `Session note` and `Optional local receipt` remain visible as a quiet operational footnote; `Recent action`, the receipt copy control, and manual report handoff stay collapsed until the owner asks for them. The copied receipt says `Actions on this page` so the local boundary is literal rather than telemetry-like. This keeps the source → claim → test reading path primary without removing the local recovery path.
+- Contextual mobile action strip: the fixed helper line follows the current state (`Start with a source line`, `Read the source lines`, `Draft the smallest test`, `Export the decision brief`, or `Inspect before copying`) and exposes the button label in its region name. When `Decide` has no experiment yet, both the helper and button stay on `Draft smallest experiment`; export only appears after the brief exists. It remains a quiet margin note, not a second status dashboard.
+- Mobile action ownership: the fixed bottom bar is the only mobile primary button. The lower `Sheet note` still shows the next-step label, question, and rule; the optional `Session note` keeps the receipt detail collapsed so the same action and operational trace do not compete with the mobile reading path.
 - Feedback state: after the decision brief, offer a low-interruption field note. It records the person's session; it does not infer sentiment or submit an issue.
 
 ## Visual tokens
@@ -95,18 +108,20 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Main gaps: 12 / 16 / 24 / 32 / 48px.
 - Control radius: 3px. Input radius: 3px. Panel radius: 0.
 - Status uses text, underline, and dividers rather than default pill surfaces.
-- The brand mark is a folio index, never a node graph or a signal of model activity.
+- The brand mark is a sheet index, never a node graph or a signal of model activity.
 - Use borders and surfaces by default; reserve shadows for menus, dialogs, and the sticky action.
 
 ## Components and states
 
 - Button: primary, secondary, quiet, and danger; default, hover, active, focus, disabled, and loading.
 - Stepper: current, completed, available, and blocked; semantic `aria-current`.
-- Evidence row: source folio, type, timestamp, source identity, original line, and expandable source detail.
-- Claim row: status text/icon, claim folio, evidence spine, source references, limitation, accept/edit/keep/missing actions.
+- Evidence row: source number, type, timestamp, source identity, original line, and expandable source detail.
+- Claim row: status text/icon, claim number, evidence spine, source references, limitation, accept/edit/keep/missing actions.
+- Review gate: Decide is blocked until a claim is explicitly reviewed; the recovery message names the valid human outcomes rather than silently drafting a test.
 - Status marker: `Source-backed`, `Needs your review`, and `Missing evidence` with text and icon.
 - Notice: success, warning, error, and recovery action; use `role=status` or `role=alert` by severity.
 - Form: visible label, helper, `aria-describedby`, field-level error, preserved input, and focus recovery. Claim editing stays inline; do not use a native prompt.
+- Session boundary: sample replacement closes manual entry and clears disclosure/claim selection; Reset returns to a clean local worksheet; loading actions become disabled during the existing fixture transition.
 - Decision preview: definition list, evidence summary, known limits, not-covered block, and copy/download actions.
 - Session feedback: collapsed invitation → labelled local form → privacy gate → editable Markdown preview → manual GitHub handoff.
 - Empty and error states always include a next action and a recovery path.
@@ -115,7 +130,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Below 640px: one column, top stepper, stacked rows, full-width primary controls, sticky bottom action with safe-area padding.
 - 640–1024px: use two columns where space allows; move context below the main workbench.
-- Above 1024px: persistent workflow rail, central workbench, right context rail, max content width 1440px.
+- Above 1024px: full-width masthead, thin horizontal workflow index, central workpaper, and lower context band, max content width 1260px.
 - Touch targets are at least 44×44px. No action depends on hover.
 - Long source strings wrap. Focus remains visible. Text expansion is checked at 390px.
 - Reduced-motion preferences disable non-essential transitions.
@@ -124,31 +139,51 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Use 150–200ms for border/focus feedback and 200–300ms for drawers or dialogs.
 - Synthesis is shown as a set of claims and limitations, not fake typing, hidden chain-of-thought, or a model activity feed.
+- The deterministic sample transition uses a static worksheet marker and literal loading copy; there is no spinner or simulated model-thinking animation when no measurable progress exists.
 - Avoid generic gradient hero art, abstract orbs, glass panels, bento feature walls, repeated rounded containers, unsupported “production-ready” claims, and status chrome that does not represent product proof.
 - Avoid network-like brand marks, graph nodes, fake confidence meters, chat bubbles, typing indicators, and shell copy that makes the preview look like an AI agent.
-- Prefer actual source rows, folios, limitations, a deterministic sample output, and an annotated decision brief as the visual language.
+- Prefer actual source rows, source numbers, limitations, a deterministic sample output, and an annotated decision brief as the visual language.
 - Keep AI language in subject/context and evidence objects; do not make it the loaded worksheet headline.
+- Second-polish rule: the loaded hero keeps the same editorial display voice as the empty sheet, while margin labels state literal ownership or output (`Decision owner: you`, `Stop rule: yours`, `Markdown export`). Do not add another status layer to explain the product.
+- Recovery rule: a replaced or reset worksheet must not retain a previous form, source disclosure, or claim selection; use literal disabled/loading feedback instead of simulating background agent activity.
 
 ## Evidence and release references
 
-- First-run design reference: [`case-file-first-run-1440.png`](./docs/product/pm-signal-lab/assets/qa/case-file-first-run-1440.png).
-- Current AI PM fixture first-run screenshot: [`ai-pm-fixture-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-first-run-1280.png).
-- Current AI PM fixture first-run mobile screenshot: [`ai-pm-fixture-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-first-run-390.png).
-- Current AI PM fixture loaded workbench screenshot: [`ai-pm-fixture-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-loaded-1280.png).
-- Current AI PM fixture loaded mobile screenshot: [`ai-pm-fixture-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-loaded-390.png).
-- Current less-AI field folio first-run desktop screenshot: [`field-folio-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-first-run-1280.png).
-- Current less-AI field folio first-run mobile screenshot: [`field-folio-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-first-run-390.png).
-- Current less-AI field folio loaded desktop screenshot: [`field-folio-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-loaded-1280.png).
-- Current less-AI field folio loaded mobile screenshot: [`field-folio-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-loaded-390.png).
-- Current hosted less-AI field folio first-run desktop screenshot: [`field-folio-hosted-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-hosted-first-run-1280.png).
-- Current hosted less-AI field folio first-run mobile screenshot: [`field-folio-hosted-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-hosted-first-run-390.png).
-- Current hosted less-AI field folio loaded desktop screenshot: [`field-folio-hosted-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-hosted-loaded-1280.png).
-- Current hosted less-AI field folio loaded mobile screenshot: [`field-folio-hosted-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/field-folio-hosted-loaded-390.png).
-- Current hosted AI PM fixture first-run desktop screenshot: [`ai-pm-fixture-hosted-first-run-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-first-run-1280.png).
-- Current hosted AI PM fixture loaded desktop screenshot: [`ai-pm-fixture-hosted-loaded-1280.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-loaded-1280.png).
-- Current hosted AI PM fixture first-run mobile screenshot: [`ai-pm-fixture-hosted-first-run-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-first-run-390.png).
-- Current hosted AI PM fixture loaded mobile screenshot: [`ai-pm-fixture-hosted-loaded-390.png`](./docs/product/pm-signal-lab/assets/qa/ai-pm-fixture-hosted-loaded-390.png).
-- Historical first-run action reference: [`first-run-action-1280.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-1280.png) and [`first-run-action-mobile-390.png`](./docs/product/pm-signal-lab/assets/qa/first-run-action-mobile-390.png). Current visuals are the screenshots listed above.
+- Quiet workpaper second-polish contract: [`82-quiet-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md).
+- Mobile source-first reading contract: [`83-mobile-source-first-reading-contract-2026-08-16.md`](./docs/product/pm-signal-lab/83-mobile-source-first-reading-contract-2026-08-16.md).
+- Evidence-ledger quiet-colour contract: [`90-evidence-ledger-quiet-colour-contract-2026-08-16.md`](./docs/product/pm-signal-lab/90-evidence-ledger-quiet-colour-contract-2026-08-16.md).
+- Literal worksheet language contract: [`92-literal-worksheet-language-contract-2026-08-16.md`](./docs/product/pm-signal-lab/92-literal-worksheet-language-contract-2026-08-16.md).
+- Literal worksheet language local QA: [`93-literal-worksheet-language-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/93-literal-worksheet-language-local-qa-2026-08-16.md).
+- Mobile action context and craft pass: [`94-mobile-action-context-and-craft-pass-contract-2026-08-16.md`](./docs/product/pm-signal-lab/94-mobile-action-context-and-craft-pass-contract-2026-08-16.md).
+- Mobile action context local QA: [`95-mobile-action-context-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/95-mobile-action-context-local-qa-2026-08-16.md).
+- Mobile primary-action de-duplication contract: [`96-mobile-primary-action-de-duplication-contract-2026-08-16.md`](./docs/product/pm-signal-lab/96-mobile-primary-action-de-duplication-contract-2026-08-16.md).
+- Mobile primary-action de-duplication local QA: [`97-mobile-primary-action-de-duplication-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/97-mobile-primary-action-de-duplication-local-qa-2026-08-16.md).
+- Source-first chrome simplification contract: [`98-source-first-chrome-simplification-contract-2026-08-16.md`](./docs/product/pm-signal-lab/98-source-first-chrome-simplification-contract-2026-08-16.md).
+- Source-first chrome simplification local QA: [`99-source-first-chrome-simplification-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md).
+- Less-AI workpaper second-polish contract: [`100-less-ai-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/100-less-ai-workpaper-second-polish-contract-2026-08-16.md).
+- Less-AI workpaper second-polish local QA: [`101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md).
+- Less-AI workpaper second-polish machine-readable evidence: [`qa-evidence-manifest-2026-08-16.json`](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json).
+- Less-AI margin note and evidence state contract: [`102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md`](./docs/product/pm-signal-lab/102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md).
+- Less-AI margin note and evidence state local QA: [`103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md).
+- Session boundary, reset, and loading-guard contract: [`104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md`](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md).
+- Session boundary, reset, and loading-guard local QA: [`105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md).
+- Custom source-sheet truth contract: [`108-custom-source-sheet-truth-contract-2026-08-16.md`](./docs/product/pm-signal-lab/108-custom-source-sheet-truth-contract-2026-08-16.md).
+- Custom source-sheet truth local QA: [`109-custom-source-sheet-truth-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md).
+- Single-primary-action ownership contract: [`110-single-primary-action-ownership-contract-2026-08-16.md`](./docs/product/pm-signal-lab/110-single-primary-action-ownership-contract-2026-08-16.md).
+- Single-primary-action ownership local QA: [`111-single-primary-action-ownership-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md).
+- Session note progressive-disclosure contract: [`112-session-note-progressive-disclosure-contract-2026-08-16.md`](./docs/product/pm-signal-lab/112-session-note-progressive-disclosure-contract-2026-08-16.md).
+- Session note progressive-disclosure local QA: [`113-session-note-progressive-disclosure-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md).
+- Keyboard-only workflow contract: [`114-keyboard-only-workflow-contract-2026-08-16.md`](./docs/product/pm-signal-lab/114-keyboard-only-workflow-contract-2026-08-16.md).
+- Keyboard-only workflow local QA: [`115-keyboard-only-workflow-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/115-keyboard-only-workflow-local-qa-2026-08-16.md).
+- First-run source-truth composition contract: [`116-first-run-source-truth-composition-contract-2026-08-16.md`](./docs/product/pm-signal-lab/116-first-run-source-truth-composition-contract-2026-08-16.md).
+- First-run source-truth local QA: [`117-first-run-source-truth-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md).
+
+- Current candidate screenshot set, captured locally on 2026-08-16: [blank mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-blank-390-2026-08-16.png), [loaded mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-390-2026-08-16.png), [Decide](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-decide-390-2026-08-16.png), [Ship mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-ship-390-2026-08-16.png), [tablet](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1024-2026-08-16.png), and [desktop](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1440-2026-08-16.png).
+- Keyboard-only workflow captures: [390px](./docs/product/pm-signal-lab/assets/qa/keyboard-flow-390-2026-08-16.png) and [1440px](./docs/product/pm-signal-lab/assets/qa/keyboard-flow-1440-2026-08-16.png).
+- First-run source-truth captures: [390px](./docs/product/pm-signal-lab/assets/qa/first-run-source-truth-390-2026-08-16.png) and [1440px](./docs/product/pm-signal-lab/assets/qa/first-run-source-truth-1440-2026-08-16.png). These show the existing deterministic fixture source title, bounded excerpt, source identity, and `Local fixture only` boundary before the visitor scrolls into the own-signal panel.
+- Session-boundary screenshots: [loading guard](./docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loading-390-2026-08-16.png), [clean loaded worksheet](./docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loaded-390-2026-08-16.png), and [clean worksheet after reset](./docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-reset-390-2026-08-16.png).
+- Source-truth screenshots: [manual source sheet at 390px](./docs/product/pm-signal-lab/assets/qa/custom-source-sheet-truth-390-2026-08-16.png) and [fictional sample at 1440px](./docs/product/pm-signal-lab/assets/qa/custom-source-sheet-truth-sample-1440-2026-08-16.png).
+- Older screenshot names remain in the assets folder as historical evidence only. They are not current visual proof and do not prove hosted behavior.
 - Source ledger contract: [`32-source-ledger-composition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md).
 - English-first messaging and localization contract: [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md).
 - No-AI-feel visual refresh QA audit: [`37-no-ai-feel-visual-refresh-qa-audit-2026-08-15.md`](./docs/product/pm-signal-lab/37-no-ai-feel-visual-refresh-qa-audit-2026-08-15.md).
