@@ -624,7 +624,7 @@ function App() {
             <span>PM Signal Lab</span>
           </div>
           <div className="topbar-context">
-            <span className="topbar-kicker">Working sheet</span>
+            <span className="topbar-kicker">Local worksheet</span>
             <span className="topbar-divider" aria-hidden="true" />
             <span>{pack?.title ?? "Blank sheet"}</span>
           </div>
@@ -645,18 +645,18 @@ function App() {
 
             <div className="hero-block">
               <div>
-                <div className="hero-folio" aria-label={pack ? "Current work, collect step" : "New worksheet, collect step"}>
+                <div className="hero-folio" aria-label={pack ? "Source review, collect step" : "New worksheet, collect step"}>
                   <span className="hero-folio-index">{pack ? "01" : "—"}</span>
-                  <span className="eyebrow">{pack ? "Current work" : "New worksheet"}</span>
+                  <span className="eyebrow">{pack ? "Source review" : "New worksheet"}</span>
                 </div>
                 <h1 id="page-title">{pack ? "Support draft review" : "Start with a source line"}</h1>
                 <p className="hero-copy">
                   {pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} to check before you choose a test.` : "Write one observed line, then decide what it can support."}
                 </p>
               </div>
-              <div className="hero-status" role="status" aria-label="Review state" aria-live="polite" aria-atomic="true">
+              <div className="hero-status" role="status" aria-label="Current step" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
-                  <span className="section-eyebrow">Review state</span>
+                  <span className="section-eyebrow">Current step</span>
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
                 </div>
                 <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"}` : "No source line yet"}</strong>
@@ -1210,16 +1210,16 @@ function DecisionContext({ pack, evidenceCount, claimCount, reviewedCount, suppo
   return (
     <aside className="decision-context" aria-label="Worksheet context">
       <div className="context-heading">
-        <div><p className="section-eyebrow">Work note</p><h2>{pack ? "Check the source" : "Start with a source"}</h2></div>
+        <div><p className="section-eyebrow">Sheet note</p><h2>{pack ? "Check the source" : "Start with a source"}</h2></div>
         <span className="context-boundary"><span className={`status-dot ${pack ? "" : "status-dot-neutral"}`} aria-hidden="true" />{pack ? "On this page" : "Blank sheet"}</span>
       </div>
       <div className="context-middle">
-        <div className="context-project"><span className="card-eyebrow">Working set · {pack ? "active" : "empty"}</span><strong>{pack ? "Current source pack" : "No source pack"}</strong><span>{pack ? "These source lines stay on this page." : "Start with one source line."}</span></div>
-        <p className="context-record"><span className="card-eyebrow">Record</span>{contextRecord}</p>
+        <div className="context-project"><span className="card-eyebrow">Source set · {pack ? "active" : "empty"}</span><strong>{pack ? "Current source set" : "No source set"}</strong><span>{pack ? "These source lines stay on this page." : "Start with one source line."}</span></div>
+        <p className="context-record"><span className="card-eyebrow">In this sheet</span>{contextRecord}</p>
         <div className="context-list"><ContextItem label="Question" value={contextQuestion} /><ContextItem label="Rule" value={contextRule} /></div>
       </div>
       <div className="context-next"><span className="card-eyebrow">Next step</span><div className="next-action-title"><strong>{nextAction.label}</strong></div><p>{contextNextCopy(currentStep, pack)}</p>{pack && currentStep === "collect" ? <span className="context-next-static">Use the review mark in the workpaper.</span> : pack ? <button className="button button-primary button-full" type="button" onClick={nextAction.action} data-current-action>{nextAction.label}<ArrowRight size={16} aria-hidden="true" /></button> : <span className="context-next-static">Start with the source line in the center.</span>}</div>
-      <div className="context-trace"><div className="trace-header"><span className="card-eyebrow">Session trace</span><span>{events.length ? "Last action below" : "No action yet"}</span></div>{events.length === 0 ? <p>Session actions stay on this page and do not include raw signal content.</p> : <><p>Last action: {EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>Copy session receipt</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Report this session in a new tab for manual review">Report this session<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div>
+      <div className="context-trace"><div className="trace-header"><span className="card-eyebrow">Recent action</span><span>{events.length ? "Last action below" : "Nothing recorded yet"}</span></div>{events.length === 0 ? <p>This visit stays on this page; raw signal text is not included.</p> : <><p>Last action: {EVENT_LABELS[events[events.length - 1].name]}</p><div className="context-trace-actions"><button className="text-button" type="button" onClick={onCopyReceipt}>Copy session receipt</button><a className="text-button" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Report this session in a new tab for manual review">Report this session<ArrowRight size={13} aria-hidden="true" /></a></div></>}</div>
     </aside>
   );
 }
