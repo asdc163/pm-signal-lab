@@ -2,38 +2,61 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest candidate evidence: [current-head hosted release preflight](./docs/product/pm-signal-lab/124-current-head-release-preflight-2026-08-16.md), [hosted release and evidence gate contract](./docs/product/pm-signal-lab/120-hosted-release-and-evidence-gate-contract-2026-08-16.md), [hosted release preflight local QA](./docs/product/pm-signal-lab/121-hosted-release-preflight-local-qa-2026-08-16.md), [first-run choice clarity contract](./docs/product/pm-signal-lab/122-first-run-choice-clarity-contract-2026-08-16.md), [first-run choice clarity local QA](./docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md), [context-note source-record contract](./docs/product/pm-signal-lab/118-context-note-source-record-contract-2026-08-16.md), [context-note source-record local QA](./docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md), [first-run source-truth composition contract](./docs/product/pm-signal-lab/116-first-run-source-truth-composition-contract-2026-08-16.md), [first-run source-truth local QA](./docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md), [keyboard-only workflow contract](./docs/product/pm-signal-lab/114-keyboard-only-workflow-contract-2026-08-16.md), [keyboard-only workflow local QA](./docs/product/pm-signal-lab/115-keyboard-only-workflow-local-qa-2026-08-16.md), [session note progressive-disclosure contract](./docs/product/pm-signal-lab/112-session-note-progressive-disclosure-contract-2026-08-16.md), [session note progressive-disclosure local QA](./docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md), [single-primary-action ownership contract](./docs/product/pm-signal-lab/110-single-primary-action-ownership-contract-2026-08-16.md), [single-primary-action ownership local QA](./docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md), [custom source-sheet truth contract](./docs/product/pm-signal-lab/108-custom-source-sheet-truth-contract-2026-08-16.md), [custom source-sheet truth local QA](./docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md), [static loading-marker contract](./docs/product/pm-signal-lab/106-static-loading-marker-contract-2026-08-16.md), [static loading-marker local QA](./docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), and the [machine-readable QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The current local candidate passed the Pages-base-path artifact preflight, source-record margin-note reframe, first-run source proof, first-run choice placement, pointer-free primary workflow at `390×844` and `1440×1000`, source-identity, action-ownership, Session note keyboard disclosure, normal, edge, responsive, semantic, session-boundary, static-loading, and local production-preview copy checks; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
+## Quick read
 
-PM Signal Lab is a local-first product evidence worksheet for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses a fictional support-draft review because the portfolio is meant to show AI-PM judgment; the working surface leads with the PM case and keeps AI context out of the visual chrome.
+PM Signal Lab is a small English-first, local-first worksheet for putting a
+product signal beside its source, checking what the claim can support, and
+naming the smallest next test.
 
-**Hosted demo:** [asdc163.github.io/pm-signal-lab](https://asdc163.github.io/pm-signal-lab/)
+The sample is a fictional support-draft review. It shows PM judgment without
+turning the working surface into a model chat wrapper.
 
-**Hosted demo boundary:** This is a formal static demo surface for an English-first, local-first product. The canonical URL, hashed assets, current product copy, and deployment state are checked by the [hosted demo smoke contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md). It has no backend persistence, external model provider, telemetry, or automatic GitHub submission.
+**Try it:** [hosted demo](https://asdc163.github.io/pm-signal-lab/)
 
-**Hosted release preflight:** The current PR candidate has passed a local
-project-site artifact check using the same `/pm-signal-lab/` base path as the
-Pages workflow. The [release gate contract](./docs/product/pm-signal-lab/120-hosted-release-and-evidence-gate-contract-2026-08-16.md)
-and [preflight report](./docs/product/pm-signal-lab/121-hosted-release-preflight-local-qa-2026-08-16.md)
-record the exact SHA, rollback boundary, canonical stale readback, and the
-separate Chrome Extension / native AT / PM-session gates. Merge and deployment
-remain approval-gated.
+**Portable skill:** [`pm-source-to-test` in PR #43](https://github.com/asdc163/pm-signal-lab/pull/43)
+is the small, tool-free PM skill that turns messy notes into a source ledger,
+candidate claims, limitations, and one smallest test. It is still under review
+and is not in the default branch yet.
 
-**First-run choice clarity:** The local candidate now keeps the sample as the
-single primary action while exposing `Add your own signal` in the first-run
-hero. The [choice-clarity contract](./docs/product/pm-signal-lab/122-first-run-choice-clarity-contract-2026-08-16.md)
-and [local QA report](./docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md)
-record the 390px, 1024px, and 1440px behavior, keyboard path, recovery gates,
-and the remaining hosted / Extension / native AT / participant boundaries.
+**Current state:** PR #44 is Draft. The current candidate is locally verified;
+the canonical Pages URL still serves the previous bundle. The pilot is on hold
+until the hosted release gate passes.
 
-> **Evidence status:** The current candidate is verified locally. A fresh canonical Pages readback still fails because it serves the prior bundle; PR #44 remains draft and has not been merged or deployed. Chrome Extension control, native screen-reader speech, non-owner sessions, adoption, and GitHub growth remain unverified.
+<details>
+<summary>Open the release evidence trail</summary>
 
-**Public pilot:** The five-person international PM trial is prepared but currently on hold: the canonical Pages URL still serves the prior preview while PR #44 is under review. Do not distribute the [session kit](./docs/operations/pm-session-kit.md) or count issue #4 replies as current-candidate evidence until the hosted release preflight passes. The [pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4) is a prepared queue, not adoption evidence.
+- [Current-head release preflight](./docs/product/pm-signal-lab/124-current-head-release-preflight-2026-08-16.md)
+- [First-run choice clarity contract](./docs/product/pm-signal-lab/122-first-run-choice-clarity-contract-2026-08-16.md)
+- [First-run choice clarity local QA](./docs/product/pm-signal-lab/123-first-run-choice-clarity-local-qa-2026-08-16.md)
+- [First-run source-truth local QA](./docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md)
+- [Keyboard-only workflow local QA](./docs/product/pm-signal-lab/115-keyboard-only-workflow-local-qa-2026-08-16.md)
+- [Machine-readable QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json)
+- [Historical product and QA audit trail](./docs/product/pm-signal-lab/)
 
-**International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
+</details>
 
-**Design and QA evidence:** The current visual direction and current-turn evidence are in the [context-note source-record contract](./docs/product/pm-signal-lab/118-context-note-source-record-contract-2026-08-16.md), [context-note source-record local QA](./docs/product/pm-signal-lab/119-context-note-source-record-local-qa-2026-08-16.md), [first-run source-truth composition contract](./docs/product/pm-signal-lab/116-first-run-source-truth-composition-contract-2026-08-16.md), [first-run source-truth local QA](./docs/product/pm-signal-lab/117-first-run-source-truth-local-qa-2026-08-16.md), [session note progressive-disclosure contract](./docs/product/pm-signal-lab/112-session-note-progressive-disclosure-contract-2026-08-16.md), [session note progressive-disclosure local QA](./docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md), [single-primary-action ownership contract](./docs/product/pm-signal-lab/110-single-primary-action-ownership-contract-2026-08-16.md), [single-primary-action ownership local QA](./docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md), [custom source-sheet truth contract](./docs/product/pm-signal-lab/108-custom-source-sheet-truth-contract-2026-08-16.md), [custom source-sheet truth local QA](./docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md), [static loading-marker contract](./docs/product/pm-signal-lab/106-static-loading-marker-contract-2026-08-16.md), [static loading-marker local QA](./docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), and [QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The preceding [less-AI workpaper second-polish contract](./docs/product/pm-signal-lab/100-less-ai-workpaper-second-polish-contract-2026-08-16.md), [local QA report](./docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md), [source-first chrome simplification contract](./docs/product/pm-signal-lab/98-source-first-chrome-simplification-contract-2026-08-16.md), and [local QA report](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md) remain as the release trail.
+**Hosted demo boundary:** The [demo](https://asdc163.github.io/pm-signal-lab/)
+is English-first, local-first, and deterministic. It has no login, database,
+external model provider, telemetry, or automatic GitHub submission. The
+canonical URL remains on the previous bundle until PR #44 is approved and
+deployed.
 
-This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
+> **Evidence:** Local checks pass. Hosted candidate behavior, Chrome Extension
+> control, native screen-reader speech, non-owner sessions, adoption, and GitHub
+> growth remain unverified.
+
+**Public pilot:** The five-person international PM trial is on hold until the
+hosted release gate passes. The [session kit](./docs/operations/pm-session-kit.md)
+and [pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4) are
+prepared materials, not adoption evidence.
+
+**Design trail:** [DESIGN.md](./DESIGN.md) records the visual DNA and layout
+rules. The release and QA links are grouped above so the first read stays short.
+
+This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163).
+It demonstrates evidence handling, uncertainty, experiment design, and an
+honest handoff. The deterministic fixture is labelled as a fixture; it does not
+stand in for model quality or user adoption.
 
 ## Five-minute trial
 
