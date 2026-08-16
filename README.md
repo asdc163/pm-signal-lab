@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest candidate evidence: [Less-AI margin note and evidence state contract](./docs/product/pm-signal-lab/102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), [static loading-marker contract](./docs/product/pm-signal-lab/106-static-loading-marker-contract-2026-08-16.md), [static loading-marker local QA](./docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md), [focused local QA report](./docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md), and the [machine-readable QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The current local candidate passed the isolated Chrome CDP fallback at `390×844`, `1024×900`, and `1440×900`, including the less-AI margin-note copy, source disclosure, human review gate, missing-evidence recovery, clean session replacement, reset recovery, duplicate-loading guard, static loading-marker oracle, keyboard skip link, semantic checks, and the local production-preview copy oracle; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
+Latest candidate evidence: [custom source-sheet truth contract](./docs/product/pm-signal-lab/108-custom-source-sheet-truth-contract-2026-08-16.md), [custom source-sheet truth local QA](./docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md), [static loading-marker contract](./docs/product/pm-signal-lab/106-static-loading-marker-contract-2026-08-16.md), [static loading-marker local QA](./docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), and the [machine-readable QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The current local candidate passed the source-identity browser oracle at `390×844` and `1440×1000`, plus the existing normal, edge, responsive, semantic, session-boundary, static-loading, and local production-preview copy checks; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
 
 PM Signal Lab is a local-first product evidence worksheet for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses a fictional support-draft review because the portfolio is meant to show AI-PM judgment; the working surface leads with the PM case and keeps AI context out of the visual chrome.
 
@@ -16,7 +16,7 @@ PM Signal Lab is a local-first product evidence worksheet for turning raw signal
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
 
-**Design and QA evidence:** The current visual direction and current-turn evidence are in the [Less-AI margin note and evidence state contract](./docs/product/pm-signal-lab/102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), [static loading-marker contract](./docs/product/pm-signal-lab/106-static-loading-marker-contract-2026-08-16.md), [static loading-marker local QA](./docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md), [focused local QA report](./docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md), and [QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The preceding [less-AI workpaper second-polish contract](./docs/product/pm-signal-lab/100-less-ai-workpaper-second-polish-contract-2026-08-16.md), [local QA report](./docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md), [source-first chrome simplification contract](./docs/product/pm-signal-lab/98-source-first-chrome-simplification-contract-2026-08-16.md), and [local QA report](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md) remain as the release trail.
+**Design and QA evidence:** The current visual direction and current-turn evidence are in the [custom source-sheet truth contract](./docs/product/pm-signal-lab/108-custom-source-sheet-truth-contract-2026-08-16.md), [custom source-sheet truth local QA](./docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md), [static loading-marker contract](./docs/product/pm-signal-lab/106-static-loading-marker-contract-2026-08-16.md), [static loading-marker local QA](./docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), and [QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The preceding [less-AI workpaper second-polish contract](./docs/product/pm-signal-lab/100-less-ai-workpaper-second-polish-contract-2026-08-16.md), [local QA report](./docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md), [source-first chrome simplification contract](./docs/product/pm-signal-lab/98-source-first-chrome-simplification-contract-2026-08-16.md), and [local QA report](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md) remain as the release trail.
 
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
@@ -64,6 +64,7 @@ bundle.
 - An editable experiment brief with a primary metric, guardrail, smallest test, decision rule, owner, and readiness state.
 - A Markdown decision brief with evidence, known limits, next action, and a `Not covered` section.
 - A local session receipt and a privacy-gated session feedback field note that never includes raw evidence.
+- A source-truth boundary that keeps `Your source sheet` / `your source notes · local sheet` separate from the fictional sample's support-draft labels.
 - Responsive desktop, tablet, mobile, keyboard, loading, empty, error, and recovery states.
 
 All session content stays on the current page and resets on refresh. The hosted demo has no login, database, external AI provider, API-key flow, GitHub mutation, MCP action, telemetry, or automatic issue submission. Copy or download anything you want to keep before leaving or refreshing.
@@ -99,6 +100,7 @@ npm test
 npm run lint
 npm run build
 npm run verify:hosted
+npm run verify:source-truth
 ```
 
 ## Product and engineering shape
@@ -119,6 +121,7 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 - [`.github/workflows/hosted-demo-smoke.yml`](./.github/workflows/hosted-demo-smoke.yml) checks the canonical hosted demo after deployment, daily, and on manual dispatch.
 - [`scripts/verify-hosted-demo.mjs`](./scripts/verify-hosted-demo.mjs) performs the read-only HTTPS, asset, and current-copy check used by the hosted smoke workflow.
 - [`scripts/verify-session-boundary.py`](./scripts/verify-session-boundary.py) replays the local stale-state and duplicate-loading browser oracle and captures focused mobile evidence.
+- [`scripts/verify-source-sheet-truth.py`](./scripts/verify-source-sheet-truth.py) checks the manual/sample visible-copy boundary at mobile and desktop widths, including the owner confirmation field.
 - [`.github/workflows/weekly-growth-pulse.yml`](./.github/workflows/weekly-growth-pulse.yml) records read-only public repository signals as a reviewable artifact; it does not automate social activity.
 - [`DESIGN.md`](./DESIGN.md) records the visual DNA, tokens, states, and layout rules.
 

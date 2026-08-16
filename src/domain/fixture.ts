@@ -1,7 +1,7 @@
 import type { EvidencePack } from "./types";
 
 export const SAMPLE_PACK: EvidencePack = {
-  id: "ai-support-copilot-eval-v1",
+  id: "support-draft-review-v1",
   title: "Support draft review: deciding what to test next",
   description:
     "A fictional support-draft review. Keep the original line beside the decision it may support.",

@@ -6,6 +6,7 @@ describe("PM Signal Lab synthesis", () => {
   it("keeps the public fixture grounded in an AI product-review job", () => {
     const fixtureText = [SAMPLE_PACK.title, SAMPLE_PACK.description, ...SAMPLE_PACK.evidence.map((item) => `${item.title} ${item.content}`)].join(" ");
 
+    expect(SAMPLE_PACK.id).toBe("support-draft-review-v1");
     expect(SAMPLE_PACK.title).toBe("Support draft review: deciding what to test next");
     expect(fixtureText).toContain("support draft");
     expect(fixtureText).toContain("Evaluation review");
@@ -49,6 +50,8 @@ describe("PM Signal Lab synthesis", () => {
     expect(brief.primaryMetric).toContain("Needs validation");
     expect(brief.guardrail).toContain("support draft");
     expect(brief.smallestTest).toContain("support-draft worksheet");
+    expect(brief.owner).toBe("Owner to confirm before the test");
+    expect(brief.owner).not.toContain("TBD");
     expect(brief.hypothesis).not.toContain("support-copilot");
   });
 

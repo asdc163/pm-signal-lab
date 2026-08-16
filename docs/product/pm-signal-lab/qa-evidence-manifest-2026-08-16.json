@@ -1,8 +1,8 @@
 {
-  "run_id": "pm-signal-lab-static-loading-marker-2026-08-16",
+  "run_id": "pm-signal-lab-custom-source-sheet-truth-2026-08-16",
   "product": "PM Signal Lab",
-  "candidate_ref": "4b98def — Remove simulated loading activity",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome 151.0.7922.138 fallback at 390x844, 1024x900, and 1440x900; focused session-boundary and static loading-marker oracle at 390x844; Chrome Extension unavailable because the Mac was locked",
+  "candidate_ref": "codex/less-ai-editorial-sheet — custom source-sheet truth slice (local candidate)",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome 151.0.7922.138 fallback at 390x844, 1024x900, and 1440x900; focused source-truth oracle at 390x844 and 1440x1000; preferred Chrome Extension route unavailable in this runtime",
   "layers": [
     {
       "layer": "domain_tests",
@@ -22,8 +22,8 @@
       "layer": "production_build",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-CiMDA9k-.js and index-DUghuE2I.css emitted"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-DKwoxpjM.js and index-DUghuE2I.css emitted"
     },
     {
       "layer": "local_static_verifier",
@@ -61,6 +61,14 @@
       "artifact_path_or_url": "docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md",
       "command_or_click_path": "Exact selector search for className=\"spin\", @keyframes spin, and .spin { across source and current built assets",
       "result": "No loading animation selector remains; browser computed animationName=none"
+    },
+    {
+      "layer": "custom_source_sheet_truth",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run verify:source-truth — fresh manual 390px and sample 1440px paths, then sample Verify → Decide owner check",
+      "result": "custom heading and subject boundary passed; sample-only copy absent from manual state; sample copy preserved; owner_value=Owner to confirm before the test; browser_errors=[]; request_failures=[]"
     },
     {
       "layer": "responsive_mobile_emulation",
@@ -160,6 +168,19 @@
       "currentStepVisible": false,
       "mobileBar": "flex"
     },
+    "custom_source_390": {
+      "heading": "Your source sheet",
+      "subject": "your source notes · local sheet",
+      "sample_only_copy_absent": true,
+      "subject_aria_label": "Sheet: your source notes, local sheet"
+    },
+    "sample_source_1440": {
+      "heading": "Support draft review",
+      "subject": "support draft · fictional worksheet",
+      "custom_only_copy_absent": true,
+      "subject_aria_label": "Subject: support draft, fictional worksheet",
+      "owner_value": "Owner to confirm before the test"
+    },
       "session_boundary_390": {
         "sample_button_disabled_during_loading": true,
         "form_hidden_during_loading": true,
@@ -195,7 +216,7 @@
     "request_failures": []
   },
   "notes": [
-    "This manifest records the focused local static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
+    "This manifest records the focused local custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
     "The preferred Chrome Extension route, native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates.",
     "The canonical hosted verifier currently fails because the Pages URL still serves the prior bundle missing the current first-run copy."
   ]

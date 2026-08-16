@@ -112,7 +112,7 @@ export function draftExperiment(
     smallestTest:
       "Ask 5 PMs to review the same support-draft worksheet through Collect → Verify → Decide; record whether each can name the source, uncertainty, and next test without help.",
     decisionRule: `Move to the next round only if at least 4 of 5 finish without treating missing evidence as a conclusion; current limit: ${limitation}`,
-    owner: "Experiment owner · TBD",
+    owner: "Owner to confirm before the test",
     readiness: needsValidation ? "needs-validation" : "ready",
   };
 }

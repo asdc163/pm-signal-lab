@@ -162,6 +162,7 @@ function App() {
   const supportedCount = claims.filter(
     (claim) => claim.status === "supported" && claim.reviewed,
   ).length;
+  const isSamplePack = pack?.id === SAMPLE_PACK.id;
 
   const logEvent = (
     name: ProductEventName,
@@ -330,7 +331,7 @@ function App() {
     setPack((previous) =>
       previous ?? {
         id: "pm-signal-local-session",
-        title: "My PM signal workspace",
+        title: "My source sheet",
         description: SESSION_BOUNDARY_LONG,
         evidence: [],
       },
@@ -657,7 +658,7 @@ function App() {
                   <span className="hero-folio-index">{pack ? "01" : "—"}</span>
                   <span className="eyebrow">{pack ? "Source review" : "New worksheet"}</span>
                 </div>
-                <h1 id="page-title">{pack ? "Support draft review" : "Start with a source line"}</h1>
+                <h1 id="page-title">{pack ? (isSamplePack ? "Support draft review" : "Your source sheet") : "Start with a source line"}</h1>
                 <p className="hero-copy">
                   {pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} to check before you choose a test.` : "Write one observed line, then decide what it can support."}
                 </p>
@@ -864,6 +865,8 @@ function CollectView({
   onToggleEvidence: (id: string) => void;
   onStartReview: () => void;
 }) {
+  const isSamplePack = pack?.id === SAMPLE_PACK.id;
+
   if (isLoading) {
     return <section className="state-panel loading-state" aria-live="polite" aria-busy="true"><ClipboardList size={22} aria-hidden="true" /><div><h2>Opening the sample worksheet</h2><p>The local boundary stays in place; you can trace each source after it opens.</p></div></section>;
   }
@@ -901,10 +904,10 @@ function CollectView({
             <div>
             <p className="section-eyebrow">Evidence</p>
               <h2 id="collect-title">Source lines to check</h2>
-              <div className="pack-subject" aria-label="Subject: support draft, fictional worksheet">
+              <div className="pack-subject" aria-label={isSamplePack ? "Subject: support draft, fictional worksheet" : "Sheet: your source notes, local sheet"}>
                 <span className="pack-subject-label">Subject</span>
-                <span>support draft</span>
-                <span className="pack-subject-note">fictional worksheet</span>
+                <span>{isSamplePack ? "support draft" : "your source notes"}</span>
+                <span className="pack-subject-note">{isSamplePack ? "fictional worksheet" : "local sheet"}</span>
               </div>
               <p className="pack-description">{pack.description}</p>
             </div>

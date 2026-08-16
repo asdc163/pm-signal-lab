@@ -46,6 +46,13 @@ with sync_playwright() as playwright:
     page.get_by_role("button", name="Add your own signal").click()
     page.get_by_role("heading", name="Write down one real observation").wait_for(state="visible")
     sample_button = page.get_by_role("button", name="Open the sample worksheet")
+    page.evaluate(
+        """() => {
+          window.__pmOriginalSetTimeout = window.setTimeout;
+          window.setTimeout = (callback, delay, ...args) =>
+            window.__pmOriginalSetTimeout(callback, delay === 260 ? 2000 : delay, ...args);
+        }"""
+    )
     sample_button.click()
     loading_button_disabled = sample_button.is_disabled()
     form_hidden_during_loading = not visible(page, "heading", "Write down one real observation")
@@ -56,7 +63,8 @@ with sync_playwright() as playwright:
         "element => getComputedStyle(element).animationName"
     )
     page.evaluate("window.scrollTo(0, 0)")
-    page.screenshot(path=SCREENSHOT_DIR / "session-boundary-loading-guard-loading-390-2026-08-16.png", full_page=True)
+    page.screenshot(path=SCREENSHOT_DIR / "session-boundary-loading-guard-loading-390-2026-08-16.png", full_page=False)
+    page.evaluate("window.setTimeout = window.__pmOriginalSetTimeout")
     page.get_by_role("heading", name="Support draft review").wait_for(state="visible")
     form_still_visible_after_load = visible(page, "heading", "Write down one real observation")
     page.evaluate("window.scrollTo(0, 0)")
