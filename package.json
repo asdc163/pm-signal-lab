@@ -9,6 +9,7 @@
     "lint": "tsc --noEmit",
     "test": "vitest run",
     "preview": "vite preview",
+    "verify:skills": "node scripts/verify-skills.mjs",
     "verify:hosted": "node scripts/verify-hosted-demo.mjs"
   },
   "dependencies": {

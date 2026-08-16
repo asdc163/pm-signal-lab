@@ -10,6 +10,10 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 **Hosted demo boundary:** This is a formal static demo surface for an English-first, local-first product. The canonical URL, hashed assets, current product copy, and deployment state are checked by the [hosted demo smoke contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md). It has no backend persistence, external model provider, telemetry, or automatic GitHub submission.
 
+## Portable PM skill
+
+This repository also ships [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md), a small Agent Skill for turning raw product notes into a source ledger, candidate claims, limitations, and one smallest test. It needs no model, tool permission, network access, or login. Copy the [`skills/pm-source-to-test`](./skills/pm-source-to-test/) directory into an Agent Skills-compatible client, then start with the worked [fictional support-draft example](./skills/pm-source-to-test/references/support-draft-review.md).
+
 **Public pilot:** The current hosted demo is looking for five international PMs, founders, designers, or product engineers to complete one unguided five-minute trial. Use the [session kit](./docs/operations/pm-session-kit.md), then leave one concrete observation in [pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4).
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
