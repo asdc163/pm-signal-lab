@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Identity to Boundary"
+  short_description: "Turn agent access into reviewable identity boundaries"
+  default_prompt: "Use $pm-ai-identity-to-boundary to turn this AI or agent access idea into a source-bounded identity and authorization contract. Map principals, authentication, authorization, delegation, attribution, accountability, capabilities, resources, tenant scope, audiences, approval interaction, credential/session lifecycle, expiry, rotation, revocation, audit receipts, negative tests, fallback, and a Ship/Iterate/Hold/Rollback/Need evidence decision. Never request or expose real credentials, and keep provider, security, adoption, and star claims separate."
