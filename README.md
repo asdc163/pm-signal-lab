@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest visual pass: [quiet utility / source-first contract](./docs/product/pm-signal-lab/88-quiet-utility-source-first-contract-2026-08-16.md) and [quiet utility / source-first local QA report](./docs/product/pm-signal-lab/89-quiet-utility-source-first-local-qa-2026-08-16.md). The current local candidate passed the isolated Chrome CDP fallback at `390×844` and `1280×900`, including the desktop first-viewport `Start review` action; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
+Latest candidate evidence: [evidence-ledger quiet-colour contract](./docs/product/pm-signal-lab/90-evidence-ledger-quiet-colour-contract-2026-08-16.md) and [local QA report](./docs/product/pm-signal-lab/91-evidence-ledger-quiet-colour-local-qa-2026-08-16.md). The current local candidate passed the isolated Chrome CDP fallback at `390×844` and `1280×900`, including the desktop first-viewport `Start review` action and the neutral / provenance-blue / action-red colour roles; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
 
 PM Signal Lab is a local-first product evidence worksheet for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses a fictional support-draft review because the portfolio is meant to show AI-PM judgment; the working surface leads with the PM case and keeps AI context out of the visual chrome.
 
@@ -10,11 +10,13 @@ PM Signal Lab is a local-first product evidence worksheet for turning raw signal
 
 **Hosted demo boundary:** This is a formal static demo surface for an English-first, local-first product. The canonical URL, hashed assets, current product copy, and deployment state are checked by the [hosted demo smoke contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md). It has no backend persistence, external model provider, telemetry, or automatic GitHub submission.
 
+> **Evidence status:** The current candidate is verified locally. The canonical Pages URL still serves the prior preview until PR #44 is explicitly merged and deployed. Chrome Extension control, native screen-reader speech, non-owner sessions, adoption, and GitHub growth remain unverified.
+
 **Public pilot:** The five-person international PM trial is prepared but currently on hold: the canonical Pages URL still serves the prior preview while PR #44 is under review. Do not distribute the [session kit](./docs/operations/pm-session-kit.md) or count issue #4 replies as current-candidate evidence until the hosted release preflight passes. The [pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4) is a prepared queue, not adoption evidence.
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
 
-**Design and QA evidence:** The current visual direction and current-turn evidence are in the [quiet utility / source-first contract](./docs/product/pm-signal-lab/88-quiet-utility-source-first-contract-2026-08-16.md) and [local QA report](./docs/product/pm-signal-lab/89-quiet-utility-source-first-local-qa-2026-08-16.md). The [operational worksheet reframe contract](./docs/product/pm-signal-lab/86-operational-worksheet-no-ai-reframe-contract-2026-08-16.md), [quiet workpaper second-polish contract](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md), [editorial case-sheet contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md), and earlier no-AI-feel, keyboard/semantic, copy, AI-PM, and hosted audits remain available as the historical release trail.
+**Design and QA evidence:** The current visual direction and current-turn evidence are in the [evidence-ledger quiet-colour contract](./docs/product/pm-signal-lab/90-evidence-ledger-quiet-colour-contract-2026-08-16.md) and [local QA report](./docs/product/pm-signal-lab/91-evidence-ledger-quiet-colour-local-qa-2026-08-16.md). The [operational worksheet reframe contract](./docs/product/pm-signal-lab/86-operational-worksheet-no-ai-reframe-contract-2026-08-16.md), [quiet utility / source-first contract](./docs/product/pm-signal-lab/88-quiet-utility-source-first-contract-2026-08-16.md), [quiet workpaper second-polish contract](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md), [editorial case-sheet contract](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md), and earlier no-AI-feel, keyboard/semantic, copy, AI-PM, and hosted audits remain available as the historical release trail.
 
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
@@ -37,17 +39,21 @@ The product path is:
 
 The point is to make the source, claim, limitation, and next action visible in one path. It is not to make you trust an opaque answer.
 
-![PM Signal Lab editorial case sheet first-run](./docs/product/pm-signal-lab/assets/qa/editorial-case-sheet-local-blank-1280-2026-08-15.png)
+![PM Signal Lab current source-first first-run](./docs/product/pm-signal-lab/assets/qa/evidence-ledger-quiet-colour-local-blank-1280-2026-08-16.png)
 
-This is a prior editorial case-sheet calibration snapshot captured from the
-local branch on 2026-08-15 at 1280×900; it is not current proof for the mobile
-source-first candidate. The [local QA report](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md)
-records the current headless Chrome fallback geometry, screenshots, executed
-review/export/privacy/reset flow, and the remaining Chrome Extension and
-hosted-release boundaries. PR #44 has not been approved for merge and Pages
-deployment.
+This is the current candidate's clean first-run snapshot captured locally on
+2026-08-16 at 1280×900. The [local QA report](./docs/product/pm-signal-lab/91-evidence-ledger-quiet-colour-local-qa-2026-08-16.md)
+records the desktop and mobile browser checks, source disclosure, human review
+gate, semantic scan, and the remaining Chrome Extension, hosted-release, and
+non-owner-session boundaries. [Loaded desktop](./docs/product/pm-signal-lab/assets/qa/evidence-ledger-quiet-colour-local-loaded-1280-2026-08-16.png)
+and [loaded mobile](./docs/product/pm-signal-lab/assets/qa/evidence-ledger-quiet-colour-local-loaded-390-2026-08-16.png)
+screenshots are also available.
 
-## What is in the hosted demo
+## What is in the current candidate
+
+The following describes the current source candidate. It should not be read
+as proof that the canonical Pages URL has already been promoted to this exact
+bundle.
 
 - A deterministic, fictional AI-assisted support-draft sample pack containing interview, support, product-observation, and evaluation-review signals.
 - Source rows with stable numbers, source identity, dates, original text, and an expandable source view.
@@ -106,7 +112,7 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 - [`src/domain/export.ts`](./src/domain/export.ts) enforces the decision-brief readiness gate and Markdown export.
 - [`src/domain/feedback.ts`](./src/domain/feedback.ts) prepares a privacy-gated session field note.
 - [`src/domain/fixture.ts`](./src/domain/fixture.ts) holds the repeatable signal-review sample pack.
-- [`src/styles.css`](./src/styles.css) defines the warm-paper workpaper, ruled source rows, index strip, and responsive layout.
+- [`src/styles.css`](./src/styles.css) defines the quiet workpaper, neutral shell, trust-blue provenance, action-red review cue, ruled source rows, index strip, and responsive layout.
 - [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) builds and deploys the hosted demo from `main`.
 - [`.github/workflows/hosted-demo-smoke.yml`](./.github/workflows/hosted-demo-smoke.yml) checks the canonical hosted demo after deployment, daily, and on manual dispatch.
 - [`scripts/verify-hosted-demo.mjs`](./scripts/verify-hosted-demo.mjs) performs the read-only HTTPS, asset, and current-copy check used by the hosted smoke workflow.
@@ -115,11 +121,11 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 
 The current English-first product contract is [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md). The latest mobile composition contract is [`83-mobile-source-first-reading-contract-2026-08-16.md`](./docs/product/pm-signal-lab/83-mobile-source-first-reading-contract-2026-08-16.md), followed by the [`82-quiet-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/82-quiet-workpaper-second-polish-contract-2026-08-16.md). The editorial case-sheet contract and local evidence remain available in [`78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md`](./docs/product/pm-signal-lab/78-editorial-case-sheet-visual-reframe-contract-2026-08-15.md) and [`79-editorial-case-sheet-local-qa-2026-08-15.md`](./docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md). Historical audits remain available as a release trail.
 
-## English-first hosted demo
+## English-first public surface
 
-The latest English-first visual and behavior evidence is kept in the [subject-specificity local QA report](./docs/product/pm-signal-lab/73-less-ai-subject-specificity-local-qa-2026-08-15.md) and [hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md). Earlier audits remain a historical release trail.
+The latest English-first visual and behavior evidence is kept in the [evidence-ledger local QA report](./docs/product/pm-signal-lab/91-evidence-ledger-quiet-colour-local-qa-2026-08-16.md) and [visual contract](./docs/product/pm-signal-lab/90-evidence-ledger-quiet-colour-contract-2026-08-16.md). Earlier audits remain a historical release trail; the [formal hosted release contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md) records the separate Pages gate.
 
-The hosted demo surface is `en-US`: UI copy, sample data, generated Markdown, accessible names, page metadata, README, trial kit, and public feedback handoff. Historical audits remain in the repository as an evidence trail; the current contract and release audit are written in English.
+The intended public surface is `en-US`: UI copy, sample data, generated Markdown, accessible names, page metadata, README, trial kit, and public feedback handoff. The current candidate has local evidence; the hosted URL remains a prior preview until the release gate passes.
 
 This release intentionally does not add a locale selector or runtime translation framework. The next localization decision should follow evidence from international PM sessions, not an assumption that more language options automatically improve the first-run job.
 
