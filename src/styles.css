@@ -4218,3 +4218,170 @@ textarea {
 main.workspace:focus {
   outline: none;
 }
+
+/* Operational worksheet reframe — 2026-08-16.
+   The loaded case is a working surface: make the source and next review
+   visible sooner, and keep the visual language quiet enough that it does not
+   read as an AI showcase. */
+@media (min-width: 1025px) {
+  .workbench.is-loaded .hero-block {
+    gap: 30px;
+    padding-bottom: 15px;
+  }
+
+  .workbench.is-loaded .hero-block h1 {
+    max-width: 620px;
+    margin-top: 6px;
+    margin-bottom: 5px;
+    color: var(--ink);
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: clamp(1.75rem, 2.25vw, 2.35rem);
+    font-weight: 760;
+    letter-spacing: -0.035em;
+    line-height: 1.12;
+  }
+
+  .workbench.is-loaded .hero-copy {
+    max-width: 510px;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .hero-status {
+    width: min(100%, 240px);
+    flex-basis: 240px;
+    gap: 5px;
+    padding: 2px 0 2px 16px;
+    border-top: 0;
+    border-bottom: 0;
+    border-left: 1px solid var(--line-strong);
+  }
+
+  .workbench.is-loaded .hero-status-heading {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .workbench.is-loaded .hero-status > strong {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 750;
+  }
+
+  .workbench.is-loaded .hero-status > p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .content-section {
+    padding-top: 19px;
+  }
+
+  .workbench.is-loaded .pack-header {
+    padding-top: 13px;
+    padding-bottom: 17px;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 24px;
+    font-weight: 760;
+    letter-spacing: -0.035em;
+  }
+
+  .workbench.is-loaded .section-heading-row {
+    margin-top: 22px;
+  }
+
+  .workbench.is-loaded .decision-context {
+    margin-top: 42px;
+    padding-top: 21px;
+  }
+
+  .workbench.is-loaded .context-heading h2 {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -0.025em;
+  }
+}
+
+@media (max-width: 700px) {
+  .workbench.is-loaded .hero-block {
+    gap: 13px;
+    padding-bottom: 14px;
+  }
+
+  .workbench.is-loaded .hero-block h1 {
+    margin-top: 7px;
+    margin-bottom: 5px;
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: clamp(1.7rem, 8.2vw, 2.15rem);
+    font-weight: 760;
+    letter-spacing: -0.035em;
+    line-height: 1.1;
+  }
+
+  .workbench.is-loaded .hero-copy {
+    max-width: 420px;
+    font-size: 13.5px;
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .hero-status {
+    gap: 5px;
+    padding: 10px 0 0;
+    border-top: 1px solid var(--line);
+    border-right: 0;
+    border-bottom: 0;
+    border-left: 0;
+  }
+
+  .workbench.is-loaded .hero-status-heading {
+    padding-bottom: 0;
+    border-bottom: 0;
+  }
+
+  .workbench.is-loaded .hero-status > strong {
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 13px;
+    font-weight: 750;
+  }
+
+  .workbench.is-loaded .hero-status > p {
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.45;
+  }
+
+  .workbench.is-loaded .content-section {
+    padding-top: 16px;
+  }
+
+  .workbench.is-loaded .pack-header {
+    padding-top: 10px;
+    padding-bottom: 12px;
+  }
+
+  .workbench.is-loaded .pack-header h2 {
+    margin-top: 4px;
+    margin-bottom: 5px;
+    font-family: Inter, "Avenir Next", "Helvetica Neue", system-ui, sans-serif;
+    font-size: 22px;
+    font-weight: 760;
+    letter-spacing: -0.03em;
+  }
+
+  .workbench.is-loaded .section-heading-row {
+    margin-top: 14px;
+  }
+
+  .workbench.is-loaded .next-action-card {
+    margin-top: 20px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
