@@ -134,6 +134,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 
 - Use 150–200ms for border/focus feedback and 200–300ms for drawers or dialogs.
 - Synthesis is shown as a set of claims and limitations, not fake typing, hidden chain-of-thought, or a model activity feed.
+- The deterministic sample transition uses a static worksheet marker and literal loading copy; there is no spinner or simulated model-thinking animation when no measurable progress exists.
 - Avoid generic gradient hero art, abstract orbs, glass panels, bento feature walls, repeated rounded containers, unsupported “production-ready” claims, and status chrome that does not represent product proof.
 - Avoid network-like brand marks, graph nodes, fake confidence meters, chat bubbles, typing indicators, and shell copy that makes the preview look like an AI agent.
 - Prefer actual source rows, source numbers, limitations, a deterministic sample output, and an annotated decision brief as the visual language.

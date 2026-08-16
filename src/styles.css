@@ -2338,11 +2338,6 @@ textarea::placeholder {
 
 .rotate-180 { transform: rotate(180deg); }
 .rotate-90 { transform: rotate(90deg); }
-.spin { animation: spin 0.9s linear infinite; }
-
-@keyframes spin {
-  to { transform: rotate(360deg); }
-}
 
 @media (prefers-reduced-motion: reduce) {
   *,

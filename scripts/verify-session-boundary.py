@@ -49,6 +49,12 @@ with sync_playwright() as playwright:
     sample_button.click()
     loading_button_disabled = sample_button.is_disabled()
     form_hidden_during_loading = not visible(page, "heading", "Write down one real observation")
+    loading_marker = page.locator(".loading-state > svg")
+    loading_marker_visible = loading_marker.is_visible()
+    loading_marker_class = loading_marker.get_attribute("class") or ""
+    loading_marker_animation = loading_marker.evaluate(
+        "element => getComputedStyle(element).animationName"
+    )
     page.evaluate("window.scrollTo(0, 0)")
     page.screenshot(path=SCREENSHOT_DIR / "session-boundary-loading-guard-loading-390-2026-08-16.png", full_page=True)
     page.get_by_role("heading", name="Support draft review").wait_for(state="visible")
@@ -71,6 +77,9 @@ with sync_playwright() as playwright:
         "base_url": BASE_URL,
         "sample_button_disabled_during_loading": loading_button_disabled,
         "form_hidden_during_loading": form_hidden_during_loading,
+        "loading_marker_visible": loading_marker_visible,
+        "loading_marker_class": loading_marker_class,
+        "loading_marker_animation": loading_marker_animation,
         "form_still_visible_after_load": form_still_visible_after_load,
         "expanded_source_after_reset": expanded_source_after_reset,
         "browser_errors": browser_errors,
@@ -84,6 +93,9 @@ with sync_playwright() as playwright:
 
     assert loading_button_disabled is True
     assert form_hidden_during_loading is True
+    assert loading_marker_visible is True
+    assert "spin" not in loading_marker_class
+    assert loading_marker_animation in {"none", ""}
     assert form_still_visible_after_load is False
     assert expanded_source_after_reset is False
     assert browser_errors == []

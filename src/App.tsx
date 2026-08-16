@@ -1,5 +1,4 @@
 import {
-  Activity,
   ArrowRight,
   BadgeCheck,
   Check,
@@ -866,7 +865,7 @@ function CollectView({
   onStartReview: () => void;
 }) {
   if (isLoading) {
-    return <section className="state-panel loading-state" aria-live="polite" aria-busy="true"><Activity size={22} className="spin" aria-hidden="true" /><div><h2>Opening the sample worksheet</h2><p>The local boundary stays in place; you can trace each source after it opens.</p></div></section>;
+    return <section className="state-panel loading-state" aria-live="polite" aria-busy="true"><ClipboardList size={22} aria-hidden="true" /><div><h2>Opening the sample worksheet</h2><p>The local boundary stays in place; you can trace each source after it opens.</p></div></section>;
   }
 
   return (
