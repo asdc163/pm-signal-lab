@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Data to Purpose"
+  short_description: "Turn AI data flows into purpose and lifecycle decisions"
+  default_prompt: "Use $pm-ai-data-to-purpose to review this AI data flow, its purpose, lifecycle, boundaries, evidence, and release decision."
