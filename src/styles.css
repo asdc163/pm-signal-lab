@@ -4553,3 +4553,82 @@ main.workspace:focus {
     white-space: normal;
   }
 }
+
+/* Less-AI margin note and evidence state — 2026-08-16.
+   The workflow index already names the current step. Keep the hero note for
+   the workpaper tally and the experiment state for the evidence condition. */
+.hero-status-heading {
+  justify-content: flex-start;
+}
+
+.hero-status-step {
+  display: none;
+}
+
+.workbench.is-loaded .hero-status > strong,
+.hero-status > strong {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.hero-status-boundary {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.015em;
+}
+
+.hero-status-boundary svg {
+  color: var(--trust);
+  flex: 0 0 auto;
+}
+
+.readiness-banner {
+  align-items: flex-start;
+  padding: 12px 0 12px 14px;
+  border-top: 1px solid currentColor;
+  border-right: 0;
+  border-bottom: 1px solid currentColor;
+  border-left: 2px solid currentColor;
+  border-radius: 0;
+  background: transparent;
+}
+
+.readiness-banner.is-ready,
+.readiness-banner.is-needs-validation {
+  background: transparent;
+}
+
+.readiness-banner .card-eyebrow {
+  margin-bottom: 4px;
+  color: currentColor;
+  font-family: var(--mono);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.readiness-banner strong {
+  font-family: var(--display);
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.readiness-banner p {
+  max-width: 58ch;
+  line-height: 1.55;
+}
+
+@media (max-width: 700px) {
+  .hero-status-boundary {
+    max-width: 100%;
+    flex-wrap: wrap;
+    line-height: 1.45;
+  }
+
+  .readiness-banner {
+    padding-left: 12px;
+  }
+}

@@ -114,7 +114,7 @@ const EMPTY_FEEDBACK: SessionFeedbackDraft = {
 };
 
 const SESSION_FEEDBACK_URL = "https://github.com/asdc163/pm-signal-lab/issues/new?template=pm-session-feedback.md";
-const SESSION_BOUNDARY_SHORT = "Stays in this tab; refresh clears the sheet";
+const SESSION_BOUNDARY_SHORT = "Local sheet · refresh clears it";
 const SESSION_BOUNDARY_LONG = "Your notes stay on this page; refresh clears the sheet. There is no login or external transfer.";
 
 const EVENT_LABELS: Record<ProductEventName, string> = {
@@ -656,14 +656,13 @@ function App() {
                   {pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} to check before you choose a test.` : "Write one observed line, then decide what it can support."}
                 </p>
               </div>
-              <div className="hero-status" role="status" aria-label="Worksheet state" aria-live="polite" aria-atomic="true">
+              <div className="hero-status" role="status" aria-label="Sheet tally" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
-                  <span className="section-eyebrow">Current step</span>
-                  <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
+                  <span className="section-eyebrow">Sheet tally</span>
                 </div>
                 <strong>{pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"}` : "No source line yet"}</strong>
-                <p>{pack ? `${reviewedCount} of ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Start with the sample or write down one real line from the work."}</p>
-                <span className="hero-status-boundary"><ShieldCheck size={14} aria-hidden="true" />{pack ? "On this page · refresh clears the sheet" : SESSION_BOUNDARY_SHORT}</span>
+                <p>{pack ? `${reviewedCount} / ${claims.length} claims reviewed · ${supportedCount} accepted.` : "Start with the sample or write down one real line from the work."}</p>
+                <span className="hero-status-boundary"><ShieldCheck size={14} aria-hidden="true" />{pack ? "Local sheet · refresh clears it" : SESSION_BOUNDARY_SHORT}</span>
                 {!pack && <div className="hero-status-actions"><button className="button button-primary" type="button" onClick={loadSample}><ClipboardList size={16} aria-hidden="true" />Open the sample worksheet<ArrowRight size={15} aria-hidden="true" /></button></div>}
                 {pack && currentStep === "collect" && claims.length > 0 && <div className="hero-status-actions hero-status-start-review"><button className="button button-primary" type="button" onClick={startReview} data-current-action>Start review<ArrowRight size={15} aria-hidden="true" /></button></div>}
               </div>
@@ -1041,8 +1040,9 @@ function DecideView({ claims, activeClaimId, experiment, onSelectClaim, onDraft,
 }
 
 function ExperimentEditor({ experiment, onUpdate, onExport }: { experiment: ExperimentBrief; onUpdate: (field: keyof ExperimentBrief, value: string) => void; onExport: () => void }) {
+  const isReady = experiment.readiness === "ready";
   return <div className="experiment-editor">
-    <div className={`readiness-banner ${experiment.readiness === "ready" ? "is-ready" : "is-needs-validation"}`}><span className="readiness-icon">{experiment.readiness === "ready" ? <BadgeCheck size={17} aria-hidden="true" /> : <CircleAlert size={17} aria-hidden="true" />}</span><div><strong>{experiment.readiness === "ready" ? "Ready for confirmation" : "Needs validation"}</strong><p>{experiment.readiness === "ready" ? "This direction has a source-backed claim you accepted; confirm the experiment details." : "This brief is not a conclusion yet. Fill the evidence gaps listed here."}</p></div></div>
+    <div className={`readiness-banner ${isReady ? "is-ready" : "is-needs-validation"}`} role="status" aria-live="polite"><span className="readiness-icon">{isReady ? <BadgeCheck size={17} aria-hidden="true" /> : <CircleAlert size={17} aria-hidden="true" />}</span><div><span className="card-eyebrow">{isReady ? "Source check" : "Evidence gap"}</span><strong>{isReady ? "Claim accepted" : "Source check incomplete"}</strong><p>{isReady ? "One source-backed claim is accepted. Check the fields before you export." : "Review the open claims before you export this brief."}</p></div></div>
     <div className="brief-heading"><div><span className="section-eyebrow">Draft / edit as needed</span><h3>Smallest experiment brief</h3></div><span className="human-label">Start small, then decide whether to run it</span></div>
     <div className="brief-fields"><BriefField label="Direction to test" value={experiment.opportunity} onChange={(value) => onUpdate("opportunity", value)} wide /><BriefField label="Hypothesis" value={experiment.hypothesis} onChange={(value) => onUpdate("hypothesis", value)} wide /><BriefField label="Primary metric" value={experiment.primaryMetric} onChange={(value) => onUpdate("primaryMetric", value)} /><BriefField label="Guardrail" value={experiment.guardrail} onChange={(value) => onUpdate("guardrail", value)} /><BriefField label="Smallest test" value={experiment.smallestTest} onChange={(value) => onUpdate("smallestTest", value)} wide textarea /><BriefField label="Decision rule" value={experiment.decisionRule} onChange={(value) => onUpdate("decisionRule", value)} wide textarea /><BriefField label="Owner" value={experiment.owner} onChange={(value) => onUpdate("owner", value)} /></div>
     <div className="brief-footer"><span><ShieldCheck size={14} aria-hidden="true" />You can edit everything before export; this does not send an issue or notification.</span><button className="button button-primary" type="button" onClick={onExport}>Export decision brief<ArrowRight size={16} aria-hidden="true" /></button></div>
