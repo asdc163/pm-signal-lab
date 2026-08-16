@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Feedback to Eval"
+  short_description: "Turn AI feedback into reviewable eval cases"
+  default_prompt: "Use $pm-ai-feedback-to-eval to turn this AI user correction or feedback into a privacy-safe, source-bounded evaluation case and release decision without inventing labels, consent, adoption, or quality evidence."
