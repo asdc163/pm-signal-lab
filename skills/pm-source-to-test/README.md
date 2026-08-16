@@ -19,6 +19,8 @@ client. The required entry point is `SKILL.md`.
 If you want to inspect the output shape first, read
 [the fictional support-draft example](./references/support-draft-review.md).
 
+If you want a ready-to-paste input first, use the [fictional first-run fixture](./examples/first-run.md).
+
 ## Give it
 
 Provide the raw notes and the decision that is on the desk. If the decision is
