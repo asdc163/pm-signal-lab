@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest candidate evidence: [Less-AI margin note and evidence state contract](./docs/product/pm-signal-lab/102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md), [focused local QA report](./docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md), and the [machine-readable QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The current local candidate passed the isolated Chrome CDP fallback at `390×844`, `1024×900`, and `1440×900`, including the less-AI margin-note copy, source disclosure, human review gate, missing-evidence recovery, refresh/reset boundaries, keyboard skip link, semantic checks, and the local production-preview copy oracle; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
+Latest candidate evidence: [Less-AI margin note and evidence state contract](./docs/product/pm-signal-lab/102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), [focused local QA report](./docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md), and the [machine-readable QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The current local candidate passed the isolated Chrome CDP fallback at `390×844`, `1024×900`, and `1440×900`, including the less-AI margin-note copy, source disclosure, human review gate, missing-evidence recovery, clean session replacement, reset recovery, duplicate-loading guard, keyboard skip link, semantic checks, and the local production-preview copy oracle; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
 
 PM Signal Lab is a local-first product evidence worksheet for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses a fictional support-draft review because the portfolio is meant to show AI-PM judgment; the working surface leads with the PM case and keeps AI context out of the visual chrome.
 
@@ -16,7 +16,7 @@ PM Signal Lab is a local-first product evidence worksheet for turning raw signal
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
 
-**Design and QA evidence:** The current visual direction and current-turn evidence are in the [Less-AI margin note and evidence state contract](./docs/product/pm-signal-lab/102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md), [focused local QA report](./docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md), and [QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The preceding [less-AI workpaper second-polish contract](./docs/product/pm-signal-lab/100-less-ai-workpaper-second-polish-contract-2026-08-16.md), [local QA report](./docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md), [source-first chrome simplification contract](./docs/product/pm-signal-lab/98-source-first-chrome-simplification-contract-2026-08-16.md), and [local QA report](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md) remain as the release trail.
+**Design and QA evidence:** The current visual direction and current-turn evidence are in the [Less-AI margin note and evidence state contract](./docs/product/pm-signal-lab/102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), [focused local QA report](./docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md), and [QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The preceding [less-AI workpaper second-polish contract](./docs/product/pm-signal-lab/100-less-ai-workpaper-second-polish-contract-2026-08-16.md), [local QA report](./docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md), [source-first chrome simplification contract](./docs/product/pm-signal-lab/98-source-first-chrome-simplification-contract-2026-08-16.md), and [local QA report](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md) remain as the release trail.
 
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
@@ -42,10 +42,11 @@ The point is to make the source, claim, limitation, and next action visible in o
 ![PM Signal Lab current less-AI workpaper first-run](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-blank-390-2026-08-16.png)
 
 This is the current candidate's clean first-run snapshot captured locally on
-2026-08-16 at 390×844. The [focused local QA report](./docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md)
-records the margin-note/evidence-state copy pass, source disclosure, human
-review and missing-evidence recovery, semantic scan, and the remaining Chrome
-Extension, hosted-release, and non-owner-session boundaries. [Loaded desktop](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1440-2026-08-16.png),
+2026-08-16 at 390×844. The [focused local QA report](./docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md)
+records the margin-note/evidence-state copy pass, session replacement and
+reset recovery, source disclosure, human review and missing-evidence recovery,
+semantic scan, and the remaining Chrome Extension, hosted-release, and
+non-owner-session boundaries. [Loaded desktop](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1440-2026-08-16.png),
 [loaded tablet](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1024-2026-08-16.png),
 and [loaded mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-390-2026-08-16.png)
 screenshots are also available.
@@ -117,6 +118,7 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 - [`.github/workflows/deploy-pages.yml`](./.github/workflows/deploy-pages.yml) builds and deploys the hosted demo from `main`.
 - [`.github/workflows/hosted-demo-smoke.yml`](./.github/workflows/hosted-demo-smoke.yml) checks the canonical hosted demo after deployment, daily, and on manual dispatch.
 - [`scripts/verify-hosted-demo.mjs`](./scripts/verify-hosted-demo.mjs) performs the read-only HTTPS, asset, and current-copy check used by the hosted smoke workflow.
+- [`scripts/verify-session-boundary.py`](./scripts/verify-session-boundary.py) replays the local stale-state and duplicate-loading browser oracle and captures focused mobile evidence.
 - [`.github/workflows/weekly-growth-pulse.yml`](./.github/workflows/weekly-growth-pulse.yml) records read-only public repository signals as a reviewable artifact; it does not automate social activity.
 - [`DESIGN.md`](./DESIGN.md) records the visual DNA, tokens, states, and layout rules.
 

@@ -1,29 +1,29 @@
 {
-  "run_id": "pm-signal-lab-less-ai-margin-note-evidence-state-2026-08-16",
+  "run_id": "pm-signal-lab-session-boundary-loading-guard-2026-08-16",
   "product": "PM Signal Lab",
-  "candidate_ref": "190b56d — Reduce remaining dashboard status chrome",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome 151.0.7922.138 fallback at 390x844, 1024x900, and 1440x900; Chrome Extension unavailable because the Mac was locked",
+  "candidate_ref": "codex/less-ai-editorial-sheet based on 98267f9 — session boundary, reset, and loading guard",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome 151.0.7922.138 fallback at 390x844, 1024x900, and 1440x900; focused session-boundary oracle at 390x844; Chrome Extension unavailable because the Mac was locked",
   "layers": [
     {
       "layer": "domain_tests",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "npm test -- --run — 4 files, 11 tests passed"
     },
     {
       "layer": "typecheck_and_lint",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run lint — tsc --noEmit passed"
     },
     {
       "layer": "production_build",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-BIy0pwdG.js and index-CoOWk135.css emitted"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-L436QlYV.js and index-CoOWk135.css emitted"
     },
     {
       "layer": "local_static_verifier",
@@ -36,49 +36,57 @@
       "layer": "browser_behavior_trace",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "Fresh Chrome fallback: blank → sample → source disclosure → Verify → accept → Decide → draft → Ship"
     },
     {
       "layer": "edge_state_recovery_trace",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "Empty form validation → Cancel; manual source entry → Reset; sample refresh clears local sheet; missing evidence → needs-validation brief"
+    },
+    {
+      "layer": "session_boundary_reset_loading_oracle",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "scripts/verify-session-boundary.py",
+      "command_or_click_path": "python3 scripts/verify-session-boundary.py — disabled loading action, form cleared, and source disclosure reset verified",
+      "result": "sample_button_disabled_during_loading=true; form_hidden_during_loading=true; form_still_visible_after_load=false; expanded_source_after_reset=false; browser_errors=[]; request_failures=[]"
     },
     {
       "layer": "responsive_mobile_emulation",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "390x844, 1024x900, and 1440x900; no horizontal overflow; mobile action ownership checked"
     },
     {
       "layer": "chrome_accessibility_semantics",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "First Tab reaches Skip to main content; unnamed controls=[], duplicate IDs=[], dangling aria-controls=[]; source disclosure relationship checked"
     },
     {
       "layer": "visual_inspection",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "Blank, loaded, Decide, Ship, tablet, and desktop screenshots inspected; source rows remain the visual anchor"
     },
     {
       "layer": "browser_console_and_network_boundary",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "browser_errors=[]; request_failures=[]; external resources=[]"
     },
     {
       "layer": "chrome_extension_behavior_trace",
       "status": "blocked",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "Preferred Codex Chrome Extension trace of the same flow",
       "blocked_reason": "The Mac was locked, so the preferred current-candidate route could not start. Headless Chrome fallback is recorded separately and is not promoted to Extension evidence."
     },
@@ -86,7 +94,7 @@
       "layer": "canonical_hosted_release",
       "status": "blocked",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "HOSTED_URL=https://asdc163.github.io/pm-signal-lab/ npm run verify:hosted",
       "blocked_reason": "Current hosted readback failed: Current hosted JavaScript is missing: Start with a source line. Merge/deploy remains outside this slice and requires explicit approval."
     },
@@ -94,7 +102,7 @@
       "layer": "native_assistive_technology",
       "status": "out_of_scope",
       "required": false,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "VoiceOver, NVDA, TalkBack, physical device, zoom, and reduced-motion execution",
       "out_of_scope_reason": "No native AT or physical-device harness was used; Chrome fallback semantics are not a substitute."
     },
@@ -110,7 +118,7 @@
       "layer": "live_model_quality_and_ai_evaluation",
       "status": "out_of_scope",
       "required": false,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md",
       "command_or_click_path": "Provider quality, retrieval freshness, prompt-injection resistance, latency, cost, and safety evaluation",
       "out_of_scope_reason": "This candidate remains deterministic and local-only; no provider or live model is connected."
     },
@@ -124,6 +132,9 @@
     }
   ],
   "visual_artifacts": [
+    "docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loading-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loaded-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-reset-390-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-blank-390-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-390-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-decide-390-2026-08-16.png",
@@ -140,6 +151,12 @@
       "heroStatusLabel": "Sheet tally",
       "currentStepVisible": false,
       "mobileBar": "flex"
+    },
+    "session_boundary_390": {
+      "sample_button_disabled_during_loading": true,
+      "form_hidden_during_loading": true,
+      "form_still_visible_after_load": false,
+      "expanded_source_after_reset": false
     },
     "loaded_1024": {
       "scrollWidth": 1024,
@@ -167,8 +184,8 @@
     "request_failures": []
   },
   "notes": [
-    "This manifest records the focused local Less-AI margin-note and evidence-state candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
+    "This manifest records the focused local session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
     "The preferred Chrome Extension route, native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates.",
-    "The canonical hosted verifier currently fails because the Pages URL still serves a bundle missing the new first-run copy."
+    "The canonical hosted verifier currently fails because the Pages URL still serves the prior bundle missing the current first-run copy."
   ]
 }

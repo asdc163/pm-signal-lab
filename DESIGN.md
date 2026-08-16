@@ -116,6 +116,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Status marker: `Source-backed`, `Needs your review`, and `Missing evidence` with text and icon.
 - Notice: success, warning, error, and recovery action; use `role=status` or `role=alert` by severity.
 - Form: visible label, helper, `aria-describedby`, field-level error, preserved input, and focus recovery. Claim editing stays inline; do not use a native prompt.
+- Session boundary: sample replacement closes manual entry and clears disclosure/claim selection; Reset returns to a clean local worksheet; loading actions become disabled during the existing fixture transition.
 - Decision preview: definition list, evidence summary, known limits, not-covered block, and copy/download actions.
 - Session feedback: collapsed invitation → labelled local form → privacy gate → editable Markdown preview → manual GitHub handoff.
 - Empty and error states always include a next action and a recovery path.
@@ -138,6 +139,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Prefer actual source rows, source numbers, limitations, a deterministic sample output, and an annotated decision brief as the visual language.
 - Keep AI language in subject/context and evidence objects; do not make it the loaded worksheet headline.
 - Second-polish rule: the loaded hero keeps the same editorial display voice as the empty sheet, while margin labels state literal ownership or output (`Decision owner: you`, `Stop rule: yours`, `Markdown export`). Do not add another status layer to explain the product.
+- Recovery rule: a replaced or reset worksheet must not retain a previous form, source disclosure, or claim selection; use literal disabled/loading feedback instead of simulating background agent activity.
 
 ## Evidence and release references
 
@@ -157,8 +159,11 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Less-AI workpaper second-polish machine-readable evidence: [`qa-evidence-manifest-2026-08-16.json`](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json).
 - Less-AI margin note and evidence state contract: [`102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md`](./docs/product/pm-signal-lab/102-less-ai-margin-note-and-evidence-state-contract-2026-08-16.md).
 - Less-AI margin note and evidence state local QA: [`103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/103-less-ai-margin-note-and-evidence-state-local-qa-2026-08-16.md).
+- Session boundary, reset, and loading-guard contract: [`104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md`](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md).
+- Session boundary, reset, and loading-guard local QA: [`105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/105-session-boundary-reset-and-loading-guard-local-qa-2026-08-16.md).
 
 - Current candidate screenshot set, captured locally on 2026-08-16: [blank mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-blank-390-2026-08-16.png), [loaded mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-390-2026-08-16.png), [Decide](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-decide-390-2026-08-16.png), [Ship mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-ship-390-2026-08-16.png), [tablet](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1024-2026-08-16.png), and [desktop](./docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1440-2026-08-16.png).
+- Session-boundary screenshots: [loading guard](./docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loading-390-2026-08-16.png), [clean loaded worksheet](./docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-loaded-390-2026-08-16.png), and [clean worksheet after reset](./docs/product/pm-signal-lab/assets/qa/session-boundary-loading-guard-reset-390-2026-08-16.png).
 - Older screenshot names remain in the assets folder as historical evidence only. They are not current visual proof and do not prove hosted behavior.
 - Source ledger contract: [`32-source-ledger-composition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md).
 - English-first messaging and localization contract: [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md).
