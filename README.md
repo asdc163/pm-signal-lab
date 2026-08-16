@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships twenty-three small, tool-free Agent Skills for evidence-first PM
+This repository ships twenty-four small, tool-free Agent Skills for evidence-first PM
 work:
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -145,13 +145,20 @@ work:
   destination, fallback, and a release decision. Start with its [fictional
   feedback first run](./skills/pm-ai-feedback-to-eval/examples/first-run.md) or
   read the [worked feedback-to-eval contract](./skills/pm-ai-feedback-to-eval/references/feedback-eval-contract.md).
+- [`pm-ai-risk-to-control`](./skills/pm-ai-risk-to-control/SKILL.md) turns an AI
+  launch or material change into a reviewable hazard, harm, control, evidence,
+  residual-risk, fallback, and release decision. It separates preventive,
+  detective, and corrective controls from their verification oracles, and keeps
+  unknown likelihood, unverified deployment, and rollback conditions visible.
+  Start with its [fictional risk-control first run](./skills/pm-ai-risk-to-control/examples/first-run.md)
+  or read the [worked risk-control contract](./skills/pm-ai-risk-to-control/references/risk-control-contract.md).
 
 None of the skills needs a model, tool permission, network access, login, or
 external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the twenty-three first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the twenty-four first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.

@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Risk to Control"
+  short_description: "Map AI risks to controls and release evidence"
+  default_prompt: "Use $pm-ai-risk-to-control to turn this AI launch or change into a reviewable hazard, control, evidence, residual-risk, fallback, and release decision without inventing risk scores or safety claims."
