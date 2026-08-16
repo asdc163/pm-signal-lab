@@ -10,7 +10,7 @@ PM Signal Lab is a local-first product evidence worksheet for turning raw signal
 
 **Hosted demo boundary:** This is a formal static demo surface for an English-first, local-first product. The canonical URL, hashed assets, current product copy, and deployment state are checked by the [hosted demo smoke contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md). It has no backend persistence, external model provider, telemetry, or automatic GitHub submission.
 
-**Public pilot:** The prior hosted preview is looking for five international PMs, founders, designers, or product engineers to complete one unguided five-minute trial. Use the [session kit](./docs/operations/pm-session-kit.md), then leave one concrete observation in [pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4). The current PR #44 candidate is not deployed yet.
+**Public pilot:** The five-person international PM trial is prepared but currently on hold: the canonical Pages URL still serves the prior preview while PR #44 is under review. Do not distribute the [session kit](./docs/operations/pm-session-kit.md) or count issue #4 replies as current-candidate evidence until the hosted release preflight passes. The [pilot issue #4](https://github.com/asdc163/pm-signal-lab/issues/4) is a prepared queue, not adoption evidence.
 
 **International pilot operations:** The human-reviewed channel drafts, evidence-safe message contract, and weekly learning loop are in the [international pilot launch kit](./docs/operations/international-pilot-launch-kit-2026-08-15.md).
 
