@@ -609,7 +609,11 @@ function App() {
         : { label: "Add a signal", action: () => setIsFormOpen(true) };
     }
     if (currentStep === "verify") return { label: "Draft smallest experiment", action: () => startExperiment() };
-    if (currentStep === "decide") return { label: "Export decision brief", action: exportMemo };
+    if (currentStep === "decide") {
+      return experiment
+        ? { label: "Export decision brief", action: exportMemo }
+        : { label: "Draft smallest experiment", action: () => startExperiment(activeClaimId) };
+    }
     return { label: "Copy Markdown", action: copyMarkdown };
   })();
 
@@ -775,8 +779,8 @@ function App() {
         </main>
 
         {!isFeedbackOpen && (
-          <div className={`mobile-action-bar ${!pack ? "is-empty" : ""}`} role="region" aria-label="Next action">
-            <span>{WORKFLOW.find((item) => item.id === currentStep)?.description}</span>
+          <div className={`mobile-action-bar ${!pack ? "is-empty" : ""}`} role="region" aria-label={`Next action: ${nextAction.label}`}>
+            <span>{mobileActionCopy(currentStep, pack, claims.length, Boolean(experiment))}</span>
             <button className="button button-primary" type="button" onClick={nextAction.action} disabled={isLoading} data-current-action>
               {nextAction.label}<ArrowRight size={16} aria-hidden="true" />
             </button>
@@ -1237,6 +1241,14 @@ function contextNextCopy(step: WorkflowStep, pack: EvidencePack | null) {
   if (step === "verify") return "Check the claim against its source; leave gaps open.";
   if (step === "decide") return "Write the metric, guardrail, and stop rule.";
   return "Carry only what you can defend into the next review.";
+}
+
+function mobileActionCopy(step: WorkflowStep, pack: EvidencePack | null, claimCount: number, hasExperiment: boolean) {
+  if (!pack) return "Start with a source line";
+  if (step === "collect") return claimCount > 0 ? "Read the source lines" : "Add a source line";
+  if (step === "verify") return "Draft the smallest test";
+  if (step === "decide") return hasExperiment ? "Export the decision brief" : "Draft the smallest test";
+  return "Inspect before copying";
 }
 
 export default App;
