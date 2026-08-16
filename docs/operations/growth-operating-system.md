@@ -14,6 +14,7 @@ Stars are a lagging signal. They must be read together with repository visits, c
 - Distribution status is `HOLD`: do not send the prepared session kit or treat issue #4 replies as current-candidate evidence while the canonical URL serves the prior bundle.
 - The public pilot is pinned as [issue #4](https://github.com/asdc163/pm-signal-lab/issues/4), with `user-session` and `needs-triage` labels.
 - The English-first human-reviewed outreach drafts and operating rules are in the [international pilot launch kit](./international-pilot-launch-kit-2026-08-15.md); no automatic public posting is enabled.
+- The current official-rule readback and channel ordering are in the [international pilot channel research](./international-pilot-channel-research-2026-08-16.md); every channel remains `HOLD` until the hosted release gate passes.
 - The next evidence gate is five unguided sessions from international PMs, founders, designers, or product engineers. A session report is one environment-level observation, not general usability or adoption evidence.
 - Until those sessions exist, the operating decision is `Iterate / recruit`, not `Scale`. No provider integration, telemetry, automated GitHub submission, or star-oriented campaign is justified by the current evidence.
 

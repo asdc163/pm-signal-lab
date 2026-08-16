@@ -5,6 +5,9 @@ until the current PR #44 candidate has been merged, deployed, and rechecked at
 the canonical HTTPS URL. This is an operating aid, not an automatic posting
 plan.
 
+Channel-specific readiness and current platform sources are tracked in the
+[international pilot channel research](./international-pilot-channel-research-2026-08-16.md).
+
 ## Release precondition
 
 The canonical Pages URL currently serves the prior bundle, while PR #44 holds
