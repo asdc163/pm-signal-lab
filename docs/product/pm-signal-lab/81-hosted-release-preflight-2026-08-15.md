@@ -16,8 +16,8 @@ requires an explicit approval at the point of action.
 |---|---|
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
-| Candidate code commit | `190b56d` — `Reduce remaining dashboard status chrome` |
-| CI-verified product/evidence head | `190b56d` — the reviewed Less-AI margin-note/evidence-state surface plus the built-hosted-surface gate; CI run `31930211008` is green |
+| Candidate code commit | `bf85e52` — `Fix session boundary and loading guard` |
+| CI-verified product/evidence head | `bf85e52` — the reviewed Less-AI workpaper plus session-boundary/reset/loading-guard surface and built-hosted-surface gate; CI run `31931053766` is green |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -31,7 +31,7 @@ not part of this candidate and remains untracked/private.
 ## Current hosted baseline — observed before release
 
 The canonical URL currently returns HTTP 200, but it does not serve candidate
-commit `190b56d`:
+commit `bf85e52`:
 
 | Check | Observed result |
 |---|---|
@@ -53,17 +53,18 @@ All of the following must be true at the moment of release:
 
 - [x] Candidate is isolated on `codex/less-ai-editorial-sheet`.
 - [x] Local tests, typecheck, production build, diff check, and local static
-  verifier pass for `190b56d` — 4 files / 11 tests; current assets
-  `index-BIy0pwdG.js` and `index-CoOWk135.css`.
+  verifier pass for `bf85e52` — 4 files / 11 tests; current assets
+  `index-L436QlYV.js` and `index-CoOWk135.css`; focused session-boundary
+  oracle also passes.
 - [x] The machine-readable QA evidence manifest validates, and it keeps local
   pass, hosted blocked, native AT out of scope, and participant/adoption gaps
   separate.
 - [x] Experiment drafting is blocked until at least one claim has an explicit
   human review state; accepted, edited, hypothesis, and missing-evidence
   outcomes remain visible.
-- [x] Owner-run Chrome evidence covers the pre-fix blank → sample → source →
-  claim → test → Ship path, keyboard skip link, mobile fixed action, and
-  Chrome AX tree.
+- [x] Fresh headless Chrome fallback evidence covers the post-fix blank →
+  sample → source → claim → test → Ship path, session-boundary/reset/loading
+  oracle, keyboard skip link, mobile fixed action, and Chrome semantic checks.
 - [x] Fresh headless Chrome CDP fallback evidence confirms the current
   Less-AI margin-note/evidence-state surface at `390×844`, the tablet
   `1024×900` state, and the desktop `1440×900` composition; the local fallback
@@ -75,7 +76,7 @@ All of the following must be true at the moment of release:
   this route remains `未驗證`.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [x] PR #44 CI is green for the reviewed product/evidence head `190b56d`; run `31930211008`
+- [x] PR #44 CI is green for the reviewed product/evidence head `bf85e52`; run `31931053766`
   completed Test, Typecheck, Build, and the built hosted-surface verifier
   successfully.
 - [ ] The user explicitly approves the public merge/deploy action.
@@ -111,7 +112,7 @@ No rollback action has been performed in this preflight.
 After explicit approval, execute these steps in order and retain raw output:
 
 1. Confirm PR #44 is open, clean, and CI-green at action time, and that its
-   current head contains the reviewed product candidate `190b56d` plus the
+   current head contains the reviewed product candidate `bf85e52` plus the
    built-hosted-surface gate. Treat the CI run recorded above as evidence for
    this reviewed product surface, not as a substitute for the action-time
    release check.
