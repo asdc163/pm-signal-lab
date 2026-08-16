@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), [subject-specificity contract](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md), [domain-language contract](./docs/product/pm-signal-lab/75-less-ai-domain-language-contract-2026-08-15.md), [current local QA report](./docs/product/pm-signal-lab/76-less-ai-domain-language-local-qa-2026-08-15.md), and [previous hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md). The latest `main` deploy and hosted smoke passed for `e6077f7`; this activation slice changes skills and docs only, not the hosted runtime.
+Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), [subject-specificity contract](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md), [domain-language contract](./docs/product/pm-signal-lab/75-less-ai-domain-language-contract-2026-08-15.md), [current local QA report](./docs/product/pm-signal-lab/76-less-ai-domain-language-local-qa-2026-08-15.md), and [previous hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md). The latest `main` deploy and hosted smoke have passed; this activation slice changes skills and docs only, not the hosted runtime.
 
 PM Signal Lab is a local-first product evidence field folio for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses an AI-assisted support-draft review because the product is meant to show AI-PM judgment, not because the interface pretends to be an assistant.
 
@@ -25,14 +25,17 @@ work:
   turns a bounded test result into a metric and guardrail readout, a
   continue/change/stop/hold decision, and one smallest next action. Start with
   its [fictional experiment first run](./skills/pm-experiment-to-readout/examples/first-run.md) or read the [worked experiment readout](./skills/pm-experiment-to-readout/references/experiment-readout.md).
+- [`pm-ai-evaluation-plan`](./skills/pm-ai-evaluation-plan/SKILL.md) turns an AI
+  feature goal into test slices, an observable rubric, guardrails, fallback, and
+  a release gate. Start with its [fictional AI evaluation first run](./skills/pm-ai-evaluation-plan/examples/first-run.md) or read the [worked AI support evaluation plan](./skills/pm-ai-evaluation-plan/references/ai-support-evaluation-plan.md).
 
 None of the skills needs a model, tool permission, network access, login, or
 external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the three first runs with a real, sanitized note, then
-leave the client/version, source IDs, one limitation, and one improvement in
+**Public skill pilot:** Try one of the four first runs with a real, sanitized note, then
+leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
 
