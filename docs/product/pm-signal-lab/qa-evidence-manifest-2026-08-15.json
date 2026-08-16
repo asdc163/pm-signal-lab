@@ -1,28 +1,28 @@
 {
-  "run_id": "pm-signal-lab-mobile-source-first-2026-08-16",
+  "run_id": "pm-signal-lab-source-first-chrome-simplification-2026-08-16",
   "product": "PM Signal Lab",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; current static candidate; headless Chrome 151 CDP fallback at 390x844 and 1280x900; Chrome Extension unavailable because the Mac was locked",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; candidate commit 0d18eb8 on codex/less-ai-editorial-sheet; headless Chrome 151 CDP fallback at 390x844, 1024x900, and 1440x900; Chrome Extension unavailable because the Mac was locked",
   "layers": [
     {
       "layer": "domain_tests",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
       "command_or_click_path": "npm test — 4 files, 11 tests passed"
     },
     {
       "layer": "typecheck_and_lint",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
       "command_or_click_path": "npm run lint — tsc --noEmit passed"
     },
     {
       "layer": "production_build",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "npm run build — Vite 7.3.6; index-DCv340NQ.js and index-BTUYiTwc.css emitted"
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-DWAXt1Nj.js and index-CrJVefut.css emitted"
     },
     {
       "layer": "local_static_verifier",
@@ -35,7 +35,7 @@
       "layer": "chrome_extension_behavior_trace",
       "status": "blocked",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
       "command_or_click_path": "Fresh Chrome agent tab: blank → sample → source expansion → Verify → human review → Decide → Ship",
       "blocked_reason": "This polish changes visible copy and typography. The current-candidate Chrome Extension rerun could not start because the Mac was locked; the prior trace is retained as historical evidence, not promoted to this candidate."
     },
@@ -43,47 +43,47 @@
       "layer": "human_review_gate",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Headless Chrome CDP fallback at 390x844: attempt Draft before review; expand and accept one claim; draft again; export; run blocked and confirmed privacy paths; refresh reset",
-      "evidence_boundary": "Current local browser fallback PASS only. The preferred Chrome Extension route remains blocked because the Mac was locked; this does not prove non-owner comprehension, native AT, hosted behavior, or adoption."
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
+      "command_or_click_path": "Headless Chrome CDP fallback at 390x844: open sample; expand and collapse a source; enter Verify; accept one claim; advance to Decide; reach Ship; confirm the review gate and state-specific action path",
+      "evidence_boundary": "Current local browser fallback PASS only. This focused slice did not re-exercise the privacy confirmation form; the preferred Chrome Extension route remains blocked because the Mac was locked; this does not prove non-owner comprehension, native AT, hosted behavior, or adoption."
     },
     {
       "layer": "keyboard_skip_link",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
       "command_or_click_path": "Headless Chrome CDP exact 390×844: document focus reset → Input.dispatchKeyEvent Tab → active element is the named Skip to main content link"
     },
     {
       "layer": "responsive_mobile_emulation",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Headless Chrome CDP fallback exact 390×844: loaded pack, source heading, first row title, fixed action, and document/body scrollWidth geometry; screenshot inspected",
-      "evidence_boundary": "Emulated viewport only. Current evidence: source heading y=686.21875, first row title y=753.8125..797.8125, fixed action y=798..844, document/body scrollWidth=375. Real-device touch and native AT remain unverified."
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
+      "command_or_click_path": "Headless Chrome CDP fallback exact 390×844, 1024×900, and 1440×900: loaded hierarchy, source marker, fixed action, context action ownership, and document/client width geometry; screenshots inspected",
+      "evidence_boundary": "Emulated viewport only. Current evidence: document/client widths 390/390, 1009/1009, and 1425/1425 with no horizontal overflow. Real-device touch and native AT remain unverified."
     },
     {
       "layer": "chrome_accessibility_tree",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Headless Chrome CDP Accessibility.getFullAXTree depth=5 — 152 nodes; eight named interactive controls; zero unnamed buttons, links, or textboxes",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
+      "command_or_click_path": "Headless Chrome CDP label-aware semantic scan — zero unnamed visible controls, zero duplicate IDs, zero dangling aria-controls; Chrome AX/native AT boundary remains explicit",
       "evidence_boundary": "Chrome AX fallback only; not the Codex Chrome Extension route and not native VoiceOver, NVDA, or TalkBack output."
     },
     {
       "layer": "visual_inspection",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Headless Chrome CDP Page.captureScreenshot at exact 390×844 and 1280×900; loaded screenshots inspected",
-      "evidence_boundary": "Local fallback visual inspection only. The artifacts are /tmp/pm-signal-lab-loaded-390-final.png and /tmp/pm-signal-lab-loaded-1280-final.png; they are not canonical hosted or real-device evidence."
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
+      "command_or_click_path": "Headless Chrome CDP Page.captureScreenshot at exact 390×844, 1024×900, and 1440×900; current source-first screenshots inspected",
+      "evidence_boundary": "Local fallback visual inspection only. The artifacts are the six current source-first screenshots under docs/product/pm-signal-lab/assets/qa/; they are not canonical hosted or real-device evidence."
     },
     {
       "layer": "app_origin_console_and_network_boundary",
       "status": "pass",
       "required": true,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
-      "command_or_click_path": "Headless Chrome CDP injected error/warn/unhandled-rejection harness plus performance resource filter on http://127.0.0.1:4179/; qaErrors=[] and externalResources=[] after sample load and privacy flow",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
+      "command_or_click_path": "Headless Chrome CDP runtime/console collection plus performance resource filter on http://127.0.0.1:4179/; browserErrors=[] and externalResources=[] after the current source-first flow",
       "evidence_boundary": "Current local fallback runtime/resource boundary only; no provider, telemetry, GitHub mutation, or raw-signal upload was exercised."
     },
     {
@@ -98,7 +98,7 @@
       "layer": "native_assistive_technology",
       "status": "out_of_scope",
       "required": false,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
       "command_or_click_path": "VoiceOver, NVDA, TalkBack, physical device, zoom, and reduced-motion execution",
       "out_of_scope_reason": "No native AT or physical-device harness was used in this local run; Chrome AX evidence is not a substitute."
     },
@@ -114,7 +114,7 @@
       "layer": "live_model_quality_and_ai_evaluation",
       "status": "out_of_scope",
       "required": false,
-      "artifact_path_or_url": "docs/product/pm-signal-lab/79-editorial-case-sheet-local-qa-2026-08-15.md",
+      "artifact_path_or_url": "docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md",
       "command_or_click_path": "Provider quality, retrieval freshness, prompt-injection resistance, latency, cost, and safety evaluation",
       "out_of_scope_reason": "This release slice remains deterministic and local-only; no provider or live model is connected."
     },
@@ -128,7 +128,6 @@
     }
   ],
   "notes": [
-    "Third-party MetaMask content-script warnings were observed in the browser session and excluded from the localhost app-origin pass; they are recorded in the QA report.",
-    "This manifest records current local evidence from a headless Chrome CDP fallback. The mobile source-first correction was visually and behaviorally checked at 390×844, the desktop composition was checked at 1280×900, the privacy boundary produced no external resources, and the current AX snapshot had no unnamed interactive controls. The preferred Chrome Extension route remains blocked because the Mac was locked; native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
+    "This manifest records current local evidence from a headless Chrome CDP fallback for candidate commit 0d18eb8. The source-first hierarchy was visually and behaviorally checked at 390×844, 1024×900, and 1440×900; the local production-preview copy oracle passed; the privacy boundary produced no external resources; and the label-aware semantic scan found no unnamed visible controls. The preferred Chrome Extension route remains blocked because the Mac was locked; native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
   ]
 }

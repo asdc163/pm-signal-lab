@@ -16,8 +16,8 @@ requires an explicit approval at the point of action.
 |---|---|
 | Repository | `asdc163/pm-signal-lab` |
 | Branch | `codex/less-ai-editorial-sheet` |
-| Candidate code commit | `18b50f6` — `Fix mobile source-first reading path` |
-| PR head currently observed | `96ceee3` — pushed candidate; CI run `31919343683` is green |
+| Candidate code commit | `0d18eb8` — `Simplify source-first worksheet chrome` |
+| PR head currently observed | `0d18eb8` — pushed candidate; CI run `31927602752` is green |
 | Pull request | [#44 — Reframe PM Signal Lab as an editorial case sheet](https://github.com/asdc163/pm-signal-lab/pull/44) |
 | Base reference | `origin/main` at `040c7a4` when this slice was scoped |
 | Release surface | `https://asdc163.github.io/pm-signal-lab/` |
@@ -31,7 +31,7 @@ not part of this candidate and remains untracked/private.
 ## Current hosted baseline — observed before release
 
 The canonical URL currently returns HTTP 200, but it does not serve candidate
-commit `d6cceaa`:
+commit `0d18eb8`:
 
 | Check | Observed result |
 |---|---|
@@ -53,8 +53,8 @@ All of the following must be true at the moment of release:
 
 - [x] Candidate is isolated on `codex/less-ai-editorial-sheet`.
 - [x] Local tests, typecheck, production build, diff check, and local static
-  verifier pass for `18b50f6` — 4 files / 11 tests; current assets
-  `index-DCv340NQ.js` and `index-BTUYiTwc.css`.
+  verifier pass for `0d18eb8` — 4 files / 11 tests; current assets
+  `index-DWAXt1Nj.js` and `index-CrJVefut.css`.
 - [x] The machine-readable QA evidence manifest validates, and it keeps local
   pass, hosted blocked, native AT out of scope, and participant/adoption gaps
   separate.
@@ -64,17 +64,18 @@ All of the following must be true at the moment of release:
 - [x] Owner-run Chrome evidence covers the pre-fix blank → sample → source →
   claim → test → Ship path, keyboard skip link, mobile fixed action, and
   Chrome AX tree.
-- [x] Fresh headless Chrome CDP fallback evidence confirms the mobile
-  source-first correction at `390×844`, the ultra-narrow `320px` heading
-  reflow, and the desktop `1280×900` composition; the local fallback flow,
-  privacy gate, keyboard first Tab, screenshot, AX, and same-origin resource
-  checks are recorded in the QA report.
+- [x] Fresh headless Chrome CDP fallback evidence confirms the current
+  source-first hierarchy and mobile action ownership at `390×844`, the
+  tablet `1024×900` state, and the desktop `1440×900` composition; the local
+  fallback flow, source disclosure, keyboard first Tab, screenshot, semantic,
+  and same-origin resource checks are recorded in
+  `99-source-first-chrome-simplification-local-qa-2026-08-16.md`.
 - [ ] Fresh preferred Chrome Extension evidence must still confirm the same
   current candidate in the existing Chrome session; the Mac was locked, so
   this route remains `未驗證`.
 - [x] The public/private boundary is preserved; the private star plan is not
   staged or published.
-- [x] PR #44 CI is green for pushed head `96ceee3`; run `31919343683`
+- [x] PR #44 CI is green for pushed head `0d18eb8`; run `31927602752`
   completed Test, Typecheck, and Build successfully.
 - [ ] The user explicitly approves the public merge/deploy action.
 
@@ -109,7 +110,7 @@ No rollback action has been performed in this preflight.
 After explicit approval, execute these steps in order and retain raw output:
 
 1. Confirm PR #44 is open, clean, and CI-green, and that its current head
-   contains candidate code commit `18b50f6` (or the exact newer reviewed head).
+   contains candidate code commit `0d18eb8` (or the exact newer reviewed head).
 2. Merge PR #44 into `main` using the repository's normal review path.
 3. Watch the merge CI and Pages deployment workflows to successful completion.
 4. Run:

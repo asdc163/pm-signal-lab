@@ -32,3 +32,26 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Verify built hosted surface
+        run: |
+          set -euo pipefail
+          npm run preview -- --host 127.0.0.1 --port 4179 > "$RUNNER_TEMP/pm-signal-lab-preview.log" 2>&1 &
+          preview_pid=$!
+          cleanup() {
+            kill "$preview_pid" 2>/dev/null || true
+          }
+          trap cleanup EXIT
+
+          for attempt in {1..30}; do
+            if curl --fail --silent --show-error http://127.0.0.1:4179/ >/dev/null; then
+              break
+            fi
+            if [ "$attempt" -eq 30 ]; then
+              cat "$RUNNER_TEMP/pm-signal-lab-preview.log"
+              exit 1
+            fi
+            sleep 1
+          done
+
+          HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted
