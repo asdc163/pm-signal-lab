@@ -106,10 +106,10 @@ current labels rather than the retired presentation labels.
 
 ## Release boundary and rollback
 
-The candidate can be committed and pushed to the existing draft PR after this
-report is committed. Merge, Pages deploy, public recruitment, comments, and
-distribution remain held for the explicit release approval required for PR
-#44.
+This report and the candidate are committed and pushed to the existing draft
+PR #44 at `fd1f9ff`; its CI run is green. Merge, Pages deploy, public
+recruitment, comments, and distribution remain held for the explicit release
+approval required for PR #44.
 
 Rollback is one implementation commit: revert the `App.tsx` copy/ARIA changes,
 the final operational worksheet CSS block, and the hosted verifier copy
