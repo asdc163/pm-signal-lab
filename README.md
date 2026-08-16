@@ -2,7 +2,7 @@
 
 > Keep the source line attached to the decision it may support.
 
-Latest candidate evidence: [session note progressive-disclosure contract](./docs/product/pm-signal-lab/112-session-note-progressive-disclosure-contract-2026-08-16.md), [session note progressive-disclosure local QA](./docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md), [single-primary-action ownership contract](./docs/product/pm-signal-lab/110-single-primary-action-ownership-contract-2026-08-16.md), [single-primary-action ownership local QA](./docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md), [custom source-sheet truth contract](./docs/product/pm-signal-lab/108-custom-source-sheet-truth-contract-2026-08-16.md), [custom source-sheet truth local QA](./docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md), [static loading-marker contract](./docs/product/pm-signal-lab/106-static-loading-marker-contract-2026-08-16.md), [static loading-marker local QA](./docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), and the [machine-readable QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The current local candidate passed the source-identity, action-ownership, and Session note keyboard disclosure oracle at `390×844` and `1440×1000`, plus the existing normal, edge, responsive, semantic, session-boundary, static-loading, and local production-preview copy checks; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
+Latest candidate evidence: [keyboard-only workflow contract](./docs/product/pm-signal-lab/114-keyboard-only-workflow-contract-2026-08-16.md), [keyboard-only workflow local QA](./docs/product/pm-signal-lab/115-keyboard-only-workflow-local-qa-2026-08-16.md), [session note progressive-disclosure contract](./docs/product/pm-signal-lab/112-session-note-progressive-disclosure-contract-2026-08-16.md), [session note progressive-disclosure local QA](./docs/product/pm-signal-lab/113-session-note-progressive-disclosure-local-qa-2026-08-16.md), [single-primary-action ownership contract](./docs/product/pm-signal-lab/110-single-primary-action-ownership-contract-2026-08-16.md), [single-primary-action ownership local QA](./docs/product/pm-signal-lab/111-single-primary-action-ownership-local-qa-2026-08-16.md), [custom source-sheet truth contract](./docs/product/pm-signal-lab/108-custom-source-sheet-truth-contract-2026-08-16.md), [custom source-sheet truth local QA](./docs/product/pm-signal-lab/109-custom-source-sheet-truth-local-qa-2026-08-16.md), [static loading-marker contract](./docs/product/pm-signal-lab/106-static-loading-marker-contract-2026-08-16.md), [static loading-marker local QA](./docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md), [session-boundary reset and loading-guard contract](./docs/product/pm-signal-lab/104-session-boundary-reset-and-loading-guard-contract-2026-08-16.md), and the [machine-readable QA evidence manifest](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json). The current local candidate passed the pointer-free primary workflow at `390×844` and `1440×1000`, source-identity, action-ownership, Session note keyboard disclosure, normal, edge, responsive, semantic, session-boundary, static-loading, and local production-preview copy checks; the preferred Chrome Extension route and canonical Pages behavior still require separate evidence.
 
 PM Signal Lab is a local-first product evidence worksheet for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses a fictional support-draft review because the portfolio is meant to show AI-PM judgment; the working surface leads with the PM case and keeps AI context out of the visual chrome.
 
@@ -65,7 +65,7 @@ bundle.
 - A Markdown decision brief with evidence, known limits, next action, and a `Not covered` section.
 - A local session receipt and a privacy-gated session feedback field note that never includes raw evidence.
 - A source-truth boundary that keeps `Your source sheet` / `your source notes · local sheet` separate from the fictional sample's support-draft labels.
-- Responsive desktop, tablet, mobile, keyboard, loading, empty, error, and recovery states.
+- Responsive desktop, tablet, mobile, keyboard-only workflow, loading, empty, error, and recovery states.
 
 All session content stays on the current page and resets on refresh. The hosted demo has no login, database, external AI provider, API-key flow, GitHub mutation, MCP action, telemetry, or automatic issue submission. Copy or download anything you want to keep before leaving or refreshing.
 
@@ -101,6 +101,7 @@ npm run lint
 npm run build
 npm run verify:hosted
 npm run verify:source-truth
+npm run verify:keyboard
 ```
 
 ## Product and engineering shape
@@ -122,6 +123,7 @@ The UI and domain engine are separate so a future provider adapter can be evalua
 - [`scripts/verify-hosted-demo.mjs`](./scripts/verify-hosted-demo.mjs) performs the read-only HTTPS, asset, and current-copy check used by the hosted smoke workflow.
 - [`scripts/verify-session-boundary.py`](./scripts/verify-session-boundary.py) replays the local stale-state and duplicate-loading browser oracle and captures focused mobile evidence.
 - [`scripts/verify-source-sheet-truth.py`](./scripts/verify-source-sheet-truth.py) checks the manual/sample visible-copy boundary at mobile and desktop widths, including the owner confirmation field.
+- [`scripts/verify-keyboard-flow.py`](./scripts/verify-keyboard-flow.py) replays the blank-form recovery and pointer-free Collect → Verify → Decide → Ship path at mobile and desktop widths.
 - [`.github/workflows/weekly-growth-pulse.yml`](./.github/workflows/weekly-growth-pulse.yml) records read-only public repository signals as a reviewable artifact; it does not automate social activity.
 - [`DESIGN.md`](./DESIGN.md) records the visual DNA, tokens, states, and layout rules.
 

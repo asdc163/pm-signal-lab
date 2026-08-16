@@ -1,8 +1,8 @@
 {
-  "run_id": "pm-signal-lab-session-note-literal-receipt-2026-08-16",
+  "run_id": "pm-signal-lab-keyboard-flow-2026-08-16",
   "product": "PM Signal Lab",
-  "candidate_ref": "codex/less-ai-editorial-sheet — Session note progressive-disclosure + literal receipt slice (local candidate)",
-  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; focused source-truth, action-ownership, and Session note keyboard oracle at 390x844 and 1440x1000; preferred Chrome Extension route unavailable in this runtime",
+  "candidate_ref": "codex/less-ai-editorial-sheet — keyboard-only workflow + Session note/literal receipt slice (local candidate)",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome fallback at 390x844, 1024x900, and 1440x900; pointer-free primary workflow and focused source-truth, action-ownership, and Session note keyboard oracles at 390x844 and 1440x1000; preferred Chrome Extension route unavailable in this runtime",
   "layers": [
     {
       "layer": "domain_tests",
@@ -26,6 +26,14 @@
       "command_or_click_path": "npm run build — Vite 7.3.6; index-o7prm33y.js and index-CcoUeL_C.css emitted"
     },
     {
+      "layer": "kb_application_plan",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/114-keyboard-only-workflow-contract-2026-08-16.md",
+      "command_or_click_path": "python3 /Users/tommy/.codex/skills/kb-task-compiler/scripts/score_kb_plan.py .../114-keyboard-only-workflow-contract-2026-08-16.md --min-score 85",
+      "result": "KB plan score: 100/100"
+    },
+    {
       "layer": "local_static_verifier",
       "status": "pass",
       "required": true,
@@ -38,6 +46,14 @@
       "required": true,
       "artifact_path_or_url": "docs/product/pm-signal-lab/107-static-loading-marker-local-qa-2026-08-16.md",
       "command_or_click_path": "Fresh Chrome fallback: blank → sample → source disclosure → Verify → accept → Decide → draft → Ship"
+    },
+    {
+      "layer": "keyboard_only_workflow",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/115-keyboard-only-workflow-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run verify:keyboard — first Tab/skip link, blank-form validation and cancel, then pointer-free Collect → Verify → Decide → Ship at 390x844 and 1440x1000",
+      "result": "skip_enter_focus_target=main-content; title_invalid_focused=true; form_closed_after_cancel=true; loaded_focus_target=main-content; verify_action_focus=true; claim_expanded=true; claim_reviewed=true; decide_action_focus=true; experiment_ready=true; ship_action_focus=true; markdown_notice_visible=true; browser_errors=[]; request_failures=[]"
     },
     {
       "layer": "edge_state_recovery_trace",
@@ -174,10 +190,45 @@
     "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1024-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/less-ai-margin-note-evidence-state-loaded-1440-2026-08-16.png",
     "docs/product/pm-signal-lab/assets/qa/custom-source-sheet-truth-390-2026-08-16.png",
-    "docs/product/pm-signal-lab/assets/qa/custom-source-sheet-truth-sample-1440-2026-08-16.png"
+    "docs/product/pm-signal-lab/assets/qa/custom-source-sheet-truth-sample-1440-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/keyboard-flow-390-2026-08-16.png",
+    "docs/product/pm-signal-lab/assets/qa/keyboard-flow-1440-2026-08-16.png"
   ],
   "browser_summary": {
     "workflow": "blank → sample → source disclosure → Verify → accept → Decide → draft → Ship",
+    "keyboard_only": {
+      "blank_recovery": {
+        "skip_focused_after_first_tab": true,
+        "skip_enter_focus_target": "main-content",
+        "add_signal_keyboard_focused": true,
+        "save_line_keyboard_focused": true,
+        "title_invalid_focused": true,
+        "warning_visible": true,
+        "cancel_keyboard_focused": true,
+        "form_closed_after_cancel": true
+      },
+      "mobile_390": {
+        "loaded_focus_target": "main-content",
+        "verify_action_focus": true,
+        "claim_expanded": true,
+        "claim_reviewed": true,
+        "decide_action_focus": true,
+        "experiment_ready": true,
+        "ship_action_focus": true,
+        "markdown_notice_visible": true
+      },
+      "desktop_1440": {
+        "loaded_focus_target": "main-content",
+        "verify_action_focus": true,
+        "claim_expanded": true,
+        "claim_reviewed": true,
+        "decide_action_focus": true,
+        "experiment_ready": true,
+        "ship_action_focus": true,
+        "markdown_notice_visible": true
+      },
+      "browser": "Chrome via Playwright fallback; native screen-reader and Chrome Extension coverage is separate"
+    },
     "loaded_390": {
       "scrollWidth": 390,
       "clientWidth": 390,
@@ -262,7 +313,7 @@
     "request_failures": []
   },
   "notes": [
-    "This manifest records the focused local Session note progressive-disclosure and literal receipt-language, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
+    "This manifest records the focused local keyboard-only workflow, Session note progressive-disclosure and literal receipt-language, single-primary-action ownership, custom-source truth, static loading-marker, session-boundary, reset, and loading-guard candidate. It does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars.",
     "The preferred Chrome Extension route, native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates.",
     "The canonical hosted verifier currently fails because the Pages URL still serves the prior bundle missing the current first-run copy."
   ]

@@ -10,7 +10,8 @@
     "test": "vitest run",
     "preview": "vite preview",
     "verify:hosted": "node scripts/verify-hosted-demo.mjs",
-    "verify:source-truth": "python3 scripts/verify-source-sheet-truth.py"
+    "verify:source-truth": "python3 scripts/verify-source-sheet-truth.py",
+    "verify:keyboard": "python3 scripts/verify-keyboard-flow.py"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.4",
