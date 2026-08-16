@@ -252,11 +252,11 @@ function App() {
         setClaimEditError("");
         setCurrentStep("collect");
         setIsLoading(false);
-        showNotice("success", "Sample worksheet is open. Next, trace each claim back to its source.");
+        showNotice("success", "Sample worksheet open. Check each claim against its source.");
         logEvent("sample_pack_loaded", { pack_id: nextPack.id, source: "fixture" });
       } catch {
         setIsLoading(false);
-        showNotice("error", "The sample worksheet could not open. Your original workspace is still safe.");
+        showNotice("error", "The sample worksheet could not open. The sheet is still empty.");
         logEvent("recovery_used", { state: "fixture_error", action: "reset_demo_data" });
       }
     }, 260);
@@ -277,7 +277,7 @@ function App() {
     setIsFormOpen(false);
     setForm(EMPTY_FORM);
     setFormErrors({});
-    showNotice("info", "Workspace reset. Open the sample worksheet or add your own signal.");
+    showNotice("info", "Sheet cleared. Open the sample or add one signal.");
     logEvent("recovery_used", { state: "workspace", action: "reset_demo_data" });
   };
 
@@ -332,7 +332,7 @@ function App() {
     setForm(EMPTY_FORM);
     setFormErrors({});
     setIsFormOpen(false);
-    showNotice("success", "Signal added. The draft claims were rebuilt; go to Verify to review them.");
+    showNotice("success", "Signal added. Review the source-linked claims before choosing a test.");
     logEvent("evidence_added", {
       evidence_type: form.type,
       source_kind: form.source.includes("·") ? "structured" : "manual",
@@ -362,7 +362,7 @@ function App() {
   const keepAsHypothesis = (claim: Claim) => {
     updateClaim(claim.id, { status: "review", reviewed: true });
     setActiveClaimId(claim.id);
-    showNotice("warning", "Kept as a hypothesis. It will not be treated as a validated conclusion.");
+    showNotice("warning", "Kept as a hypothesis. It will stay marked that way in the brief.");
     logEvent("claim_reviewed", {
       claim_status: "review",
       source_count: claim.evidenceIds.length,
@@ -539,7 +539,7 @@ function App() {
 
     try {
       await navigator.clipboard.writeText(receipt);
-      showNotice("success", "Session receipt copied. Check it for private content before sharing.");
+      showNotice("success", "Session receipt copied. Remove private detail before sharing.");
     } catch {
       showNotice("warning", "Clipboard access was blocked. Use the feedback form to record this session manually.");
     }
@@ -557,7 +557,7 @@ function App() {
       return;
     }
     setFeedbackMarkdown(result.markdown);
-    showNotice("success", "Session feedback is ready. Read it yourself before opening GitHub.");
+    showNotice("success", "Session feedback is ready. Read it once before opening GitHub.");
     logEvent("feedback_drafted", {
       role: feedbackDraft.role,
       task_result: feedbackDraft.result,
@@ -572,7 +572,7 @@ function App() {
     }
     try {
       await navigator.clipboard.writeText(feedbackMarkdown);
-      showNotice("success", "Session feedback copied. Check it again for private content before sharing.");
+      showNotice("success", "Feedback copied. Check it for private detail before sharing.");
       logEvent("feedback_copied", { format: "markdown", manual_submit_required: true });
     } catch {
       showNotice("warning", "Clipboard access was blocked. The feedback remains in the text area below.");
@@ -656,7 +656,7 @@ function App() {
                   {pack ? `${evidence.length} ${evidence.length === 1 ? "source line" : "source lines"} to check before you choose a test.` : "Write one observed line, then decide what it can support."}
                 </p>
               </div>
-              <div className="hero-status" role="status" aria-label="Current step" aria-live="polite" aria-atomic="true">
+              <div className="hero-status" role="status" aria-label="Worksheet state" aria-live="polite" aria-atomic="true">
                 <div className="hero-status-heading">
                   <span className="section-eyebrow">Current step</span>
                   <span className="hero-status-step">{WORKFLOW.find((item) => item.id === currentStep)?.number} · {WORKFLOW.find((item) => item.id === currentStep)?.label}</span>
@@ -807,7 +807,7 @@ function Sidebar({ currentStep, onSelectStep }: { currentStep: WorkflowStep; onS
       <div className="sidebar-footer">
         <div className="sidebar-rule" />
         <span className="sidebar-section-label">Handling</span>
-        <p>{SESSION_BOUNDARY_LONG} No automatic changes are made.</p>
+        <p>Nothing leaves this page unless you copy it. Refresh clears the sheet.</p>
         <a className="sidebar-link" href={SESSION_FEEDBACK_URL} target="_blank" rel="noreferrer">Report a session</a>
         <span className="version-label">Public preview · refresh clears the sheet</span>
       </div>
@@ -982,13 +982,13 @@ function EvidenceRow({ evidence, sourceIndex, expanded, onToggle }: { evidence: 
 function VerifyView({ claims, evidence, activeClaimId, editingClaimId, editingClaimText, claimEditError, claimEditRef, onActivate, onAccept, onKeep, onMissing, onEdit, onEditText, onSaveEdit, onCancelEdit, onDraft }: { claims: Claim[]; evidence: Evidence[]; activeClaimId?: string; editingClaimId?: string; editingClaimText: string; claimEditError: string; claimEditRef: React.RefObject<HTMLTextAreaElement | null>; onActivate: (id: string) => void; onAccept: (claim: Claim) => void; onKeep: (claim: Claim) => void; onMissing: (claim: Claim) => void; onEdit: (claim: Claim) => void; onEditText: (value: string) => void; onSaveEdit: (claim: Claim) => void; onCancelEdit: () => void; onDraft: () => void }) {
   return (
     <section className="content-section" aria-labelledby="verify-title">
-      <div className="section-intro"><div><p className="section-eyebrow">Review claim</p><h2 id="verify-title">Check the claim against the line</h2><p>A draft claim is not a fact. Check the source, date, and limitation before you carry it into a decision.</p></div><span className="human-label">You make the call</span></div>
+      <div className="section-intro"><div><p className="section-eyebrow">Review claim</p><h2 id="verify-title">Check the claim against the line</h2><p>A draft claim is not a fact. Check the source, date, and limitation before you carry it into a decision.</p></div><span className="human-label">Decision owner: you</span></div>
       {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} aria-hidden="true" /><div><h3>Nothing to review yet</h3><p>Return to Collect and add a signal before reviewing claims.</p></div></div> : <>
         <div className="claim-summary"><span><strong>{claims.length}</strong> draft claims</span><span><BadgeCheck size={14} aria-hidden="true" />{claims.filter((claim) => claim.status === "supported").length} source-backed</span><span><CircleAlert size={14} aria-hidden="true" />{claims.filter((claim) => claim.status !== "supported").length} need your review</span></div>
         <div className="claim-list">
           {claims.map((claim, index) => <ClaimRow key={claim.id} claim={claim} claimIndex={index + 1} evidence={evidence} expanded={activeClaimId === claim.id} isEditing={editingClaimId === claim.id} editText={editingClaimText} editError={claimEditError} editRef={claimEditRef} onActivate={() => onActivate(claim.id)} onAccept={() => onAccept(claim)} onKeep={() => onKeep(claim)} onMissing={() => onMissing(claim)} onEdit={() => onEdit(claim)} onEditText={onEditText} onSaveEdit={() => onSaveEdit(claim)} onCancelEdit={onCancelEdit} />)}
         </div>
-        <div className="human-boundary"><ShieldCheck size={17} aria-hidden="true" /><div><strong>This is a suggestion, not a decision.</strong><span>The next brief records a claim only after you accept it or keep it as a hypothesis.</span></div><button className="button button-secondary" type="button" onClick={onDraft}>Go to Decide<ArrowRight size={15} aria-hidden="true" /></button></div>
+        <div className="human-boundary"><ShieldCheck size={17} aria-hidden="true" /><div><strong>Review gate</strong><span>Accept, edit, keep it as a hypothesis, or mark the evidence missing before drafting a test.</span></div><button className="button button-secondary" type="button" onClick={onDraft}>Go to Decide<ArrowRight size={15} aria-hidden="true" /></button></div>
       </>}
     </section>
   );
@@ -1031,7 +1031,7 @@ function DecideView({ claims, activeClaimId, experiment, onSelectClaim, onDraft,
   const availableClaims = claims.filter((claim) => claim.reviewed);
   return (
     <section className="content-section" aria-labelledby="decide-title">
-      <div className="section-intro"><div><p className="section-eyebrow">Test brief</p><h2 id="decide-title">Name the smallest test</h2><p>Write the metric, guardrail, and stop rule before the team spends time.</p></div><span className="human-label"><Target size={14} aria-hidden="true" />You still own the stop rule</span></div>
+      <div className="section-intro"><div><p className="section-eyebrow">Test brief</p><h2 id="decide-title">Name the smallest test</h2><p>Write the metric, guardrail, and stop rule before the team spends time.</p></div><span className="human-label"><Target size={14} aria-hidden="true" />Stop rule: yours</span></div>
       {claims.length === 0 ? <div className="state-panel"><CircleAlert size={22} aria-hidden="true" /><div><h3>No usable claims yet</h3><p>Open the sample worksheet or add a signal in Collect, then review a claim before drafting a brief.</p></div><button className="button button-secondary" type="button" onClick={onBack}>Back to Collect</button></div> : <>
         <div className="opportunity-picker"><div><span className="card-eyebrow">Choose a direction to test</span><p>{availableClaims.length ? "Choose a claim you reviewed; missing-evidence items can still become a needs-validation brief." : "No claims have been reviewed yet. Return to Verify to accept one or keep a hypothesis."}</p></div><div className="opportunity-options">{claims.map((claim) => <button key={claim.id} type="button" className={`opportunity-option ${activeClaimId === claim.id ? "is-selected" : ""}`} onClick={() => onSelectClaim(claim.id)}><span className={`mini-node ${STATUS_META[claim.status].className}`} /><span>{claim.text}</span><span className="option-status">{STATUS_META[claim.status].label}</span></button>)}</div><button className="button button-secondary" type="button" onClick={() => onDraft(activeClaimId)} disabled={!activeClaimId && !availableClaims.length}><Target size={15} aria-hidden="true" />Draft smallest experiment</button></div>
         {experiment ? <ExperimentEditor experiment={experiment} onUpdate={onUpdate} onExport={onExport} /> : <div className="state-panel state-panel-soft"><Lightbulb size={22} aria-hidden="true" /><div><h3>Choose a direction to test</h3><p>This will become a hypothesis, primary metric, guardrail, and smallest test. You still decide whether it is worth doing.</p></div></div>}
@@ -1094,7 +1094,7 @@ function ShipView({
           <h2 id="ship-title">Take a brief someone can challenge</h2>
           <p>Carry the source, limitation, next action, and not-covered list into the next product conversation.</p>
         </div>
-        <span className="human-label"><FileText size={14} aria-hidden="true" />Portable Markdown</span>
+        <span className="human-label"><FileText size={14} aria-hidden="true" />Markdown export</span>
       </div>
       {!memo ? (
         <div className="state-panel">
@@ -1107,7 +1107,7 @@ function ShipView({
           <div className="memo-preview">
             <div className="memo-toolbar">
               <div><span className="section-eyebrow">Decision brief / Preview</span><h3>Shareable, but not a completion guarantee</h3></div>
-              <span className="status-badge status-supported"><BadgeCheck size={14} aria-hidden="true" />Ready to inspect</span>
+              <span className="status-badge status-supported"><BadgeCheck size={14} aria-hidden="true" />Review before copying</span>
             </div>
             <div className="memo-content">
               <MemoSection title="Decision"><p>{memo.decision}</p></MemoSection>
@@ -1186,7 +1186,7 @@ function SessionFeedback({
           </div>
           <label className="feedback-privacy"><input type="checkbox" aria-label="Confirm this session report contains no private data" checked={draft.privacyConfirmed} onChange={(event) => onChange("privacyConfirmed", event.target.checked)} /><span>I confirm that this report contains no customer names, private tickets, API keys, tokens, or confidential roadmap material.</span></label>
           <div className="feedback-footer"><span><ShieldCheck size={14} aria-hidden="true" />A short note is enough; blank fields become Not provided.</span><div><button className="button button-secondary" type="button" onClick={onClose}>Cancel</button><button className="button button-primary" type="submit"><ClipboardList size={16} aria-hidden="true" />Prepare field note</button></div></div>
-          {markdown && <div id="feedback-output" className="feedback-output" role="region" aria-labelledby="feedback-output-title" tabIndex={-1}><div className="feedback-output-heading"><div><span className="section-eyebrow">Field note / Inspect before sharing</span><strong id="feedback-output-title">This is a field note, not a validation result.</strong></div><span className="status-badge status-supported"><BadgeCheck size={14} aria-hidden="true" />Ready to inspect</span></div><textarea value={markdown} readOnly rows={12} aria-label="Session feedback Markdown content" /><div className="feedback-output-actions"><button className="button button-primary" type="button" onClick={onCopy}><FileText size={16} aria-hidden="true" />Copy field note</button><a className="button button-secondary" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Open GitHub feedback page in a new tab for manual review">Open feedback page<Link2 size={15} aria-hidden="true" /></a></div><p>GitHub opens a new page only. Review the content yourself before deciding whether to submit.</p></div>}
+          {markdown && <div id="feedback-output" className="feedback-output" role="region" aria-labelledby="feedback-output-title" tabIndex={-1}><div className="feedback-output-heading"><div><span className="section-eyebrow">Field note / Inspect before sharing</span><strong id="feedback-output-title">This is a field note, not a validation result.</strong></div><span className="status-badge status-supported"><BadgeCheck size={14} aria-hidden="true" />Review before sharing</span></div><textarea value={markdown} readOnly rows={12} aria-label="Session feedback Markdown content" /><div className="feedback-output-actions"><button className="button button-primary" type="button" onClick={onCopy}><FileText size={16} aria-hidden="true" />Copy field note</button><a className="button button-secondary" href={feedbackUrl} target="_blank" rel="noreferrer" aria-label="Open GitHub feedback page in a new tab for manual review">Open feedback page<Link2 size={15} aria-hidden="true" /></a></div><p>GitHub opens a new page only. Review the content yourself before deciding whether to submit.</p></div>}
         </form>
       )}
     </section>

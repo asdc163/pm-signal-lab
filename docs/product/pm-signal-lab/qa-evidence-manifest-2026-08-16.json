@@ -1,0 +1,133 @@
+{
+  "run_id": "pm-signal-lab-less-ai-workpaper-second-polish-2026-08-16",
+  "product": "PM Signal Lab",
+  "environment": "Local Vite production preview at http://127.0.0.1:4179/; English-first en-US; deterministic fictional fixture; headless Google Chrome 151 CDP fallback at 390x844, 1024x900, and 1440x900; Chrome Extension unavailable because the Mac was locked",
+  "layers": [
+    {
+      "layer": "domain_tests",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm test -- --run — 4 files, 11 tests passed"
+    },
+    {
+      "layer": "typecheck_and_lint",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run lint — tsc --noEmit passed"
+    },
+    {
+      "layer": "production_build",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "npm run build — Vite 7.3.6; index-DcUWGGbX.js and index-C9d8-jtd.css emitted"
+    },
+    {
+      "layer": "local_static_verifier",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "scripts/verify-hosted-demo.mjs",
+      "command_or_click_path": "HOSTED_URL=http://127.0.0.1:4179/ npm run verify:hosted — HTTP 200, en-US, current copy present, stale copy absent"
+    },
+    {
+      "layer": "chrome_extension_behavior_trace",
+      "status": "blocked",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "Preferred Chrome Extension trace of blank → sample → source → Verify → Decide → Ship",
+      "blocked_reason": "The Mac was locked, so the preferred current-candidate route could not start. The isolated headless Chrome fallback is recorded separately and is not promoted to Extension evidence."
+    },
+    {
+      "layer": "human_review_gate",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh headless Chrome fallback at 390x844: open sample; expand/collapse a source; enter Verify; accept one claim; advance to Decide; draft; export; reach Ship",
+      "evidence_boundary": "Current local browser fallback only. The focused trace did not promote non-owner comprehension, native AT, hosted behavior, or adoption."
+    },
+    {
+      "layer": "keyboard_skip_link",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh reload → first Tab → active element is the named Skip to main content link"
+    },
+    {
+      "layer": "responsive_mobile_emulation",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "Headless Chrome fallback at exact 390x844, 1024x900, and 1440x900; screenshots, hierarchy, fixed action ownership, and width geometry inspected",
+      "evidence_boundary": "Emulated viewport only; widths were 390/390, 1024/1024, and 1440/1440. Real-device touch remains unverified."
+    },
+    {
+      "layer": "chrome_accessibility_tree",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh semantic scan — zero unnamed visible controls, zero duplicate IDs, zero dangling aria-controls; first Tab reaches Skip to main content",
+      "evidence_boundary": "Chrome fallback semantics only; not native VoiceOver, NVDA, TalkBack, or equivalent screen-reader output."
+    },
+    {
+      "layer": "visual_inspection",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "Headless Chrome screenshots at 390x844, 1024x900, and 1440x900; blank, loaded, Decide, and Ship states inspected",
+      "evidence_boundary": "Local fallback visual inspection only. The six less-ai-workpaper-second-polish screenshots are not canonical hosted or real-device evidence."
+    },
+    {
+      "layer": "app_origin_console_and_network_boundary",
+      "status": "pass",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "Fresh browser runtime/request collection during the current flow; browserErrors=[] and requestFailures=[]",
+      "evidence_boundary": "Local fallback runtime/resource boundary only; no provider, telemetry, GitHub mutation, or raw-signal upload was exercised."
+    },
+    {
+      "layer": "canonical_hosted_release",
+      "status": "blocked",
+      "required": true,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/81-hosted-release-preflight-2026-08-15.md",
+      "command_or_click_path": "HOSTED_URL=https://asdc163.github.io/pm-signal-lab/ npm run verify:hosted",
+      "blocked_reason": "The canonical Pages URL still serves the prior bundle. Merge/deploy requires explicit user approval, then a fresh HTTPS verifier and browser trace."
+    },
+    {
+      "layer": "native_assistive_technology",
+      "status": "out_of_scope",
+      "required": false,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "VoiceOver, NVDA, TalkBack, physical device, zoom, and reduced-motion execution",
+      "out_of_scope_reason": "No native AT or physical-device harness was used in this local run; Chrome fallback semantics are not a substitute."
+    },
+    {
+      "layer": "non_owner_pm_sessions",
+      "status": "blocked",
+      "required": true,
+      "artifact_path_or_url": "docs/operations/international-pilot-launch-kit-2026-08-15.md",
+      "command_or_click_path": "Five unguided international PM sessions with privacy-safe field notes",
+      "blocked_reason": "The session kit is prepared, but no participant evidence was collected in this run."
+    },
+    {
+      "layer": "live_model_quality_and_ai_evaluation",
+      "status": "out_of_scope",
+      "required": false,
+      "artifact_path_or_url": "docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md",
+      "command_or_click_path": "Provider quality, retrieval freshness, prompt-injection resistance, latency, cost, and safety evaluation",
+      "out_of_scope_reason": "This slice remains deterministic and local-only; no provider or live model is connected."
+    },
+    {
+      "layer": "public_adoption_and_github_stars",
+      "status": "out_of_scope",
+      "required": false,
+      "artifact_path_or_url": "docs/operations/growth-operating-system.md",
+      "command_or_click_path": "Traffic, unique viewers, referrals, retention, adoption, and star movement",
+      "out_of_scope_reason": "No adoption or star movement is inferred from local QA, repository activity, or prepared outreach material."
+    }
+  ],
+  "notes": [
+    "This manifest records the current local less-AI workpaper second-polish candidate. The local production-preview copy oracle, build, tests, lint, semantic scan, responsive geometry, screenshot inspection, source disclosure, review gate, and full blank → sample → source → Verify → Decide → Ship path passed in the isolated headless Chrome fallback. A first verifier run exposed a stale-copy collision in an accessible label; the label was corrected, the product was rebuilt, and the final verifier/browser run passed. The preferred Chrome Extension route remains blocked because the Mac was locked; native AT, real-device behavior, canonical hosted behavior, participant evidence, adoption, and stars remain separate gates. This manifest does not authorize merge, deployment, external submission, or a claim of virality or 10,000 stars."
+  ]
+}

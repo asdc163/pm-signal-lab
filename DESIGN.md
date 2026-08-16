@@ -137,6 +137,7 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Avoid network-like brand marks, graph nodes, fake confidence meters, chat bubbles, typing indicators, and shell copy that makes the preview look like an AI agent.
 - Prefer actual source rows, source numbers, limitations, a deterministic sample output, and an annotated decision brief as the visual language.
 - Keep AI language in subject/context and evidence objects; do not make it the loaded worksheet headline.
+- Second-polish rule: the loaded hero keeps the same editorial display voice as the empty sheet, while margin labels state literal ownership or output (`Decision owner: you`, `Stop rule: yours`, `Markdown export`). Do not add another status layer to explain the product.
 
 ## Evidence and release references
 
@@ -151,8 +152,11 @@ font-family-mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
 - Mobile primary-action de-duplication local QA: [`97-mobile-primary-action-de-duplication-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/97-mobile-primary-action-de-duplication-local-qa-2026-08-16.md).
 - Source-first chrome simplification contract: [`98-source-first-chrome-simplification-contract-2026-08-16.md`](./docs/product/pm-signal-lab/98-source-first-chrome-simplification-contract-2026-08-16.md).
 - Source-first chrome simplification local QA: [`99-source-first-chrome-simplification-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/99-source-first-chrome-simplification-local-qa-2026-08-16.md).
+- Less-AI workpaper second-polish contract: [`100-less-ai-workpaper-second-polish-contract-2026-08-16.md`](./docs/product/pm-signal-lab/100-less-ai-workpaper-second-polish-contract-2026-08-16.md).
+- Less-AI workpaper second-polish local QA: [`101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md`](./docs/product/pm-signal-lab/101-less-ai-workpaper-second-polish-local-qa-2026-08-16.md).
+- Less-AI workpaper second-polish machine-readable evidence: [`qa-evidence-manifest-2026-08-16.json`](./docs/product/pm-signal-lab/qa-evidence-manifest-2026-08-16.json).
 
-- Current candidate screenshot set, captured locally on 2026-08-16: [blank mobile](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-blank-390-2026-08-16.png), [loaded mobile](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-loaded-390-2026-08-16.png), [Decide](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-decide-390-2026-08-16.png), [Ship mobile](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-ship-390-2026-08-16.png), [tablet](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-loaded-1024-2026-08-16.png), and [desktop](./docs/product/pm-signal-lab/assets/qa/source-first-chrome-simplification-loaded-1440-2026-08-16.png).
+- Current candidate screenshot set, captured locally on 2026-08-16: [blank mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-workpaper-second-polish-blank-390-2026-08-16.png), [loaded mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-workpaper-second-polish-loaded-390-2026-08-16.png), [Decide](./docs/product/pm-signal-lab/assets/qa/less-ai-workpaper-second-polish-decide-390-2026-08-16.png), [Ship mobile](./docs/product/pm-signal-lab/assets/qa/less-ai-workpaper-second-polish-ship-390-2026-08-16.png), [tablet](./docs/product/pm-signal-lab/assets/qa/less-ai-workpaper-second-polish-loaded-1024-2026-08-16.png), and [desktop](./docs/product/pm-signal-lab/assets/qa/less-ai-workpaper-second-polish-loaded-1440-2026-08-16.png).
 - Older screenshot names remain in the assets folder as historical evidence only. They are not current visual proof and do not prove hosted behavior.
 - Source ledger contract: [`32-source-ledger-composition-contract-2026-08-15.md`](./docs/product/pm-signal-lab/32-source-ledger-composition-contract-2026-08-15.md).
 - English-first messaging and localization contract: [`34-english-first-product-messaging-contract-2026-08-15.md`](./docs/product/pm-signal-lab/34-english-first-product-messaging-contract-2026-08-15.md).

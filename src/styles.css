@@ -4508,3 +4508,48 @@ main.workspace:focus {
   color: var(--trust);
   border-color: var(--trust);
 }
+
+/* Less-AI workpaper second polish — 2026-08-16.
+   The source rows already carry the product signature. This pass removes
+   reassurance-like chrome and gives the loaded work statement the same human
+   editorial voice as the empty sheet. */
+.workbench.is-loaded .hero-block h1 {
+  font-family: var(--display);
+  font-weight: 600;
+  letter-spacing: -0.026em;
+  line-height: 1.08;
+}
+
+.workbench.is-loaded .human-label {
+  color: var(--muted);
+  border-left: 1px solid var(--line-strong);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  line-height: 1.45;
+}
+
+.workbench.is-loaded .human-label svg {
+  color: var(--trust);
+}
+
+.hero-status-step,
+.count-badge strong,
+.source-ledger-heading .micro-status strong,
+.evidence-index strong,
+.claim-id {
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 700px) {
+  .workbench.is-loaded .hero-block h1 {
+    font-size: clamp(1.85rem, 8.8vw, 2.25rem);
+    line-height: 1.08;
+  }
+
+  .workbench.is-loaded .human-label {
+    max-width: 100%;
+    white-space: normal;
+  }
+}
