@@ -1,0 +1,4 @@
+interface:
+  display_name: "Content to Moderation"
+  short_description: "Turn AI content policy into reviewable moderation decisions"
+  default_prompt: "Use $pm-ai-content-to-moderation to turn an AI content policy into a bounded moderation, review, appeal, and release contract."
