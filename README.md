@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships twenty-nine small, tool-free Agent Skills for evidence-first PM
+This repository ships thirty small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -29,8 +29,9 @@ live result.
 | A user or session observation | [`pm-feedback-to-fix`](./skills/pm-feedback-to-fix/SKILL.md) | A reproduction path, smallest fix, and acceptance checks |
 | A decision ready for delivery | [`pm-decision-to-spec`](./skills/pm-decision-to-spec/SKILL.md) | A bounded spec with states, scope, measurement, and rollback |
 | An AI workflow that needs human boundaries | [`pm-ai-task-boundary`](./skills/pm-ai-task-boundary/SKILL.md) | Ownership, approval points, fallback, and a safe pilot |
+| AI review scores that may drive a release decision | [`pm-ai-review-to-calibration`](./skills/pm-ai-review-to-calibration/SKILL.md) | Rubric anchors, blind labels, reviewer agreement, judge comparison, and adjudication |
 
-Use the smallest matching skill first; do not chain all twenty-eight before
+Use the smallest matching skill first; do not chain all thirty before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -168,6 +169,12 @@ you know what the next decision needs.
   destination, fallback, and a release decision. Start with its [fictional
   feedback first run](./skills/pm-ai-feedback-to-eval/examples/first-run.md) or
   read the [worked feedback-to-eval contract](./skills/pm-ai-feedback-to-eval/references/feedback-eval-contract.md).
+- [`pm-ai-review-to-calibration`](./skills/pm-ai-review-to-calibration/SKILL.md)
+  turns human review or model-judge scoring into a calibrated evaluation
+  contract for rubric anchors, blind labels, reviewer agreement, judge
+  comparison, adjudication, drift, privacy, and release evidence. Start with
+  its [fictional calibration first run](./skills/pm-ai-review-to-calibration/examples/first-run.md)
+  or read the [worked review-calibration contract](./skills/pm-ai-review-to-calibration/references/review-calibration-contract.md).
 - [`pm-ai-risk-to-control`](./skills/pm-ai-risk-to-control/SKILL.md) turns an AI
   launch or material change into a reviewable hazard, harm, control, evidence,
   residual-risk, fallback, and release decision. It separates preventive,
@@ -206,7 +213,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the twenty-nine first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the thirty first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
