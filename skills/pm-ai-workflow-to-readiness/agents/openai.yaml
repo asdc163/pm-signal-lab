@@ -1,0 +1,3 @@
+interface:
+  display_name: "Pm Ai Workflow to Readiness"
+  short_description: "Route one AI workflow to a bounded readiness decision"
