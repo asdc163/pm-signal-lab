@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Value to Retention"
+  short_description: "Define AI repeat-value and retention evidence"
+  default_prompt: "Create a source-bounded value to retention contract for this AI product job."
