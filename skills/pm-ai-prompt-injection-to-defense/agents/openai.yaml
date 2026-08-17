@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Prompt Injection to Defense"
+  short_description: "Map injection paths and choose defenses"
+  default_prompt: "Use $pm-ai-prompt-injection-to-defense to map an AI prompt-injection or tool-poisoning path, choose proportionate defenses, define negative evals, and set a bounded release decision."
