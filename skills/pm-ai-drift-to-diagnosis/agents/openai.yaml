@@ -1,0 +1,3 @@
+interface:
+  display_name: "PM AI Drift to Diagnosis"
+  short_description: "Diagnose AI behavior drift before choosing a response"
