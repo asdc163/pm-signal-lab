@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI MCP to Authorization"
+  short_description: "Set MCP authorization boundaries"
+  default_prompt: "Create a source-bounded MCP authorization contract with resource, issuer, consent, scope, tool, token, task isolation, recovery, and release evidence."
