@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships sixty-eight small, tool-free Agent Skills for evidence-first PM
+This repository ships sixty-nine small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -41,6 +41,7 @@ live result.
 | An AI monitor needs human oversight | [`pm-ai-monitor-to-oversight`](./skills/pm-ai-monitor-to-oversight/SKILL.md) | Observation scope, coverage, timing, review states, control evidence, containment, and an honest safety-case boundary |
 | An AI workflow may be ready for more exposure | [`pm-ai-workflow-to-scale`](./skills/pm-ai-workflow-to-scale/SKILL.md) | Maturity, accepted outcomes, guardrails, cost per accepted outcome, demand, capacity, rollout, and rollback |
 | A tested AI workflow needs a supportable team introduction | [`pm-ai-workflow-to-adoption`](./skills/pm-ai-workflow-to-adoption/SKILL.md) | Team rhythm, limited introduction, enablement, support/fallback, real-use evidence, feedback-to-change, and the next decision |
+| An AI workflow needs an evidence-bounded business case | [`pm-ai-value-to-investment`](./skills/pm-ai-value-to-investment/SKILL.md) | Successful work unit, full cost, dependability, value assumptions, scenarios, sensitivity, capacity, and an investment route |
 | An AI product needs a bounded live voice or audio session | [`pm-ai-realtime-to-session`](./skills/pm-ai-realtime-to-session/SKILL.md) | Session type, identity, turn-taking, interruption, transport, credential, tools, consent, recovery, and release evidence |
 | An AI product needs meaning preserved across languages | [`pm-ai-translation-to-meaning`](./skills/pm-ai-translation-to-meaning/SKILL.md) | Source/target locale, meaning ledger, terminology, ambiguity, correction, privacy, target-user parity, and release evidence |
 | An AI agent needs to research a complex question with evidence | [`pm-ai-research-to-evidence`](./skills/pm-ai-research-to-evidence/SKILL.md) | Decision frame, source policy, research plan, tool/data boundary, claim ledger, uncertainty, progress, review, and release gate |
@@ -69,7 +70,7 @@ live result.
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
-Use the smallest matching skill first; do not chain all sixty-eight before
+Use the smallest matching skill first; do not chain all sixty-nine before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -142,6 +143,15 @@ you know what the next decision needs.
   overrides, exceptions, support burden, experience, outcome, and causality
   separate. Start with its [fictional support-draft first run](./skills/pm-ai-workflow-to-adoption/examples/first-run.md)
   or read the [workflow adoption reference](./skills/pm-ai-workflow-to-adoption/references/workflow-adoption.md).
+- [`pm-ai-value-to-investment`](./skills/pm-ai-value-to-investment/SKILL.md)
+  turns one AI workflow into an evidence-bounded value-to-investment brief. It
+  defines a successful work unit, full cost including retries and human review,
+  dependability, value assumptions, low/base/high scenarios, sensitivity,
+  capacity, opportunity cost, and an `Invest`, `Test`, `Narrow`, `Hold`, or
+  `Stop` route. It keeps token price, usage, accepted work, proxy value,
+  realized value, and business value separate. Start with its [fictional
+  support-draft value case](./skills/pm-ai-value-to-investment/examples/first-run.md)
+  or read the [value-to-investment reference](./skills/pm-ai-value-to-investment/references/value-investment.md).
 - [`pm-feedback-to-fix`](./skills/pm-feedback-to-fix/SKILL.md) turns a de-identified
   product observation into a bounded reproduction path, smallest fix or
   experiment, acceptance checks, and release/rollback notes. Start with its
@@ -521,7 +531,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the sixty-eight first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the sixty-nine first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
