@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI System to Inventory"
+  short_description: "Keep AI system ownership and lifecycle visible"
+  default_prompt: "Use $pm-ai-system-to-inventory to turn one AI capability, agent, model-backed feature, or vendor integration into a bounded lifecycle inventory record with owners, dependencies, evidence, review, change, and retirement boundaries."
