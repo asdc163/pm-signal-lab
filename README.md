@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships sixty-two small, tool-free Agent Skills for evidence-first PM
+This repository ships sixty-three small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -35,6 +35,7 @@ live result.
 | An AI result must cross a reliable schema boundary | [`pm-ai-output-to-schema`](./skills/pm-ai-output-to-schema/SKILL.md) | Route, schema/version, refusal/incomplete/parse states, recovery, evidence, and authority separation |
 | An AI output needs a real quality decision | [`pm-ai-output-to-eval`](./skills/pm-ai-output-to-eval/SKILL.md) | Evaluation unit, slices, oracle layers, abstention, calibration, drift, denominator, and release gate |
 | An independent AI evaluation needs a defensible release decision | [`pm-ai-independent-eval-to-release`](./skills/pm-ai-independent-eval-to-release/SKILL.md) | Claim class, evaluator independence, harness and budget, validity hazards, publication boundary, remediation, and rollback |
+| An AI product needs to choose an improvement lever | [`pm-ai-improvement-to-route`](./skills/pm-ai-improvement-to-route/SKILL.md) | Failure localization, route eligibility, smallest paired test, data/permission gates, and a truthful next decision |
 | An AI product needs a bounded live voice or audio session | [`pm-ai-realtime-to-session`](./skills/pm-ai-realtime-to-session/SKILL.md) | Session type, identity, turn-taking, interruption, transport, credential, tools, consent, recovery, and release evidence |
 | An AI product needs meaning preserved across languages | [`pm-ai-translation-to-meaning`](./skills/pm-ai-translation-to-meaning/SKILL.md) | Source/target locale, meaning ledger, terminology, ambiguity, correction, privacy, target-user parity, and release evidence |
 | An AI agent needs to research a complex question with evidence | [`pm-ai-research-to-evidence`](./skills/pm-ai-research-to-evidence/SKILL.md) | Decision frame, source policy, research plan, tool/data boundary, claim ledger, uncertainty, progress, review, and release gate |
@@ -63,7 +64,7 @@ live result.
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
-Use the smallest matching skill first; do not chain all sixty-two before
+Use the smallest matching skill first; do not chain all sixty-three before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -87,6 +88,14 @@ you know what the next decision needs.
   adoption, or production guarantee. Start with its [fictional support-triage
   first run](./skills/pm-ai-independent-eval-to-release/examples/first-run.md)
   or read the [worked independent evaluation release brief](./skills/pm-ai-independent-eval-to-release/references/independent-evaluation-release-brief.md).
+- [`pm-ai-improvement-to-route`](./skills/pm-ai-improvement-to-route/SKILL.md)
+  turns an observed AI quality, trust, cost, latency, coverage, or completion
+  gap into a source-bounded choice among prompt, context, retrieval, tool,
+  orchestration, model, data, UX, and fine-tuning routes. It keeps failure
+  localization, route eligibility, paired evaluation, permission, rollback,
+  and the `Need evidence` boundary visible. Start with its [fictional
+  support-triage first run](./skills/pm-ai-improvement-to-route/examples/first-run.md)
+  or read the [route evidence reference](./skills/pm-ai-improvement-to-route/references/route-evidence.md).
 - [`pm-feedback-to-fix`](./skills/pm-feedback-to-fix/SKILL.md) turns a de-identified
   product observation into a bounded reproduction path, smallest fix or
   experiment, acceptance checks, and release/rollback notes. Start with its
@@ -466,7 +475,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the sixty-two first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the sixty-three first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
