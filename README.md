@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships seventy-three small, tool-free Agent Skills for evidence-first PM
+This repository ships seventy-four small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -42,6 +42,7 @@ live result.
 | A proposed AI workflow needs a pre-test readiness decision | [`pm-ai-workflow-to-readiness`](./skills/pm-ai-workflow-to-readiness/SKILL.md) | User/job, owner, value, complexity/risk, dependencies, user/technical readiness, human boundary, smallest test, and Test now/Validate further/Sequence later/Avoid for now routes |
 | An AI workflow may be ready for more exposure | [`pm-ai-workflow-to-scale`](./skills/pm-ai-workflow-to-scale/SKILL.md) | Maturity, accepted outcomes, guardrails, cost per accepted outcome, demand, capacity, rollout, and rollback |
 | A tested AI workflow needs a supportable team introduction | [`pm-ai-workflow-to-adoption`](./skills/pm-ai-workflow-to-adoption/SKILL.md) | Team rhythm, limited introduction, enablement, support/fallback, real-use evidence, feedback-to-change, and the next decision |
+| A tested AI workflow is not becoming repeatable real work | [`pm-ai-adoption-to-diagnosis`](./skills/pm-ai-adoption-to-diagnosis/SKILL.md) | Evidence-separated blocker diagnosis across fit, trust, access, ownership, process, repeatability, value evidence, measurement, and the smallest next action |
 | A tested AI workflow needs a reusable operating package | [`pm-ai-workflow-to-package`](./skills/pm-ai-workflow-to-package/SKILL.md) | Repeatable steps, reusable assets, human review, evidence boundaries, support/fallback, ownership, change, and retirement |
 | An AI workflow change needs a revalidation decision | [`pm-ai-change-to-revalidation`](./skills/pm-ai-change-to-revalidation/SKILL.md) | Impact map, affected slices, baseline/candidate comparison, control recheck, bounded rollout, hold, rollback, and retirement |
 | An AI portfolio needs an evidence-bounded sequence | [`pm-ai-portfolio-to-sequence`](./skills/pm-ai-portfolio-to-sequence/SKILL.md) | Candidate cards, value models, foundations, dependencies, capacity, concurrency, stage gates, and Start/Next/Parallel/Hold/Stop/Retire routes |
@@ -74,7 +75,7 @@ live result.
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
-Use the smallest matching skill first; do not chain all seventy-three before
+Use the smallest matching skill first; do not chain all seventy-four before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -157,6 +158,15 @@ you know what the next decision needs.
   overrides, exceptions, support burden, experience, outcome, and causality
   separate. Start with its [fictional support-draft first run](./skills/pm-ai-workflow-to-adoption/examples/first-run.md)
   or read the [workflow adoption reference](./skills/pm-ai-workflow-to-adoption/references/workflow-adoption.md).
+- [`pm-ai-adoption-to-diagnosis`](./skills/pm-ai-adoption-to-diagnosis/SKILL.md)
+  diagnoses why one tested workflow is not becoming repeatable real work. It
+  separates exposure, first use, repeat use, changed work, and outcome; maps
+  fit, trust/quality, access, ownership/reinforcement, process/environment,
+  repeatability/packaging, value evidence, and measurement gaps; then proposes
+  one smallest `Try`, `Instrument`, `Escalate`, `Hold`, or `Stop expanding`
+  action. It is distinct from workflow introduction, packaging, retention, and
+  scale decisions. Start with its [fictional support-draft diagnosis](./skills/pm-ai-adoption-to-diagnosis/examples/first-run.md)
+  or read the [adoption diagnosis reference](./skills/pm-ai-adoption-to-diagnosis/references/adoption-diagnosis.md).
 - [`pm-ai-workflow-to-package`](./skills/pm-ai-workflow-to-package/SKILL.md)
   turns a tested AI workflow into an evidence-bounded operating package that
   another person can repeat, review, support, maintain, change, or retire. It
@@ -570,7 +580,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the seventy-three first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the seventy-four first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
