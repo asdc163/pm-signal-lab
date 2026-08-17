@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Signal to Intervention"
+  short_description: "Turn AI signals into action"
+  default_prompt: "Use $pm-ai-signal-to-intervention to validate live AI signals, choose a proportionate intervention, assign scope and ownership, verify recovery, and write back the learning."
