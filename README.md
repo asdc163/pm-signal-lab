@@ -15,6 +15,24 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 This repository ships twenty-eight small, tool-free Agent Skills for evidence-first PM
 work:
 
+### Choose a first run by the PM job
+
+Start with one route that matches the work in front of you. Every first-run
+fixture is fictional; it is a way to inspect the workflow, not evidence of a
+live result.
+
+| If you have... | Start here | You should leave with... |
+| --- | --- | --- |
+| Raw product notes | [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) | A source ledger, bounded claims, and one smallest test |
+| An AI, platform, or market change | [`pm-trend-to-decision`](./skills/pm-trend-to-decision/SKILL.md) | An impact map, bounded implications, and one validation |
+| A test or rollout result | [`pm-experiment-to-readout`](./skills/pm-experiment-to-readout/SKILL.md) | A metric/guardrail readout and a continue, change, stop, or hold decision |
+| A user or session observation | [`pm-feedback-to-fix`](./skills/pm-feedback-to-fix/SKILL.md) | A reproduction path, smallest fix, and acceptance checks |
+| A decision ready for delivery | [`pm-decision-to-spec`](./skills/pm-decision-to-spec/SKILL.md) | A bounded spec with states, scope, measurement, and rollback |
+| An AI workflow that needs human boundaries | [`pm-ai-task-boundary`](./skills/pm-ai-task-boundary/SKILL.md) | Ownership, approval points, fallback, and a safe pilot |
+
+Use the smallest matching skill first; do not chain all twenty-eight before
+you know what the next decision needs.
+
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
   notes into a source ledger, candidate claims, limitations, and one smallest
   test. Start with its [fictional support-draft first run](./skills/pm-source-to-test/examples/first-run.md) or read the [worked support-draft review](./skills/pm-source-to-test/references/support-draft-review.md).
