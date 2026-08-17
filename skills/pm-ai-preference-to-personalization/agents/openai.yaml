@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Preference to Personalization"
+  short_description: "Define AI personalization controls"
+  default_prompt: "Create a source-bounded preference-to-personalization contract for this AI product job."
