@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships fifty-six small, tool-free Agent Skills for evidence-first PM
+This repository ships fifty-seven small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -35,6 +35,7 @@ live result.
 | An AI result must cross a reliable schema boundary | [`pm-ai-output-to-schema`](./skills/pm-ai-output-to-schema/SKILL.md) | Route, schema/version, refusal/incomplete/parse states, recovery, evidence, and authority separation |
 | An AI output needs a real quality decision | [`pm-ai-output-to-eval`](./skills/pm-ai-output-to-eval/SKILL.md) | Evaluation unit, slices, oracle layers, abstention, calibration, drift, denominator, and release gate |
 | An AI product needs a bounded live voice or audio session | [`pm-ai-realtime-to-session`](./skills/pm-ai-realtime-to-session/SKILL.md) | Session type, identity, turn-taking, interruption, transport, credential, tools, consent, recovery, and release evidence |
+| An AI product needs meaning preserved across languages | [`pm-ai-translation-to-meaning`](./skills/pm-ai-translation-to-meaning/SKILL.md) | Source/target locale, meaning ledger, terminology, ambiguity, correction, privacy, target-user parity, and release evidence |
 | An AI capability needs a meaningful first use | [`pm-ai-first-use-to-activation`](./skills/pm-ai-first-use-to-activation/SKILL.md) | First-value oracle, activation candidates, instrumentation, guardrails, recovery, and rollout decision |
 | An AI product needs repeat value after first use | [`pm-ai-value-to-retention`](./skills/pm-ai-value-to-retention/SKILL.md) | Natural cadence, repeat-value oracle, cohorts, freshness, reactivation, suppression, and trust guardrails |
 | An AI capability needs the right user intent | [`pm-ai-intent-to-discovery`](./skills/pm-ai-intent-to-discovery/SKILL.md) | Positive/negative routing, suggestions, clarification, abstention, disclosure, host mismatch, and manual fallback |
@@ -57,7 +58,7 @@ live result.
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
-Use the smallest matching skill first; do not chain all fifty-six before
+Use the smallest matching skill first; do not chain all fifty-seven before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -247,6 +248,14 @@ you know what the next decision needs.
   accessibility, evaluation slices, and release evidence. Start with its
   [fictional support-concierge first run](./skills/pm-ai-realtime-to-session/examples/first-run.md)
   or read the [worked realtime session contract](./skills/pm-ai-realtime-to-session/references/realtime-session-contract.md).
+- [`pm-ai-translation-to-meaning`](./skills/pm-ai-translation-to-meaning/SKILL.md)
+  turns a live or bounded multilingual route into a meaning-preservation
+  contract. It separates translation from transcription, localization,
+  summarization, and assistant answers, then covers source/target locale,
+  entities, numbers, negation, intent, terminology, ambiguity, correction,
+  privacy, accessibility, target-user outcome, evaluation slices, and rollback.
+  Start with its [fictional live-support first run](./skills/pm-ai-translation-to-meaning/examples/first-run.md)
+  or read the [worked translation-to-meaning contract](./skills/pm-ai-translation-to-meaning/references/translation-meaning-contract.md).
 - [`pm-ai-first-use-to-activation`](./skills/pm-ai-first-use-to-activation/SKILL.md)
   turns an AI capability launch into a first-use and activation contract. It
   separates eligibility, exposure, context readiness, first value, repeat
@@ -415,7 +424,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the fifty-six first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the fifty-seven first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.

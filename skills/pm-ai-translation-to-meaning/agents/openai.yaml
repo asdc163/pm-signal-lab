@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Translation to Meaning"
+  short_description: "Protect meaning across languages and locales"
+  default_prompt: "Define the translation job, source and target meaning contract, ambiguity and terminology policy, correction path, privacy boundary, evaluation slices, and release decision."
