@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Recommendation to Decision"
+  short_description: "Define AI recommendation decision evidence"
+  default_prompt: "Create a source-bounded recommendation-to-decision contract for this AI product job."
