@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Task to Progress"
+  short_description: "Define AI task progress evidence"
+  default_prompt: "Create a source-bounded async AI task-to-progress contract for this product job."
