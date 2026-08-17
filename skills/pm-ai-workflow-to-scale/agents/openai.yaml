@@ -1,0 +1,3 @@
+interface:
+  display_name: "PM AI Workflow to Scale"
+  short_description: "Decide when an AI workflow can scale"
