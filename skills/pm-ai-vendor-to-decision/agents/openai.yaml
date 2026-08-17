@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Vendor to Decision"
+  short_description: "Make one AI provider dependency decision-ready"
+  default_prompt: "Use $pm-ai-vendor-to-decision to turn one external AI provider or vendor dependency into a source-bounded decision packet with hard eligibility fields, operating receipts, lock-in/exit conditions, owners, and a truthful route."
