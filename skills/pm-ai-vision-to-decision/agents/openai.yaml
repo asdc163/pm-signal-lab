@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Vision to Decision"
+  short_description: "Turn visual inputs into reviewable decisions"
+  default_prompt: "Use $pm-ai-vision-to-decision to define the visual artifact, source anchors, extraction states, accessibility, evaluation slices, and release decision."
