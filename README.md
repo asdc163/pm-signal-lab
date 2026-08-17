@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships seventy-one small, tool-free Agent Skills for evidence-first PM
+This repository ships seventy-two small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -42,6 +42,7 @@ live result.
 | An AI workflow may be ready for more exposure | [`pm-ai-workflow-to-scale`](./skills/pm-ai-workflow-to-scale/SKILL.md) | Maturity, accepted outcomes, guardrails, cost per accepted outcome, demand, capacity, rollout, and rollback |
 | A tested AI workflow needs a supportable team introduction | [`pm-ai-workflow-to-adoption`](./skills/pm-ai-workflow-to-adoption/SKILL.md) | Team rhythm, limited introduction, enablement, support/fallback, real-use evidence, feedback-to-change, and the next decision |
 | A tested AI workflow needs a reusable operating package | [`pm-ai-workflow-to-package`](./skills/pm-ai-workflow-to-package/SKILL.md) | Repeatable steps, reusable assets, human review, evidence boundaries, support/fallback, ownership, change, and retirement |
+| An AI workflow change needs a revalidation decision | [`pm-ai-change-to-revalidation`](./skills/pm-ai-change-to-revalidation/SKILL.md) | Impact map, affected slices, baseline/candidate comparison, control recheck, bounded rollout, hold, rollback, and retirement |
 | An AI portfolio needs an evidence-bounded sequence | [`pm-ai-portfolio-to-sequence`](./skills/pm-ai-portfolio-to-sequence/SKILL.md) | Candidate cards, value models, foundations, dependencies, capacity, concurrency, stage gates, and Start/Next/Parallel/Hold/Stop/Retire routes |
 | An AI workflow needs an evidence-bounded business case | [`pm-ai-value-to-investment`](./skills/pm-ai-value-to-investment/SKILL.md) | Successful work unit, full cost, dependability, value assumptions, scenarios, sensitivity, capacity, and an investment route |
 | An AI product needs a bounded live voice or audio session | [`pm-ai-realtime-to-session`](./skills/pm-ai-realtime-to-session/SKILL.md) | Session type, identity, turn-taking, interruption, transport, credential, tools, consent, recovery, and release evidence |
@@ -72,7 +73,7 @@ live result.
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
-Use the smallest matching skill first; do not chain all seventy-one before
+Use the smallest matching skill first; do not chain all seventy-two before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -153,6 +154,15 @@ you know what the next decision needs.
   versioning, and retirement visible without calling a package adoption or
   value proof. Start with its [fictional support-draft package](./skills/pm-ai-workflow-to-package/examples/first-run.md)
   or read the [workflow package reference](./skills/pm-ai-workflow-to-package/references/workflow-package.md).
+- [`pm-ai-change-to-revalidation`](./skills/pm-ai-change-to-revalidation/SKILL.md)
+  turns a proposed change to an AI workflow, source, prompt, model, tool,
+  policy, permission, audience, or owner into an evidence-bounded impact map,
+  revalidation plan, control recheck, bounded rollout, hold, rollback, or
+  retirement decision. It keeps the current version, affected surfaces,
+  representative and negative slices, baseline/candidate comparison, owner,
+  approval, stop trigger, and failure route visible. Start with its [fictional
+  support-draft change](./skills/pm-ai-change-to-revalidation/examples/first-run.md)
+  or read the [change revalidation reference](./skills/pm-ai-change-to-revalidation/references/change-revalidation.md).
 - [`pm-ai-portfolio-to-sequence`](./skills/pm-ai-portfolio-to-sequence/SKILL.md)
   turns several AI workflow or capability candidates into an evidence-bounded
   portfolio sequence. It keeps user/job, value model, maturity, foundations,
@@ -549,7 +559,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the seventy-one first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the seventy-two first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.

@@ -1,0 +1,3 @@
+interface:
+  display_name: "PM AI Change to Revalidation"
+  short_description: "Map AI changes to revalidation and rollback"
