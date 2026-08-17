@@ -1,0 +1,3 @@
+interface:
+  display_name: "PM AI Workflow to Package"
+  short_description: "Package a tested AI workflow for repeatable use"
