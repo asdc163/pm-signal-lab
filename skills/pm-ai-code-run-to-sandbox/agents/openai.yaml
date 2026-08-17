@@ -1,0 +1,4 @@
+interface:
+  display_name: "Code Run to Sandbox"
+  short_description: "Bound code execution boundaries for PM review"
+  default_prompt: "Define the sandbox, permissions, approval, cancellation, artifact provenance, and verification contract before AI-generated code runs."
