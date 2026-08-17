@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Model to Route"
+  short_description: "Turn model choices into safe routing decisions"
+  default_prompt: "Use $pm-ai-model-to-route to decide which model route fits this user job, evidence, data boundary, guardrails, fallback, and release gate."
