@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Output to Interface"
+  short_description: "Shape AI results into bounded interfaces"
+  default_prompt: "Use $pm-ai-output-to-interface to decide whether an AI result should stay text, become structured data, or render as a bounded interface with states, fallback, permissions, and evaluation."
