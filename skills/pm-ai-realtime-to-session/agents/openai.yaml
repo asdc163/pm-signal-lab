@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Realtime to Session"
+  short_description: "Turn live AI audio into a bounded product session"
+  default_prompt: "Define the realtime session type, turn and interruption policy, transport and credential boundary, tool side effects, recovery, evidence, and release decision."
