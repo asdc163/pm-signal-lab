@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Agent Elicitation to Input"
+  short_description: "Design safe input-required steps"
+  default_prompt: "Create a source-bounded agent input contract with purpose, provenance, minimal schema, sensitivity, user controls, decline/cancel/timeout states, validation, recovery, and side-effect separation."
