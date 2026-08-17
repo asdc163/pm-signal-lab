@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Uncertainty to Experience"
+  short_description: "Turn uncertainty into UX states"
+  default_prompt: "Use $pm-ai-uncertainty-to-experience to define uncertainty states, honest progress, provenance, controls, recovery, trust evaluation, and release evidence for this AI job."
