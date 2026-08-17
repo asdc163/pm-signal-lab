@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Output to Eval"
+  short_description: "Turn output quality into a release oracle"
+  default_prompt: "Define the evaluation unit, slices, oracle, denominator, calibration, recovery, and release decision for this AI output."
