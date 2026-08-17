@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Tool Call to Recovery"
+  short_description: "Turn agent tool calls into safe, recoverable PM contracts"
+  default_prompt: "Review this agent tool-call flow and define correlation, result handling, retry, idempotency, partial-result, and recovery rules."
