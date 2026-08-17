@@ -1,0 +1,4 @@
+interface:
+  display_name: "Guardrail to Enforcement"
+  short_description: "Bound guardrail enforcement for PM review"
+  default_prompt: "Map each AI guardrail to its workflow boundary, timing, tripwire, failure state, evidence, recovery, and residual risk."
