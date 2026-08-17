@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships forty-one small, tool-free Agent Skills for evidence-first PM
+This repository ships forty-two small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -39,10 +39,11 @@ live result.
 | An AI task may run across waits or restarts | [`pm-ai-task-to-progress`](./skills/pm-ai-task-to-progress/SKILL.md) | Stable identity, honest progress, input/approval waits, pause/resume/cancel/retry, terminal proof, expiry, and recovery |
 | AI context may personalize an experience | [`pm-ai-preference-to-personalization`](./skills/pm-ai-preference-to-personalization/SKILL.md) | Source, purpose, scope, freshness, precedence, inspect/edit/forget/delete/pause/opt-out/temporary controls, and safe fallback |
 | An AI agent may operate a graphical UI | [`pm-ai-computer-use-to-control`](./skills/pm-ai-computer-use-to-control/SKILL.md) | Observation mode, action scope, postconditions, human stop points, sensitive-screen/injection boundaries, mismatch recovery, and manual fallback |
+| A prompt change may reach users | [`pm-ai-prompt-to-version`](./skills/pm-ai-prompt-to-version/SKILL.md) | Prompt identity, input/output contracts, behavioral diff, baseline/candidate evidence, rollout, cost/latency guardrails, and rollback |
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
-Use the smallest matching skill first; do not chain all forty-one before
+Use the smallest matching skill first; do not chain all forty-two before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -262,6 +263,13 @@ you know what the next decision needs.
   manual fallback, privacy-safe receipts, and evaluation slices. Start with
   its [fictional support-portal first run](./skills/pm-ai-computer-use-to-control/examples/first-run.md)
   or read the [worked computer-use control contract](./skills/pm-ai-computer-use-to-control/references/computer-use-control-contract.md).
+- [`pm-ai-prompt-to-version`](./skills/pm-ai-prompt-to-version/SKILL.md) turns a
+  prompt change into a versioned product configuration contract. It captures
+  prompt identity, input and output contracts, behavioral diff, baseline and
+  candidate evidence, rollout, cost/latency guardrails, human control,
+  rollback, and a privacy-safe receipt. Start with its [fictional support-triage
+  first run](./skills/pm-ai-prompt-to-version/examples/first-run.md) or read the
+  [worked prompt version release contract](./skills/pm-ai-prompt-to-version/references/prompt-version-release-contract.md).
 - [`pm-ai-risk-to-control`](./skills/pm-ai-risk-to-control/SKILL.md) turns an AI
   launch or material change into a reviewable hazard, harm, control, evidence,
   residual-risk, fallback, and release decision. It separates preventive,
@@ -300,7 +308,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the forty-one first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the forty-two first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
