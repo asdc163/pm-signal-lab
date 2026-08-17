@@ -1,0 +1,3 @@
+interface:
+  display_name: "PM AI Monitor to Oversight"
+  short_description: "Turn AI monitor signals into human oversight"
