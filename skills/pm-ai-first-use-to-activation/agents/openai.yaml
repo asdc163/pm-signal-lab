@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI First Use to Activation"
+  short_description: "Define AI first-use and activation evidence"
+  default_prompt: "Create a source-bounded first-use to activation contract for this AI product job."

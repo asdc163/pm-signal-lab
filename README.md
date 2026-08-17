@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships thirty-four small, tool-free Agent Skills for evidence-first PM
+This repository ships thirty-five small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -32,10 +32,11 @@ live result.
 | AI review scores that may drive a release decision | [`pm-ai-review-to-calibration`](./skills/pm-ai-review-to-calibration/SKILL.md) | Rubric anchors, blind labels, reviewer agreement, judge comparison, and adjudication |
 | An AI flow needs honest uncertainty states and recovery | [`pm-ai-uncertainty-to-experience`](./skills/pm-ai-uncertainty-to-experience/SKILL.md) | User-visible states, provenance, controls, recovery, and trust evaluation |
 | An AI result needs to become a bounded interface | [`pm-ai-output-to-interface`](./skills/pm-ai-output-to-interface/SKILL.md) | Output mode, schema/catalog, states, fallback, side effects, and host/a11y evaluation |
+| An AI capability needs a meaningful first use | [`pm-ai-first-use-to-activation`](./skills/pm-ai-first-use-to-activation/SKILL.md) | First-value oracle, activation candidates, instrumentation, guardrails, recovery, and rollout decision |
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
-Use the smallest matching skill first; do not chain all thirty-four before
+Use the smallest matching skill first; do not chain all thirty-five before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -204,6 +205,13 @@ you know what the next decision needs.
   boundaries, host compatibility, accessibility, and evaluation. Start with
   its [fictional output-to-interface first run](./skills/pm-ai-output-to-interface/examples/first-run.md)
   or read the [worked output-to-interface contract](./skills/pm-ai-output-to-interface/references/output-to-interface-contract.md).
+- [`pm-ai-first-use-to-activation`](./skills/pm-ai-first-use-to-activation/SKILL.md)
+  turns an AI capability launch into a first-use and activation contract. It
+  separates eligibility, exposure, context readiness, first value, repeat
+  value, and activation, then adds state/recovery coverage, instrumentation,
+  guardrails, rollout, and a bounded learning decision. Start with its
+  [fictional first-use fixture](./skills/pm-ai-first-use-to-activation/examples/first-run.md)
+  or read the [worked first-use to activation contract](./skills/pm-ai-first-use-to-activation/references/first-use-activation-contract.md).
 - [`pm-ai-risk-to-control`](./skills/pm-ai-risk-to-control/SKILL.md) turns an AI
   launch or material change into a reviewable hazard, harm, control, evidence,
   residual-risk, fallback, and release decision. It separates preventive,
@@ -242,7 +250,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the thirty-four first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the thirty-five first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
