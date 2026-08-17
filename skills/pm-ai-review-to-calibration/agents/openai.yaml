@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Review to Calibration"
+  short_description: "Calibrate AI review decisions"
+  default_prompt: "Use $pm-ai-review-to-calibration to define rubric anchors, reviewer calibration, judge comparison, disagreement handling, and release evidence for this AI job."
