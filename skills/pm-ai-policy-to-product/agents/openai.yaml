@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Policy to Product"
+  short_description: "Map AI policy into bounded product controls"
+  default_prompt: "Use $pm-ai-policy-to-product to turn an AI policy, standard, contract, or governance requirement into an applicability frame, control map, evidence boundary, and truthful release route."
