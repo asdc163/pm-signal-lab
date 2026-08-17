@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Research to Evidence"
+  short_description: "Turn agentic research into reviewable evidence"
+  default_prompt: "Use $pm-ai-research-to-evidence to define the research decision, source policy, evidence ledger, risk boundary, review oracle, and pilot decision."
