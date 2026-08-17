@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Prompt to Version"
+  short_description: "Version prompt changes safely"
+  default_prompt: "Create a source-bounded prompt version contract with identity, input/output contracts, diff, eval evidence, rollout, guardrails, and rollback."
