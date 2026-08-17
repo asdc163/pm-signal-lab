@@ -1,0 +1,3 @@
+interface:
+  display_name: "PM AI Workflow to Evidence"
+  short_description: "Turn workflow artifacts into a traceable evidence packet"
