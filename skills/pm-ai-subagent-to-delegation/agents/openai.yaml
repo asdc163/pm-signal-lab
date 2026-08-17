@@ -1,0 +1,4 @@
+interface:
+  display_name: "Subagent to Delegation"
+  short_description: "Bound subagent delegation for PM review"
+  default_prompt: "Define when an agent may delegate, what context and authority cross the boundary, who owns the result, and how the handoff is verified."
