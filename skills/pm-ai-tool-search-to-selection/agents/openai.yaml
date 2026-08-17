@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Tool Search to Selection"
+  short_description: "Turn large tool catalogs into bounded PM selection contracts"
+  default_prompt: "Review this agent tool-discovery flow and define catalog scope, candidate eligibility, deferred loading, abstention, and selection evidence."
