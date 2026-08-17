@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships seventy-eight small, tool-free Agent Skills for evidence-first PM
+This repository ships seventy-nine small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -47,6 +47,7 @@ live result.
 | An AI policy or regulation may affect a product | [`pm-ai-policy-to-product`](./skills/pm-ai-policy-to-product/SKILL.md) | Applicability frame, requirement ledger, product control map, owner/evidence receipt, exceptions, freshness, and Map controls/Validate applicability/Hold/Do not claim routes |
 | An AI capability needs a maintained system record | [`pm-ai-system-to-inventory`](./skills/pm-ai-system-to-inventory/SKILL.md) | Stable identity, purpose/scope, actors/owners, users/affected parties, surfaces/dependencies, data/model/tool/permission links, lifecycle, evidence, review, change, and retirement routes |
 | An external AI provider dependency needs a bounded decision | [`pm-ai-vendor-to-decision`](./skills/pm-ai-vendor-to-decision/SKILL.md) | Provider/entity/service role, contract/source scope, data/region/tenant, model/tool lifecycle, security/privacy, support/limits, cost, lock-in/portability, owners, receipts, and Compare bounded/Need due diligence/Hold/Exit or replace routes |
+| An AI workflow needs human-review coverage and capacity | [`pm-ai-review-to-capacity`](./skills/pm-ai-review-to-capacity/SKILL.md) | Review unit, consequence, full/sample/exception coverage, queue demand, reviewer capacity, quality/calibration boundary, privacy/access, escalation, fallback, economics, owner, and Cover required/Sample and monitor/Add capacity/Hold routes |
 | A tested AI workflow needs a reusable operating package | [`pm-ai-workflow-to-package`](./skills/pm-ai-workflow-to-package/SKILL.md) | Repeatable steps, reusable assets, human review, evidence boundaries, support/fallback, ownership, change, and retirement |
 | An AI workflow change needs a revalidation decision | [`pm-ai-change-to-revalidation`](./skills/pm-ai-change-to-revalidation/SKILL.md) | Impact map, affected slices, baseline/candidate comparison, control recheck, bounded rollout, hold, rollback, and retirement |
 | An AI portfolio needs an evidence-bounded sequence | [`pm-ai-portfolio-to-sequence`](./skills/pm-ai-portfolio-to-sequence/SKILL.md) | Candidate cards, value models, foundations, dependencies, capacity, concurrency, stage gates, and Start/Next/Parallel/Hold/Stop/Retire routes |
@@ -79,7 +80,7 @@ live result.
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
-Use the smallest matching skill first; do not chain all seventy-eight before
+Use the smallest matching skill first; do not chain all seventy-nine before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -207,6 +208,14 @@ you know what the next decision needs.
   vendors or claiming a recommendation, legal conclusion, or readiness. Start
   with its [fictional provider dependency decision](./skills/pm-ai-vendor-to-decision/examples/first-run.md)
   or read the [vendor decision reference](./skills/pm-ai-vendor-to-decision/references/vendor-decision.md).
+- [`pm-ai-review-to-capacity`](./skills/pm-ai-review-to-capacity/SKILL.md)
+  turns “human-in-the-loop” into a source-bounded review-operations packet for
+  one AI output or agent job. It keeps the review unit, consequence, coverage
+  and sampling policy, queue demand, reviewer capacity, quality/calibration
+  boundary, privacy/access, escalation, fallback, economics, owners, and
+  receipts visible without treating a review plan as quality, safety, adoption,
+  or launch proof. Start with its [fictional AI review queue](./skills/pm-ai-review-to-capacity/examples/first-run.md)
+  or read the [review capacity reference](./skills/pm-ai-review-to-capacity/references/review-capacity.md).
 - [`pm-ai-workflow-to-package`](./skills/pm-ai-workflow-to-package/SKILL.md)
   turns a tested AI workflow into an evidence-bounded operating package that
   another person can repeat, review, support, maintain, change, or retire. It
@@ -620,7 +629,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the seventy-eight first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the seventy-nine first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.

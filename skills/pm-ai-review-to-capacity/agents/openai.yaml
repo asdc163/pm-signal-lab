@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Review to Capacity"
+  short_description: "Turn human review into an operable AI queue"
+  default_prompt: "Use $pm-ai-review-to-capacity to turn one AI output or agent job into a source-bounded review-operations packet with a review unit, coverage policy, queue demand, reviewer capacity, quality, privacy, escalation, fallback, owners, and a truthful route."
