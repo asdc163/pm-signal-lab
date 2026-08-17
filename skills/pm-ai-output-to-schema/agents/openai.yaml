@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Output to Schema"
+  short_description: "Make structured output states reviewable"
+  default_prompt: "Define the schema, completion states, evidence, recovery, and authority boundary for this AI output before it reaches the next product stage."
