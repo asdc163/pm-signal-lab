@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships thirty-one small, tool-free Agent Skills for evidence-first PM
+This repository ships thirty-two small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -31,8 +31,9 @@ live result.
 | An AI workflow that needs human boundaries | [`pm-ai-task-boundary`](./skills/pm-ai-task-boundary/SKILL.md) | Ownership, approval points, fallback, and a safe pilot |
 | AI review scores that may drive a release decision | [`pm-ai-review-to-calibration`](./skills/pm-ai-review-to-calibration/SKILL.md) | Rubric anchors, blind labels, reviewer agreement, judge comparison, and adjudication |
 | An AI flow needs honest uncertainty states and recovery | [`pm-ai-uncertainty-to-experience`](./skills/pm-ai-uncertainty-to-experience/SKILL.md) | User-visible states, provenance, controls, recovery, and trust evaluation |
+| An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 
-Use the smallest matching skill first; do not chain all thirty-one before
+Use the smallest matching skill first; do not chain all thirty-two before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -182,6 +183,12 @@ you know what the next decision needs.
   controls, trust evaluation, and release evidence. Start with its [fictional
   uncertainty first run](./skills/pm-ai-uncertainty-to-experience/examples/first-run.md)
   or read the [worked uncertainty-to-experience contract](./skills/pm-ai-uncertainty-to-experience/references/uncertainty-experience-contract.md).
+- [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md)
+  turns an online AI quality, safety, trust, cost, latency, policy, or behavior
+  signal into an evidence-bounded intervention decision with scope, owner, TTL,
+  user communication, verification, recovery, rollback, and learning writeback.
+  Start with its [fictional signal first run](./skills/pm-ai-signal-to-intervention/examples/first-run.md)
+  or read the [worked signal-intervention contract](./skills/pm-ai-signal-to-intervention/references/signal-intervention-contract.md).
 - [`pm-ai-risk-to-control`](./skills/pm-ai-risk-to-control/SKILL.md) turns an AI
   launch or material change into a reviewable hazard, harm, control, evidence,
   residual-risk, fallback, and release decision. It separates preventive,
@@ -220,7 +227,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the thirty-one first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the thirty-two first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
