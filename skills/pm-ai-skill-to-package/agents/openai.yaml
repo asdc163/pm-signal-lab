@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Skill to Package"
+  short_description: "Package agent skills safely"
+  default_prompt: "Create a source-bounded AI skill package contract with discovery, progressive loading, permissions, compatibility, provenance, verification, and rollback."
