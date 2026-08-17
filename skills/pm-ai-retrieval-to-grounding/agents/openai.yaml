@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Retrieval to Grounding"
+  short_description: "Turn retrieval into grounding decisions"
+  default_prompt: "Use $pm-ai-retrieval-to-grounding to define source eligibility, retrieval, grounding, abstention, evaluation, and release evidence for this AI job."
