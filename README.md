@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships forty-eight small, tool-free Agent Skills for evidence-first PM
+This repository ships forty-nine small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -46,6 +46,7 @@ live result.
 | An MCP or agent connector needs a safe access boundary | [`pm-ai-mcp-to-authorization`](./skills/pm-ai-mcp-to-authorization/SKILL.md) | Resource and issuer discovery, consent, scope, tool side effects, token lifecycle, task isolation, recovery, and release evidence |
 | An agent needs user input before it can continue | [`pm-ai-agent-elicitation-to-input`](./skills/pm-ai-agent-elicitation-to-input/SKILL.md) | Purpose, provenance, minimal schema, sensitivity, user controls, decline/cancel/timeout states, validation, recovery, and side-effect separation |
 | An agent tool call needs safe result pairing and recovery | [`pm-ai-tool-call-to-recovery`](./skills/pm-ai-tool-call-to-recovery/SKILL.md) | Call/result correlation, parallel batches, error classes, bounded retry, idempotency, duplicate/late results, manual fallback, and outcome verification |
+| An agent has too many tools to expose at once | [`pm-ai-tool-search-to-selection`](./skills/pm-ai-tool-search-to-selection/SKILL.md) | Catalog scope, hosted/client search, deferred loading, candidate eligibility, abstention, stale/ambiguous states, and selection evidence |
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
@@ -313,6 +314,14 @@ you know what the next decision needs.
   user recovery, manual fallback, and the boundary between a tool result and a
   verified business outcome. Start with its [fictional calendar batch first run](./skills/pm-ai-tool-call-to-recovery/examples/first-run.md)
   or read the [worked tool-call recovery contract](./skills/pm-ai-tool-call-to-recovery/references/tool-call-recovery-contract.md).
+- [`pm-ai-tool-search-to-selection`](./skills/pm-ai-tool-search-to-selection/SKILL.md)
+  turns a large or changing tool catalog into a bounded selection contract for
+  inventory scope, tenant/workspace binding, hosted or client-owned discovery,
+  deferred loading, candidate relevance versus permission and side-effect
+  eligibility, abstention, stale/ambiguous/unavailable recovery, and the
+  boundary between selection and execution. Start with its [fictional support
+  workspace first run](./skills/pm-ai-tool-search-to-selection/examples/first-run.md)
+  or read the [worked tool-search selection contract](./skills/pm-ai-tool-search-to-selection/references/tool-search-selection-contract.md).
 - [`pm-ai-risk-to-control`](./skills/pm-ai-risk-to-control/SKILL.md) turns an AI
   launch or material change into a reviewable hazard, harm, control, evidence,
   residual-risk, fallback, and release decision. It separates preventive,
@@ -351,7 +360,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the forty-eight first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the forty-nine first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
