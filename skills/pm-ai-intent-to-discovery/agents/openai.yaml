@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Intent to Discovery"
+  short_description: "Define AI discovery and routing evidence"
+  default_prompt: "Create a source-bounded intent-to-discovery contract for this AI product job."
