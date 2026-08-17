@@ -12,7 +12,7 @@ PM Signal Lab is a local-first product evidence field folio for turning raw sign
 
 ## Portable PM skills
 
-This repository ships seventy-two small, tool-free Agent Skills for evidence-first PM
+This repository ships seventy-three small, tool-free Agent Skills for evidence-first PM
 work:
 
 ### Choose a first run by the PM job
@@ -39,6 +39,7 @@ live result.
 | An AI workflow needs to turn outcomes into an improvement finding | [`pm-ai-outcome-to-improvement`](./skills/pm-ai-outcome-to-improvement/SKILL.md) | Proposal-to-outcome evidence chain, correction taxonomy, reviewed grouping, denominator, owner, and smallest next action |
 | An AI signal changes across time | [`pm-ai-drift-to-diagnosis`](./skills/pm-ai-drift-to-diagnosis/SKILL.md) | Comparable windows, exposure/denominator checks, drift taxonomy, smallest next comparison, and a truthful route |
 | An AI monitor needs human oversight | [`pm-ai-monitor-to-oversight`](./skills/pm-ai-monitor-to-oversight/SKILL.md) | Observation scope, coverage, timing, review states, control evidence, containment, and an honest safety-case boundary |
+| A proposed AI workflow needs a pre-test readiness decision | [`pm-ai-workflow-to-readiness`](./skills/pm-ai-workflow-to-readiness/SKILL.md) | User/job, owner, value, complexity/risk, dependencies, user/technical readiness, human boundary, smallest test, and Test now/Validate further/Sequence later/Avoid for now routes |
 | An AI workflow may be ready for more exposure | [`pm-ai-workflow-to-scale`](./skills/pm-ai-workflow-to-scale/SKILL.md) | Maturity, accepted outcomes, guardrails, cost per accepted outcome, demand, capacity, rollout, and rollback |
 | A tested AI workflow needs a supportable team introduction | [`pm-ai-workflow-to-adoption`](./skills/pm-ai-workflow-to-adoption/SKILL.md) | Team rhythm, limited introduction, enablement, support/fallback, real-use evidence, feedback-to-change, and the next decision |
 | A tested AI workflow needs a reusable operating package | [`pm-ai-workflow-to-package`](./skills/pm-ai-workflow-to-package/SKILL.md) | Repeatable steps, reusable assets, human review, evidence boundaries, support/fallback, ownership, change, and retirement |
@@ -73,7 +74,7 @@ live result.
 | An AI signal may require a product intervention | [`pm-ai-signal-to-intervention`](./skills/pm-ai-signal-to-intervention/SKILL.md) | Evidence validation, intervention scope, owner/TTL, recovery, and rollback |
 | An agent, tool, or document may carry an injection | [`pm-ai-prompt-injection-to-defense`](./skills/pm-ai-prompt-injection-to-defense/SKILL.md) | Attack path, authority boundary, smallest defense, negative evals, and release decision |
 
-Use the smallest matching skill first; do not chain all seventy-two before
+Use the smallest matching skill first; do not chain all seventy-three before
 you know what the next decision needs.
 
 - [`pm-source-to-test`](./skills/pm-source-to-test/SKILL.md) turns raw product
@@ -129,6 +130,16 @@ you know what the next decision needs.
   privacy, and containment visible. Start with its [fictional coding-agent
   first run](./skills/pm-ai-monitor-to-oversight/examples/first-run.md) or read
   the [monitor-to-oversight reference](./skills/pm-ai-monitor-to-oversight/references/monitor-oversight.md).
+- [`pm-ai-workflow-to-readiness`](./skills/pm-ai-workflow-to-readiness/SKILL.md)
+  turns one concrete AI workflow candidate into an evidence-bounded pre-test
+  decision. It checks the user/job, owner, value hypothesis, complexity/risk,
+  sources, access, dependencies, user and technical readiness, human boundary,
+  support, fallback, and smallest representative test before choosing `Test
+  now`, `Validate further`, `Sequence later`, or `Avoid for now`. It does not
+  replace opportunity selection, evaluation design, scale decisions, or a
+  tested workflow package. Start with its [fictional support-draft readiness
+  first run](./skills/pm-ai-workflow-to-readiness/examples/first-run.md) or read
+  the [workflow readiness reference](./skills/pm-ai-workflow-to-readiness/references/workflow-readiness.md).
 - [`pm-ai-workflow-to-scale`](./skills/pm-ai-workflow-to-scale/SKILL.md) turns
   an AI workflow demo, validation, or pilot into an evidence-bounded `Explore`,
   `Validate`, `Pilot`, `Scale gradually`, `Narrow`, `Hold`, or `Retire`
@@ -559,7 +570,7 @@ external write. Copy the skill directory you need into an Agent
 Skills-compatible client and keep a human owner on the source mapping and
 final decision.
 
-**Public skill pilot:** Try one of the seventy-two first runs with a real, sanitized note, then
+**Public skill pilot:** Try one of the seventy-three first runs with a real, sanitized note, then
 leave the client/version, source or result IDs, one limitation, and one improvement in
 [pilot issue #46](https://github.com/asdc163/pm-signal-lab/issues/46). A public
 comment is a feedback lead, not adoption evidence.
