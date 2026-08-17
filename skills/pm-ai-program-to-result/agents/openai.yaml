@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Program to Result"
+  short_description: "Keep programmatic tool runs bounded and outcome-ready"
+  default_prompt: "Review this programmatic tool-calling flow and define route eligibility, caller linkage, output contracts, continuation, and final-result evidence."
