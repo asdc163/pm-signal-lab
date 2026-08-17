@@ -1,0 +1,4 @@
+interface:
+  display_name: "Provenance to Trust"
+  short_description: "Turn AI content provenance into bounded trust decisions"
+  default_prompt: "Use $pm-ai-provenance-to-trust to turn an asset provenance signal into a bounded verification state, user explanation, and trust decision."
