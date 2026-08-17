@@ -1,0 +1,4 @@
+interface:
+  display_name: "Independent Eval to Release"
+  short_description: "Turn third-party evidence into release decisions"
+  default_prompt: "Use $pm-ai-independent-eval-to-release to frame an independent AI evaluation, check harness validity, and decide whether evidence supports release."
