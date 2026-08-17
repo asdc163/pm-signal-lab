@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Model Change to Migration"
+  short_description: "Plan safe model migrations"
+  default_prompt: "Create a source-bounded model migration decision with baseline, candidate, impact, eval gates, rollout, fallback, and rollback."
