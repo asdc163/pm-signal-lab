@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Orchestration to Contract"
+  short_description: "Design bounded AI workflow orchestration"
+  default_prompt: "Use $pm-ai-orchestration-to-contract to define a bounded agent workflow with explicit ownership, transitions, stop conditions, evidence, and recovery."
