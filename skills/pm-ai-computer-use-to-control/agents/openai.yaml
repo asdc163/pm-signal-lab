@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Computer Use to Control"
+  short_description: "Bound computer-use agent actions"
+  default_prompt: "Create a source-bounded computer-use control contract with observation, postcondition, human stop, and fallback evidence."
