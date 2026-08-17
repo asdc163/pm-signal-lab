@@ -1,0 +1,4 @@
+interface:
+  display_name: "PM AI Background Run to Supervision"
+  short_description: "Supervise delegated AI runs"
+  default_prompt: "Create a source-bounded background run supervision contract with scope, autonomy, states, checkpoints, pause, cancellation, expiry, review, retention, and recovery."
