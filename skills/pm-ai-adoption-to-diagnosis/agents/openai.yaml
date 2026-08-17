@@ -1,0 +1,3 @@
+interface:
+  display_name: "PM AI Adoption to Diagnosis"
+  short_description: "Find the smallest blocker to repeatable AI workflow use"
