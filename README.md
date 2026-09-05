@@ -6,6 +6,16 @@ PM Signal Lab contains 79 Markdown skills for PM work and a browser worksheet
 for reviewing evidence. Start with a sample below, then use your own redacted
 notes when the output makes sense.
 
+## Can we ship this AI feature?
+
+[Run the AI launch review](./playbooks/ai-launch-review/README.md): ten practice
+cases, a scoring key and a decision template for a support-draft pilot.
+The worked example has nine passing responses and one unauthorized refund
+approval. See why the proposed review rule still holds the pilot.
+
+The cases are fictional and fully inspectable. Replace them with your own
+redacted evidence when making a real decision. No installation is required.
+
 ## Try one skill
 
 Open [PM Source to Test](./skills/pm-source-to-test/SKILL.md) and read its

@@ -1,5 +1,11 @@
 # Changelog
 
+## 2026-09-05 — AI launch review kit
+
+- Added ten inspectable, fictional support-draft cases with source policies, authored responses and a scoring key.
+- Added a worked hold decision and a reusable launch-decision template; linked the kit before the general skill entry.
+- The example illustrates a release decision. It is not a model benchmark or evidence of external use.
+
 ## 2026-09-05 — First-run entry
 
 - Moved the browser trial ahead of the skill catalog and added a copy-and-paste first run using the existing fictional PM Source to Test fixture.
