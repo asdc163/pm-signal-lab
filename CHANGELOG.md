@@ -1,5 +1,12 @@
 # Changelog
 
+## 2026-09-05 — First-run entry
+
+- Moved the browser trial ahead of the skill catalog and added a copy-and-paste first run using the existing fictional PM Source to Test fixture.
+- Kept all 79 skill packages discoverable in an expandable catalog, with the expected output and limitations next to the sample.
+
+This changes repository documentation. Effects on first-run completion and stars have not been measured.
+
 ## 0.1.27 — 2026-08-15
 
 - Reframed the English-first surface as a field notebook / decision instrument: cool mineral paper, graphite text, a rust next-action signal, teal provenance marks, and a ruled evidence spine.

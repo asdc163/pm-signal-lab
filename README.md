@@ -1,16 +1,72 @@
 # PM Signal Lab
 
-> Keep the source line attached to the decision it may support.
+Turn product notes into source-linked claims and one test worth running.
 
-Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), [subject-specificity contract](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md), [domain-language contract](./docs/product/pm-signal-lab/75-less-ai-domain-language-contract-2026-08-15.md), [current local QA report](./docs/product/pm-signal-lab/76-less-ai-domain-language-local-qa-2026-08-15.md), and [previous hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md). The latest `main` deploy and hosted smoke have passed; this activation slice changes skills and docs only, not the hosted runtime.
+PM Signal Lab contains 79 Markdown skills for PM work and a browser worksheet
+for reviewing evidence. Start with a sample below, then use your own redacted
+notes when the output makes sense.
 
-PM Signal Lab is a local-first product evidence field folio for turning raw signals into source-linked claims, human review decisions, and the smallest next test. The public fixture uses an AI-assisted support-draft review because the product is meant to show AI-PM judgment, not because the interface pretends to be an assistant.
+## Try one skill
 
-**Hosted demo:** [asdc163.github.io/pm-signal-lab](https://asdc163.github.io/pm-signal-lab/)
+Open [PM Source to Test](./skills/pm-source-to-test/SKILL.md) and read its
+workflow. You can follow it by hand or paste the instructions into an AI chat
+you already use, followed by this input. No repository installation is needed
+for this copy-and-paste route; an AI service's own terms and usage limits apply.
 
-**Hosted demo boundary:** This is a formal static demo surface for an English-first, local-first product. The canonical URL, hashed assets, current product copy, and deployment state are checked by the [hosted demo smoke contract](./docs/operations/hosted-demo-release-contract-2026-08-15.md). It has no backend persistence, external model provider, telemetry, or automatic GitHub submission.
+```text
+Use PM Source to Test on this fictional fixture.
+Decision on the desk: Should we add an Open source action beside a support draft before a reviewer copies it?
+
+S1 — Product observation · fictional demo · five runs
+People copied the draft response, but no sent reply or resolved case was observed.
+
+S2 — Support note · fictional case 1842
+When the draft is wrong, the reviewer can regenerate it but cannot point it at the source that needs correcting.
+```
+
+Check the answer against the [worked example](./skills/pm-source-to-test/references/support-draft-review.md).
+It should keep S1 and S2 attached to the claims, distinguish copying a draft
+from resolving a case, and propose one test with a metric and guardrail.
+The [first-run checklist](./skills/pm-source-to-test/examples/first-run.md)
+lists the expected sections. The sample is fictional; it does not establish
+that a feature works or that customers want it.
+
+For another job, open the catalog below. To try the browser worksheet instead,
+follow the trial steps here.
+
+## Five-minute trial
+
+No login or API key is required.
+
+1. Open the [hosted demo](https://asdc163.github.io/pm-signal-lab/) and select `Open the sample worksheet`.
+2. Expand one row with `View source`. Check the source folio, original text, date, and limitation.
+3. Select `Start review`. Accept one claim, edit one, or keep one as a hypothesis.
+4. Open `Decide`, choose a direction, and select `Draft smallest experiment`.
+5. Review the primary metric, guardrail, smallest test, decision rule, and `Not covered` section.
+6. Export, copy, or download the Markdown decision brief.
+7. In `Ship`, open `Help decide what to fix next` after the brief. Three lines are enough: what you expected, where you hesitated, and one change that would make you try again. Add trust or recovery detail if it matters.
+8. Inspect the generated field note before opening the public GitHub feedback page. Submission is always manual.
+
+The product path is:
+
+`Collect → Verify → Decide → Ship`
+
+The point is to make the source, claim, limitation, and next action visible in one path. It is not to make you trust an opaque answer.
+
+![PM Signal Lab field folio first-run workbench](./docs/product/pm-signal-lab/assets/qa/field-folio-first-run-1280.png)
+
+Current field-folio first-run screenshot captured from the local build on
+2026-08-15 at 1280×900. The [local QA report](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md)
+also records the loaded desktop/mobile screenshots and the executed review,
+export, keyboard, validation, refresh, and privacy-gated feedback flows. The
+[hosted release audit](./docs/product/pm-signal-lab/71-less-ai-field-folio-hosted-release-audit-2026-08-15.md)
+records the post-deploy canonical URL, bundle, browser, console, request, and
+mobile evidence.
 
 ## Portable PM skills
+
+<details>
+<summary>Browse all 79 PM skills by the job you need to do</summary>
 
 This repository ships seventy-nine small, tool-free Agent Skills for evidence-first PM
 work:
@@ -642,34 +698,7 @@ comment is a feedback lead, not adoption evidence.
 
 This is an AI product manager portfolio project by [John Wu](https://github.com/asdc163). The product demonstrates evidence handling, uncertainty, experiment design, and honest handoff. It does not pretend that a deterministic fixture is a model, that a copied summary is adoption, or that an exported brief is a completed decision.
 
-## Five-minute trial
-
-No login or API key is required.
-
-1. Open the [hosted demo](https://asdc163.github.io/pm-signal-lab/) and select `Open the sample worksheet`.
-2. Expand one row with `View source`. Check the source folio, original text, date, and limitation.
-3. Select `Start review`. Accept one claim, edit one, or keep one as a hypothesis.
-4. Open `Decide`, choose a direction, and select `Draft smallest experiment`.
-5. Review the primary metric, guardrail, smallest test, decision rule, and `Not covered` section.
-6. Export, copy, or download the Markdown decision brief.
-7. In `Ship`, open `Help decide what to fix next` after the brief. Three lines are enough: what you expected, where you hesitated, and one change that would make you try again. Add trust or recovery detail if it matters.
-8. Inspect the generated field note before opening the public GitHub feedback page. Submission is always manual.
-
-The product path is:
-
-`Collect → Verify → Decide → Ship`
-
-The point is to make the source, claim, limitation, and next action visible in one path. It is not to make you trust an opaque answer.
-
-![PM Signal Lab field folio first-run workbench](./docs/product/pm-signal-lab/assets/qa/field-folio-first-run-1280.png)
-
-Current field-folio first-run screenshot captured from the local build on
-2026-08-15 at 1280×900. The [local QA report](./docs/product/pm-signal-lab/70-less-ai-field-folio-local-qa-2026-08-15.md)
-also records the loaded desktop/mobile screenshots and the executed review,
-export, keyboard, validation, refresh, and privacy-gated feedback flows. The
-[hosted release audit](./docs/product/pm-signal-lab/71-less-ai-field-folio-hosted-release-audit-2026-08-15.md)
-records the post-deploy canonical URL, bundle, browser, console, request, and
-mobile evidence.
+</details>
 
 ## What is in the hosted demo
 
@@ -775,3 +804,12 @@ The next product decision is gated by evidence, not visual polish:
 ## License
 
 This repository is released under the [MIT License](./LICENSE). Copyright (c) 2026 asdc163.
+
+<details>
+<summary>Historical visual audits (August 2026)</summary>
+
+Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), [subject-specificity contract](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md), [domain-language contract](./docs/product/pm-signal-lab/75-less-ai-domain-language-contract-2026-08-15.md), [current local QA report](./docs/product/pm-signal-lab/76-less-ai-domain-language-local-qa-2026-08-15.md), and [previous hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md).
+
+These are historical reports. Check GitHub Actions for current release status.
+
+</details>
