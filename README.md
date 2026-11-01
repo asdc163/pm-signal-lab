@@ -1,10 +1,19 @@
 # PM Signal Lab
 
-Turn product notes into source-linked claims and one test worth running.
+A worksheet for turning product notes into source-linked claims and a test worth running.
 
-PM Signal Lab contains 79 Markdown skills for PM work and a browser worksheet
-for reviewing evidence. Start with a sample below, then use your own redacted
-notes when the output makes sense.
+![A source review worksheet](https://raw.githubusercontent.com/asdc163/ai-builder-portfolio/main/media/pm-signal-lab/source-review-desktop.png)
+
+*Historical desktop capture · fictional sample notes · August 2026*
+
+The worksheet keeps the original note beside the claim, review decision and next experiment. It runs in the browser. The repository also contains 79 Markdown skills for PM work.
+
+Start with the [AI launch-review exercise](playbooks/ai-launch-review): read the policy, score the sample responses and decide whether the fictional pilot should proceed. The exercise is authored practice material, not a live-model benchmark.
+
+[Product portfolio](https://github.com/asdc163/ai-builder-portfolio)
+
+<details>
+<summary>Walkthroughs, setup and complete technical reference</summary>
 
 ## Can we ship this AI feature?
 
@@ -821,5 +830,7 @@ This repository is released under the [MIT License](./LICENSE). Copyright (c) 20
 Latest visual pass: [less-AI field folio visual contract](./docs/product/pm-signal-lab/69-less-ai-field-folio-visual-direction-contract-2026-08-15.md), [subject-specificity contract](./docs/product/pm-signal-lab/72-less-ai-subject-specificity-contract-2026-08-15.md), [domain-language contract](./docs/product/pm-signal-lab/75-less-ai-domain-language-contract-2026-08-15.md), [current local QA report](./docs/product/pm-signal-lab/76-less-ai-domain-language-local-qa-2026-08-15.md), and [previous hosted release audit](./docs/product/pm-signal-lab/74-less-ai-subject-specificity-hosted-release-audit-2026-08-15.md).
 
 These are historical reports. Check GitHub Actions for current release status.
+
+</details>
 
 </details>
